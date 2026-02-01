@@ -8,12 +8,13 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY clarus/ clarus/
 COPY app.py .
 COPY clarus/templates/ templates/
 COPY clarus/static/ static/
-
-RUN pip install --no-cache-dir -r requirements.txt
 
 RUN mkdir -p uploads
 

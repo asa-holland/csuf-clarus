@@ -9,7 +9,9 @@ ALLOWED_EXTENSIONS = {"pdf", "docx", "html", "htm", "txt"}
 
 
 def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+    if not filename or "." not in filename:
+        return False
+    return filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 def extract_pdf_text(file_path):
@@ -93,7 +95,7 @@ def extract_txt_text(file_path):
             raw_content = file.read()
 
         detected = chardet.detect(raw_content)
-        encoding = detected.get("encoding", "utf-8")
+        encoding = detected.get("encoding", "utf-8") or "utf-8"
         confidence = detected.get("confidence", 0)
 
         try:
