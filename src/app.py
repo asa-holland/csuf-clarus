@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, jsonify
 import os
 from werkzeug.utils import secure_filename
 from datetime import datetime
+from clarus.steps.preprocess import extract_text_from_file, allowed_file
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
