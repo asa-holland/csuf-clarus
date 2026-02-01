@@ -9,6 +9,8 @@ services:
       - "5000:5000"
     volumes:
       - ./uploads:/app/uploads
+      - ./corpus_files:/app/corpus_files
+      - ./corpus_files_preprocessed:/app/corpus_files_preprocessed
     environment:
       - FLASK_ENV=development
       - FLASK_DEBUG=1

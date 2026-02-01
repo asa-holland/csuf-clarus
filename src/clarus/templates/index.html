@@ -308,6 +308,21 @@
             </div>
 
             <button class="extract-btn" id="extractBtn" disabled>Extract Text & Metadata</button>
+
+            <div class="corpus-actions" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+                <h3 style="margin-bottom: 20px; color: #1e293b;">📚 Corpus Operations</h3>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <button class="extract-btn" id="downloadCorpusBtn" onclick="downloadCorpus()">
+                        📥 Download Corpus
+                    </button>
+                    <button class="extract-btn" id="preprocessCorpusBtn" onclick="preprocessCorpus()">
+                        ⚙️ Preprocess Corpus
+                    </button>
+                    <button class="extract-btn" id="downloadPreprocessedBtn" onclick="downloadPreprocessed()" style="display: none;">
+                        📥 Download Preprocessed
+                    </button>
+                </div>
+            </div>
         </section>
 
         <div class="error" id="errorDiv"></div>
@@ -475,6 +490,84 @@
         function hideMessages() {
             errorDiv.classList.remove('active');
             successDiv.classList.remove('active');
+        }
+
+        // Corpus operations
+        async function downloadCorpus() {
+            try {
+                showSuccess('Preparing corpus download...');
+                const response = await fetch('/download-corpus');
+
+                if (!response.ok) {
+                    throw new Error('Failed to download corpus');
+                }
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'corpus_files.zip';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+                showSuccess('Corpus downloaded successfully!');
+            } catch (error) {
+                showError('Error downloading corpus: ' + error.message);
+            }
+        }
+
+        async function preprocessCorpus() {
+            const btn = document.getElementById('preprocessCorpusBtn');
+            const originalText = btn.textContent;
+
+            try {
+                btn.disabled = true;
+                btn.textContent = '⚙️ Processing...';
+                loadingDiv.classList.add('active');
+
+                const response = await fetch('/preprocess-corpus');
+                const result = await response.json();
+
+                if (result.success) {
+                    showSuccess(`Preprocessing completed! Processed ${result.files_processed} files.`);
+                    document.getElementById('downloadPreprocessedBtn').style.display = 'inline-block';
+                } else {
+                    showError(result.error || 'Preprocessing failed');
+                }
+            } catch (error) {
+                showError('Error preprocessing corpus: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = originalText;
+                loadingDiv.classList.remove('active');
+            }
+        }
+
+        async function downloadPreprocessed() {
+            try {
+                showSuccess('Preparing preprocessed corpus download...');
+                const response = await fetch('/download-preprocessed');
+
+                if (!response.ok) {
+                    throw new Error('Failed to download preprocessed corpus');
+                }
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'corpus_files_preprocessed.zip';
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+                showSuccess('Preprocessed corpus downloaded successfully!');
+            } catch (error) {
+                showError('Error downloading preprocessed corpus: ' + error.message);
+            }
         }
     </script>
 </body>

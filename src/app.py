@@ -1,8 +1,10 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, send_file
 import os
+from pathlib import Path
 from werkzeug.utils import secure_filename
 from datetime import datetime
 from clarus.steps.preprocess import extract_text_from_file, allowed_file
+from clarus.steps.corpus_operations import create_corpus_zip, preprocess_corpus_files
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
@@ -65,6 +67,46 @@ def upload_file():
 @app.route("/health")
 def health_check():
     return jsonify({"status": "healthy", "timestamp": datetime.now().isoformat()})
+
+
+@app.route("/download-corpus")
+def download_corpus():
+    try:
+        zip_path = Path("uploads/corpus_files.zip")
+        create_corpus_zip("corpus_files", zip_path)
+        return send_file(zip_path, as_attachment=True, download_name="corpus_files.zip")
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/preprocess-corpus", methods=["GET", "POST"])
+def preprocess_corpus():
+    try:
+        result = preprocess_corpus_files("corpus_files", "corpus_files_preprocessed")
+        return jsonify({"success": True, **result})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/download-preprocessed")
+def download_preprocessed():
+    try:
+        output_dir = Path("corpus_files_preprocessed")
+        if not output_dir.exists():
+            return (
+                jsonify(
+                    {"error": "Preprocessed corpus not found. Run preprocessing first."}
+                ),
+                404,
+            )
+
+        zip_path = Path("uploads/corpus_files_preprocessed.zip")
+        create_corpus_zip("corpus_files_preprocessed", zip_path)
+        return send_file(
+            zip_path, as_attachment=True, download_name="corpus_files_preprocessed.zip"
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":
