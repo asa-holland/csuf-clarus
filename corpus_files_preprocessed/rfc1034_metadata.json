@@ -1,0 +1,9 @@
+{
+  "format": "TXT",
+  "extraction_method": "direct read + chardet",
+  "encoding": "ascii",
+  "encoding_confidence": 1.0,
+  "line_count": 3078,
+  "word_count": 17163,
+  "character_count": 126103
+}

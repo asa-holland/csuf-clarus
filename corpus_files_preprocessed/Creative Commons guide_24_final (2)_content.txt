@@ -1,0 +1,1526 @@
+Guide to Creative
+Commons for Scholarly 
+Publications and 
+Educational Resources
+
+Photo by: Martin Adams on Unsplash
+
+2
+
+Contents 
+
+1.  About this guide 
+
+2.  About copyright and Creative Commons 
+
+3.  About Creative Commons licences 
+
+4.  Questions about process 
+
+5.  Questions about open access books 
+
+6.  Questions about repercussions for scholarship 
+
+7.  Questions about derivatives and reuse (CC BY) 
+
+8.  Questions about commercial use (CC BY-NC) 
+
+9.  Open Educational Resources and Creative 
+
+Commons licences 
+
+Glossary 
+
+Acknowledgements 
+
+3
+
+5   
+
+7
+
+11
+
+13
+
+15  
+
+17 
+
+19
+
+21 
+
+23
+
+24 
+
+ 
+3
+
+1
+
+About this guide 
+
+This guide wants to inform researchers about the 
+Creative Commons (CC) licence system. What licence 
+to choose when publishing a paper or book or sharing 
+an article through a repository? And what licence to 
+apply when sharing your  teaching materials? The guide 
+wants to help choose the right licence by addressing 
+several frequently asked questions and common  
+concerns expressed by about the use of CC licences. 
+
+Ever since the first definitions of open access were 
+drafted, back in the early 2000s, Open Access was not 
+only about the free availability of publications to read. 
+It was also about reusing. The Budapest Open Access 
+Initiative (2002) stated: 
+
+“by ‘open access’ [...] we mean its free availability on the 
+public internet, permitting any users to read, download, 
+copy, distribute, print, search, or link to the full texts 
+of these articles, crawl them for indexing, pass them 
+as data to software, or use them for any other lawful 
+purpose, without financial, legal, or technical barriers 
+other than those inseparable from gaining access to the 
+internet itself.” 
+
+CC licences have been developed to provide a clear 
+legal framework to underpin the open online sharing 
+and reuse of creative works. For researchers this often 
+means scholarly papers, books or chapters. When you 
+publish ‘open access’ most publishers will ask you to 
+choose a CC licence for your work. Increasingly, also 
+funders have requirements as to which CC licence has 
+to be applied, because they want to make sure that the 
+research they fund is reused as widely as possible. 
+
+This guide is adapted from a guide that was written a 
+few years ago for researchers based in the UK. We  
+have updated it such that we hope it will be useful for 
+researchers in the Netherlands. Whenever useful we 
+refer specifically to the Dutch context.
+
+Creative Commons
+
+Creative Commons (CC) is an international 
+not-for-profit organisation publicly launched 
+in December 2002 that aims to improve clarity 
+about what people can do with published  
+content. For researchers, this generally means 
+academic books or journal articles, but CC 
+licences are used by all kinds of content  
+creators – photographers, musicians, artists, 
+Wikipedia contributors and people collecting 
+data, to give just a few examples. The CC licences 
+are in constant development – the licences are 
+now on version 4.0 which was launched in 2013.
+
+More information about open access in the  
+Netherlands and funder requirements can be found 
+on www.openaccess.nl and the websites of NWO, 
+ZonMw or the European Commission.
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+4
+
+Photo by: Annie Spratt on Unsplash
+
+5
+
+2
+
+About copyright
+and Creative Commons 
+licences
+
+CC licences are not an alternative to copyright. In fact, 
+they are built on copyright and similar rights and last 
+for the same length of term as these rights. The licences 
+enable rights holders to specify a standard set of terms 
+and conditions regarding sharing and reuse that will 
+best suit their needs, while ensuring that the authors  
+are credited for their work.  
+
+2.1
+
+What is copyright? 
+
+Copyright is the exclusive right, held by the creator 
+(author) of a work, to reproduce, publish, modify and 
+distribute or sell copies of that work. Without the  
+creator’s permission, third parties are not allowed to do 
+this; except for some specific and limited uses provided 
+by statutory exemptions in the Dutch Copyright Act 
+(Auteurswet). Copyright arises automatically as  
+soon as a work is created. For academic work (academic 
+output), this usually means as soon as it is written. No 
+application or registration is necessary. Throughout the 
+European Union, copyright will remain with the creators 
+during their life and for at least 70 years after their death. 
+
+Copyright can be transferred to a third party (a private 
+individual or a legal person like a publishing company) 
+by the creator in a written contract or an assignment. 
+
+With a CC licence on a work the creator can – without 
+transferring copyright – grant certain permissions to use 
+a work, whether or not under specific conditions, 
+directly to a third party. This is on top of the rights, e.g. 
+quotation and educational use, that already exist in the 
+Dutch Copyright Act. It is often very difficult for a third 
+party to understand copyright exceptions, to find out 
+who the current copyright holder is and how to contact 
+them to ask for permissions. 
+
+2.2
+
+Copyright and publishers
+contracts
+
+When you want to publish your work with a publisher, 
+the publisher has to get your permission to reproduce, 
+publish, distribute and archive the work in print and 
+electronic form. To be able to do so the publisher may 
+ask you to transfer your copyrights or to grant a licence 
+to publish. 
+
+With a Transfer of Copyright Agreement, the author 
+transfers (all) their rights of the work to the publisher, 
+including those pertaining to electronic forms and 
+transmissions, and can no longer exercise control over 
+how the publisher uses those rights. On the other hand 
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+  
+ 
+6
+
+2. About copyright and Creative Commons licences
+
+in a Licence to Publish, the author retains copyright and 
+licences specific rights to the publisher, thus maintaining 
+control over their rights that have not been granted. 
+
+A Licence to Publish can be exclusive or non-exclusive. 
+For the author (licensor) granting an exclusive licence 
+will in most cases have the same result as a transfer 
+of copyright: the specific rights have been exclusively 
+granted to the publisher (licensee); the licensor can no 
+longer exercise them. That is why it is important to grant 
+a non-exclusive licence. With a non-exclusive licence, 
+such as a CC licence, you can grant all licensees specific 
+rights with a standard contract.
+
+Please note that some publishers ask you to transfer 
+your copyrights or assign exclusive rights to be able 
+for them to grant a CC licence. If you have a choice 
+we recommend not to do so. By transferring copyright 
+or granting an exclusive licence, you will no longer be 
+in the position to exercise specific rights yourself. For 
+instance, if the publisher owns your commercial rights, 
+you would have to ask the publisher permission,  
+and in most cases pay the publisher, to be able to  
+add your publication to a printed course reader and 
+charge for it. 
+
+2.3
+
+Rights usually reserved to  
+the author after signing a 
+publishing contract  
+
+Usually, certain rights remain reserved to authors or are 
+granted by publishers in a standard contract, whether 
+based on a Transfer of Copyright Agreement or an  
+exclusive Licence to Publish. These are: 
+• 
+
+the right to make further copies of all or part of  
+the work for private use and classroom teaching. 
+the right to reuse all or part of the work in a  
+compilation of a work or text book of which you  
+are the author.
+the right to make copies of the published work 
+for internal distribution within the institution that 
+employs you. 
+
+• 
+
+• 
+
+If a publisher does not expressly allow the author to 
+exercise those rights as standard in the contract, the 
+author will have to seek permission.
+
+By law, some copyrights cannot be transferred. E.g.  
+you will always keep the right based on article 25fa 
+Dutch Copyright Act to make short scientific works 
+freely available to the public after a reasonable period  
+of time, if they are the result of research funded with 
+Dutch public money. See for more information the  
+initiative You share, we take care! by the Dutch  
+university libraries.
+
+Retaining your rights
+
+Authors can always try to retain more rights over the work through negotiation with the publisher. For 
+that purpose SPARC has developed an Author Addendum that can be added to your paper at submission. 
+
+In addition, cOAlition S has announced its Rights Retention Strategy, that aims is to empower researchers 
+funded by cOAlition S to retain control over their work. This strategy will allow authors to publish in their 
+journal of choice, including subscription journals, while retaining the right to self-archive the author’s 
+accepted manuscript of their papers immediately upon publication under a CC BY licence. 
+
+ 
+7
+
+3
+
+About Creative
+Commons licences
+
+CC licences provide everyone from individual  
+creators to large institutions a standardized way to 
+grant the public permission to use their creative work 
+under copyright law. From the reuser’s perspective, a 
+CC licence on a copyrighted work answers the ques-
+tion, “What can I do with this work?”.1  The licence is 
+expressed in three forms: the legal code (the licence 
+itself); a human-readable deed summarising the  
+principal terms and conditions of the licence, and a 
+machine-readable form that computers can parse to 
+identify the key licence features.
+
+•  your funder might require you to choose a specific 
+CC licence (e.g. cOAlition S funders require the use 
+of CC BY or, exceptionally, CC BY-ND). 
+
+Unless your choice of a licence is predetermined by 
+your funder’s requirements, the best way to choose 
+which licence is most suitable for your work is to think 
+of how you want your work to be distributed and used 
+by others, which types of reuses you want to encourage 
+and which ones you would like to prevent. Need help 
+choosing a licence? Try this Licence Chooser.
+
+There are six CC licences, as shown in the table below. 
+These licences consist of different combinations of four 
+elements: Attribution (BY), Share Alike (SA), Non-Com-
+mercial (NC) and No Derivatives (ND). All CC licences 
+require Attribution, i.e. crediting the original author. All 
+CC licences should be used unamended. One of the six 
+can be chosen, after which they are irrevocable. 
+
+3.1
+
+Choosing a Licence 
+
+Things to consider and check in advance when  
+publishing academic works:
+•  usually publishers, preprint servers and repositories 
+present a limited number of CC licences (e.g. you 
+could be given a choice between CC BY and CC 
+BY-NC-ND), 
+
+1  This paragraph is reproduced from About CC Licenses. Licensed
+  under a Creative Commons Attribution 4.0 International license. 
+
+https://creativecommons.org/about/cclicenses/
+
+Book is a treasure of knowledge...  
+by Rupa Panda is licensed under CC BY 2.0
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+ 
+ 
+8
+
+3. About Creative Commons licences
+
+CREATIVE COMMONS LICENCES 2
+
+Licence designation
+
+Licence name
+
+What does this mean for you as an author?
+
+CC BY
+
+Attribution
+
+The most liberal of the CC licences apart from CC0 Public Domain 
+
+CC BY-SA
+
+Attribution
+
+ShareAlike
+
+Dedication. This licence allows others to distribute, remix, tweak, 
+
+and build upon a work – also commercially – provided they 
+
+credit the author for the original creation and clearly indicate that 
+
+changes were made to the work, if any.
+
+Similar to CC BY; however, others must licence new creations 
+
+under identical terms. Therefore, all new works reusing (parts of) 
+
+such work will need to carry the same licence and any derivatives 
+
+will also allow commercial use.3 
+
+CC BY-ND
+
+Attribution
+
+NoDerivatives
+
+This licence allows for redistribution, commercial and non-com-
+
+mercial, provided it is passed along unchanged and in whole, with 
+
+credit to the author.
+
+CC BY-NC
+
+Attribution
+
+With this licence others must not remix, tweak, or build upon the 
+
+Non-Commercial
+
+original work for commercial purposes. Although new works must 
+
+also acknowledge the author and be non-commercial, reusers do 
+
+not have to licence their derivative works on the same terms.
+
+CC BY-NC-SA
+
+Attribution
+
+This licence lets others remix, tweak, and build upon the author’s 
+
+Non-Commercial
+
+work non-commercially, provided they credit the author and 
+
+ShareAlike
+
+licence their new creations under the identical terms.
+
+CC BY-NC-ND
+
+Attribution
+
+This is the most restrictive of the six licences, only allowing others 
+
+Non-Commercial
+
+to download works and share them with others as long as they 
+
+NoDerivatives
+
+credit the author, but they cannot change them in any way or use 
+
+them commercially.
+
+2  This table is reproduced with small alterations from Martin Paul Eve,
+  Open Access and the Humanities: Contexts, Controversies and the 
+Future (Cambridge: Cambridge University Press, 2014) http://dx.doi.
+org/10.1017/CBO9781316161012. Licensed under a CC BY license. We 
+have merged two columns and changed the text slightly. 
+
+3  The ShareAlike condition applies only to derivative works, not to
+  collections. Including a CC BY-SA licensed work in a collection does 
+not produce an adaptation, so the collection does not have to be 
+licensed via a CC BY-SA. 
+
+9
+
+Examples of reuse allowed 
+under a CC BY licence 4
+
+•  Distribute the full-text of a publication freely 
+
+to students or colleagues.
+
+•  Copy a text for indexing or text mining  
+
+• 
+
+purposes for commercial and non-commercial 
+purposes.
+Include the full-text of a publication in a 
+repository (e.g. institutional repository) or 
+upload it on academic social networks.
+•  Combine parts of a work, along with other 
+openly licensed resources, into a collection 
+(e.g. a student handbook or textbook). 
+•  Translate a work into another language.
+•  Modify tables and charts contained in a 
+journal article and reproduce them in a  
+new publication.
+
+Tablet use 2 by ebayink 
+is licensed under CC BY-NC-ND 2.0 
+
+NB: Crediting the original work, indicating whether 
+changes have been made, stating the licence under 
+which the work is licensed and linking to it is  
+mandatory for all types of reuse described in the  
+box above.
+
+3.2
+
+Why is CC BY encouraged by 
+open access proponents?  
+
+In addition to the licences above Creative Commons 
+has also developed a tool (CC0 Public Domain Dedica-
+tion) by which you can dedicate creations to the public 
+domain. The dedication is done through legal code 
+hosted by Creative Commons (just as the licences are) 
+in which you waive all copyright and related rights, such 
+as your moral rights – to the extent they are waivable 
+– that you have over your work. Once this has been 
+done, anybody who reuses or builds on your work does 
+not have to credit you, although citation is encouraged. 
+The tool may be of use in certain situations, particularly 
+pertaining to research data such as raw data sets. Before 
+using CC0, you will need to ensure that all rights holders 
+of the work give consent, as the dedication to the public 
+domain is irrevocable. For further information on CC0 
+please visit http://creativecommons.org/about/cc0 
+
+Open access publishing aims to make research  
+publications available for anyone to read and reuse.  
+The Budapest Open Access Initiative (2002) – a key 
+driver of open access developments in Europe – has 
+recommended CC BY as the preferred licence for open 
+access publication. CC licences are used because they 
+offer an internationally established legal structure that is 
+aligned with the aims of open access. As shown in the 
+table, CC BY is the most permissive CC licence, allowing 
+sharing, commercial reuse and modification as long as 
+the original author is credited and it is clearly indicated if 
+changes were made to the original work. Its proponents 
+argue that this gives users the greatest possible degree 
+of flexibility, allowing published research to be used 
+for commercial purposes and, by doing so, potentially 
+encouraging innovation and economic growth.
+
+4  This list of examples is adapted from Open Textbooks, OER & Other 
+Open or Free Resources for Faculty. Licensed under a Creative 
+Commons Attribution-ShareAlike 4.0 International License. Portions 
+of the original text have been cut, edited and mixed with original 
+content.
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+ 
+10
+
+A special note of caution on the use of NC and/or 
+ND licenses by publishers
+
+When selecting a CC BY license with an NC or ND restriction for an article, authors commonly  
+(but unknowingly) transfer the exclusive right to manage the license to their publisher. This is stated  
+in the “License to Publish agreement”, but not all publishers communicate this clearly to authors  
+(see publisher policy examples). When a license with an NC and/or ND restriction for the end user is 
+chosen by the author, the right to manage the license includes the right to reuse the publication either 
+commercially or in adapted form and grant third parties the right to do so. Publishers can authorize 
+commercial reuse at their sole discretion and charge third parties for the permission to reuse, redistribute, 
+adapt (e.g., translate), and/or make the work further known. In this way, the right to commercially reuse 
+a publication or make adaptations becomes an extra revenue stream for publishers, as these rights are  
+no longer in the hands of the author. 
+
+NB: 
+By using a CC BY license, crediting the original work and stating the license under which the work is  
+licensed is mandatory for all types of reuse. 
+
+What alternative do you have?
+
+It is important to consider what you want to protect with a non-commercial or non-derivative license.  
+If it is a model, an image, or data that you wish to protect, we recommend the following steps. 
+
+STEP 1:   Determine the object you want to protect.
+STEP 2:   Deposit the object in a trusted repository and apply a CC BY-NC or CC BY-ND or  
+
+CC BY-NC-ND license, depending on your needs.
+
+STEP 3:   Publish the article under a CC BY license and reference the object previously deposited in  
+
+the repository in the article.
+
+In this way, the right to commercially reuse the object and make derivatives remains with the author.  
+Trustworthy data repositories such as Zenodo, 4TU ResearchData or DataVerseNL do not take over control  
+of the license from the depositor. Authors retain the rights and permissions to reuse and redistribute their 
+data, images, models or other objects. Once the object is safely deposited and appropriately licensed, 
+authors can proceed to publish the article under a CC BY license. This will enable the text of the article to  
+be widely reused, while the object will be protected from unauthorized commercial reuse and derivatives. 
+
+Flipboard by thms.nl 
+is licensed under CC BY 2.0 
+
+ 
+ 
+11
+
+4
+
+Questions
+about process
+
+4.1
+
+How do I publish under a  
+Creative Commons licence?  
+
+or: 
+© year of publication, name of author(s), CC BY 4.0.  
+To view a copy of this licence, visit  
+https://creativecommons.org/licenses/by/4.0
+
+If you publish your work open access with a publisher, 
+preprint server or repository,  usually  you need to 
+choose a specific CC licence when signing the  
+publishing contract. The publisher, preprint server or 
+repository will add the selected licence to the final 
+published work according to the mandatory format.
+
+If you want to make your work public with a CC licence 
+yourself, you can simply mark your work with the  
+specific CC licence that you want to use. You can do this 
+by stating the licence in a copyright notice, or by adding 
+the logo of the licence, with a link to the licence infor-
+mation on the Creative Commons website. Logos and 
+links can be found on the Creative Commons website. 
+The Licence Chooser by Creative Commons helps you 
+generate a ready to use text or html code to copy onto 
+your work. 
+
+Note that all copyright holders e.g. co-authors of a work, 
+or holders of similar rights, should agree on the used CC 
+licence.
+
+Some publishers demand that you add a specific CC 
+licence to the Author Accepted Manuscript (AAM) of 
+your work when self archiving it, e.g. in the institutional 
+repository. The text example given above is sufficient 
+to comply with this. You can find out what copyright 
+and self-archiving policies different publishers have on 
+SHERPA/ RoMEO
+
+4.2
+
+How do I attribute Creative 
+Commons licensed work?  
+
+For example:  
+This work is licensed under CC BY 4.0. To view a copy of 
+this licence, visit https://creativecommons.org/licenses/
+by/4.0.
+
+To give credit to the creator of CC-licensed work you 
+can refer to this best practices guide. Alternatively  
+you can use this Open Attribution Builder which auto-
+matically generates the attribution for you based on the 
+information you provide. 
+
+or:  
+This work is licensed under a Creative Commons  
+Attribution 4.0 International License.
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+ 
+ 
+ 
+12
+
+4. Questions about process
+
+4.3
+
+4.5
+
+Who holds the copyright for
+a publication published under
+a Creative Commons licence?  
+
+Can I change my mind about 
+a Creative Commons licence 
+after the work is published?     
+
+Under a CC licence, the copyright remains with the 
+licensor. The licensor can only be the current copyright 
+holder or rights holder (usually the author unless the 
+author has transferred copyright to the publisher,  
+see also 2.2.). 
+
+No, CC licences are irrevocable. Once a work is 
+published under a CC licence, licensees may continue 
+using the work according to the licence terms for as 
+long as the material is protected by copyright, even if 
+you later stop distributing it.
+
+4.4
+
+Who is responsible for 
+enforcing the Creative  
+Commons licence?    
+
+The licensor is always the copyright holder, the author 
+or e.g. a publisher. In the event that the publisher owns 
+copyright, the publisher is responsible for enforcement. 
+In the event that the author is the licensor and licences 
+the work to the public, it will be the author. In short, 
+it depends upon the contract or agreement between 
+the author and the publisher – if there is one.5 Creative 
+Commons strongly encourages amicable resolution 
+when attribution disputes arise – this is seen as an 
+important value within the Creative Commons  
+community.6 
+
+Photo by Amador Loureiro on Unsplash 
+
+5  The author remains the copyright holder if no copyright transfer
+  contract was concluded. The same is true if a licence contract was 
+
+6  https://creativecommons.org/2020/01/15/thoughts-on-non-
+  amicable-enforcement-of-cc-licenses/
+
+concluded. However, in a licence contract the author can agree that 
+the publisher will enforce the CC licence in their place.  
+
+ 
+ 
+ 
+13
+
+5
+
+Questions about
+Creative Commons and 
+open access books 
+
+Open access monographs are establishing themselves 
+as a publication model in the humanities and social 
+sciences and researchers are increasingly aware of this 
+option. In addition, funders are beginning to introduce 
+open access requirements for books in their policies. CC 
+licences are also used in the domain of books. This sec-
+tion answers some of the common questions regarding 
+books and Creative Commons. 
+
+5.2
+
+Will my book still be made
+available in print if it is 
+published under a Creative 
+Commons licence? 
+
+5.1
+
+Can my book still be sold if it 
+is published under a Creative 
+Commons licence? 
+
+Yes. Often, a PDF will be made available for free, and the 
+publisher will continue to charge for print and possibly 
+other e-book versions. Others may publish and sell your 
+book, too. However, if you licence your work under a CC 
+NC licence which permits only non-commercial reuse, 
+you will need to grant your publisher permission to sell 
+the book commercially. 
+
+This will depend upon your publisher and what you 
+agree to in the publishing contract. Some publishers will 
+rely upon selling print versions of the open access book 
+to support their business model. Some are moving to a 
+print-on-demand option for open access content, but 
+this should not affect the availability of your print book. 
+
+5.3
+
+Will I still get royalties from a 
+book with a Creative Commons 
+licence?  
+
+That will depend upon the agreement between you  
+and your publisher, but in principle there is no reason 
+why you should not receive royalties on any sales of a 
+book published under a CC licence. If you think your 
+book is likely to produce significant royalties, you should 
+consider this in negotiations with your publisher. 
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+ 
+14
+
+5. Questions about Creative Commons and open access books 
+
+5.4
+
+If I publish my book under a  
+CC BY licence can the book 
+be translated without my  
+permission?  
+
+Yes, the use of a CC BY licence permits derivative works 
+to be made, including translations, without seeking the 
+licensor’s permission. Note that derivatives have  
+to give appropriate credit to the original work, provide a 
+link to the licence, and indicate if changes were made. 
+Granting a CC BY licence does not imply that the  
+original creator endorses any derivatives. If you include 
+the ND element to your licence, users will have to ask 
+the licensor (be it the publisher or the author) for  
+permission before making any derivatives.
+
+Steal Like An Artist – “Do good work and share it with people”
+by Austin Kleon is licensed under CC BY-NC-ND 2.0  
+
+ 
+15
+
+6
+
+Questions about
+repercussions for
+scholarship
+
+It is important to understand that a Creative Commons 
+licence only covers a new piece of scholarship, as an 
+author can only license their own work, not that of 
+others. Third party content is therefore excluded from 
+the scope of the Creative Commons licence. Even if an 
+author includes in their work a piece of third party  
+content, such as an image, that has been licensed  
+under CC BY, the image is excluded from the Creative 
+Commons licence that the author applies to their work. 
+This is because the image has been licensed under a 
+separate Creative Commons licence, granted by the 
+image creator. Therefore all third party content,  
+including content which the author has permission  
+to use in a publication published with a Creative  
+Commons licence, must be clearly marked in a similar 
+way to a traditional publication, which would also 
+recognise third party content.
+
+Marking by the author ensures that users understand 
+the different licence conditions which apply to the third 
+party content. An example from the Creative Commons 
+wiki illustrates this (see box).
+
+Clearly marking the excluded elements and stating the 
+terms under which third party content has been made 
+available, means that anybody who reuses that content 
+without permission from the original rights holder may 
+be violating the third party’s copyright, even if they 
+found the content in an open access publication.
+
+Marking third party content 7 
+
+Here’s how you may want to consider marking 
+third party content that is offered under a  
+different CC licence than the one you are using. 
+Examples of marking your own work:
+•  Except otherwise noted, this blog is © 2009 
+
+Greg Grossmeier, under a Creative Commons 
+Attribution-ShareAlike licence: http:// 
+creativecommons.org/licenses/by-sa/3.0/.
+
+Example of marking the differently licensed 
+item:
+•  The photo X is © 2009 Jane Park, used under 
+a Creative Commons Attribution-Noncom-
+mercial licence: http://creativecommons.org/
+licenses/by-nc/3.0/.
+
+In general, when using works offered under CC 
+licences you should consider adhering to best 
+practices for marking that content.  
+
+7  https://wiki.creativecommons.org/wiki/Best_practices_for_
+  attribution.  
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+16
+
+6. Questions about repercussions for scholarship
+
+6.2
+
+6.4
+
+Should I apply a Creative 
+Commons license to  
+research data?
+
+In the case of open data, the application of CC licenses 
+to research data is useful to indicate which reuse is 
+permitted. For data that requires restricted access some 
+repositories have a specific license available. Applying a 
+CC license is, however, not as straightforward as in the 
+case of scholarly publications, as factual data is not  
+protected by copyright. Although copyright may in 
+some cases be applicable, there are more issues to  
+consider before depositing research data:
+•  Rights of (human) participants in a study;
+• 
+• 
+
+ Confidentiality of data;
+Intellectual property on assets in the dataset  
+(e.g., patents, software code);
+
+•  Copyright protection of (parts of) the contents in  
+
+the dataset;
+
+•  Contractual obligations set out in agreements with 
+
+partner organisations;
+
+•  Legislation concerning databases and ownership  
+
+of rights and/or contents.
+
+OpenAIRE offers guidance on the protection of research 
+data. Repositories for research software and/or code 
+may offer their own discipline-specific set of licenses. 
+Please note that not all research data repositories offer 
+the possibility to apply a CC license to a dataset.
+
+6.3 
+
+Will Creative Commons 
+licences encourage plagiarism? 
+
+Plagiarism may affect all forms of publishing rather than 
+specifically CC-licensed works. All CC licences require 
+that the original author is attributed, meaning that any 
+plagiaristic use is unacceptable; failure to attribute  
+constitutes copyright infringement. It is important to 
+stress that plagiarism is primarily an issue of academic 
+ethics rather than the law. It has some crossover with 
+copyright, but content can be plagiarised regardless of 
+how it is licensed, even after it is out of copyright.  
+Plagiarism is considered an instance of serious  
+academic misconduct by ‘The Netherlands Code of 
+Conduct for Scientific Integrity’ and is sanctioned  
+accordingly.  
+
+What can I do if somebody 
+is using my work without  
+complying with the conditions 
+of the applied Creative  
+Commons licence? 
+
+For example, if a reuser of CC-licensed material does 
+not provide the attribution required when sharing the 
+work, then the user no longer has the right to continue 
+using the material and may be liable for copyright 
+infringement. The licence is terminated for the user who 
+violated the licence. However, all other users still need 
+to comply with the terms of use of the CC-licensed 
+material in question. In case of violation of a CC licence, 
+the licensor can contact the reuser directly to ask to 
+rectify the situation or begin legal proceedings for  
+copyright infringement.  
+
+6.5
+
+Are there special circumstances 
+in some disciplines leading to 
+specific licence demands?
+
+Although CC licences have been used extensively 
+in scientific open access publishing, they have been 
+developed to cover a much broader area including data, 
+databases, arts, music, photography and the written 
+word, regardless of discipline. CC licences can therefore 
+be of use in all disciplines. 
+
+It is true though that there is more sensitivity towards 
+more liberal forms of reuse in the humanities.  
+The possibility to translate scholarly works without the 
+copyright holder’s permission, which is possible under 
+some CC licences, tends not to be viewed favorably by 
+humanities scholars. The ability to control the quality 
+of the translation is deemed important because of the 
+linguistic nature of much humanities research. The CC 
+BY-ND licence can accommodate these concerns, while 
+still allowing the work to be distributed and reused 
+widely.
+
+Regardless of any licence, authors can always have  
+to deal with the issue of wilful misrepresentation.  
+These can also happen with citations. That cannot be 
+prevented by choosing a specific licence.
+
+ 
+ 
+ 
+ 
+17
+
+7
+
+Questions about
+derivatives and reuse
+
+7.1
+
+7.2
+
+Does a CC BY licence mean 
+that anyone can reuse my work 
+however they want to? 
+
+How can I avoid the  
+misrepresentation of my  
+work in derivatives?
+
+A CC BY licence allows users to share (copy and 
+redistribute the material in any medium or format) and 
+adapt (remix, transform, and build upon the material) 
+for any purposes, also commercially. However, users 
+must attribute you (unless you have specifically said that 
+you do not want to be attributed) and clearly indicate if 
+changes have been made to your original work. Additio-
+nally, users must not imply that you endorse or support 
+the changes that they have made or the new work that 
+they have produced.  
+
+As with plagiarism (§6.3), misuse of academic research 
+is a longstanding and recognised problem. Nothing in a 
+CC licence makes it acceptable for a user to misrepresent 
+or misuse an author’s work (see also §6.5). If your work 
+is adapted or used in a way that you do not agree with, 
+for example, because it is incorrect, or because you do 
+not support the stance of the users, you have the option 
+to request removal of attribution.8  
+
+CC licences also contain a ‘no endorsement, no  
+sponsorship’ clause, which explicitly says that users may 
+not imply that the original author supports or endorses 
+their reuse of the work. If they violate this clause, they 
+are in breach of the CC licence and must stop using the 
+work. In such cases of violation, the violator becomes 
+liable to action under copyright law.  
+
+Photo by Green Chameleon on Unsplash 
+
+8  https://creativecommons.org/faq/#what-can-i-do-if-i-offer-my-
+  material-under-a-creative-commons-license-and-i-do-not-like- 
+
+the-way-someone-uses-it 
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+18
+
+7. Questions about derivatives and reuse
+
+7.3
+
+Can I specifically ask not to be
+attributed for a certain piece of 
+work? 
+
+Yes, you can. If you do not want to be associated with 
+a certain piece of work, you can ask for your attribution 
+to be removed and the user must comply if reasonably 
+practical. 
+
+7.4
+
+Creative Commons licences 
+and text and data mining and 
+why is it relevant to me? 
+
+Text and data mining (TDM) are algorithmic techniques 
+for processing bodies of texts or other types of data in 
+ways, and at scales, that would not be viable manually. 
+A researcher may wish to examine the ways in which a 
+specific issue has been represented in the past fifty years 
+in a corpus of academic works (e.g. academic journal 
+articles) through text and data mining. With works that 
+are still in copyright, this may not be possible. Under 
+the CC BY licence, however, this type of work can be 
+undertaken.
+
+Examples of reuse not  
+compatible with a ND licence 
+
+•  Modify images – change the colors, edit 
+someone in or out, crop the image. 
+
+•  Edit (parts of) a text and reproduce them in a 
+
+new publication.
+
+•  Customize content to a specific location/
+discipline/focus – change examples, add 
+different scenarios, change terms to reflect a 
+different discipline.
+
+•  Translate a work into another language.
+•  Reuse for open educational resources (9.1) 
+
+Photo by Patrick Tomasso on Unsplash 
+
+ 
+19
+
+8
+
+Questions about
+commercial use
+
+8.1
+
+Why is the use of a non- 
+commercial Creative 
+Commons licence  
+discouraged? 
+
+That is because the definition of ‘non-commercial’  
+in Creative Commons is open to interpretation. It is  
+difficult to know what exactly constitutes commercial 
+reuse. For example, if someone posted a copy of a 
+paper on an educational website that generates even a 
+small amount of revenue from advertising, it could be 
+considered as commercial reuse. As such, the use of NC 
+licences could have unwanted consequences on the 
+possibilities of distribution of your content. 
+
+There is considerable debate about whether ‘non- 
+commercial’ coincides with ‘not-for-profit’. A study 
+commissioned by Creative Commons into the inter- 
+pretation of ‘commercial’ and ‘non-commercial’ by 
+creators and users indicated that uses for charitable 
+purposes are considered ‘less commercial’ but not 
+‘decidedly non-commercial’.10 Therefore, applying a NC 
+licence to your work could prohibit all types of organi-
+sations that generate revenue from redistributing your 
+work. Permitting all commercial reuse removes this 
+problem, and allows people to reuse the work without 
+
+worrying about whether they may (unintentionally) 
+make money from it. 
+
+Apart from the mentioned interpretation issue – and for 
+some more importantly – is the principle that ‘research 
+that is publicly financed should be available for reuse for 
+all purposes’ because it may help generate products and 
+services that benefit society and because organisations 
+involved in commercial endeavours also pay taxes that 
+the research is funded by.
+
+8.2
+
+Why should I allow another 
+party to make money out of 
+my publications, which is my 
+intellectual property? 
+
+The term ‘commercial use’ refers to the fact that an 
+organisation intends to obtain a commercial advantage 
+and possibly aims for financial remuneration. It is  
+tempting to immediately think about large multina-
+tionals like Shell, Google, Amazon, but actually a non 
+commercial licence prevents all revenue-generating 
+organisations from reusing your work. This can even 
+include cultural or educational institutions like schools, 
+museums or universities. Even those nowadays cannot 
+rely exclusively on public funding and have to rely in 
+
+10  Further information on the study and the work of Creative
+
+Commons on the definition of non-commercial for version 4.0 
+of the licences is available at: http://wiki.creativecommons.org/ 
+Defining_Noncommercial.
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+ 
+20
+
+8. Questions about commercial use
+
+part on their own revenues. As such, the use of a NC 
+licence precludes a large pool of organizations and  
+institutions from reusing your work, thus possibly  
+reducing its impact and visibility.  
+
+No matter who the commercial party reusing the  
+material is, the intended reuse may not necessarily  
+be a bad thing. Think about pharmaceutical companies 
+using text and data mining techniques to develop new  
+drugs or vaccines; or bringing together papers from 
+prestigious journals and selling them as printed text-
+books in less-developed countries with limited internet 
+access. 
+
+One of the reasons why open access is supported in  
+the Netherlands and globally, is its potential to foster  
+and accelerate innovation and economic development.  
+Funders like NWO and ZonMw want to maximize the 
+social and economic impact of their publicly funded 
+research and are held accountable to that. The use  
+of restrictive NC licences could seriously hamper  
+economic and social growth. For this reason, NWO, 
+ZonMw and all COAlition S funders will not accept 
+licences that include the NC condition. 
+
+Examples of reuse not  
+compatible with a NC licence 
+
+•  Distribute a work in the context of a  
+commercial summer school course.
+
+•  Copy a text for indexing or text mining for 
+
+commercial purposes.
+
+•  Reproduce a work in magazines, newspapers 
+
+or websites that produce revenues. 
+
+•  Reuse parts of a work (e.g. tables or figures) 
+for advertising or marketing purposes. 
+
+Photo by DESIGNECOLOGIST on Unsplash 
+
+21
+
+9
+
+Open educational
+resources and Creative 
+Commons licences 
+
+Belonging to the umbrella of Open Science, Open 
+Educational Resources (OER) are “learning, teaching 
+and research materials in any format and medium that 
+reside in the public domain or are under copyright that 
+have been released under an open licence, that permit 
+no-cost access, reuse, re-purpose, adaptation and  
+redistribution by others” (2019 UNESCO Recommen-
+dation on OER). OER include textbooks, syllabi, articles, 
+lecture notes, videos, images, simulations, exercises, 
+whole courses and many other types of educational 
+contents. 
+
+CC licences are essential to understanding and using 
+the abovementioned five permissions of OER, or the 
+‘5R activities’,11 namely the right to retain, revise, remix, 
+reuse and redistribute specific materials. These rights 
+are granted to the user by the copyright holder through 
+licensing the original content with a combination of  
+different CC licences – BY, SA, NC – or through  
+dedicating the material to the public domain (CC0). 
+Thus, CC-licensing conditions provide a clear indication 
+of what is and is not allowed when creating, reusing or 
+revising OER content.
+
+9.1
+
+How do OER differ from  
+open access publications?
+
+Both OER and open access (OA) publications – scholarly 
+books and journal articles – are openly licensed mate-
+rials that imply free unrestricted access. Unlike OA 
+publications that may encompass the whole range of 
+CC licences, OER are always available under a licence 
+that allows adaptations (CC BY, SA, NC or their com-
+binations). Thus, CC ND-licensed materials fall out of 
+the scope of OER. Generally speaking, OER are usually 
+associated with teaching, while OA publications belong 
+to research practices. However, OA publications can be 
+used for teaching purposes and may also qualify as OER, 
+if released under an appropriate CC licence.12  
+
+11  The concept is derived from Defining the “Open” in Open 
+Content and Open Educational Resources by David Wiley,  
+licensed under CC BY 4.0.
+
+12  This paragraph is adapted from Open Access & Education, 
+Expanded by Abbey Elder, licensed under CC BY 4.0.
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+ 
+22
+
+9. Open educational resources and Creative Commons licences 
+
+9.2
+
+9.3
+
+How do Creative Commons 
+licences allow me to incor- 
+porate OER in my teaching?
+
+Using CC licences is an easy way to keep your  
+copyright and at the same time enable legal sharing  
+of educational resources with teachers and learners 
+worldwide. Due to the permissive nature of CC licences 
+used for the creation and publication of OER, such 
+materials can be integrated into most courses and 
+enable educators to use or develop innovative and  
+learner-centered resources.
+
+CC licences allow a teacher to be both a user and a 
+creator of OER at the same time. Teachers can (re)use 
+CC-licensed presentations, books, simulations, mind 
+maps and images and embed them into their courses as 
+part of the core or auxiliary materials. Teachers can also 
+become co-creators of OER by revising and remixing 
+contents and adapting them to specific educational 
+needs: translating them, enriching them with locally 
+relevant examples or updating them according to recent 
+developments in the field. For instance, openly licensed 
+works can be used to create open textbooks, which help 
+reduce the daunting cost of textbooks and therefore 
+make educational material more accessible. 
+
+How will Creative Commons 
+content affect my teaching?
+
+One of the biggest hurdles to those wishing to use OER 
+is the content from third parties and the lack of agreed 
+pricing structure from publishers of such content to use 
+the material for open access purposes.
+
+By licensing your work under CC licences, you ensure 
+that you and others can teach using your scholarly  
+outputs. As previously indicated, certain forms of  
+existing copyright transfer can interfere with this  
+practice.
+
+Licensing academic content under CC licences implies 
+awareness that the web facilitates sharing and reuse. 
+Books and other materials made available online and 
+licensed with CC licences pose fewer restrictions for 
+their distribution and access, therefore potentially 
+increasing the likelihood of an impact outside higher 
+education.
+
+Photo by Umberto on Unsplash
+
+23
+
+Glossary 
+
+Attribution (BY): the original author lets others 
+use their work if they give credit the way the author 
+requests.
+
+Original author: in the case of a literary or artistic 
+work, the individual, individuals, entity or entities who 
+created the work. 
+
+Work: the literary and/or artistic work offered under the 
+terms of the licence including without limitation any 
+production in the literary, scientific, and artistic domain, 
+whatever may be the mode or form of its expression 
+including digital form, such as a book, pamphlet, and 
+other writing.
+
+Remix: mixing material from different sources or 
+multiple works to create a wholly new creation or work. 
+One often cannot tell where one open work ends and 
+another one begins. All remixes are derivative works, but 
+not all derivative works are remixes, e.g. a translation.
+
+Reproduce: to make copies of the work by any means, 
+e.g. digitally, including without limitation by sound or 
+visual recordings, by fixation and reproducing fixations 
+of the work and  storage of a protected performance or 
+phonogram in digital form or other medium.
+
+Share Alike (SA): the rights holder allows others to 
+make derivatives from the author’s original work, but 
+they should distribute these derivative works only under 
+a licence which is similar or recognized compatible to 
+the licence that governs the original work.
+
+Share: copy and redistribute the material in any 
+medium or format. 
+
+Third-party content: material created by others.
+
+Collection: the work in its entirety in unmodified form 
+along with one or more other separate and independent 
+works, assembled into a collective whole.
+
+Derivative (works): material in any form that is 
+created by editing, modifying or adapting the work, 
+a substantial part of the work, or the work and other 
+pre-existing works. Derivative (works) may, for example, 
+include a translation, adaptation, musical arrangement, 
+dramatisation, motion picture version, sound recor-
+ding, art reproduction, abridgment, condensation, or 
+any other form in which the work may be transformed, 
+recast, remixed, tweaked or adapted.
+
+Distribute: to make the original and copies of the work 
+or derivative available to the public by means, including 
+publication, electronic communication,  
+storage in digital form or broadcast.  
+
+Licensor: the individual, individuals, entity or entities 
+that own(s) copyright in the work and are authorised to 
+offer the work under the terms of a CC licence.
+
+Licensee: the parties gaining access to the work 
+offered under the terms of a CC licence (publisher,  
+the public).  
+
+Non-Commercial (NC): the rights holder lets others 
+use the work but for non-commercial purposes only.  
+It does not mean that works may  never be used for 
+commercial purposes, but this requires a separate  
+permission from the rights holder.
+
+No Derivatives (ND): the rights holder authorizes 
+others to copy, distribute, display, and perform only  
+verbatim copies of the work, but does not grant the  
+permission to make derivative works based upon it.  
+The right to make adaptations is subject to separate 
+permission. 
+
+Guide to Creative Commons for Scholarly Publications and Educational Resources
+
+BACK TO CONTENTS
+
+24
+
+Attribution and
+acknowledgements 
+
+This work is a derivative of Ellen Collins, Caren Milloy 
+and Graham Stone, Guide to Creative Commons for 
+Humanities and Social Science Monograph Authors, 
+ed. James Baker, Martin Paul Eve and Ernesto Priego 
+(London: Jisc Collections, 2013). Available at:  
+https://web.archive.org/web/20180513090102/http:/
+oapen-uk.jiscebooks.org/files/2011/01/CC-Guide-for-
+HSS-Monograph-Authors-CC-BY.pdf. Licensed under a 
+Creative Commons Attribution 3.0 Unported License. 
+The original text has been cut, edited and mixed with 
+original content.
+
+In addition, this work reused material from the  
+following CC-licensed sources:
+•  About CC Licences. Licensed under a Creative  
+Commons Attribution 4.0 International licence. 
+https://creativecommons.org/about/cclicenses/
+•  Martin Paul Eve, Open Access and the Humanities: 
+
+Contexts, Controversies and the Future (Cambridge: 
+Cambridge University Press, 2014). 
+http://dx.doi.org/10.1017/CBO9781316161012. 
+Licensed under a Creative Commons Attribution 
+license.
+
+•  Open Textbooks, OER & Other Open or Free 
+Resources for Faculty. Licensed under a  
+Creative Commons Attribution-ShareAlike 4.0 
+International License. https://guides.kirkwood.edu/c.
+php?g=435826&p=3926923
+
+•  Paul Klimpel, Free Knowledge based on Creative  
+Commons Licenses Consequences, risks and 
+side-effects of the license module „non-commercial 
+use only – NC (Berlijn 2012) https://vlaamse-erf-
+goedbibliotheken.be/en/node/2725 
+
+Whenever sources other than the OAPEN-UK guide  
+are reused, this is clearly indicated in the footnotes 
+throughout the document and the sources are  
+properly attributed. 
+
+This guide has been written by: 
+•  Pascal Braak (University of Amsterdam)
+
+  https://orcid.org/0000-0002-0491-3558 
+
+•  Hans de Jonge (NWO)
+
+  https://orcid.org/0000-0002-1189-9133 
+
+•  Giulia Trentacosti (University of Groningen)
+  https://orcid.org/0000-0002-4871-477X
+
+• 
+
+Irene Verhagen (Wageningen University & Research)   
+
+  https://orcid.org/0000-0001-5588-1333
+
+•  Saskia Woutersen (Leiden University)
+
+  https://orcid.org/0000-0003-0120-266X 
+
+The authors would like to thank Myroslava Zhuk  
+(University of Groningen) for contributing the section 
+about Open Educational Resources. The authors would 
+also like to extend their gratitude to Annemarie Beunen 
+(National Library of the Netherlands), Jeroen Bosman 
+(Utrecht University), Martin Paul Eve (Birkbeck College, 
+University of London) for reviewing this guide. 
+
+October 2020
+
+DOI
+https://doi.org/10.5281/zenodo.4090923
+
+This work is licensed under a Creative Commons  
+Attribution 4.0 International License.
+
+ 
+ 
+ 
+ 
+ 
+

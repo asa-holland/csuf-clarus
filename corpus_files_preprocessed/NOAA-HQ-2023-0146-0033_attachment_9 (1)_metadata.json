@@ -1,0 +1,5 @@
+{
+  "format": "PDF",
+  "extraction_method": "pdfminer.six",
+  "encoding": "UTF-8"
+}

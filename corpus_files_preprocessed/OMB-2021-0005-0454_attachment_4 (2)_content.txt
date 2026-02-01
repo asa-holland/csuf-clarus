@@ -1,0 +1,3608 @@
+How to run a 
+Civic Lottery: 
+Designing 
+fair selection 
+mechanisms 
+for deliberative 
+public processes
+
+A Guide and License  
+Version 1.4
+
+GNU Free 
+Documentation 
+License
+
+Copyright (C)  2017  MASS LBP Inc.
+
+Permission is granted to copy, distribute and/or modify this doc
+ment under the terms of the GNU Free Documentation License, 
+Version 1.3 or any later version published by the Free Software 
+Foundation; with the Invariant Sections being: A few words of 
+welcome; Civic Lottery Invitiation Package; Democracy and 
+decision-making beyond elections; The real world of democracy; 
+What is a Civic Lottery?; Why run a Civic Lottery?; Benefits of a Civic 
+Lottery; Randomness: How it works and why it’s useful ; Using Civic 
+Lotteries; Elements of a Civic Lottery; Using Civic Lotteries; What 
+for updates; and Gratitude with the Front-Cover Texts being “How 
+to run a Civic Lottery: Designing fair selection mechanisms for 
+deliberative public processes; A Guide and License by MASS LBP”, 
+and with the Back-Cover Texts being (none).  
+
+A copy of the license is included in the section entitled “GNU Free 
+Documentation License.”
+
+The MASS LBP (Inc.) logo should not be reproduced without  
+
+our approval.
+
+Nanna Koekoek was commissioned by MASS LBP to create the 
+
+illustrations in this guide. They should not be reproduced without 
+
+our approval.
+
+Contact information: MASS LBP at 3A Gilead Place, Toronto, 
+
+Ontario, M5A 3C8, Canada; hello@masslbp.com; 1-800-369-7136.
+
+A few words 
+of welcome
+
+One of our favourite days at MASS HQ is when the 
+return envelopes start to arrive. It begins as a trickle, 
+with just one or two letters coming in with the morning 
+mail. Within a week, our long-suffering mail carrier is 
+dropping them off by the bundle.
+
+During the next three weeks, my colleagues spend an hour or two 
+
+each day, gathered around a table, slicing open envelopes and 
+
+entering each response into a database. Very quickly, two piles of 
+
+sorted mail start to grow: the Yes pile and the No pile. 
+
+Since 2007, we have been conducting a practical experiment to 
+
+demonstrate that citizens can and want to play a much more 
+
+active role in helping to shape the policies that shape their lives. 
+
+Exactly how this works and what we have learned will be the 
+
+subject of our next guide. For now, we want to explain one of the 
+
+components that has made this experiment so successful: the 
+
+Civic Lottery.
+
+With the assistance of Canada Post, we have sent more than 
+
+300,000 letters to Canadian households on behalf of dozens of 
+
+different ministries, city councils, and public agencies. Each enve-
+
+lope is brown with a government logo printed on the front. In every 
+
+respect it looks like any other important piece of mail you might 
+
+receive from the government — including, not accidentally, a tax bill.  
+
+What you discover when you open one of these envelopes is some-
+
+thing very different. It’s not a court summons, an opinion survey, or 
+
+a statement of money owed. Instead, it is an invitation to take part 
+
+in what is still a very rare feature of democratic life: a policy jury 
+
+whose members will spend several days learning about a public 
+
+issue, representing their community, working towards consensus, 
+
+and issuing detailed recommendations to government. At MASS, 
+
+we call these juries “Reference Panels” because governments refer 
+
+issues to these juries, which then refer back detailed recommen-
+
+dations. They might concern health care,  infrastructure, privacy 
+
+regulations,  urban planning, or any number of issues that matter 
+
+to a community.
+
+To us these letters are a bit like the “golden tickets” in Roald Dahl’s 
+
+beloved book Charlie and the Chocolate Factory. They come as a 
+
+surprise and can lead recipients to some unexpected places. And 
+
+they require that the recipient —just like Charlie—  starts by saying 
+
+“yes.” 
+
+3
+
+Our work with Civic Lotteries and Reference Panels has taught us 
+
+a number of things about contemporary political life and how we 
+
+might create a culture of more active and vibrant citizenship. It has 
+
+also fuelled our confidence in the quiet wisdom and basic decen-
+
+cy of most people who exceed all expectations when offered the 
+
+chance to give something back or make something better. 
+
+By publishing this guide and explaining our techniques, our hope is 
+
+that more jurisdictions will come to use Civic Lotteries  
+
+as a mechanism to bring a much wider range of voices to the  
+
+policy-making table. 
+
+Peter MacLeod 
+
+Principal, MASS LBP
+
+4
+
+Democracy 
+and decision-
+making 
+beyond 
+elections
+
+For many people, democracy begins and ends at the 
+ballot box. Every four or so years, voters are called 
+upon locally, provincially, or federally to cast their 
+vote, and politicians come out of the woodwork to try 
+to persuade citizens to cast it for them. 
+
+Agendas are presented. Doors are knocked on. Promises are made. 
+
+Attention is piqued. The newscasts are awash in the story of the 
+
+day — the gaffe, the flub, the attack ad, the zippy one-liner. Lawns 
+
+are filled with signs. “That’s democracy in action,” everyone says. 
+
+And then, as suddenly as it began, the election is over.
+
+Once the dust is settled and winners are declared, everyone gets 
+
+on with their lives and waits for the next contest. But democracy 
+
+doesn’t end with elections. In fact, elections are just the beginning 
+
+of the democratic process — and they’re imperfect beginnings 
+
+at that. Electoral democracy is good at forming governments 
+
+and holding politicians more or less accountable by rewarding or 
+
+punishing them based on their ideas, characters, and past perfor-
+
+mances. But with few exceptions, elections are lousy at indicating 
+
+support for, or opposition to, specific policies. 
+
+Even though candidates and parties may run on very detailed 
+
+platforms that offer promises and ideas about what they’ll do if 
+
+elected, it’s hard to tell why a voter casts a ballot for one person 
+
+over another.  It’s just as hard to know which policy or policies 
+
+(if any) they support or oppose. Even polls, which can tell us, on 
+
+aggregate, a bit about public support for a given policy during a 
+
+particular point in time, tell only part of the story — and they carry a 
+
+high risk of error.
+
+Consequently, after elections governments begin seeking public 
+
+input, either to build political capital or generate support for some 
+
+proposal or another, or else to come up with ideas for how to solve 
+
+specific issues. This desire for input from citizens is great news for 
+
+democracy, since regular public participation in the political deci-
+
+sion-making process generates all kinds of good outcomes. It can 
+
+build civic capacity and trust, and also ensure that the people get 
+
+what they want. This is what should happen in a democracy. After 
+
+all, it is the people’s government. 
+
+But this is also where theory and practice often fall apart. Far too 
+
+often, public consultations happen too late, discuss little of sub-
+
+stance, or reach only a fraction of the population. To public ser-
+
+vants and members of the public alike, consultation can feel like a 
+
+tick box exercise. It is a necessary but not especially consequential 
+
+part of the policy process.  Worse is that townhall meetings, dep-
+
+5
+
+utations, and letter-writing campaigns —to name just three of the 
+
+most common approaches to soliciting input— are each highly sus-
+
+ceptible to political hijacking by partisan or special interests. It’s all 
+
+too easy to stack a town hall with highly-motivated supporters or 
+
+opponents of some proposition, just as it’s all too easy to now use 
+
+social media to swamp the phone lines or inboxes of a politician.
+
+Civic Lotteries are an important tool that governments and public 
+
+agencies can use to broaden participation while also guarding 
+
+against the disproportionate influence of organized interests hop-
+
+ing to move a crowd and sway an outcome. They are also based 
+
+on one of our oldest democratic traditions which is called sortition, 
+
+and means a process for randomly selecting people to serve a 
+
+public function much as we do when we convene a jury. Civic Lot-
+
+teries use similar principles. They make it possible for governments 
+
+and public agencies to assemble a broadly representative sample 
+
+of people to discuss and decide on an issue, free from the pres-
+
+sures of outside influences.
+
+For the past decade, MASS LBP has been running Civic Lotteries 
+
+for a wide array of governments and public agencies. More than 
+
+300,000 households in Canada have received letters inviting them 
+
+to take part in deciding how their community should be governed. 
+
+Nearly 2,000 people have taken part in deliberative decision-mak-
+
+ing processes that have lasted from a few days to upwards of two 
+
+weeks spread out over several months. That’s nearly 2,000 individ-
+
+uals who have had a chance to exercise their citizenship: who have 
+
+opted in to the important practice of democratic engagement, of 
+
+deciding how we should live together. These participants not only 
+
+became active agents of self-government; they also built civic skill-
+
+sets that can be used to improve their lives and the lives of others 
+
+while helping to ensure that governments are responsive to the 
+
+people they are elected to serve. 
+
+In the following pages, you’ll find a clear and comprehensive step-
+
+by-step guide on how to run a Civic Lottery. No matter how big the 
+
+population you serve, no matter how many participants you wish 
+
+to engage, and no matter how tricky the problem you’re looking to 
+
+address, this guide sets the standard for organizations and govern-
+
+ments who wish to invite and select individuals to become a part of 
+
+a deliberative decision-making process.
+
+6
+
+The real world 
+of democracy
+
+Governments and other public organizations 
+regularly consult and engage with citizens, residents, 
+and members when they make decisions. 
+
+Traditionally, institutions that wish to engage in a consultation pro-
+
+cess issue start with an “open call” to recruit participants for their 
+
+town hall meeting, online forum, or committee. These institutions 
+
+try to increase responses to the “open call” by encouraging people 
+
+to participate through advertising and other forms of marketing. In 
+
+many cases, respondents may then participate directly in the en-
+
+gagement process, such as a town hall meeting, just by showing up. 
+
+In some cases, participants are vetted by the institution through an 
+
+application or selection process, such as before appearing in front 
+
+of a special committee. 
+
+Public institutions may also use a “closed call” model to recruit 
+
+members of the public to participate in consultations. In this case, 
+
+public servants or politicians ask handpicked members of the 
+
+community who have specific experience or technical expertise to 
+
+participate, such as for a committee or board of directors. Partic-
+
+ipants can be selected on merit, their affiliation with an interest 
+
+group, experience, or because of their role in the community.  
+
+Both the open and closed recruitment methods usually generate 
+
+a non-representative cross-section of the population — that is, a 
+
+sample that does not mirror the demographics of the community, 
+
+such as gender, age, income, education, and so forth. The design 
+
+of these two types of selection processes may thus create unfair 
+
+results — either through direct manipulation (for instance, giving a 
+
+seat on a blue ribbon panel to a trusted friend) or through poor or 
+
+uneven recruitment techniques (for instance, using only online reg-
+
+istrations). Thus there are shortcomings of both open and closed 
+
+calls because not everyone has an equal chance at selection.
+
+That’s the bad news. The good news is that there’s a way to fix the 
+
+problems of representativeness and fairness when consulting the 
+
+public. How? Through sortition, also known as random selection, 
+
+by a process known as “the Civic Lottery”. This guide will walk you 
+
+through that process, MASS LBP’s approach to recruiting partici-
+
+pants for public consultation or engagement processes. 
+
+We have designed our Civic Lottery process to mitigate the short-
+
+comings and distortions produced by traditional recruitment 
+
+methods. In order to do so, our approach introduces randomiza-
+
+tion at multiple stages of the participant recruitment and selection 
+
+process. This randomization ensures that the process is fair, since 
+
+nearly every person has an equal opportunity of being invited to 
+
+7
+
+participate. Moreover, through selective sortition, the process also 
+
+ensures that the randomly-selected group is ultimately more repre-
+
+sentative of the community from which they are drawn. Since 2007, 
+
+MASS LBP has designed and implemented over 30 Civic Lotteries 
+
+to select participants for Citizens’ Reference Panels, which are also 
+
+known as citizens’ juries.
+
+8
+
+What is a  
+Civic Lottery?
+
+Imagine that you have a problem you want to solve. 
+The problem is complex or values-based (or both) and 
+those who will be affected by what you choose to do 
+disagree about what ought to be done. 
+
+So, you decide you’re going to get those people together to discuss 
+
+options, weigh the pros and cons of each option, and decide on a 
+
+plan. The tricky thing is that there are far too many people and not 
+
+nearly enough time to consult each of them in a meaningful way. 
+
+Lucky for you, the Civic Lottery exists.
+
+The Civic Lottery is a process for randomly choosing individuals 
+
+from within a specific population so that you can assemble them to 
+
+discuss a given issue and come up with recommendations for what 
+
+should be done. The process is based on a simple, random, and fair 
+
+procedure that has been used throughout the world for centuries — 
+
+the drawing of lots.
+
+Those who wish to run a Civic Lottery (the conveners) first decide 
+
+on: (a) the population they are ultimately working to represent 
+
+through the civic lottery; (b) the number of individuals to be select-
+
+ed; (c) the basic demographic criteria that will be used to ensure 
+
+the selected group broadly represents the population at large; 
+
+and (d) the method for inviting a set number of randomly chosen 
+
+individuals from within that population to volunteer. 
+
+Lots are drawn when randomly selected individuals are chosen 
+
+to receive invitations. Often the invitation is in the form of a letter 
+
+sent by mail to several thousand randomly selected households. 
+
+Whatever method is chosen for distributing invitations, it should 
+
+gives everyone in the population roughly the same chance of being 
+
+invited to volunteer. The invitation explains that the recipient is 
+
+being asked to volunteer to help the convenor solve a problem that 
+
+affects the population, and that, if selected, they will be working 
+
+with others on behalf of the whole population to develop solutions. 
+
+Those who volunteer are asked to provide basic demographic infor-
+
+mation required for the lottery process, but are not asked to make 
+
+a case for why they should be selected — as long as they meet the 
+
+basic eligibility criteria, they are placed into the pool of volunteers. 
+
+From amongst the pool of volunteers, the civic lottery process 
+
+draws lots again by randomly selecting individuals in such a way 
+
+that the selected participants match the demographic criteria for 
+
+representation (for instance, an even gender balance). Finally, se-
+
+lected participants are contacted to offer them a role working with 
+
+others to provide advice to the convenor. 
+
+9
+
+Why run a 
+Civic Lottery?
+
+10
+
+Good public policy doesn’t just serve people, it also 
+reflects their preferences — that is, it serves them in 
+the way they want to be served. 
+
+It is often tempting to say to folks, “Trust us, we know what we’re 
+
+doing”, and to proceed with those individuals in mind while other-
+
+wise keeping them outside the decision-making process. But there 
+
+is value in having those affected by policy take part in making 
+
+decisions. 
+
+In political science, there’s a concept known as the “all-affected 
+
+interests principle.” The notion here is that in a democracy those 
+
+affected by a decision ought to have a chance to take part in 
+
+shaping that decision. This idea reflects a moral commitment to 
+
+treating people as active agents who can self-govern, rather than 
+
+as passive objects who must be governed. 
+
+Civic Lotteries enable conveners to bring people into decision-mak-
+
+ing processes, connecting them with the organizations and govern-
+
+ments that shape their lives; in doing so, they live up to the high bar 
+
+set by the all-affected interests principle. But that’s not all. When 
+
+lotteries are paired with deliberative mechanisms such as citizen’ 
+
+juries, they also build trust and produce more legitimate outcomes 
+
+— people like and respect decisions more when they and people like 
+
+them participate. 
+
+Plus, research suggests that diverse groups of decision makers  
+
+—the sort you can put together through a Civic Lottery— are better 
+
+at problem solving, and at coming up with creative solutions to 
+
+tricky problems. And, on top of it all, Civic Lotteries are great at 
+
+solving a very old problem in politics: the makeup of participation.
+
+The problem of who shows up
+As long as democracies have been around, they’ve had a pesky, 
+
+persistent problem: certain people tend to show up to take part in 
+
+the decision-making process more often than other sorts of people. 
+
+For instance, these days, voter turnout skews older. Sure, voting is 
+
+only a part of democratic life, but the sampling problem applies 
+
+elsewhere, too. Surveys, town halls, protests, letters to elected 
+
+representatives, and other regular features of civic engagement 
+
+also tend to over-represent certain populations. That’s a problem 
+
+for those who want to make policy that reflects the diversity of their 
+
+community.
+
+Civic Lotteries solve the problem of who shows up by allowing conve-
+
+ners to randomly select participants from a predetermined popula-
+
+tion or set of populations. Say, for instance, you want to make a poli-
+
+cy that disproportionately affects a particular socio-economic group, 
+
+the members of which tend to shy away from the political process. 
+
+Town halls and letter campaigns can easily be captured by special, 
+
+powerful interests. But a Civic Lottery designed to include a specific 
+
+proportion of members from the socio-economic group in question 
+
+ensures that this group will be represented at the decision-making 
+
+table. It can also insulate the process from the overwhelming influ-
+
+ence of partisan, moneyed, or special interests.
+
+11
+
+Benefits of a 
+Civic Lottery
+
+So far we have touched on some of the benefits of a 
+Civic Lottery, but there are a few particular, central 
+goods to keep in mind. Civic Lotteries ensure that 
+the chance of receiving an invitation to the public 
+engagement process is equal for all. 
+
+No one can buy or strong-arm their way into the process. With 
+
+Civic Lotteries, money doesn’t talk, nor do special connections 
+
+or partisan affiliation. The Civic Lottery approach protects the 
+
+democratic engagement process from the disproportionate 
+
+influence of self-interested, self-organized groups, such as ad hoc 
+
+neighbourhood groups who might not represent the views of their 
+
+community. Accordingly, the process is inherently fair from the 
+
+get-go. Also, since the opportunity to participate is also equal for 
+
+all those who wish to take part, the process remains fair through-
+
+out. Not only does each person in a particular population have 
+
+an equal chance to being invited, they have a similarly equal 
+
+opportunity to be selected once they accept their invitation to 
+
+take part. 
+
+On top of fairness, those who are ultimately selected to participate 
+
+in a Civic Lottery will also reasonably mirror the demographics 
+
+of the community from which they have been selected, so the 
+
+process produces a representative selection. However, conveners 
+
+may choose to adjust the process, at the outset, to plan for any 
+
+special equity considerations that they may have. So, the process 
+
+can be tailored to be random, representative, and also appropri-
+
+ate for whatever sort of decision needs to be made in whichever 
+
+community, for instance by giving disproportionate consideration 
+
+to Indigenous peoples, particular linguistic communities, or other 
+
+traditional or cultural groups.
+
+This process bring an appropriately diverse, balanced set of per-
+
+spectives to bear on the issue at hand. Because of this, the public is 
+
+likely to view the recommendations produced as being a good ap-
+
+proximation of the public will. If these recommendations are care-
+
+fully considered and incorporated by the convenor, their decisions 
+
+end up enjoying higher levels of legitimacy and public support.
+
+12
+
+Randomness: 
+How it works 
+and why  
+it’s useful
+
+13
+
+Civic Lotteries are built on the principle of sortition, 
+or random selection, which maximizes fairness by 
+ensuring that each person has an equal chance of 
+being selected. 
+
+Randomness isn’t magic, but it is so simple and useful  that it can 
+
+seem like it is. A simple, intuitive example can help us understand 
+
+how it works. Let’s take the instance of a game of baseball being 
+
+played on a primary school playground.
+
+Imagine two teams are about to play a game and they need to 
+
+decide who bats first. Both teams agree to have an umpire flip a 
+
+coin, and one of the captains calls heads or tails. Whoever wins the 
+
+coin toss gets to bat first. So far, so good.
+
+The umpire tosses the coin, the team that wins goes to bat, and the 
+
+team that loses takes the field. The team headed to the field must 
+
+first decide who will be catcher — a position that few people want 
+
+to play. So, to decide on who will play catcher, the players agree to 
+
+draw straws. They find nine straws of equal length and shorten one. 
+
+The straws are grouped together and the length of each is hidden. 
+
+Each player then picks a straw. The player who draws the short 
+
+straw loses and must play catcher. 
+
+At the same time, the team that’s first up to bat must decide on a 
+
+batting order. Again, the players agree to draw straws—but they do 
+
+it a little differently than the other team. They too find nine identi-
+
+cal straws of equal length. However, they cut each straw so there 
+
+are nine different lengths. The straws are grouped together and 
+
+their lengths are hidden. The player who draws the shortest straw 
+
+bats last, the player who draws the second-shortest straw bats 
+
+second to last, and so on, through to the player who draws the 
+
+longest straw, who bats first. 
+
+The limits of randomness and some solutions
+While randomization can be used to create a fair process in theory, 
+
+it doesn’t always make for a fair process in practice, especially 
+
+once things become more complicated than a coin-toss. 
+
+For example, sometimes exceptions need to be made to support 
+
+the fairness of the game and the rules that enable that fairness. In 
+
+the case of baseball, for instance, the umpire is never allowed to 
+
+play. It is accepted that umpires cannot both fairly enforce the rules 
+
+and play. They can do one or the other. Even if the decision of what 
+
+team the umpire played for was “decided” by a fair coin toss or by 
+
+drawing straws, their mere presence on the team would create 
+
+unfairness or perceived unfairness, which undermines the game. 
+
+These are the sorts of fairness considerations that must inform the 
+
+design of a random selection process. These design elements be-
+
+come even more complex when one of the most important values 
+
+or principles of a process is “representation” — a consideration that 
+
+changes how the process is designed.
+
+Let’s go back to the example of a baseball game at an elementary 
+
+school. This time, two schools agree to play a game of baseball 
+
+against each other, with the pride of each school at stake. Howev-
+
+er, the schools also agree to a rule that each team must represent 
+
+their school’s strengths and weaknesses equally — no school can 
+
+stack its teams with just the best players. The students of each 
+
+school, regardless of whether they want to play baseball or not, 
+
+understand that it is their duty to offer to play. 
+
+The first school, which has 200 students, decides to draw straws to 
+
+select the nine players for their team. Two hundred identical straws 
+
+of equal length are found and nine are cut short. The straws are 
+
+grouped together with their lengths hidden. Each student picks a 
+
+straw. The students who draw the short straws are selected as the 
+
+school’s representative baseball players. 
+
+This process is random and fair, but the makeup of the team is not 
+
+fair in the eyes of many students. There are equal numbers of girls 
+
+and boys in the school, but through random selection, eight of the 
+
+nine players selected are boys — which is an entirely possible out-
+
+come when selecting a small number of participants from a large 
+
+pool of candidates. 
+
+So, the school’s principal decides to redesign the selection game. 
+
+This time, two games of drawing straws are held: one to select five 
+
+players from amongst the boy students and one to select five play-
+
+ers from amongst the girls. That gives the team ten players — but 
+
+only nine are needed. The last girl and last boy selected by straws 
+
+then face off to flip a coin — the winner of this coin-toss is selected 
+
+to become the ninth player on the team.
+
+This final iteration of the selection process solved two different 
+
+problems at once: first, it made the selection of individual players 
+
+fair, and second, it ensured that the final baseball team was repre-
+
+sentative of both genders.
+
+This is the basic logic used in the design of the Civic Lottery.
+
+14
+
+Elements of a 
+Civic Lottery
+
+There are several elements of a Civic Lottery. These 
+parts overlap to make the Civic Lottery a great choice 
+for policymakers whenever they’re looking to engage 
+members of a population in a deliberative democratic 
+process.
+
+Equality of opportunity 
+The Civic Lottery process creates an equal opportunity for all indi-
+
+viduals in a given population to receive an invitation to participate 
+
+in the engagement process. In addition, the process creates an 
+
+equal opportunity for those who volunteer to be selected to partic-
+
+ipate in the engagement process. This opportunity is provided by 
+
+randomization, which, regardless of the specific tools used to con-
+
+duct the random selection, is inherently consistent and unbiased.
+
+Representativeness
+The Civic Lottery process further promotes equal opportunity for 
+
+all residents or citizens by ensuring that proportional numbers of 
+
+subpopulations (according to gender, age, location, and so forth) 
+
+can be randomly selected for the public engagement process — 
+
+thus mirroring the wider population according to the needs of the 
+
+engagement process while respecting social norms of equality and 
+
+inclusiveness. 
+
+Defensibility
+The Civic Lottery process removes the possibility of human inter-
+
+vention —and meddling— from the invitation and selection process, 
+
+ensuring that results are unbiased and can be defended when 
+
+subjected to public scrutiny. 
+
+Consistency 
+The Civic Lottery process is able to consistently and predictably 
+
+recruit a group of participants for a wide range of public engage-
+
+ment processes on a broad set of topics. While the particular 
+
+makeup of each iteration will vary according to the needs of the 
+
+conveners, the process itself is consistently random and fair.
+
+15
+
+How to run a 
+Civic Lottery
+
+In this section we provide an in-depth, step-by-step 
+guide to running a Civic Lottery. 
+
+First, within a Civic Lottery, there are typically three stages of ran-
+
+domization: 
+
+1. 
+
+the initial invitees who receive an invitation; 
+
+2. 
+
+the combination of the demographics or other  
+
+participant criteria;  
+
+or the combination of representative criteria, primarily 
+
+demographics; 
+
+or the combination of criteria that define representativeness 
+
+for each participant, primary demographics; and
+
+3. 
+
+the participants who match the combined or  
+
+bundled criteria.
+
+Next, the Civic Lottery itself comprises four steps for preparing 
+
+the process and selecting panelists who will participate in policy 
+
+making.
+
+Step 1: Defining the Task and Parameters 
+
+The process conveners identify a target population or “public” in re-
+
+lation to the consultation issue; they set the rules of the lottery, and 
+
+they set participant criteria. If needed, a formal Terms of Reference 
+
+can publicly document the rules, criteria, and consultation issue.
+
+Step 2: Inviting Volunteers 
+
+The conveners randomly select the initial target population and 
+
+they design, deliver, and manage the invitation message, plan, 
+
+and tool(s).  
+
+Step 3: Registering and Validating Volunteers 
+
+The conveners collect responses from volunteers and validate them 
+
+against the lottery rules — typically disqualifications.
+
+Step 4: Selecting Panelists 
+
+The conveners transfer the population criteria to “lots,” from which 
+
+they randomly select individuals and create participant profiles. 
+
+They then randomly select validated volunteers, matching each 
+
+participant profile, forming a final group representative of the 
+
+population. Finally, they inform the selected, validated participants 
+
+and confirm their participation. 
+
+16
+
+Step 1: 
+Defining the 
+Task and 
+Parameters
+
+17
+
+Define the issue: A government, public institution, or organization 
+
+identifies and defines an issue or a decision that requires public 
+
+consultation. 
+
+Examples (used onward): 
+
+1.  To fund public transit across several cities, for instance by 
+
+raising taxes (Burlington, London, and York);
+
+2.  To develop an amalgamation plan for the municipalties of 
+
+Township of Creemore and the City of Cardigan;
+
+3.  To change the services offerings of the cancer treatment 
+
+program at a local hospital (Sacred Heart);
+
+4.  To develop a new federal pharmaceutical drug policy.
+
+Define the “public”: The conveners define the “public” in relation to 
+
+the issue or decision to be made. This population may be identified 
+
+by geography, demographics, social traits, shared experience, or 
+
+any combination of these or other relevant considerations. 
+
+Examples: 
+
+1.  Residents of the cities of Burlington, London, and York; 
+
+2.  Residents of the Town of Creemore and City of Cardigan;
+
+3.  Residents within the service catchment or radius of the 
+
+Sacred Heart Hospital;
+
+4.  Citizens or permanent residents of Canada.
+
+Establish the exclusionary criteria for bias: The conveners define 
+
+criteria for excluding participation by certain types of individuals 
+
+based on a series of rules in relation to the issue or decision to be 
+
+made. This is done to mitigate any bias in participant selection that 
+
+could undermine the engagement process. 
+
+Examples: 
+
+1.  Elected councillors, employees, or committee members of 
+
+the cities of Burlington, London, and York, and public transit 
+
+employees;
+
+2.  Elected councillors, employees, or committee members of 
+
+both municipalities;
+
+3.  Employees and board members of Sacred Heart Hospital; 
+
+local, provincial, and federal government employees; local, 
+
+provincial, and federal politicians;
+
+4.  Local, provincial, and federal politicians; employees or 
+
+advocates for the pharmaceutical sector.
+
+Establish other exclusionary criteria: The conveners may also estab-
+
+lish other exclusionary criteria based on traditions or legal rights, 
+
+including status of citizenship, voting age, prisoners, and so forth. 
+
+Examples: 
+
+1.  Citizens or residents alike; anyone 16 years and older; 
+
+2.  Citizens or residents alike who live in the municipalities; 
+
+anyone of legal voting age;
+
+3.  Citizens or residents alike; anyone 16 years and older;
+
+4.  Citizens or permanent residents of Canada; anyone of legal 
+
+voting age.
+
+Decide whether this is an open or closed recruitment process. 
+
+Most Civic Lotteries are closed processes. In a closed recruitment 
+
+process, only members of the defined population who have re-
+
+ceived a verified ballot (by mail, email, telephone, etc.) are eligi-
+
+ble to volunteer. This reduces the ability of stakeholders, special 
+
+interests, and frequent participants to swamp the lottery process 
+
+while increasing the chances that those who traditionally do not 
+
+participate end up getting selected. 
+
+In an open recruitment process, anyone within the defined pop-
+
+ulation who fits the criteria is eligible to volunteer, regardless of 
+
+whether they have received an invitation. Open recruitment pro-
+
+cesses are more likely to involve those who are already participat-
+
+ing via other avenues (such as open meetings and online surveys).
+
+18
+
+Step 2: 
+Inviting 
+Volunteers
+
+A: The conveners source a universal contact list for the population 
+
+and randomly select a subset of individuals to receive invitations. 
+
+The contact list should be universal in order to give everyone in the 
+
+population roughly the same chance of receiving the inivitation. 
+
+The number of invitees included to receive an invitation depends 
+
+on several variables, including total population size of the polity, 
+
+method of distributing invitations, expected level of interest in the 
+
+issue, and project budget. 
+
+Examples: 
+
+1.  Municipal property tax assessment rolls;
+
+2.  Address lists provided by the postal system;
+
+3.  Cancer care patient and family members list; 
+
+4.  A universal marketing list.
+
+B: The conveners can define subsections within the larger popu-
+
+lation of invitees and ensure that a certain number of invitees are 
+
+within each subsection. These subsections should mirror traditional 
+
+or well-known divisions to ensure that they will be accepted as fair 
+
+by the public.
+
+Examples: 
+
+1.  The borders and populations of the three cities;
+
+2.  The borders and electoral wards of Creemore (5) and 
+
+Cardigan (7);
+
+3.  The borders and populations of the three health areas;
+
+4.  The borders and populations of the thirteen provinces and 
+
+territories.
+
+C: For closed recruitment processes, the conveners give each invi-
+
+tation a unique code that is used to verify each Civic Lottery ballot. 
+
+The codes should be randomly generated numbers with at least 
+
+one security feature, such as a check digit* to ensure the code is 
+
+legitimate. Keycodes should also be linked to the original contact 
+
+information in order to provide a second method of verification 
+
+to ensure the ballot was not traded to someone other than the 
+
+intended recipient.
+
+19
+
+* https:⋅⋅en.wikipedia.org⋅wiki⋅Check_digit
+
+Example: 
+
+Keycode: AA 231218424
+
+Address: #13-1273 Hammond Street, Toronto, Ontario
+
+Breakout:
+
+AA ⋅ 23 ⋅ 12 ⋅ 184 ⋅ 24
+
+AA (simple ID tags), 23 (block #1), 12 (block #2), 184 (block #3),  24 (address #)
+
+Security feature 1: the first key (1.5) is used to calculate the third 
+
+block from the first two:
+
+23 (block #1) × 12 (block #2) ÷ 1.5 (key #1) = 184 (block #3) 
+
+Security feature 2: the second key (0.7) is used to calculate the ad-
+
+dress block (24) from the digits in the street address (#13-1273):
+
+1 + 3 + 1 + 2 + 7 + 3 = 17
+
+17 ÷ 0.7 (key #2) = 24.28 (address #) 
+
+A note about check digits and validation: 
+
+There are many other methods to create verifiable codes and  
+
+validation features to ensure a Civic Lottery remains fair and 
+
+secure. The above is one of the ways that MASS LBP uses to 
+
+create our own keycodes. One piece of advice that we like to 
+
+share — ensure that any validation method that you choose or 
+
+design does not create a barrier to entry, excess frustration for 
+
+the volunteer, and/or an accessibilty issue. 
+
+D: The conveners send an invitation to each selected contact, typi-
+
+cally a mailed package (though email and telephone call methods 
+
+have been explored). A mailed invitation package generally con-
+
+tains an introductory letter, information sheet, response form, and 
+
+return envelope, packaged in an addressed and branded outer 
+
+envelope. The invitation should address seven important pieces of 
+
+information: 
+
+1.  An introduction to the convening public institution;
+
+20
+
+2.  An introduction to the problems or issues;
+
+3.  An introduction to the selection and engagement process;
+
+4.  An outline of the rules and exclusions of the selection process;
+
+5.  An introduction to the specific issue to be addressed;
+
+6.  The request to volunteer, which includes: volunteer dates, 
+
+deadlines, methods of registration, and other information 
+
+pertaining to the process; and
+
+7.  An outline of the responsibilities of volunteers if selected by 
+
+the lottery. 
+
+E: The target population should receive the invitations four to six 
+
+weeks before the registration deadline. This gives the invitees time 
+
+to consider participating, decide what to do, and respond to con-
+
+veners. This length of time ensures a reasonable turnout since it al-
+
+lows possible participants to organize their schedules (work, family, 
+
+etc.) and underlines the seriousness or importance of the process. 
+
+21
+
+Step 3: 
+Registering 
+and 
+Validating 
+Volunteers
+
+A: Invitees are generally given multiple ways to respond to the 
+
+request — for example, by returning a response form included in the 
+
+invitation package, by phoning the Civic Lottery’s coordinators, or 
+
+by filling out a secure online form. 
+
+The conveners then check the volunteers’ information for complete-
+
+ness and, for closed recruitment processes, validate their keycodes. 
+
+They remove from the lottery any volunteer with missing informa-
+
+tion or who does not have a valid keycode. 
+
+Base registration information:
+
+The following registration information collects all necessary infor-
+
+mation to allow the convenor to randomly select a representative 
+
+group based on age, gender, and location of residence.
+
+1.  Response: Yes or No
+
+2.  Availability and Commitment: Yes or No
+
+3.  Keycode
+
+4.  First Name
+
+5.  Last Name
+
+6.  Address
+
+7.  City/Town
+
+8.  Province, State, or Territory
+
+9.  Postal Code or Zip Code
+
+10.  Primary Phone Number
+
+11.  Secondary Phone Number
+
+12.  Email
+
+13.  Age Bracket
+
+14.  Self-Identified Gender
+
+15.  Information Collection Acknowledgement  
+
+(based on laws and common practice)
+
+B: In some cases, other information is necessary to gather a prop-
+
+erly representative group of volunteers through the lottery process. 
+
+Examples: 
+
+1.  Homeowner or renter;
+
+2.  Duration of residence in town; 
+
+22
+
+3.  Whether they are a former or current cancer patient, or the 
+
+family member of a former or current cancer patient; 
+
+4. 
+
+Indigenous or Aboriginal,  or visible minority or 
+
+Francophone.
+
+A note about criteria and registrant information: 
+
+Keep the number of criteria that define representation reason-
+
+5. 
+
+able. The more criteria you add to the process of selection the 
+
+more difficult the lottery will become to conduct and less oppor-
+
+tunity volunteers within the lottery will have of beening select-
+
+ed. With too many critera the lottery will become “locked up.” 
+
+Some additional advice: don’t treat the lottery like a survey. Ask 
+
+only the information that you need. The length of the registra-
+
+tion may be a barrier for volunteers and reduce the number of 
+
+respondents.
+
+C: Once the deadline has passed, conveners review all “Yes” re-
+
+sponses, verify addresses and keycodes, and complete additional 
+
+processing. The conveners review the list for duplicates and other 
+
+possible issues (such as misspelled names, improperly format-
+
+ted addresses, etc.). They resolve these issues if possible and log 
+
+the way they were resolved. At this stage, conveners can tag the 
+
+list with additional demographic or geographic information. For 
+
+example, if geographic areas are being used as selection criteria 
+
+for the lottery (such as electoral boundaries or natural borders), 
+
+conveners look up, tag, and then re-verify each address to ensure 
+
+accuracy. 
+
+D: Throughout the registration and validation stage, conveners 
+
+keep a log (in the form of a book or file) that documents critical 
+
+changes to the list, such as the removal of volunteers due to unver-
+
+ified keycodes, incorrect addresses, or other issues, such as volun-
+
+teers from outside of the designated geographic area. Keeping 
+
+a log helps ensure the selection process can be easily explained 
+
+and that  any changes to the process or the list can be defended if 
+
+scrutinized.
+
+23
+
+A: The panelist selection process has two stages: a) the creation, 
+
+randomization, and cross-selection of demographic lots to create 
+
+volunteer profiles; and b) the randomization and selection of bal-
+
+lots to select participants. 
+
+B: Civic Lotteries use three core selection criteria: gender, age by 
+
+bracket, and location of residence. These selection criteria are 
+
+derived from well-documented and publicly accepted population 
+
+information — for example, the census. As noted above, a limited 
+
+number of other criteria can be included. The total number of se-
+
+lection lots per criterion equals the total number of people who will 
+
+be selected to participate in the engagement process. The con-
+
+veners define or create selection lots for each selection criterion 
+
+based on their proportion in the larger population. This creates a 
+
+system of “representation by population” based on each selection 
+
+criterion.
+
+Example:
+
+A Civic Lottery is used to select 24 participants who will develop a 
+
+new municipal strategic plan for the Town of Creemore.
+
+Selection Criteria
+
+Creemore Census
+
+Lot Quantities 
+
+Population: 
+
+20,000
+
+Criterion #1: Gender
+
+Male
+
+Female
+
+Criterion #2: Age
+
+18-39
+
+40-59
+
+60+
+
+Criterion #3: Zone
+
+Zone 1
+
+Zone 2
+
+Zone 3
+
+Zone 4
+
+9,750
+
+10,250
+
+3,000
+
+5,000
+
+12,000
+
+3,000
+
+9,000
+
+3,000
+
+5,000
+
+24
+
+12
+
+12
+
+4
+
+6
+
+14
+
+4
+
+10
+
+4
+
+6
+
+Step 4: 
+Selecting 
+Panelists
+
+24
+
+C: The conveners then create Civic Lottery profiles by randomly 
+
+selecting a single lot from across the criterion pool. Each profile is 
+
+comprised of a bundle of randomly chosen selection criteria from 
+
+each criterion category. 
+
+Example (continued from above):
+
+A random characteristic is selected from each criterion category to 
+
+determine the profile of the first lot (Profile #1):
+
+Criterion: Gender ⋅ Lot #1 ⋅ Selection: Female. (Remaining lots: 12 
+
+Male and 11 Female lots)
+
+Criterion: Age ⋅ Lot #1 ⋅ Selection: 60+. (Remaining lots: 4 of 18-39, 
+
+6 of 40-59, 13 of 60+)
+
+Criterion: Zone ⋅ Lot #1 ⋅ Selection: Zone 4. (Remaining lots: 4 of 
+
+Zone 1, 10 of Zone 2, 4 of Zone 3, and 5 of Zone 4)
+
+Profile #1: Female resident of Creemore, aged 60+, from Zone 4. 
+
+D: The conveners then use the Civic Lottery profile (#1) to randomly 
+
+select a volunteer from the respondents. Using the profile criteria, 
+
+they identify all matching volunteers from the larger pool of volun-
+
+teers and then randomly select a single participant as the “winner.” 
+
+Example (continued from above): 
+
+Profile #1: Female ⋅ 60+ ⋅ Zone 4
+
+Gross Volunteer Pool
+
+Profiles
+
+Grace Jones
+
+Patti Smith
+
+Ian MacKaye
+
+Björk Guðmundsdóttir
+
+Robert Plant
+
+Female ⋅ 60+ ⋅ Zone 4
+
+Female ⋅ 60+ ⋅ Zone 4
+
+Male ⋅ 60+ ⋅ Zone 4
+
+Female ⋅ 60+ ⋅ Zone 1
+
+Male ⋅ 18 -39 ⋅ Zone 1
+
+Robert Fitzgerald Diggs
+
+Male ⋅ 40 -39 ⋅ Zone 2
+
+Gary Grice
+
+Male ⋅ 18 -39 ⋅ Zone 2
+
+Tahliah Debrett Barnett
+
+Female ⋅ 60+ ⋅ Zone 3
+
+Corey Woods
+
+Clifford Smith
+
+Merrill Beth Nisker
+
+Male ⋅ 60+ ⋅ Zone 1
+
+Male ⋅ 40-59 ⋅ Zone 3
+
+Female ⋅ 60+ ⋅ Zone 4
+
+…Continued…
+
+…Continued…
+
+25
+
+Matching Volunteer Pool
+
+Profiles
+
+Grace Jones
+
+Patti Smith
+
+Merrill Beth Nisker
+
+Female ⋅ 60+ ⋅ Zone 4
+
+Female ⋅ 60+ ⋅ Zone 4
+
+Female ⋅ 60+ ⋅ Zone 4*
+
+Profile #1 Winner: Merrill Beth Nisker
+
+E: Conveners repeat the process until they have selected the total 
+
+number of volunteers required (Method #1). Alternatively, conveners 
+
+can randomly select all of the profiles first and then conduct the 
+
+random selection of volunteers from the larger pool (Method #2). 
+
+F: It is possible that no volunteers within the larger volunteer pool 
+
+match a randomly selected profile. 
+
+Using Method #1: conveners then break up the selected profile and 
+
+return to the criterion pools for a redraw. They then redraw the 
+
+profile and use the “new” profile to randomly select a new match-
+
+ing volunteer. 
+
+Using Method #2: conveners “unselect” the last two randomly 
+
+selected volunteers and disassemble, or “break up”, the the corre-
+
+sponding randomly selected profiles. The volunteers and their cri-
+
+terion are returned to the selection pools. Conveners then redraw 
+
+two profiles and use the two “new” profiles to randomly select two 
+
+new matching volunteers. If this does not solve the issue, conveners 
+
+break up a third profile, randomly select volunteers, and redraw 
+
+three new profiles and volunteers. 
+
+G: In the event of an impossible profile match because of an insuf-
+
+ficient number of volunteers for a given criterion (such as age), the 
+
+conveners must change the selection criteria. Prior to the start of 
+
+the selection process, conveners should define a ranking of criteria 
+
+based on the order of representative importance. Typically gender 
+
+is the most important criterion and, therefore, fixed during the se-
+
+lection process in order to ensure gender parity. However, depend-
+
+ing on the needs of decision makers and the nature of the issue to 
+
+be decided, changes may be made to age, geographic zone, or 
+
+other criteria and their rankings may be amended. 
+
+Examples: 
+
+1.  Geographic zone will be more important than age because 
+
+the issue is tied to taxes and transit, both highly related to 
+
+geography;
+
+26
+
+2.  Geographic zone will be more important than age because 
+
+the issue is municipal strategy, which is highly related to 
+
+geography;
+
+3.  Age will be more important than geographic zone because 
+
+the issue is hospital services, which could be highly related 
+
+to age;
+
+4.  Age will be more important than geographic zone because 
+
+the issue is pharmaceutical policy, which could be highly 
+
+related to age. However, because of the tradition and 
+
+relationship of federalism, this would be superseded by 
+
+geographic representation. 
+
+H: In the event of a volunteer resigning after selection, the conve-
+
+ners reuse the criteria profile to reselect a new volunteer from the 
+
+matching volunteer pool.
+
+27
+
+Using Civic 
+Lotteries
+
+28
+
+MASS LBP has almost exclusively used the Civic Lottery 
+process to select groups of citizens to be convened 
+as members of out Citizens’ Reference Panels, which 
+are akin to citizens’ juries. These panels are typically 
+comprised of 24 to 36 volunteers who meet over four 
+to six full-day sessions. 
+
+The Citizens’ Reference Panel is led through a deliberative process 
+
+in three phases: learning, deliberation, and recommendation. The 
+
+goal of each panel is to create a series of well-informed recom-
+
+mendations that are forwarded to the decision-making body that 
+
+has a mandate to implement the recommendations, such as a city 
+
+council, ministry, or board of directors. These recommendations 
+
+can be used to develop new policies, inform decisions, or create 
+
+new strategies or plans. 
+
+Decision-makers are not obligated to implement all or any of the 
+
+recommendations, but they have a responsibility to publicly ac-
+
+knowledge and respond to them.
+
+The Civic Lottery process could also be used to select a represen-
+
+tative group of citizens, employees, members of organizations, 
+
+students, and more, to serve on standing committees, boards of 
+
+directors, online panels, and as judges for competitions.
+
+Based on MASS LBP’s experience and observations from inviting 
+
+and selecting volunteers to serve on Citizens’ Reference Panels, we 
+
+have identified a set of consultation principles that help strengthen 
+
+the outcomes of using a Civic Lottery:
+
+1.  The issue the process will address must be specific and 
+
+clearly explained in the invitation. Broad appeals to “think” 
+
+about the future of an issue rarely work — instead, it should 
+
+be framed as a “very real problem” that volunteers can work 
+
+together to solve.
+
+2.  The volunteers’ role in solving this problem should also be 
+
+detailed along with the steps the volunteers will take during 
+
+the process to reach consensus with others. 
+
+3.  Prospective volunteers should understand that their 
+
+participation is not guaranteed but will be confirmed by 
+
+lottery.
+
+4.  The public entity responsible for convening the process 
+
+should be explicitly identified, as well as any commitments 
+
+they have made to the process and its recommendations.
+
+5.  The invitation should emphasize the importance of public 
+
+service and that the volunteer will be responsible for 
+
+representing their community — not only their personal views 
+
+and interests. 
+
+6.  A generous amount of time should be provided during the 
+
+invitation stage of the process. More time gives possible 
+
+volunteers the opportunity to think about volunteering 
+
+and make necessary arrangements to their schedule and 
+
+responsibilities should they be selected. Typically, this means 
+
+at the very least six weeks from the reception of invitation 
+
+until the first meeting of the panel.
+
+7.  Volunteering for a Civic Lottery should be about public 
+
+service and should not be motivated by monetary incentives. 
+
+However, this does not preclude the use of supports or 
+
+subsidies to ensure the process is open to all and barriers to 
+
+entry are overcome.
+
+29
+
+Watch for 
+Updates
+
+This guide is based on MASS LBP’s ten years of 
+experience with designing democratic engagement 
+processes. 
+
+When we started MASS, we didn’t know what we didn’t know. 
+
+We had an idea of what a sortition process should look like, but we 
+
+weren’t sure how —or if— it would work in practice.
+
+Since then, we have designed and run over 30 Civic Lotteries and 
+
+we’ve learned a great deal. We know three things to be true: our 
+
+process works consistently; we learn something new with each new 
+
+lottery, public issue, and project; and we improve our approach 
+
+with each iteration of the lottery. 
+
+So, treat this guide as a living document. Version 1.4. 
+
+We will update and refine it in future versions as we continue to 
+
+learn from our work.
+
+In the meantime, please stay in touch and tell us about your work 
+
+and what you’ve learned.
+
+30
+
+Gratitude
+
+This paper is MASS LBP’s first attempt to document 
+our experience using random selection, sortition, or in 
+our words, Civic Lotteries.
+
+Balancing the work of clients, volunteers, and business held us back 
+
+from writing this document for too many years. 
+
+For their work on this undertaking — we would like to thank: 
+
+David Moscrop, Ph.D., Associate, MASS LBP; 
+
+Joanna Massie, Coordinator, MASS LBP; and  
+
+Patrick Baud, Associate, MASS LBP
+
+Finally, we would also like the thank the many thousands of 
+
+Canadians who have received one of our letters and took the 
+
+‘democratic leap’ and volunteered. Their confidence, enthusiasm 
+
+and desire to serve their community is the inspiration behind 
+
+everything we do.
+
+Chris Ellis 
+
+Senior Director, MASS LBP
+
+31
+
+32
+
+Glossary
+
+33
+
+Age bracket: a category that defines a span of ages. For instance, 
+
+all volunteers or participants of and between the ages of 18 and 
+
+24 can be defined by the age bracket of 18 to 24. Age brackets are 
+
+a core selection criterion and are typically defined by or sourced 
+
+from known sources of population reporting, such as national 
+
+census data. 
+
+Ballot, response form: a paper, digital form, or phone-in ballot 
+
+that the volunteer must complete in its entirety and submit to enter 
+
+the lottery. The ballot has basic identification questions (name, 
+
+address, etc.) listed, as well as questions that are related to the 
+
+selection criteria (age, gender, geographic area, and/or additional 
+
+criteria). Each ballot is unique and is marked as such with a key-
+
+code (see below).
+
+Keycode: a unique alphanumeric code that identifies each ballot. 
+
+Each keycode is linked to the individual mailing address to which 
+
+the invitation was sent and the ballot which forms the response 
+
+to the invitation. This ensures integrity of the lottery by preventing 
+
+anyone from being able to submit counterfeit ballots. It also guar-
+
+antees the conveners cannot accidentally double count any ballot.
+
+Lot(s): the unit (units) of any selection criteria used to create a 
+
+volunteer profile. Lots can take the form of a physical representa-
+
+tion of selection criteria, such as a set of individual criteria paper 
+
+cards, or a digital representation in the form of a list or grouping of 
+
+table fields. Each card or field represents a portion of the criteria 
+
+for the lottery. For instance, when randomly selecting a group of six 
+
+people (three women and three men) from a hat, one would use 
+
+three paper cards marked as “female” and three marked as “male” 
+
+as lots. Using a spreadsheet program, one would create a list of 
+
+three table fields (cells) marked as “female” and three marked as 
+
+“male” used as lots. 
+
+Participant, panelist: in this document, the terms “participant” 
+
+and “panelist” refer to a person who is selected through a lottery.
+
+Population definition: a numeric definition of population accord-
+
+ing to proportionate selection criteria. For instance, if a population 
+
+of 100 has 33 men and 67 women, the population definition con-
+
+veners would need to select would be a group of 18 people with 6 
+
+men and 12 women. The conveners would then use the definition 
+
+to create the number of lots used for each criterion for the lottery.
+
+Public: in this document, the noun “the public” refers to any group, 
+
+membership, or community of people that is the target of a consul-
+
+tation process. 
+
+Recruitment: the activity of seeking volunteers or participants 
+
+for a Civic Lottery or consultation process through marketing and 
+
+outreach efforts, such as direct mail, advertising, etc. 
+
+Resident, citizen, or member: in this document, the terms “resi-
+
+dent,” “citizen,” or “member” refer to the smallest unit of “the public” 
+
+— a person who is a potential participant of a consultation process.
+
+Selection criteria: the factors or categories for representation in 
+
+the lottery. These criteria are design choices that define the way in 
+
+which the lottery proportionately represents the target population 
+
+for the larger consultation process. The main criteria are self-identi-
+
+fied gender, age, and where one lives (geography). The conveners 
+
+may identify additional categories according to the problem or 
+
+theme of the public consultation process, including: primary trans-
+
+portation type for a consultation on transportation policy; whether 
+
+one is a homeowner for a consultation on housing; or ethnographic 
+
+categories to identify and ensure particular communities, including 
+
+Indigenous peoples and visible minorities, are adequately repre-
+
+sented.
+
+Gender: the gender the respondent self-identifies with and not the 
+
+medical sex of the respondent.
+
+Validation: the process of reviewing the keycodes and other vol-
+
+unteer information that has been submitted during recruitment to 
+
+ensure the integrity of the lottery process. The conveners identify 
+
+invalid submissions, including duplicate submissions, those with 
+
+addresses that are outside of the designated area due to forward-
+
+ed mail, those with missing or incorrectly filled-out information, or 
+
+those with missing or incorrectly matching keycodes, and remove 
+
+them from the lottery process. The conveners make efforts to 
+
+clarify any missing information or possible mistakes made by the 
+
+respondent prior to selection.
+
+Volunteer, respondent, positive respondent, negative respon-
+
+dent: A positive respondent is a member of the public who is both 
+
+interested in and has submitted the information necessary for 
+
+them to participate in the Civic Lottery process. By contrast, a neg-
+
+ative respondent is a member of the public who is interested in the 
+
+consultation, but has also indicated they are unable to participate 
+
+in the Civic Lottery process and/or consultation process.
+
+Volunteer profile: defines a complete set of randomly selected 
+
+lots that represent a possible volunteer. For instance, in a lottery 
+
+defined by three selection criteria (self-identified gender, age, and 
+
+geographic area), three randomly selected lots (one for self-identi-
+
+34
+
+fied gender, one for age, and one for geographic area) constitute 
+
+a complete volunteer profile. 
+
+35
+
+MASS LBP Reference Panels  
+Selected by Civic Lottery
+
+1.  Toronto Planning Review Panel (II) (10,000 
+
+17.  BC Services Card User Panel on Digital 
+
+packages mailed)
+
+Services (16,500)
+
+2.  Greater Toronto Airports Authority 
+
+18.  Metrolinx Regional Residents’ Reference 
+
+Residents’ Reference Panel on Airport 
+
+Panel on Transportation Investment 
+
+Growth (15,000)
+
+(10,000)
+
+3.  Metrolinx Residents’ Reference Panel on the 
+
+19.  Ontario Ministry of Consumer Services 
+
+Regional Transportation Plan (10,000)
+
+Reference Panel on the Condominium Act 
+
+4.  Duncan-North Cowichan Citizens’ Assembly 
+
+(10,000)
+
+on Municipal Amalgamation (10,000)
+
+20.  Calgary Arts Development Citizens’ 
+
+5.  Citizens’ Reference Panel on Pharmacare in 
+
+Reference Panel (5,000)
+
+Canada (10,000)
+
+21.  Toronto Residents’ Reference Panel on 
+
+6.  Lethbridge Citizens’ Assembly on Councillor 
+
+Household Income (7,500)
+
+Employment and Compensation (5,000)
+
+22.  Citizens’ Reference Panel on Ontario Health 
+
+7.  St. Michael’s Hospital: Residents’ Health 
+
+Services Panel (14,500)
+
+8.  St. Michael’s Hospital: Academic Family 
+
+Health Team Patient Design Session (10,000 
+
+emails)
+
+9.  Toronto Planning Review Panel (I) (12,000)
+
+10.  Calgary Commission on Municipal 
+
+Infrastructure (10,000)
+
+11.  The Citizens’ Reference Panel on the Mental 
+
+Health Action Plan for Canada (10,000)
+
+12.  Metrolinx Residents’ Reference Panel on 
+
+the Davenport Community Rail Overpass 
+
+(10,000)
+
+13.  Halton Region Citizens’ Reference Panel on 
+
+Strategic Priorities (II) (10,000)
+
+14.  Grandview-Woodland Citizens’ Assembly 
+
+(19,000)
+
+15.  St. Joseph’s Health Centre Community 
+
+Reference Panel (10,000)
+
+16.  Residents’ Reference Panel on Supervised 
+
+Injection Services (16,500)
+
+Services (10,000)
+
+23.  Toronto Community Housing Tenant 
+
+Communications Strategy & Tenants’ 
+
+Reference Panel (7,500)
+
+24.  The Ottawa Hospital Patients’ Reference 
+
+Panel on Clinical Services Transformation 
+
+(15,000)
+
+25.  Hamilton Citizens’ Reference Panel on 
+
+Cultural Policy and Planning (5,000)
+
+26.  Halton Region Citizens’ Reference Panel on 
+
+Strategic Priorities (I) (7,500)
+
+27.  Citizens’ Advisory Panel on Clinical Hospital 
+
+Services Distribution Plan (5,000)
+
+28.  Northumberland Hills Hospital Citizens’ 
+
+Advisory Panel on Health Service 
+
+Prioritization (5,000)
+
+29.  Ontario Youth Matter Youth Advisory 
+
+Council (5,000)
+
+30.  Mississauga-Halton Local Health 
+
+Integration Network Citizens’ Reference 
+
+Panel on Regional Health Priorities (5,000)
+
+36
+
+31.  Central Local Health Integration Network 
+
+Commissioned Civic Lotteries
+
+Citizens’ Reference Panel on Regional 
+
+1.  McMaster: Citizens’ Reference Panel on 
+
+Health Priorities (5,000)
+
+Health Technologies (3,500)
+
+32.  South East Local Health Integration 
+
+2.  BioBanking in British Columbia: A 
+
+Network Citizens’ Reference Panel on 
+
+Deliberative Public Consultation (5,000)
+
+Regional Health Priorities (5,000)
+
+3.  Explosives and the Environment in 
+
+33.  South East Local Health Integration 
+
+British Columbia: A Deliberative Public 
+
+Network Citizens’ Regional Health Assembly 
+
+Consultation (5,000)
+
+(5,000)
+
+4.  Prince Edward County Citizens’ Assembly 
+
+(5,000)
+
+37
+
+Civic Lottery Invitiation Package: 
+
+(Important message enclosed)
+
+Toronto Planning Review Panel, 392a King Street East, Toronto, ON, M5A 1K9
+
+E
+O
+_
+o
+t
+n
+o
+r
+o
+T
+
+Only 12,000 households in Toronto have been randomly selected to receive this invitation
+We need you to volunteer for the City of Toronto’s new Planning Review Panel
+
+Sanjay Smith
+#2-143 York View Dr
+Toronto, ON  M5A 1D3
+
+Outer window envelope. (Size: No. 10)
+
+Deadline
+October 6
+Respond Today
+
+Return Address
+
+Response required by:
+Tuesday, October 6, 2015
+
+Registering online ensures your 
+response is received by the deadline
+
+www.toronto.ca/planning/tprp
+
+Return envelope. (Size: No. 9)
+
+38
+
+ 
+ 
+ 
+d
+r
+a
+C
+e
+s
+n
+o
+p
+s
+e
+R
+e
+t
+a
+d
+d
+n
+a
+C
+
+i
+
+❏  YES, I would like to volunteer as a member of the Toronto Planning Review Panel
+  ❏  No, I do not wish to volunteer on the Panel but I would like to receive further information
+
+First name: 
+
+ Last name: 
+
+Gender:  Male  
+
+   Female 
+
+  Age:  18 – 29 
+
+  30 – 44 
+
+  45 – 64 
+
+  65+
+
+Primary Phone: 
+
+ – 
+
+ – 
+
+  Secondary Phone: 
+
+ – 
+
+ – 
+
+Email:   
+
+Sanjay Smith
+#2-143 York View Dr
+Toronto, ON  M5A 1D3
+
+XX123456
+
+Volunteer by 
+October 6
+
+l
+
+P
+e
+a
+s
+e
+t
+u
+r
+n
+o
+v
+e
+r
+
+Å
+
+Office use
+
+Lottery Ballot — Front Side.
+
+d
+r
+a
+C
+e
+s
+n
+o
+p
+s
+e
+R
+e
+t
+a
+d
+d
+n
+a
+C
+
+i
+
+Please complete your candidate card by checking all that apply:
+1) ❏ I own my home 
+  ❏ Aboriginal 
+
+  ❏ Visible Minority
+
+  ❏ I rent my home
+
+3) I am available to attend all four orientation sessions of the Panel:  ❏ Yes  ❏ No
+
+October 17, 2015 
+
+  October 31, 2015 
+
+  November 14, 2015 
+
+  November 28, 2015 
+
+4) I am available to attend at least 10 of the 12 subsequent meetings of the Panel in 2016 and 2017.  
+  Please refer to the enclosed Frequently Asked Questions sheet for the list of subsequent meeting dates.
+  ❏ No, I’ve read the list of dates and cannot attend
+  ❏ Yes, I’ve read the list of dates and can attend 
+
+NOTICE OF COLLECTION: The personal information requested here is collected under the legal authority of the City 
+of Toronto Act, S.O. 2006, Chapter 11, Schedule A, s.136 (b) & (c) and the Planning Act, R.S.O. 1990, Chapter P.13.
+
+Your personal information will be used for the purpose of forming the Toronto Planning Review panel and will not 
+be shared with any other parties or for any other purpose than the creation of this panel. Questions about this 
+collection can be directed to the Coordinator Stakeholder Engagement & Special Projects in the Office of the Chief 
+Planner by calling 416-392-3812, or by e-mail at dfusca@toronto.ca.
+
+Deadline
+October 6
+Respond Today
+
+l
+
+P
+e
+a
+s
+e
+t
+u
+r
+n
+o
+v
+e
+r
+
+Å
+
+Lottery Ballot — Back Side
+
+39
+
+ 
+ 
+ 
+   
+      
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+September 4, 2015
+
+Dear Toronto Resident,
+
+The City’s Planning Division needs your help to make sure we are creating a city that is prosperous, 
+livable, equitable, and environmentally responsible. 
+
+This letter is a special invitation to apply to be part of the new Planning Review Panel, and 
+to add your voice to Toronto’s planning process. If you are 18 years of age or older and live in 
+Toronto, you can apply — no experience is necessary.
+
+Whether you’re new to Toronto or a long-time resident, you know the city is changing fast.
+
+New buildings and infrastructure are being constructed to meet the needs of the 20,000 net new 
+residents who each year decide to make Toronto their home. This makes Toronto one of the fastest-
+growing and most dynamic cities in North America.
+
+The City’s Planning Division is responsible for ensuring that this growth enhances the city we share 
+— from Steeles Avenue to the waterfront, and from Rouge River to Etobicoke Creek.
+
+This means thinking about the long-term impacts of growth, while balancing the different interests, 
+needs, and priorities of the city’s 2.8 million residents. We need your help to get this balance right. 
+
+The Planning Review Panel is a new way for City Planning to hear the perspectives of Torontonians 
+like you. As a member of the Panel, you will learn about your city and provide input and local 
+expertise on important planning issues shaping Toronto. These issues could relate to transportation, 
+zoning for new homes and businesses, neighbourhood density and character, historic buildings, and 
+the locations of libraries, community centres, parks, and other neighbourhood amenities. 
+
+Membership on the panel is open to any Toronto resident who receives this letter and is 18 years of 
+age or older. From among the pool of applicants, 28 members will be randomly selected to ensure 
+broad representation from across the city. You do not need to be a Canadian citizen, and there is no 
+cost to participate.
+
+The Planning Review Panel will meet six times each year, following a special orientation program 
+this fall. Each member will serve on the Panel for two years.
+
+Joining the Panel is a great way to:
+
+•  Learn first-hand about your city and the planning process;
+
+•  Contribute your perspective and learn about the views of other Toronto residents; and
+
+•  Provide insight to the Planning Division concerning important issues shaping the city. 
+
+You do not need to be an expert to participate. It’s your perspective as a Toronto resident that 
+matters most. 
+
+l
+
+P
+e
+a
+s
+e
+t
+u
+r
+n
+o
+v
+e
+r
+
+Å
+
+Deadline
+October 6
+Respond Today
+
+Invitation Letter — Front Side (Size: Letter)
+
+40
+
+ 
+ 
+ 
+Members of the Planning Review Panel will meet from 9:30 a.m. – 4:00 p.m. on the following Saturdays this 
+fall. You must be able to attend each of the sessions, as well as 10 of 12 additional meetings that will occur over 
+the next two years (see the Frequently Asked Questions sheet for further details). 
+
+Saturday, October 17, 2015 
+
+Saturday, November 14, 2015   
+
+Saturday, October 31, 2015 
+
+Saturday, November 28, 2015
+
+To volunteer for the Planning Review Panel, please phone 1-844-711-8186, mail in the enclosed form, 
+or register online at www.toronto.ca/planning/tprp by Tuesday, October 6, 2015.
+
+I believe our City’s planning process will be strengthened by creating new ways for Torontonians to learn 
+and contribute to the decisions that affect them.
+
+Toronto is an exciting place to live, and it’s important that we all have a hand in shaping it. 
+
+Whether you are new to Toronto or a long-time resident, I sincerely hope you will volunteer to serve on 
+Toronto’s first Planning Review Panel.
+
+Sincerely,
+
+Jennifer Keesmaat
+
+Chief Planner and Executive Director
+Planning Division
+City of Toronto
+
+A MESSAGE FROM THE MAYOR OF TORONTO, JOHN TORY:  
+“We are all passionate about the city we live in and want the best for Toronto. The City is looking at more and 
+better ways of bringing you to the table when making decisions that affect you and your family. The Planning 
+Review Panel is an excellent, thoughtful and direct way for you to give City Hall the advice we need to make 
+good choices about the future of our city. Whether you just moved to the city or have lived here your entire life,  
+I encourage you to volunteer. Let’s work together to turn a good city into a truly great one.”
+
+How to register as a volunteer for the Toronto Planning Review Panel:
+
+There are three quick and easy ways you can register: 
+
+1.  Phone 1-844-711-8186 to register by phone (or ask questions about the selection process);
+2.  Complete the enclosed Candidate Response Card and mail it back using the enclosed envelope; or
+3.  Register securely online at www.toronto.ca/planning/tprp
+
+Please ensure you register in one of the above ways by Tuesday, October 6, 2015. If you are selected for the 
+Panel, you can expect a phone call on the evening of Wednesday, Oct 7, 2015. 
+
+The Planning Review Panel will meet on the following dates between 9:30 a.m. and 4:00 p.m.: October 17 and 31, and 
+November 14 and 28. You must be able to attend all of the sessions above and 10 of the 12 additional meetings held 
+from January 23, 2016 to November 18, 2017 (see the Frequently Asked Questions sheet for further details). Please check 
+and hold all dates until the evening of Wednesday, October 7, 2015, when the members of the Panel will be notified. 
+
+If you are unable to participate, please encourage members of your household 18 years of age or older to volunteer.
+
+Invitation Letter — Back Side. (Size: Letter)
+
+41
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Frequently Asked Questions
+Frequently Asked Questions
+Toronto Planning Review Panel
+Toronto Planning Review Panel
+
+What is a Planning Review Panel? 
+
+A Planning Review Panel is a group of residents 
+brought together to learn about, discuss, and provide 
+input to City Planning staff on important city planning 
+issues. Twenty-eight randomly selected Torontonians 
+will be appointed to the Panel as volunteers for two 
+years. The Panel will develop its input as a group and 
+will work to reflect the interests of all Torontonians. 
+
+What would be my role as a member of the 
+Planning Review Panel?
+
+Between October 2015 and November 2017, members 
+of the Planning Review Panel will meet 16 times. As a 
+member of the Panel you will:
+•  Learn first-hand about the city and its planning 
+
+process from independent experts as well as  
+City staff;
+
+•  Contribute your perspective and learn about the 
+
+Why have a Planning Review Panel in Toronto?
+
+views of others; and
+
+Toronto is changing fast. Each year 20,000 net new 
+residents make Toronto their home, and they all need 
+places to live, work, and play. This means we need to 
+build or upgrade new and existing buildings, public 
+spaces and infrastructure to meet the city’s changing 
+needs. The Planning Review Panel will be a new way 
+for residents to share their perspectives on how best 
+to direct this growth and change. The City of Toronto’s 
+Planning Division believes the input of residents 
+like you, and the expert knowledge you have about 
+the communities you live in, is essential for good 
+decision-making. The insights and local expertise of 
+the Panel will complement other forms of community 
+consultation and help to ensure that growth occurs in 
+ways that reflect the values and priorities of Toronto’s 
+residents.
+
+But I am not an expert — can I still be involved?
+
+Absolutely. We do not expect you to have any 
+specialized knowledge about city planning. Your 
+perspective and experience as a Toronto resident is 
+what matters most. Each member will have enough 
+time to learn everything they need to make an informed 
+contribution to the Planning Review Panel.
+
+What is the City of Toronto’s Planning Division? 
+
+The City Planning Division provides advice to City 
+Council that helps guide growth in neighbourhoods 
+across Toronto. We shape how the city looks and 
+feels, and develop plans that ensure residents can 
+work, live, play, and move throughout the city. We 
+review applications for new buildings; promote well-
+designed streets, parks and open spaces; guide how 
+buildings are located, organized, and shaped; plan 
+transportation; work to transform Toronto’s waterfront; 
+and undertake in-depth research used by other City 
+Divisions on land use, housing, community services, 
+and the environment.
+
+•  Provide input to the Planning Division on important 
+
+issues shaping the city.
+
+The Planning Division will request input from the 
+Planning Review Panel on issues such as transportation 
+plans, the desired density and character of different 
+neighbourhoods, the importance of historic buildings 
+and public art, and the location of new community 
+amenities like parks, libraries, and community centres. 
+
+What will be done with the Panel’s input?
+
+The Planning Review Panel is intended to be an 
+influential body and an important source of input that 
+will help the Planning Division provide effective advice 
+to City Council. The panel’s perspectives, insights, and 
+priorities will be referenced in reports to Council and 
+published on the City of Toronto’s website.
+
+How was I selected to receive this invitation?
+
+Your address was one of 12,000 households across 
+Toronto randomly selected by Canada Post to receive 
+this invitation. 
+
+Who is eligible to serve on the Planning  
+Review Panel? 
+
+To be a member of the Planning Review Panel you 
+must be 18 years of age or older and a current resident 
+of a household that received this letter. You do not 
+need to be a Canadian citizen to participate. Only one 
+volunteer per household will be eligible for membership 
+on the Planning Review Panel. Employees of the City of 
+Toronto, contractors working for the Planning Division, 
+members of other official City of Toronto Advisory 
+Bodies, as well as elected municipal, provincial, and 
+federal officials are ineligible to serve as members of 
+the Planning Review Panel.
+
+l
+
+P
+e
+a
+s
+e
+t
+u
+r
+n
+o
+v
+e
+r
+
+Å
+
+Deadline
+October 6
+Respond Today
+
+Frequently Asked Questions Sheet — Front Side. (Size: Legal)
+
+42
+
+ 
+ 
+ 
+Can anyone from my household volunteer?
+
+Yes. This invitation is transferable to anyone living in 
+your household. If you are unavailable, please pass this 
+invitation to any member of your household who is 18 
+years of age or older. 
+
+How will the members of the Planning Review 
+Panel be selected?
+
+Members will be chosen by randomly selecting names 
+from among the pool of volunteers who respond to 
+this letter — a process we call a Civic Lottery. We will 
+make sure the panel is as diverse as Toronto itself, with 
+equal representation of both men and women, as well 
+as people of all ages, homeowners and renters, and 
+people who identify as visible minorities. The Panel will 
+also include at least one Aboriginal member.
+
+How do I become a member of the Planning 
+Review Panel? 
+
+First, you must respond to this invitation no later than 
+Tuesday, October 6, 2015. You can register over the 
+phone at 1-844-711-8186, online at  
+toronto.ca/planning/tprp or by using the enclosed 
+prepaid envelope. Then, on Wednesday, October 7, 
+2015, we will randomly select members of the Planning 
+Review Panel from among those who have registered 
+as volunteers. If you are selected, you will be notified by 
+phone.
+
+I am unsure whether I can attend all sixteen 
+meetings, can I still volunteer?
+
+It is very important that all members of the Planning 
+Review Panel attend each meeting. We realize, 
+however, that this is a significant commitment. At 
+minimum, members must attend the four orientation 
+sessions this fall, and ten of the twelve meetings in 
+2016 and 2017. Please consider and confirm your ability 
+to participate before volunteering. 
+
+The four Saturday orientation sessions will run from 
+9:30 a.m. to 4:00 p.m. on the following dates. You must 
+be able to attend all four of these sessions: 
+
+October 17, 2015 
+October 31, 2015  
+
+November 14, 2015 
+November 28, 2015
+
+The twelve additional meetings of the Planning Review 
+Panel will run from 11:30 a.m. to 4:30 p.m. on the 
+following Saturdays. 
+
+You must be able to attend, at minimum, ten of the 
+twelve meetings:
+
+2016 Meetings:
+January 23, 2016
+April 2, 2016
+May 14, 2016
+September 10, 2016
+October 15, 2016
+November 26, 2016
+
+2017 Meetings:
+January 14, 2017
+March 4, 2017
+April 22, 2017
+June 10, 2017
+September 16, 2017
+November 18, 2017 
+
+Will I get paid to serve on the Planning  
+Review Panel? 
+
+We are asking you to donate your time and volunteer 
+as a member of the Panel. Lunches and snacks will 
+be provided, and basic travel costs, including parking, 
+will be reimbursed. Childcare and eldercare will be 
+made available (or an equivalent subsidy) if requested. 
+However, we do not provide an honorarium or any 
+additional compensation. There is no cost to participate.
+
+Will the Planning Review Panel have  
+translation services? 
+
+The Panel’s meetings will be in English and 
+simultaneous translation will not be available. 
+
+I have a physical disability. Can you assist me 
+in participating?
+
+If you would like to be a member of the Planning Review 
+Panel, but are concerned about potential barriers 
+to participating, please call 1-844-711-8186. We are 
+committed to assisting all members of the Planning 
+Review Panel so that they can participate successfully, 
+and will do our best to accommodate your needs.
+
+If I do not get chosen for the Planning Review 
+Panel, can I still be involved in  
+city government?
+
+Absolutely. The City of Toronto hosts a variety of public 
+consultations each year on a range of local and city-
+wide subjects. A list of upcoming consultations can be 
+found by visiting www.toronto.ca/involved and clicking 
+on “Consultations.” 
+
+How to register as a volunteer for the Toronto Planning Review Panel:
+
+There are three quick and easy ways you can register: 
+
+1.  Phone 1-844-711-8186 to register by phone (or ask questions about the selection process);
+2.  Complete the enclosed Candidate Response Card and mail it back using the enclosed envelope; or
+3.  Register securely online at www.toronto.ca/planning/tprp
+
+Please ensure you register in one of the above ways by Tuesday, October 6, 2015. If you are selected for the 
+Panel, you can expect a phone call on the evening of Wednesday, Oct 7, 2015. 
+
+The Planning Review Panel will meet on the following dates between 9:30 a.m. and 4:00 p.m.: October 17 and 31, and 
+November 14 and 28. You must be able to attend all of the sessions above and 10 of the 12 additional meetings held from 
+January 23, 2016 to November 18, 2017 (see the Frequently Asked Questions sheet for further details). Please check and 
+hold all dates until the evening of Wednesday, October 7, 2015, when the members of the Panel will be notified. 
+
+If you are unable to participate, please encourage members of your household 18 years of age or older to volunteer.
+
+Frequently Asked Questions Sheet — Back Side. (Size: Legal) 
+
+43
+
+ 
+ 
+ 
+ 
+ 
+Sources
+
+G. E. Bolton, J. Brandts, and A. Ockenfels. Fair procedures: 
+
+Evidence from games involving lotteries. The 
+Economic Journal, 115(506):1054–1076, 2005.
+
+T. G. Bouricius. Democracy through multi-body sortition: 
+Athenian lessons for the modern day. Journal of 
+Public Deliberation, 9(1), 2013.
+
+J. Gastil and P. J. Weiser. The jury and democracy: how 
+jury deliberation promotes civic engagement and 
+political participation. Oxford University Press, 
+Oxford, 2010.
+
+J. J. Gobert. Justice, democracy, and the jury. Ashgate/
+
+Dartmouth, Aldershot, 1997.
+
+J. Carroll. The jury as democracy. Alabama Law Review, 
+
+66:825, 2014.
+
+M. H. Hansen. The tradition of the Athenian democracy 
+AD 1750–1990. Greece & Rome, 39(1):14-30, 1992.
+
+L. Carson. The Australian Citizens’ Parliament and the 
+
+B. Hennig. New ways of looking at democracy. Board 
+
+future of deliberative democracy. Rhetoric and 
+democratic deliberation. Pennsylvania State 
+University Press, University Park, Pa., 2013.
+
+L. Carson and J. Hartz-Karp. Adapting and combining 
+deliberative designs: Juries, polls, and forums. The 
+deliberative democracy handbook: Strategies 
+for effective civic engagement in the Twenty-First 
+Century, pages 120–138, 2005.
+
+Leadership, 2016(146):1–3, 2016.
+
+I. R. Kaufman. A fair jury-the essence of justice. Judicature, 
+
+51:88, 1967.
+
+K. Kloby and M. J. D’Agostino. Citizen 2.0: public and 
+governmental interaction through Web 2.0 
+technologies. Information Science Reference, 
+Hershey, PA, 2012.
+
+C. Chwalisz. The people’s verdict: adding informed citizen 
+
+voices to public decision-making.
+
+A. A. Lockard. Decision by sortition: a means to reduce 
+rent-seeking. Public Choice, 116(3):435–451, 2003.
+
+S. Coleman, A. Przybylska, and Y. Sintomer. Deliberation 
+
+A. Malkopoulou. The paradox of democratic selection: 
+
+and democracy: innovative processes and institutions, 
+vol. 3 of Warsaw studies in politics and society edited 
+by Radoslaue Markowski. 1st ed.
+
+Is sortition better than voting. Parliamentarism and 
+Democratic Theory. Historical and Contemporary 
+Perspectives. Opladen/Toronto: Barbara Budrich 
+Publishers, pages 279–298, 2015.
+
+A. Coote and J. Lenaghan. Citizens’ juries: Theory into 
+practice. Institute for Public Policy Research, 1997.
+
+G. Delannoi and O. Dowlen. Sortition: Theory and 
+Practice, volume 3. Andrews UK Limited, 2016.
+
+O. Dowlen. Sorting out sortition: A perspective on the 
+
+random selection of political officers. Political Studies, 
+57(2):298–315, 2009.
+
+O. Dowlen. The political potential of sortition: A study 
+
+of the random selection of citizens for public office, 
+volume 4. Andrews UK Limited, 2017.
+
+T. Nabatchi and J. Gastil. Democracy in motion: 
+
+Evaluating the practice and impact of deliberative 
+civic engagement. Oxford University Press, 2012.
+
+O. Renn. Participatory processes for designing 
+
+environmental policies. Land Use Policy, 23(1):34–43, 
+2006.
+
+O. Renn, T. Webler, and P. Wiedemann. The pursuit of fair 
+and competent citizen participation. Fairness and 
+competence in citizen participation, pages 339–367, 
+1995.
+
+A. W. Dzur. Punishment, participatory democracy, and the 
+
+jury. Studies in penal theory and philosophy. Oxford 
+University Press, New York, 2012.
+
+O. Renn, T. Webler, and P. M. Wiedemann. Fairness and 
+competence in citizen participation: Evaluating 
+models for environmental discourse, volume 10. 
+Springer Science & Business Media, 1995.
+
+J. Gastil, E. P. Deess, P. J. Weiser, and C. Simmons. The 
+
+jury and democracy: How jury deliberation promotes 
+civic engagement and political participation. Oxford 
+University Press, 2010.
+
+S. W. Rosenberg. Deliberation, participation and 
+
+democracy: Can the people govern? Palgrave 
+Macmil- lan, Basingstke, 2007.
+
+J. Gastil and P. Levine. The deliberative democracy 
+
+handbook: Strategies for effective civic engagement 
+in the twenty-first century. Jossey-Bass San Francisco, 
+CA, 2005.
+
+Y. Sintomer. Random selection, republican self-
+government, and deliberative democracy. 
+Constellations, 17(3):472–487, 2010.
+
+[J. Gastil and P. J. Weiser. Jury service as an invitation 
+
+to citizenship: Assessing the civic value of 
+institutionalized deliberation. Policy Studies Journal, 
+34(4):605–627, 2006.
+
+G. Smith and C. Wales. Citizens’ juries and deliberative 
+democracy. Political studies, 48(1):51–65, 2000.
+
+P. Stone and D.-C. Welcome. Sortition and voting: A 
+
+theoretical framework. Deepening Democracy, 2012.
+
+44
+
+Reference Re Provincial Electoral Boundaries (Sask.), 
+
+K. Sutherland. What sortition can and cannot do. 2011.
+
+[1991] 2 S.C.R. 158, (sub nom. Reference Re Electoral 
+Boundaries Commission Act, ss. 14, 20 (Sask.)) 81 
+D.L.R. (4th) 16 [hereinafter Reference Re Provincial 
+Electoral Boundaries cited to S.C.R.].
+
+J. D. Trout. Why empathy matters: The science and 
+psychology of better judgment. Penguin, 2010.
+
+A. Vergne. A brief survey of the literature of sortition. 
+
+Sortition. Theory and practice, pages 69–87, 2010.
+
+Did we miss anything? Please share it with us. 
+
+chris@masslbp.com
+
+45
+
+ 
+—blank page—
+
+GNU Free 
+Documentation 
+License
+
+Version 1.3, 3 November 2008
+
+Copyright © 2000, 2001, 2002, 2007, 2008 Free 
+Software Foundation, Inc. <https://fsf.org/>
+
+Everyone is permitted to copy and distribute verbatim 
+copies of this license document, but changing it is not 
+allowed.
+
+0. PREAMBLE
+The purpose of this License is to make a manual, textbook, 
+or other functional and useful document “free” in the sense 
+of freedom: to assure everyone the effective freedom to 
+copy and redistribute it, with or without modifying it, either 
+commercially or noncommercially. Secondarily, this License 
+preserves for the author and publisher a way to get credit for 
+their work, while not being considered responsible for modifi-
+cations made by others.
+
+This License is a kind of “copyleft”, which means that derivative 
+works of the document must themselves be free in the same 
+sense. It complements the GNU General Public License, which 
+is a copyleft license designed for free software.
+
+We have designed this License in order to use it for man-
+uals for free software, because free software needs free 
+documentation: a free program should come with manuals 
+providing the same freedoms that the software does. But this 
+License is not limited to software manuals; it can be used for 
+any textual work, regardless of subject matter or whether it 
+is published as a printed book. We recommend this License 
+principally for works whose purpose is instruction or reference.
+
+1. APPLICABILITY AND DEFINITIONS
+This License applies to any manual or other work, in any medi-
+um, that contains a notice placed by the copyright holder say-
+ing it can be distributed under the terms of this License. Such 
+a notice grants a world-wide, royalty-free license, unlimited in 
+duration, to use that work under the conditions stated herein. 
+The “Document”, below, refers to any such manual or work. 
+Any member of the public is a licensee, and is addressed as 
+“you”. You accept the license if you copy, modify or distribute 
+the work in a way requiring permission under copyright law.
+
+A “Modified Version” of the Document means any work 
+containing the Document or a portion of it, either copied ver-
+batim, or with modifications and/or translated into another 
+language.
+
+A “Secondary Section” is a named appendix or a front-matter 
+47
+
+section of the Document that deals exclusively with the rela-
+tionship of the publishers or authors of the Document to the 
+Document’s overall subject (or to related matters) and con-
+tains nothing that could fall directly within that overall subject. 
+(Thus, if the Document is in part a textbook of mathematics, 
+a Secondary Section may not explain any mathematics.) The 
+relationship could be a matter of historical connection with 
+the subject or with related matters, or of legal, commercial, 
+philosophical, ethical or political position regarding them.
+
+The “Invariant Sections” are certain Secondary Sections 
+whose titles are designated, as being those of Invariant 
+Sections, in the notice that says that the Document is released 
+under this License. If a section does not fit the above defini-
+tion of Secondary then it is not allowed to be designated as 
+Invariant. The Document may contain zero Invariant Sections. 
+If the Document does not identify any Invariant Sections then 
+there are none.
+
+The “Cover Texts” are certain short passages of text that are 
+listed, as Front-Cover Texts or Back-Cover Texts, in the notice 
+that says that the Document is released under this License. A 
+Front-Cover Text may be at most 5 words, and a Back-Cover 
+Text may be at most 25 words.
+
+A “Transparent” copy of the Document means a ma-
+chine-readable copy, represented in a format whose 
+specification is available to the general public, that is suitable 
+for revising the document straightforwardly with generic 
+text editors or (for images composed of pixels) generic paint 
+programs or (for drawings) some widely available drawing 
+editor, and that is suitable for input to text formatters or for 
+automatic translation to a variety of formats suitable for input 
+to text formatters. A copy made in an otherwise Transparent 
+file format whose markup, or absence of markup, has been 
+arranged to thwart or discourage subsequent modification by 
+readers is not Transparent. An image format is not Transpar-
+ent if used for any substantial amount of text. A copy that is 
+not “Transparent” is called “Opaque”.
+
+Examples of suitable formats for Transparent copies include 
+plain ASCII without markup, Texinfo input format, LaTeX 
+input format, SGML or XML using a publicly available DTD, 
+and standard-conforming simple HTML, PostScript or PDF 
+designed for human modification. Examples of transparent 
+image formats include PNG, XCF and JPG. Opaque formats 
+include proprietary formats that can be read and edited only 
+by proprietary word processors, SGML or XML for which the 
+DTD and/or processing tools are not generally available, and 
+the machine-generated HTML, PostScript or PDF produced by 
+some word processors for output purposes only.
+
+The “Title Page” means, for a printed book, the title page itself, 
+plus such following pages as are needed to hold, legibly, the 
+material this License requires to appear in the title page. For 
+works in formats which do not have any title page as such, 
+“Title Page” means the text near the most prominent appear-
+ance of the work’s title, preceding the beginning of the body 
+of the text.
+
+The “publisher” means any person or entity that distributes 
+
+copies of the Document to the public.
+
+A section “Entitled XYZ” means a named subunit of the 
+Document whose title either is precisely XYZ or contains XYZ 
+in parentheses following text that translates XYZ in another 
+language. (Here XYZ stands for a specific section name men-
+tioned below, such as “Acknowledgements”, “Dedications”, 
+“Endorsements”, or “History”.) To “Preserve the Title” of such a 
+section when you modify the Document means that it remains 
+a section “Entitled XYZ” according to this definition.
+
+The Document may include Warranty Disclaimers next to the 
+notice which states that this License applies to the Document. 
+These Warranty Disclaimers are considered to be included by 
+reference in this License, but only as regards disclaiming war-
+ranties: any other implication that these Warranty Disclaimers 
+may have is void and has no effect on the meaning of this 
+License.
+
+2. VERBATIM COPYING
+You may copy and distribute the Document in any medium, 
+either commercially or noncommercially, provided that this Li-
+cense, the copyright notices, and the license notice saying this 
+License applies to the Document are reproduced in all copies, 
+and that you add no other conditions whatsoever to those of 
+this License. You may not use technical measures to obstruct 
+or control the reading or further copying of the copies you 
+make or distribute. However, you may accept compensation in 
+exchange for copies. If you distribute a large enough number 
+of copies you must also follow the conditions in section 3.
+
+You may also lend copies, under the same conditions stated 
+above, and you may publicly display copies.
+
+3. COPYING IN QUANTITY
+If you publish printed copies (or copies in media that com-
+monly have printed covers) of the Document, numbering 
+more than 100, and the Document’s license notice requires 
+Cover Texts, you must enclose the copies in covers that carry, 
+clearly and legibly, all these Cover Texts: Front-Cover Texts on 
+the front cover, and Back-Cover Texts on the back cover. Both 
+covers must also clearly and legibly identify you as the pub-
+lisher of these copies. The front cover must present the full title 
+with all words of the title equally prominent and visible. You 
+may add other material on the covers in addition. Copying 
+with changes limited to the covers, as long as they preserve 
+the title of the Document and satisfy these conditions, can be 
+treated as verbatim copying in other respects.
+
+If the required texts for either cover are too voluminous to 
+fit legibly, you should put the first ones listed (as many as fit 
+reasonably) on the actual cover, and continue the rest onto 
+adjacent pages.
+
+If you publish or distribute Opaque copies of the Document 
+numbering more than 100, you must either include a ma-
+chine-readable Transparent copy along with each Opaque 
+copy, or state in or with each Opaque copy a computer-net-
+work location from which the general network-using public 
+
+• 
+
+48
+
+has access to download using public-standard network 
+protocols a complete Transparent copy of the Document, 
+free of added material. If you use the latter option, you must 
+take reasonably prudent steps, when you begin distribution 
+of Opaque copies in quantity, to ensure that this Transparent 
+copy will remain thus accessible at the stated location until at 
+least one year after the last time you distribute an Opaque 
+copy (directly or through your agents or retailers) of that 
+edition to the public.
+
+It is requested, but not required, that you contact the authors 
+of the Document well before redistributing any large number 
+of copies, to give them a chance to provide you with an updat-
+ed version of the Document.
+
+4. MODIFICATIONS
+You may copy and distribute a Modified Version of the 
+Document under the conditions of sections 2 and 3 above, 
+provided that you release the Modified Version under pre-
+cisely this License, with the Modified Version filling the role of 
+the Document, thus licensing distribution and modification 
+of the Modified Version to whoever possesses a copy of it. In 
+addition, you must do these things in the Modified Version:
+
+•  A. Use in the Title Page (and on the covers, if any) a title 
+distinct from that of the Document, and from those of 
+previous versions (which should, if there were any, be 
+listed in the History section of the Document). You may 
+use the same title as a previous version if the original 
+publisher of that version gives permission.
+B. List on the Title Page, as authors, one or more persons 
+or entities responsible for authorship of the modifications 
+in the Modified Version, together with at least five of the 
+principal authors of the Document (all of its principal 
+authors, if it has fewer than five), unless they release you 
+from this requirement.
+
+• 
+
+•  C. State on the Title page the name of the publisher of 
+
+the Modified Version, as the publisher.
+
+•  D. Preserve all the copyright notices of the Document.
+• 
+
+E. Add an appropriate copyright notice for your modifica-
+tions adjacent to the other copyright notices.
+F. Include, immediately after the copyright notices, a 
+license notice giving the public permission to use the 
+Modified Version under the terms of this License, in the 
+form shown in the Addendum below.
+
+• 
+
+•  G. Preserve in that license notice the full lists of Invariant 
+Sections and required Cover Texts given in the Docu-
+ment’s license notice.
+
+•  H. Include an unaltered copy of this License.
+• 
+
+I. Preserve the section Entitled “History”, Preserve its Title, 
+and add to it an item stating at least the title, year, new 
+authors, and publisher of the Modified Version as given 
+on the Title Page. If there is no section Entitled “History” in 
+the Document, create one stating the title, year, authors, 
+and publisher of the Document as given on its Title Page, 
+then add an item describing the Modified Version as 
+stated in the previous sentence.
+J. Preserve the network location, if any, given in the Doc-
+ument for public access to a Transparent copy of the Doc-
+
+ument, and likewise the network locations given in the 
+Document for previous versions it was based on. These 
+may be placed in the “History” section. You may omit a 
+network location for a work that was published at least 
+four years before the Document itself, or if the original 
+publisher of the version it refers to gives permission.
+K. For any section Entitled “Acknowledgements” or “Ded-
+ications”, Preserve the Title of the section, and preserve 
+in the section all the substance and tone of each of the 
+contributor acknowledgements and/or dedications 
+given therein.
+L. Preserve all the Invariant Sections of the Document, 
+unaltered in their text and in their titles. Section numbers 
+or the equivalent are not considered part of the section 
+titles.
+
+• 
+
+• 
+
+•  M. Delete any section Entitled “Endorsements”. Such a 
+
+section may not be included in the Modified Version.
+
+•  N. Do not retitle any existing section to be Entitled 
+
+“Endorsements” or to conflict in title with any Invariant 
+Section.
+
+•  O. Preserve any Warranty Disclaimers.
+
+If the Modified Version includes new front-matter sections or 
+appendices that qualify as Secondary Sections and contain 
+no material copied from the Document, you may at your 
+option designate some or all of these sections as invariant. 
+To do this, add their titles to the list of Invariant Sections in the 
+Modified Version’s license notice. These titles must be distinct 
+from any other section titles.
+
+You may add a section Entitled “Endorsements”, provided it 
+contains nothing but endorsements of your Modified Version 
+by various parties—for example, statements of peer review or 
+that the text has been approved by an organization as the 
+authoritative definition of a standard.
+
+You may add a passage of up to five words as a Front-Cover 
+Text, and a passage of up to 25 words as a Back-Cover Text, to 
+the end of the list of Cover Texts in the Modified Version. Only 
+one passage of Front-Cover Text and one of Back-Cover Text 
+may be added by (or through arrangements made by) any 
+one entity. If the Document already includes a cover text for 
+the same cover, previously added by you or by arrangement 
+made by the same entity you are acting on behalf of, you may 
+not add another; but you may replace the old one, on explicit 
+permission from the previous publisher that added the old 
+one.
+
+The author(s) and publisher(s) of the Document do not by this 
+License give permission to use their names for publicity for or 
+to assert or imply endorsement of any Modified Version.
+
+The combined work need only contain one copy of this 
+License, and multiple identical Invariant Sections may be 
+replaced with a single copy. If there are multiple Invariant 
+Sections with the same name but different contents, make 
+the title of each such section unique by adding at the end of 
+it, in parentheses, the name of the original author or publisher 
+of that section if known, or else a unique number. Make the 
+same adjustment to the section titles in the list of Invariant 
+Sections in the license notice of the combined work.
+
+In the combination, you must combine any sections Entitled 
+“History” in the various original documents, forming one sec-
+tion Entitled “History”; likewise combine any sections Entitled 
+“Acknowledgements”, and any sections Entitled “Dedications”. 
+You must delete all sections Entitled “Endorsements”.
+
+6. COLLECTIONS OF DOCUMENTS
+You may make a collection consisting of the Document and 
+other documents released under this License, and replace 
+the individual copies of this License in the various documents 
+with a single copy that is included in the collection, provided 
+that you follow the rules of this License for verbatim copying of 
+each of the documents in all other respects.
+
+You may extract a single document from such a collection, 
+and distribute it individually under this License, provided you 
+insert a copy of this License into the extracted document, and 
+follow this License in all other respects regarding verbatim 
+copying of that document.
+
+7. AGGREGATION WITH 
+INDEPENDENT WORKS
+A compilation of the Document or its derivatives with other 
+separate and independent documents or works, in or on 
+a volume of a storage or distribution medium, is called an 
+“aggregate” if the copyright resulting from the compilation 
+is not used to limit the legal rights of the compilation’s users 
+beyond what the individual works permit. When the Docu-
+ment is included in an aggregate, this License does not apply 
+to the other works in the aggregate which are not themselves 
+derivative works of the Document.
+
+If the Cover Text requirement of section 3 is applicable to 
+these copies of the Document, then if the Document is less 
+than one half of the entire aggregate, the Document’s Cover 
+Texts may be placed on covers that bracket the Document 
+within the aggregate, or the electronic equivalent of covers 
+if the Document is in electronic form. Otherwise they must 
+appear on printed covers that bracket the whole aggregate.
+
+5. COMBINING DOCUMENTS
+You may combine the Document with other documents 
+released under this License, under the terms defined in section 
+4 above for modified versions, provided that you include in the 
+combination all of the Invariant Sections of all of the original 
+documents, unmodified, and list them all as Invariant Sections 
+of your combined work in its license notice, and that you pre-
+serve all their Warranty Disclaimers.
+
+8. TRANSLATION
+Translation is considered a kind of modification, so you may 
+distribute translations of the Document under the terms 
+of section 4. Replacing Invariant Sections with translations 
+requires special permission from their copyright holders, but 
+you may include translations of some or all Invariant Sections 
+in addition to the original versions of these Invariant Sections. 
+You may include a translation of this License, and all the 
+license notices in the Document, and any Warranty Disclaim-
+
+49
+
+ers, provided that you also include the original English version 
+of this License and the original versions of those notices and 
+disclaimers. In case of a disagreement between the trans-
+lation and the original version of this License or a notice or 
+disclaimer, the original version will prevail.
+
+If a section in the Document is Entitled “Acknowledgements”, 
+“Dedications”, or “History”, the requirement (section 4) to 
+Preserve its Title (section 1) will typically require changing the 
+actual title.
+
+9. TERMINATION
+You may not copy, modify, sublicense, or distribute the Doc-
+ument except as expressly provided under this License. Any 
+attempt otherwise to copy, modify, sublicense, or distribute it 
+is void, and will automatically terminate your rights under this 
+License.
+
+However, if you cease all violation of this License, then your 
+license from a particular copyright holder is reinstated (a) 
+provisionally, unless and until the copyright holder explicitly 
+and finally terminates your license, and (b) permanently, if the 
+copyright holder fails to notify you of the violation by some 
+reasonable means prior to 60 days after the cessation.
+
+Moreover, your license from a particular copyright holder is 
+reinstated permanently if the copyright holder notifies you of 
+the violation by some reasonable means, this is the first time 
+you have received notice of violation of this License (for any 
+work) from that copyright holder, and you cure the violation 
+prior to 30 days after your receipt of the notice.
+
+Termination of your rights under this section does not termi-
+nate the licenses of parties who have received copies or rights 
+from you under this License. If your rights have been terminat-
+ed and not permanently reinstated, receipt of a copy of some 
+or all of the same material does not give you any rights to use 
+it.
+
+10. FUTURE REVISIONS OF THIS LICENSE
+The Free Software Foundation may publish new, revised 
+versions of the GNU Free Documentation License from time 
+to time. Such new versions will be similar in spirit to the present 
+version, but may differ in detail to address new problems or 
+
+concerns. See https://www.gnu.org/licenses/.
+
+Each version of the License is given a distinguishing version 
+number. If the Document specifies that a particular numbered 
+version of this License “or any later version” applies to it, you 
+have the option of following the terms and conditions either 
+of that specified version or of any later version that has been 
+published (not as a draft) by the Free Software Foundation. 
+If the Document does not specify a version number of this 
+License, you may choose any version ever published (not as 
+a draft) by the Free Software Foundation. If the Document 
+specifies that a proxy can decide which future versions of this 
+License can be used, that proxy’s public statement of accep-
+tance of a version permanently authorizes you to choose that 
+version for the Document.
+
+11. RELICENSING
+“Massive Multiauthor Collaboration Site” (or “MMC Site”) 
+means any World Wide Web server that publishes copyright-
+able works and also provides prominent facilities for anybody 
+to edit those works. A public wiki that anybody can edit is an 
+example of such a server. A “Massive Multiauthor Collab-
+oration” (or “MMC”) contained in the site means any set of 
+copyrightable works thus published on the MMC site.
+
+“CC-BY-SA” means the Creative Commons Attribution-Share 
+Alike 3.0 license published by Creative Commons Corpo-
+ration, a not-for-profit corporation with a principal place of 
+business in San Francisco, California, as well as future copyleft 
+versions of that license published by that same organization.
+
+“Incorporate” means to publish or republish a Document, in 
+whole or in part, as part of another Document.
+
+An MMC is “eligible for relicensing” if it is licensed under this 
+License, and if all works that were first published under this 
+License somewhere other than this MMC, and subsequently 
+incorporated in whole or in part into the MMC, (1) had no cov-
+er texts or invariant sections, and (2) were thus incorporated 
+prior to November 1, 2008.
+
+The operator of an MMC Site may republish an MMC 
+contained in the site under CC-BY-SA on the same site at any 
+time before August 1, 2009, provided the MMC is eligible for 
+relicensing.
+
+50
+
+How to run a Civic Lottery: 
+
+Designing fair selection mechanisms 
+for deliberative public processes
+
+
