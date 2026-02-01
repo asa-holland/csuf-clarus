@@ -1,0 +1,30 @@
+# README
+
+These documents were downloaded from the following link on 2026/01/31:
+
+
+- [Apache License 2.0 Text](https://www.apache.org/licenses/LICENSE-2.0.txt)
+- [Arizona Driver License Manual](https://apps.azdot.gov/files/mvd/mvd-forms-lib/99-0117.pdf)
+- [Bagley-Keene Open Meeting Act Guide](https://www.dca.ca.gov/publications/bagleykeene_meetingact.pdf)
+- [California Driver Handbook](https://www.dmv.ca.gov/web/eng_pdf/dl600.pdf)
+- [CC Guide for Scholarly Publications](https://zenodo.org/records/13691572/files/Creative%20Commons%20guide_24_final.pdf?download=1)
+- [CERN OHL](https://gitlab.com/ohwr/project/cernohl/-/wikis/uploads/3eff4154d05e7a0459f3ddbf0674cae4/cern_ohl_p_v2.txt)
+- [Creative Commons Style Guide 2019](https://creativecommons.org/wp-content/uploads/2019/10/Creative-Commons-Style-Guide-2019.pdf)
+- [Debian Policy Manual](https://www.debian.org/doc/debian-policy/policy.pdf)
+- [EPA Risk Characterization Handbook](https://downloads.regulations.gov/EPA-HQ-OAR-2002-0083-0835/content.pdf)
+- [Federal Register – BIS Rules](https://downloads.regulations.gov/BIS-2024-0005-0160/content.pdf)
+- [Federal Register – DHS Rules](https://downloads.regulations.gov/DHS-2024-0033-0001/content.pdf)
+- [FFIEC Customer Identification Program Manual](https://www.fdic.gov/news/financial-institution-letters/2021/fil21012b.pdf)
+- [GNU Free Documentation License v1.3](https://www.gnu.org/licenses/fdl-1.3.txt)
+- [Hedgemony: A Game of Strategic Choices – Rulebook](https://www.rand.org/content/dam/rand/pubs/tools/TL300/TL301/RAND_TL301.rulebook.pdf)
+- [NIH Grants Policy Statement](https://grants.nih.gov/grants/policy/nihgps/nihgps.pdf)
+- [NOAA Regulations.gov Attachment](https://downloads.regulations.gov/NOAA-HQ-2023-0146-0033/attachment_9.pdf)
+- [Open Content – Practical Guide to CC Licences](https://www.panoraveille.com/content/files/2022/04/Open_Content_-_A_Practical_Guide_to_Using_Creative_Commons_Licences.pdf)
+- [Regulations.gov OMB Guidance PDF](https://downloads.regulations.gov/OMB-2021-0005-0454/attachment_4.pdf)
+- [RFC 1034 – DNS Standard](https://www.rfc-editor.org/rfc/rfc1034.txt)
+- [RFC 2460 – IPv6 Specification](https://www.rfc-editor.org/rfc/rfc2460.txt)
+- [RFC 2616 – HTTP/1.1](https://www.rfc-editor.org/rfc/rfc2616.txt)
+- [RFC 5321 – SMTP](https://www.rfc-editor.org/rfc/rfc5321.txt)
+- [RFC 7540 – HTTP/2](https://www.rfc-editor.org/rfc/rfc7540.txt)
+- [RFC 793 – TCP Standard](https://www.rfc-editor.org/rfc/rfc793.txt)
+- [RFC 8446 – TLS 1.3](https://www.rfc-editor.org/rfc/rfc8446.txt)
