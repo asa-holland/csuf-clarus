@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Analysis Pipeline</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pipeline.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-nav">
+                <h1>🔍 Document Analysis Pipeline</h1>
+                <nav>
+                    <a href="/" class="nav-link">📄 Extractor</a>
+                    <a href="/pipeline" class="nav-link active">Analysis Pipeline</a>
+                </nav>
+            </div>
+            <p>Complete document processing: preprocessing → semantic extraction → terminology analysis → contradiction detection</p>
+        </header>
+
+        <section class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <div class="upload-text">Drop your document here or click to browse</div>
+                <div class="upload-subtext">Supports: PDF, DOCX, HTML, TXT (Max 16MB)</div>
+                <input type="file" id="fileInput" accept=".pdf,.docx,.html,.htm,.txt">
+            </div>
+
+            <div class="file-info" id="fileInfo">
+                <strong>Selected file:</strong> <span id="fileName"></span>
+                <br>
+                <strong>Size:</strong> <span id="fileSize"></span>
+            </div>
+
+            <button class="process-btn" id="processBtn" disabled>🚀 Start Analysis Pipeline</button>
+        </section>
+
+        <div class="error" id="errorDiv"></div>
+        <div class="success" id="successDiv"></div>
+
+        <div class="loading" id="loadingDiv">
+            <div class="spinner"></div>
+            <p id="loadingText">Processing document...</p>
+        </div>
+
+        <section class="pipeline-section" id="pipelineSection">
+            <div class="pipeline-header">
+                <h2>🔄 Analysis Pipeline</h2>
+                <div class="pipeline-progress">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0/4 stages completed</span>
+                </div>
+            </div>
+
+            <div class="pipeline-stages">
+                <div class="stage" id="stage-preprocessing">
+                    <div class="stage-header" onclick="toggleStage('preprocessing')">
+                        <div class="stage-info">
+                            <div class="stage-icon">📄</div>
+                            <div class="stage-title">
+                                <h3>Document Preprocessing</h3>
+                                <span class="stage-status" id="status-preprocessing">Pending</span>
+                            </div>
+                        </div>
+                        <div class="stage-toggle">▼</div>
+                    </div>
+                    <div class="stage-content" id="content-preprocessing">
+                        <div class="stage-results">
+                            <div class="metadata-grid" id="preprocessing-metadata"></div>
+                            <div class="text-preview">
+                                <h4>Extracted Text Preview</h4>
+                                <div class="text-output" id="preprocessing-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage" id="stage-processing">
+                    <div class="stage-header" onclick="toggleStage('processing')">
+                        <div class="stage-info">
+                            <div class="stage-icon">🔧</div>
+                            <div class="stage-title">
+                                <h3>Document Processing & Segmentation</h3>
+                                <span class="stage-status" id="status-processing">Pending</span>
+                            </div>
+                        </div>
+                        <div class="stage-toggle">▼</div>
+                    </div>
+                    <div class="stage-content" id="content-processing">
+                        <div class="stage-results">
+                            <div class="processing-stats" id="processing-stats"></div>
+                            <div class="segments-container" id="segments-container"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage" id="stage-semantic">
+                    <div class="stage-header" onclick="toggleStage('semantic')">
+                        <div class="stage-info">
+                            <div class="stage-icon">🧠</div>
+                            <div class="stage-title">
+                                <h3>Semantic Extraction</h3>
+                                <span class="stage-status" id="status-semantic">Pending</span>
+                            </div>
+                        </div>
+                        <div class="stage-toggle">▼</div>
+                    </div>
+                    <div class="stage-content" id="content-semantic">
+                        <div class="stage-results">
+                            <div class="semantic-overview" id="semantic-overview"></div>
+                            <div class="semantic-profiles" id="semantic-profiles"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage" id="stage-analysis">
+                    <div class="stage-header" onclick="toggleStage('analysis')">
+                        <div class="stage-info">
+                            <div class="stage-icon">⚖️</div>
+                            <div class="stage-title">
+                                <h3>Terminology & Contradiction Analysis</h3>
+                                <span class="stage-status" id="status-analysis">Pending</span>
+                            </div>
+                        </div>
+                        <div class="stage-toggle">▼</div>
+                    </div>
+                    <div class="stage-content" id="content-analysis">
+                        <div class="analysis-tabs">
+                            <button class="tab-btn active" onclick="switchTab('terminology')">📚 Terminology</button>
+                            <button class="tab-btn" onclick="switchTab('contradictions')">⚠️ Contradictions</button>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="terminology-tab">
+                                <div class="terminology-results" id="terminology-results"></div>
+                            </div>
+                            <div class="tab-pane" id="contradictions-tab">
+                                <div class="contradictions-results" id="contradictions-results"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="export-section" id="exportSection" style="display: none;">
+            <h2>📥 Export Results</h2>
+            <div class="export-buttons">
+                <button class="export-btn" onclick="exportResults('json')">
+                    📄 Export Full Report (JSON)
+                </button>
+                <button class="export-btn" onclick="exportResults('csv')">
+                    📊 Export Statistics (CSV)
+                </button>
+                <button class="export-btn" onclick="exportResults('pdf')">
+                    📋 Export Summary (PDF)
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let analysisResults = {};
+        let completedStages = 0;
+
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const processBtn = document.getElementById('processBtn');
+        const loadingDiv = document.getElementById('loadingDiv');
+        const loadingText = document.getElementById('loadingText');
+        const pipelineSection = document.getElementById('pipelineSection');
+        const errorDiv = document.getElementById('errorDiv');
+        const successDiv = document.getElementById('successDiv');
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            fileInfo.classList.add('active');
+            processBtn.disabled = false;
+            hideMessages();
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        processBtn.addEventListener('click', async () => {
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            hideMessages();
+            resetPipeline();
+            loadingDiv.classList.add('active');
+            pipelineSection.classList.add('active');
+
+            try {
+                updateLoadingText('Preprocessing document...');
+                await runPreprocessing(file);
+                updateStageStatus('preprocessing', 'completed');
+                updateProgress(1);
+
+                updateLoadingText('Processing and segmenting document...');
+                await runDocumentProcessing();
+                updateStageStatus('processing', 'completed');
+                updateProgress(2);
+
+                updateLoadingText('Extracting semantic information...');
+                await runSemanticExtraction();
+                updateStageStatus('semantic', 'completed');
+                updateProgress(3);
+
+                updateLoadingText('Analyzing terminology and contradictions...');
+                await runAnalysis();
+                updateStageStatus('analysis', 'completed');
+                updateProgress(4);
+
+                showSuccess('Document analysis completed successfully!');
+                document.getElementById('exportSection').style.display = 'block';
+
+            } catch (error) {
+                showError('Analysis failed: ' + error.message);
+            } finally {
+                loadingDiv.classList.remove('active');
+            }
+        });
+
+        async function runPreprocessing(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+            if (!result.success) {
+                throw new Error(result.error || 'Preprocessing failed');
+            }
+
+            analysisResults.preprocessing = result;
+            displayPreprocessingResults(result);
+        }
+
+        async function runDocumentProcessing() {
+            const response = await fetch('/process-document', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: analysisResults.preprocessing.text })
+            });
+
+            const result = await response.json();
+            if (!result.success) {
+                throw new Error(result.error || 'Document processing failed');
+            }
+
+            analysisResults.processing = result;
+            displayProcessingResults(result);
+        }
+
+        async function runSemanticExtraction() {
+            const response = await fetch('/extract-semantics', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ segments: analysisResults.processing.segments })
+            });
+
+            const result = await response.json();
+            if (!result.success) {
+                throw new Error(result.error || 'Semantic extraction failed');
+            }
+
+            analysisResults.semantic = result;
+            displaySemanticResults(result);
+        }
+
+        async function runAnalysis() {
+            const response = await fetch('/analyze-document', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    text: analysisResults.preprocessing.text,
+                    segments: analysisResults.processing.segments
+                })
+            });
+
+            const result = await response.json();
+            if (!result.success) {
+                throw new Error(result.error || 'Analysis failed');
+            }
+
+            analysisResults.analysis = result;
+            displayAnalysisResults(result);
+        }
+
+        function displayPreprocessingResults(result) {
+            const metadataDiv = document.getElementById('preprocessing-metadata');
+            metadataDiv.innerHTML = '';
+
+            const metadataItems = [
+                { key: 'Original Filename', value: result.metadata.original_filename },
+                { key: 'File Size', value: formatFileSize(result.metadata.file_size) },
+                { key: 'Format', value: result.metadata.format },
+                { key: 'Text Length', value: result.metadata.text_length.toLocaleString() + ' characters' },
+                { key: 'Processed At', value: new Date(result.metadata.processed_at).toLocaleString() }
+            ];
+
+            metadataItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'metadata-item';
+                div.innerHTML = `
+                    <span class="metadata-label">${item.key}:</span>
+                    <span class="metadata-value">${item.value}</span>
+                `;
+                metadataDiv.appendChild(div);
+            });
+
+            const textDiv = document.getElementById('preprocessing-text');
+            textDiv.textContent = result.text.substring(0, 1000) + (result.text.length > 1000 ? '...' : '');
+        }
+
+        function displayProcessingResults(result) {
+            const statsDiv = document.getElementById('processing-stats');
+            const stats = result.processing_stats;
+
+            statsDiv.innerHTML = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.total_segments}</div>
+                        <div class="stat-label">Total Segments</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.normative_segments}</div>
+                        <div class="stat-label">Normative</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.informative_segments}</div>
+                        <div class="stat-label">Informative</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.high_confidence_segments}</div>
+                        <div class="stat-label">High Confidence</div>
+                    </div>
+                </div>
+            `;
+
+            const segmentsDiv = document.getElementById('segments-container');
+            segmentsDiv.innerHTML = '<h4>Document Segments</h4>';
+
+            result.segments.slice(0, 5).forEach((segment, index) => {
+                const segmentDiv = document.createElement('div');
+                segmentDiv.className = `segment-item ${segment.element_type}`;
+                segmentDiv.innerHTML = `
+                    <div class="segment-header">
+                        <span class="segment-type">${segment.element_type}</span>
+                        <span class="segment-confidence">Confidence: ${(segment.confidence * 100).toFixed(1)}%</span>
+                    </div>
+                    <div class="segment-text">${segment.text}</div>
+                `;
+                segmentsDiv.appendChild(segmentDiv);
+            });
+        }
+
+        function displaySemanticResults(result) {
+            const overviewDiv = document.getElementById('semantic-overview');
+            overviewDiv.innerHTML = `
+                <div class="semantic-stats">
+                    <div class="semantic-stat">
+                        <span class="stat-number">${result.total_profiles}</span>
+                        <span class="stat-label">Semantic Profiles</span>
+                    </div>
+                    <div class="semantic-stat">
+                        <span class="stat-number">${result.avg_confidence ? (result.avg_confidence * 100).toFixed(1) + '%' : 'N/A'}</span>
+                        <span class="stat-label">Avg Confidence</span>
+                    </div>
+                </div>
+            `;
+
+            const profilesDiv = document.getElementById('semantic-profiles');
+            profilesDiv.innerHTML = '<h4>Semantic Profiles</h4>';
+
+            if (result.profiles) {
+                result.profiles.slice(0, 3).forEach((profile, index) => {
+                    const profileDiv = document.createElement('div');
+                    profileDiv.className = 'semantic-profile';
+                    profileDiv.innerHTML = `
+                        <div class="profile-header">Profile ${index + 1}</div>
+                        <div class="profile-details">
+                            ${profile.modality ? `<div><strong>Modality:</strong> ${profile.modality}</div>` : ''}
+                            ${profile.subject ? `<div><strong>Subject:</strong> ${profile.subject}</div>` : ''}
+                            ${profile.object ? `<div><strong>Object:</strong> ${profile.object}</div>` : ''}
+                            ${profile.condition ? `<div><strong>Condition:</strong> ${profile.condition}</div>` : ''}
+                            ${profile.temporal ? `<div><strong>Temporal:</strong> ${profile.temporal}</div>` : ''}
+                            ${profile.negation ? `<div><strong>Negation:</strong> ${profile.negation}</div>` : ''}
+                        </div>
+                    `;
+                    profilesDiv.appendChild(profileDiv);
+                });
+            }
+        }
+
+        function displayAnalysisResults(result) {
+            const terminologyDiv = document.getElementById('terminology-results');
+            if (result.terminology) {
+                terminologyDiv.innerHTML = `
+                    <div class="terminology-stats">
+                        <div class="term-stat">
+                            <span class="stat-number">${result.terminology.statistics?.defined_terms || 0}</span>
+                            <span class="stat-label">Defined Terms</span>
+                        </div>
+                        <div class="term-stat">
+                            <span class="stat-number">${result.terminology.statistics?.undefined_terms || 0}</span>
+                            <span class="stat-label">Undefined Terms</span>
+                        </div>
+                    </div>
+                    <div class="terms-list">
+                        <h5>Sample Terms</h5>
+                        ${result.terminology.term_occurrences?.slice(0, 5).map(occ =>
+                            `<div class="term-item">${occ.term} ${occ.is_defined ? '✓' : '?'}</div>`
+                        ).join('') || '<p>No terms found</p>'}
+                    </div>
+                `;
+            }
+
+            const contradictionsDiv = document.getElementById('contradictions-results');
+            if (result.contradictions) {
+                contradictionsDiv.innerHTML = `
+                    <div class="contradictions-summary">
+                        <div class="contradiction-stat">
+                            <span class="stat-number">${result.contradictions.length}</span>
+                            <span class="stat-label">Contradictions Found</span>
+                        </div>
+                    </div>
+                    <div class="contradictions-list">
+                        ${result.contradictions.slice(0, 3).map((contradiction, index) => `
+                            <div class="contradiction-item">
+                                <div class="contradiction-header">
+                                    <span class="contradiction-type">${contradiction.contradiction_type}</span>
+                                    <span class="contradiction-confidence">Confidence: ${(contradiction.confidence * 100).toFixed(1)}%</span>
+                                </div>
+                                <div class="contradiction-text">
+                                    <div><strong>A:</strong> ${contradiction.statement_a}</div>
+                                    <div><strong>B:</strong> ${contradiction.statement_b}</div>
+                                </div>
+                                <div class="contradiction-explanation">${contradiction.explanation}</div>
+                            </div>
+                        `).join('') || '<p>No contradictions found</p>'}
+                    </div>
+                `;
+            }
+        }
+
+        function updateStageStatus(stage, status) {
+            const statusElement = document.getElementById(`status-${stage}`);
+            const stageElement = document.getElementById(`stage-${stage}`);
+
+            statusElement.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            stageElement.className = `stage ${status}`;
+        }
+
+        function updateProgress(completed) {
+            completedStages = completed;
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+
+            const percentage = (completed / 4) * 100;
+            progressFill.style.width = `${percentage}%`;
+            progressText.textContent = `${completed}/4 stages completed`;
+        }
+
+        function updateLoadingText(text) {
+            loadingText.textContent = text;
+        }
+
+        function toggleStage(stage) {
+            const content = document.getElementById(`content-${stage}`);
+            const toggle = document.querySelector(`#stage-${stage} .stage-toggle`);
+
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                toggle.textContent = '▼';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '▶';
+            }
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            document.getElementById(`${tab}-tab`).classList.add('active');
+        }
+
+        function resetPipeline() {
+            completedStages = 0;
+            analysisResults = {};
+            updateProgress(0);
+
+            ['preprocessing', 'processing', 'semantic', 'analysis'].forEach(stage => {
+                updateStageStatus(stage, 'pending');
+                document.getElementById(`content-${stage}`).style.display = 'block';
+                document.querySelector(`#stage-${stage} .stage-toggle`).textContent = '▼';
+            });
+
+            document.getElementById('preprocessing-metadata').innerHTML = '';
+            document.getElementById('preprocessing-text').textContent = '';
+            document.getElementById('processing-stats').innerHTML = '';
+            document.getElementById('segments-container').innerHTML = '';
+            document.getElementById('semantic-overview').innerHTML = '';
+            document.getElementById('semantic-profiles').innerHTML = '';
+            document.getElementById('terminology-results').innerHTML = '';
+            document.getElementById('contradictions-results').innerHTML = '';
+        }
+
+        function exportResults(format) {
+            showSuccess(`Exporting results as ${format.toUpperCase()}...`);
+        }
+
+        function showError(message) {
+            errorDiv.textContent = message;
+            errorDiv.classList.add('active');
+        }
+
+        function showSuccess(message) {
+            successDiv.textContent = message;
+            successDiv.classList.add('active');
+            setTimeout(() => {
+                successDiv.classList.remove('active');
+            }, 3000);
+        }
+
+        function hideMessages() {
+            errorDiv.classList.remove('active');
+            successDiv.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
