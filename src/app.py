@@ -5,8 +5,20 @@ from werkzeug.utils import secure_filename
 from datetime import datetime
 from clarus.steps.preprocess import extract_text_from_file, allowed_file
 from clarus.steps.corpus_operations import create_corpus_zip, preprocess_corpus_files
+from clarus.analysis.document_processor import DocumentProcessor
+from clarus.analysis.semantic_extractor import SemanticExtractor
+from clarus.analysis.terminology_analyzer import TerminologyAnalyzer
+from clarus.analysis.contradiction_analyzer import ContradictionDetector
 
-app = Flask(__name__)
+template_dir = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "clarus", "templates"
+)
+static_dir = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "clarus", "static"
+)
+
+app = Flask(__name__, template_folder=template_dir, static_folder=static_dir)
+
 app.config["MAX_CONTENT_LENGTH"] = 16 * 1024 * 1024  # 16MB max file size
 app.config["UPLOAD_FOLDER"] = "uploads"
 
@@ -16,6 +28,11 @@ os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 @app.route("/")
 def index():
     return render_template("index.html")
+
+
+@app.route("/pipeline")
+def pipeline():
+    return render_template("pipeline.html")
 
 
 @app.route("/upload", methods=["POST"])
@@ -105,6 +122,167 @@ def download_preprocessed():
         return send_file(
             zip_path, as_attachment=True, download_name="corpus_files_preprocessed.zip"
         )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/process-document", methods=["POST"])
+def process_document():
+    try:
+        data = request.get_json()
+        if not data or "text" not in data:
+            return jsonify({"error": "No text provided"}), 400
+
+        processor = DocumentProcessor()
+        result = processor.process_document(data["text"])
+
+        segments_data = []
+        for segment in result.segments:
+            segment_data = {
+                "text": segment.text,
+                "element_type": segment.element_type.value,
+                "section_number": segment.section_number,
+                "heading": segment.heading,
+                "start_line": segment.start_line,
+                "end_line": segment.end_line,
+                "confidence": segment.confidence,
+                "errors": segment.errors,
+            }
+
+            if segment.semantic_anchors:
+                segment_data["semantic_anchors"] = {
+                    "condition": segment.semantic_anchors.condition,
+                    "subject": segment.semantic_anchors.subject,
+                    "modality": segment.semantic_anchors.modality,
+                    "object": segment.semantic_anchors.object,
+                    "temporal": segment.semantic_anchors.temporal,
+                    "negation": segment.semantic_anchors.negation,
+                    "confidence": segment.semantic_anchors.confidence,
+                }
+
+            segments_data.append(segment_data)
+
+        return jsonify(
+            {
+                "success": True,
+                "segments": segments_data,
+                "processing_stats": result.processing_stats,
+                "metadata": result.metadata,
+            }
+        )
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/extract-semantics", methods=["POST"])
+def extract_semantics():
+    try:
+        data = request.get_json()
+        if not data or "segments" not in data:
+            return jsonify({"error": "No segments provided"}), 400
+
+        extractor = SemanticExtractor()
+        profiles = []
+        total_confidence = 0
+
+        for segment_data in data["segments"]:
+            if segment_data.get("element_type") == "normative":
+                profile = extractor.extract_semantic_profile(segment_data["text"])
+                profiles.append(
+                    {
+                        "original_sentence": profile.original_sentence,
+                        "confidence": profile.confidence,
+                        "modality": profile.modality.text if profile.modality else None,
+                        "condition": (
+                            profile.condition.text if profile.condition else None
+                        ),
+                        "subject": profile.subject.text if profile.subject else None,
+                        "object": profile.object.text if profile.object else None,
+                        "temporal": profile.temporal.text if profile.temporal else None,
+                        "negation": profile.negation.text if profile.negation else None,
+                    }
+                )
+                total_confidence += profile.confidence
+
+        avg_confidence = total_confidence / len(profiles) if profiles else 0
+
+        return jsonify(
+            {
+                "success": True,
+                "profiles": profiles,
+                "total_profiles": len(profiles),
+                "avg_confidence": avg_confidence,
+            }
+        )
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/analyze-document", methods=["POST"])
+def analyze_document():
+    try:
+        data = request.get_json()
+        if not data or "text" not in data:
+            return jsonify({"error": "No text provided"}), 400
+
+        terminology_analyzer = TerminologyAnalyzer()
+        contradiction_detector = ContradictionDetector(config={"enable_ml": False})
+
+        terminology_result = terminology_analyzer.analyze_document(data["text"])
+
+        terminology_data = {
+            "statistics": terminology_result.statistics,
+            "term_occurrences": [
+                {
+                    "term": occ.term,
+                    "normalized_term": occ.normalized_term,
+                    "is_defined": occ.is_defined,
+                    "sentence": occ.sentence,
+                }
+                for occ in terminology_result.term_occurrences
+            ],
+            "undefined_terms": [
+                {"term": occ.term, "sentence": occ.sentence}
+                for occ in terminology_result.undefined_terms
+            ],
+        }
+
+        normative_statements = []
+        if "segments" in data:
+            for segment in data["segments"]:
+                if segment.get("element_type") == "normative":
+                    normative_statements.append(segment["text"])
+        else:
+            processor = DocumentProcessor()
+            processed = processor.process_document(data["text"])
+            normative_segments = processor.get_normative_segments(processed)
+            normative_statements = [seg.text for seg in normative_segments]
+
+        contradictions = contradiction_detector.detect_contradictions(
+            normative_statements
+        )
+
+        contradictions_data = [
+            {
+                "contradiction_type": contra.contradiction_type.value,
+                "statement_a": contra.statement_a,
+                "statement_b": contra.statement_b,
+                "confidence": contra.confidence,
+                "explanation": contra.explanation,
+            }
+            for contra in contradictions
+        ]
+
+        return jsonify(
+            {
+                "success": True,
+                "terminology": terminology_data,
+                "contradictions": contradictions_data,
+            }
+        )
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
