@@ -28,10 +28,43 @@ header {
   text-align: center;
 }
 
-header h1 {
-  font-size: 2.5rem;
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 10px;
+}
+
+.header-nav h1 {
+  font-size: 2.5rem;
+  margin: 0;
   font-weight: 700;
+}
+
+.header-nav nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-link {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.nav-link.active {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 header p {
@@ -309,4 +342,26 @@ header p {
 h3 {
   margin-bottom: 15px;
   color: #1e293b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .header-nav h1 {
+    font-size: 2rem;
+  }
+
+  .header-nav nav {
+    justify-content: center;
+  }
+
+  .nav-link {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 }
