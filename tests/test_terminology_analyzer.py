@@ -35,12 +35,12 @@ class TestTerminologyAnalyzer:
     def analyzer(self, sample_glossary):
         return TerminologyAnalyzer(glossary=sample_glossary)
 
-    def test_initialization(self, analyzer, sample_glossary):
+    def test_should_initialize_analyzer_with_glossary(self, analyzer, sample_glossary):
         assert len(analyzer.glossary) == len(sample_glossary)
         assert "authentication" in analyzer.glossary
         assert "API" in analyzer.glossary
 
-    def test_add_glossary_entries(self, analyzer):
+    def test_should_add_glossary_entries(self, analyzer):
         new_entry = TermDefinition(
             preferred_form="encryption",
             definition="The process of encoding information.",
@@ -55,7 +55,7 @@ class TestTerminologyAnalyzer:
             == "The process of encoding information."
         )
 
-    def test_extract_candidate_terms(self, analyzer):
+    def test_should_extract_candidate_terms(self, analyzer):
         text = "The API requires secure authentication using OAuth 2.0."
         candidates = analyzer._extract_candidate_terms(text)
 
@@ -63,7 +63,7 @@ class TestTerminologyAnalyzer:
         for term in expected_terms:
             assert term in candidates
 
-    def test_analyze_document_defined_terms(self, analyzer):
+    def test_should_analyze_document_defined_terms(self, analyzer):
         text = """
         The system uses API for authentication. Users must authenticate
         using their credentials. The API supports OAuth 2.0.
@@ -77,7 +77,7 @@ class TestTerminologyAnalyzer:
             "authentication" in occ.term.lower() for occ in analysis.term_occurrences
         )
 
-    def test_analyze_document_undefined_terms(self, analyzer):
+    def test_should_analyze_document_undefined_terms(self, analyzer):
         """Test identification of undefined terms"""
         text = "The system uses JWT tokens for session management."
 
@@ -89,7 +89,7 @@ class TestTerminologyAnalyzer:
             "session management" in occ.term.lower() for occ in analysis.undefined_terms
         )
 
-    def test_extract_definitions(self, analyzer):
+    def test_should_extract_definitions(self, analyzer):
         text = """
         OAuth 2.0 is an authorization framework.
         JWT (JSON Web Token) is a compact token format.
@@ -104,7 +104,7 @@ class TestTerminologyAnalyzer:
         jwt_def = next(v for k, v in definitions.items() if k.lower() == "jwt")
         assert "JSON Web Token" in jwt_def.definition
 
-    def test_suggest_term_variants(self, analyzer):
+    def test_should_suggest_term_variants(self, analyzer):
         term = "access token"
         variants = analyzer.suggest_term_variants(term)
 
@@ -117,7 +117,7 @@ class TestTerminologyAnalyzer:
         assert any(v.is_acronym for v in variants)
         assert any(v.text == "AT" for v in variants)
 
-    def test_find_similar_terms(self, analyzer):
+    def test_should_find_similar_terms(self, analyzer):
         similar_terms = [
             TermDefinition("authentication", "Verification of identity", []),
             TermDefinition("authorization", "Permission granting", []),
@@ -132,7 +132,7 @@ class TestTerminologyAnalyzer:
         assert "authentication" in similar_terms
         assert "authenticate" in similar_terms
 
-    def test_term_frequency_calculation(self, analyzer):
+    def test_should_calculate_term_frequency(self, analyzer):
         text = """
         The API requires authentication. The authentication process
         uses tokens. The API is stateless.
@@ -145,7 +145,7 @@ class TestTerminologyAnalyzer:
         assert freq.get("authentication", 0) == 2
         assert freq.get("process", 0) == 1
 
-    def test_undefined_terms_ranking(self, analyzer):
+    def test_should_rank_undefined_terms(self, analyzer):
         text = """
         The system uses JWT tokens. JWT tokens are secure.
         The session timeout is 30 minutes. Session management is important.
@@ -165,7 +165,7 @@ class TestTerminologyAnalyzer:
             t.lower() for t, _ in undefined
         ]
 
-    def test_is_potential_term(self, analyzer):
+    def test_should_identify_potential_terms(self, analyzer):
         assert analyzer._is_potential_term("API") is True
         assert analyzer._is_potential_term("authentication") is True
         assert analyzer._is_potential_term("OAuth 2.0") is True
@@ -174,7 +174,7 @@ class TestTerminologyAnalyzer:
         assert analyzer._is_potential_term("123") is False  # Just numbers
         assert analyzer._is_potential_term("a") is False  # Too short
 
-    def test_split_into_sentences(self, analyzer):
+    def test_should_split_into_sentences(self, analyzer):
         text = "This is a test. This is another test! And another one?"
         sentences = analyzer._split_into_sentences(text)
 
@@ -183,7 +183,7 @@ class TestTerminologyAnalyzer:
         assert sentences[1].endswith("test!")
         assert sentences[2].endswith("one?")
 
-    def test_analyze_document_with_definitions(self, analyzer):
+    def test_should_analyze_document_with_definitions(self, analyzer):
         text = """
         OAuth 2.0 is an authorization framework. JWT (JSON Web Token)
         is a compact token format. The system uses both.

@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 from clarus.analysis.document_processor import DocumentProcessor, ElementType
 
 
-def test_spacy_integration():
+def test_should_integrate_spacy_successfully():
     processor = DocumentProcessor()
     test_document = """1. System Requirements
 
@@ -46,4 +46,4 @@ Note: This is an important consideration."""
 
 
 if __name__ == "__main__":
-    test_spacy_integration()
+    test_should_integrate_spacy_successfully()

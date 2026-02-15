@@ -11,7 +11,7 @@ class TestSemanticExtractor:
     def setup_method(self):
         self.extractor = SemanticExtractor()
 
-    def test_extract_modality_obligation(self):
+    def test_should_extract_modality_obligation(self):
         text = "The system shall process the data."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -20,7 +20,7 @@ class TestSemanticExtractor:
         assert profile.modality.anchor_type == "modality"
         assert profile.modality.confidence >= 0.8
 
-    def test_extract_modality_prohibition(self):
+    def test_should_extract_modality_prohibition(self):
         text = "Users must not share their credentials."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -28,7 +28,7 @@ class TestSemanticExtractor:
         assert "must not" in profile.modality.text.lower()
         assert profile.modality.anchor_type == "modality"
 
-    def test_extract_condition(self):
+    def test_should_extract_condition(self):
         text = "If the temperature exceeds 90°C, the system shall shut down."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -36,7 +36,7 @@ class TestSemanticExtractor:
         assert "temperature exceeds 90°C" in profile.condition.text
         assert profile.condition.anchor_type == "condition"
 
-    def test_extract_subject(self):
+    def test_should_extract_subject(self):
         text = "The operator must verify the readings."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -44,7 +44,7 @@ class TestSemanticExtractor:
         assert "operator" in profile.subject.text.lower()
         assert profile.subject.anchor_type == "subject"
 
-    def test_extract_object(self):
+    def test_should_extract_object(self):
         text = "The system shall encrypt all user data."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -52,7 +52,7 @@ class TestSemanticExtractor:
         assert "user data" in profile.object.text.lower()
         assert profile.object.anchor_type == "object"
 
-    def test_extract_temporal(self):
+    def test_should_extract_temporal(self):
         text = "The system must respond within 2 seconds."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -60,7 +60,7 @@ class TestSemanticExtractor:
         assert "within 2 seconds" in profile.temporal.text.lower()
         assert profile.temporal.anchor_type == "temporal"
 
-    def test_extract_negation(self):
+    def test_should_extract_negation(self):
         text = "The system shall not store passwords in plaintext."
         profile = self.extractor.extract_semantic_profile(text)
 
@@ -68,7 +68,7 @@ class TestSemanticExtractor:
         assert profile.negation.text.lower() == "not"
         assert profile.negation.anchor_type == "negation"
 
-    def test_extract_profiles_from_segment(self):
+    def test_should_extract_profiles_from_segment(self):
         segment = DocumentSegment(
             text="""1. Requirements
 1.1 The system shall authenticate users.
@@ -82,7 +82,7 @@ class TestSemanticExtractor:
         assert all(isinstance(p, SemanticProfile) for p in profiles)
         assert profiles[0].metadata["segment_type"] == "normative"
 
-    def test_profile_confidence_calculation(self):
+    def test_should_calculate_profile_confidence(self):
         text1 = "The system shall encrypt all data."
         profile1 = self.extractor.extract_semantic_profile(text1)
 
@@ -93,7 +93,7 @@ class TestSemanticExtractor:
         assert 0.0 <= profile1.confidence <= 1.0
         assert 0.0 <= profile2.confidence <= 1.0
 
-    def test_get_profiles_by_modality(self):
+    def test_should_get_profiles_by_modality(self):
         profiles = [
             self.extractor.extract_semantic_profile("The system shall start."),
             self.extractor.extract_semantic_profile("Users may log in."),
@@ -110,7 +110,7 @@ class TestSemanticExtractor:
             for profile in obligations
         )
 
-    def test_find_profiles_with_conditions(self):
+    def test_should_find_profiles_with_conditions(self):
         profiles = [
             self.extractor.extract_semantic_profile("If error occurs, log it."),
             self.extractor.extract_semantic_profile("The system shall start."),
@@ -122,7 +122,7 @@ class TestSemanticExtractor:
         assert len(conditional_profiles) == 2  # "If" and "When" conditions
         assert all(p.condition is not None for p in conditional_profiles)
 
-    def test_empty_input(self):
+    def test_should_handle_empty_input(self):
         profile = self.extractor.extract_semantic_profile("")
 
         assert isinstance(profile, SemanticProfile)
@@ -140,7 +140,7 @@ class TestSemanticExtractor:
             ]
         )
 
-    def test_complex_sentence_parsing(self):
+    def test_should_parse_complex_sentences(self):
         text = """If the temperature exceeds 90°C, the system shall immediately
         activate the cooling fans and notify the operator, but it must not
         shut down unless absolutely necessary."""
