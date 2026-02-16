@@ -719,6 +719,142 @@ class TerminologyValidator:
             suggested_definition=suggested_definition,
         )
 
+    def extract_terms_from_text(self, text: str) -> List[str]:
+        terms = set()
+
+        if self.nlp:
+            try:
+                doc = self.nlp(text)
+                for chunk in doc.noun_chunks:
+                    if len(chunk.text.strip()) > 2 and len(chunk.text.strip()) <= 25:
+                        terms.add(chunk.text.strip())
+
+                for ent in doc.ents:
+                    if len(ent.text.strip()) > 2 and len(ent.text.strip()) <= 25:
+                        terms.add(ent.text.strip())
+
+                for token in doc:
+                    if token.pos_ in ["NOUN", "PROPN"] and len(token.text) > 3:
+                        start = max(0, token.i - 2)
+                        end = min(len(doc), token.i + 3)
+                        phrase = " ".join(
+                            [
+                                t.text
+                                for t in doc[start:end]
+                                if t.pos_ in ["NOUN", "PROPN", "ADJ", "NUM"]
+                            ]
+                        )
+                        if len(phrase.split()) >= 2 and len(phrase) <= 25:
+                            terms.add(phrase)
+            except Exception as e:
+                print(f"Error in spaCy term extraction: {e}")
+
+        acronyms = re.findall(r"\b[A-Z]{2,}\b", text)
+        terms.update(acronyms)
+
+        camelcase = re.findall(r"\b[A-Z][a-z]+[A-Z][a-zA-Z]*\b", text)
+        terms.update(camelcase)
+
+        tech_suffixes = [
+            "tion",
+            "ment",
+            "ness",
+            "ity",
+            "er",
+            "or",
+            "ism",
+            "ist",
+            "ive",
+            "able",
+            "ible",
+            "al",
+            "ial",
+            "ic",
+            "ical",
+            "ous",
+            "ious",
+            "ful",
+            "less",
+            "ize",
+            "ise",
+            "fy",
+            "ate",
+            "en",
+            "ify",
+        ]
+        for suffix in tech_suffixes:
+            pattern = rf"\b\w+{suffix}\b"
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            terms.update([match for match in matches if 3 < len(match) <= 20])
+
+        quoted = re.findall(r'"([^"]+)"', text)
+        terms.update([quote for quote in quoted if 2 < len(quote) <= 25])
+
+        common_english = {
+            "the",
+            "and",
+            "have",
+            "will",
+            "time",
+            "person",
+            "way",
+            "day",
+            "man",
+            "thing",
+            "use",
+            "make",
+            "work",
+            "part",
+            "take",
+            "get",
+            "place",
+            "live",
+            "back",
+            "only",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "have",
+            "has",
+            "had",
+            "do",
+            "does",
+            "did",
+            "will",
+            "would",
+            "could",
+            "should",
+            "may",
+            "might",
+            "can",
+            "must",
+            "shall",
+            "this",
+            "that",
+            "these",
+            "those",
+            "a",
+            "an",
+        }
+
+        filtered_terms = []
+        for term in terms:
+            term_lower = term.lower()
+            if (
+                term_lower not in common_english
+                and len(term.strip()) > 2
+                and len(term.strip()) <= 25
+                and not term.isdigit()
+                and not re.match(r"^[.,!?;:]+$", term)
+            ):
+                filtered_terms.append(term.strip())
+
+        return sorted(list(set(filtered_terms)), key=len, reverse=True)
+
     def validate_terms(
         self, terms: List[str], contexts: Optional[List[str]] = None
     ) -> ValidationReport:

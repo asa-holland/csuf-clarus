@@ -249,7 +249,12 @@ def analyze_document():
         terminology_validator = TerminologyValidator()
         contradiction_detector = ContradictionDetector(config={"enable_ml": False})
 
-        terminology_result = terminology_validator.validate_terms([data["text"]])
+        extracted_terms = terminology_validator.extract_terms_from_text(data["text"])
+
+        max_terms = 50
+        terms_to_validate = extracted_terms[:max_terms]
+
+        terminology_result = terminology_validator.validate_terms(terms_to_validate)
 
         terminology_data = {
             "statistics": convert_numpy_types(terminology_result.statistics),
@@ -280,6 +285,14 @@ def analyze_document():
                     "suggested_definition": result.suggested_definition,
                 }
                 for result in terminology_result.undefined_terms
+            ],
+            "term_occurrences": [
+                {
+                    "term": result.term,
+                    "is_defined": result.is_defined,
+                }
+                for result in terminology_result.defined_terms
+                + terminology_result.undefined_terms
             ],
         }
 
