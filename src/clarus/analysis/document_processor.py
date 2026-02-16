@@ -23,6 +23,7 @@ class DocumentSegment:
     end_line: int = 0
     confidence: float = 0.0
     semantic_anchors: Optional["SemanticAnchor"] = None
+    errors: List[str] = field(default_factory=list)
 
 
 @dataclass
