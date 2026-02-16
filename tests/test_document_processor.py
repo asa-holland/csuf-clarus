@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+src_path = Path(__file__).parent.parent / "src"
+sys.path.insert(0, str(src_path))
+
 import pytest
 from clarus.analysis.document_processor import (
     DocumentProcessor,
