@@ -288,6 +288,73 @@
   color: #1e293b;
 }
 
+.term-item {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.term-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.term-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.term-text {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1e293b;
+}
+
+.term-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.term-status.term-defined {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.term-status.term-undefined {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.term-context {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 6px;
+  border-right: 3px solid #e2e8f0;
+}
+
+.term-context strong {
+  color: #4f46e5;
+  font-weight: 600;
+  background-color: #eef2ff;
+  padding: 0 2px;
+  border-radius: 3px;
+}
+
 .semantic-profile {
   background: white;
   border-radius: 6px;

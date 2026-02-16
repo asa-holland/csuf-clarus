@@ -261,21 +261,51 @@
         });
 
         async function runPreprocessing(file) {
-            const formData = new FormData();
-            formData.append('file', file);
+            try {
+                console.log('Starting file upload...');
+                const formData = new FormData();
+                formData.append('file', file);
+                console.log('FormData created, file size:', file.size, 'bytes');
 
-            const response = await fetch('/upload', {
-                method: 'POST',
-                body: formData
-            });
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
-            const result = await response.json();
-            if (!result.success) {
-                throw new Error(result.error || 'Preprocessing failed');
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData,
+                    signal: controller.signal
+                });
+                clearTimeout(timeoutId);
+
+                console.log('Upload response status:', response.status);
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Upload error response:', errorText);
+                    throw new Error(`Upload failed with status ${response.status}: ${errorText}`);
+                }
+
+                const result = await response.json();
+                console.log('Upload successful, result:', result);
+
+                if (!result.success) {
+                    throw new Error(result.error || 'Preprocessing failed');
+                }
+
+                analysisResults.preprocessing = result;
+                displayPreprocessingResults(result);
+            } catch (error) {
+                console.error('Error in runPreprocessing:', error);
+                if (error.name === 'AbortError') {
+                    throw new Error('Upload timed out after 30 seconds. The server may be busy or the file might be too large.');
+                } else if (error.message.includes('Failed to fetch')) {
+                    throw new Error('Failed to connect to the server. Please check your internet connection and try again.');
+                } else if (error.message.includes('NetworkError')) {
+                    throw new Error('Network error. Please check your connection and try again.');
+                } else {
+                    throw error;
+                }
             }
-
-            analysisResults.preprocessing = result;
-            displayPreprocessingResults(result);
         }
 
         async function runDocumentProcessing() {
@@ -311,22 +341,41 @@
         }
 
         async function runAnalysis() {
-            const response = await fetch('/analyze-document', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
+            try {
+                console.log('Sending analysis request...');
+                const requestData = {
                     text: analysisResults.preprocessing.text,
                     segments: analysisResults.processing.segments
-                })
-            });
+                };
+                console.log('Request data:', JSON.stringify(requestData).substring(0, 200) + '...');
 
-            const result = await response.json();
-            if (!result.success) {
-                throw new Error(result.error || 'Analysis failed');
+                const response = await fetch('/analyze-document', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestData)
+                });
+
+                console.log('Received response, status:', response.status);
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('Error response:', errorText);
+                    throw new Error(`HTTP error! status: ${response.status}, details: ${errorText}`);
+                }
+
+                const result = await response.json();
+                console.log('Analysis result:', result);
+
+                if (!result.success) {
+                    throw new Error(result.error || 'Analysis failed');
+                }
+
+                analysisResults.analysis = result;
+                displayAnalysisResults(result);
+            } catch (error) {
+                console.error('Error in runAnalysis:', error);
+                throw error; // Re-throw to be caught by the outer try-catch
             }
-
-            analysisResults.analysis = result;
-            displayAnalysisResults(result);
         }
 
         function displayPreprocessingResults(result) {
@@ -459,9 +508,19 @@
                     </div>
                     <div class="terms-list scrollable-container">
                         <h5>Sample Terms</h5>
-                        ${result.terminology.term_occurrences?.map(occ =>
-                            `<div class="term-item">${occ.term} ${occ.is_defined ? '✓' : '?'}</div>`
-                        ).join('') || '<p>No terms found</p>'}
+                        ${result.terminology.term_occurrences?.map(occ => {
+                            const statusIcon = occ.is_defined ? '✓' : '?';
+                            const statusClass = occ.is_defined ? 'term-defined' : 'term-undefined';
+                            return `
+                                <div class="term-item">
+                                    <div class="term-header">
+                                        <span class="term-text">${occ.term}</span>
+                                        <span class="term-status ${statusClass}">${statusIcon}</span>
+                                    </div>
+                                    <div class="term-context">${occ.context_excerpt || occ.context || 'No context available'}</div>
+                                </div>
+                            `;
+                        }).join('') || '<p>No terms found</p>'}
                     </div>
                 `;
             }

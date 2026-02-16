@@ -59,6 +59,7 @@ class ValidationResult:
     definition_detection: Optional[DefinitionDetection] = None
     semantic_similarity_to_defined: float = 0.0
     suggested_definition: Optional[str] = None
+    context_excerpt: Optional[str] = None
 
 
 @dataclass
@@ -719,6 +720,60 @@ class TerminologyValidator:
             suggested_definition=suggested_definition,
         )
 
+    def _extract_sentence_context(self, text: str, term: str) -> Optional[str]:
+        """Extract sentence context around a term with surrounding sentences"""
+        try:
+            # Split text into sentences using spaCy if available, otherwise regex
+            if self.nlp:
+                doc = self.nlp(text)
+                sentences = [
+                    sent.text.strip() for sent in doc.sents if sent.text.strip()
+                ]
+            else:
+                # Fallback to regex sentence splitting
+                sentences = re.split(r"[.!?]+", text)
+                sentences = [s.strip() for s in sentences if s.strip()]
+
+            # Find sentence containing the term
+            for i, sentence in enumerate(sentences):
+                if re.search(r"\b" + re.escape(term) + r"\b", sentence, re.IGNORECASE):
+                    # Build context with previous and next sentences
+                    context_parts = []
+
+                    # Add previous sentence if available
+                    if i > 0:
+                        prev_sentence = sentences[i - 1]
+                        # Take last part of previous sentence
+                        if len(prev_sentence) > 100:
+                            prev_sentence = "..." + prev_sentence[-100:]
+                        context_parts.append(prev_sentence)
+
+                    # Add current sentence
+                    context_parts.append(sentence)
+
+                    # Add next sentence if available
+                    if i < len(sentences) - 1:
+                        next_sentence = sentences[i + 1]
+                        # Take first part of next sentence
+                        if len(next_sentence) > 100:
+                            next_sentence = next_sentence[:100] + "..."
+                        context_parts.append(next_sentence)
+
+                    # Join with proper spacing and punctuation
+                    context = " ".join(context_parts)
+
+                    # Limit total length
+                    if len(context) > 300:
+                        context = context[:300] + "..."
+
+                    return context
+
+            return None
+
+        except Exception as e:
+            print(f"Error extracting sentence context for '{term}': {e}")
+            return None
+
     def extract_terms_from_text(self, text: str) -> List[str]:
         terms = set()
 
@@ -856,13 +911,20 @@ class TerminologyValidator:
         return sorted(list(set(filtered_terms)), key=len, reverse=True)
 
     def validate_terms(
-        self, terms: List[str], contexts: Optional[List[str]] = None
+        self,
+        terms: List[str],
+        contexts: Optional[List[str]] = None,
+        full_text: Optional[str] = None,
     ) -> ValidationReport:
         if contexts is None:
             contexts = [None] * len(terms)
 
         valid_contexts = [ctx for ctx in contexts if ctx is not None]
-        all_text = " ".join(valid_contexts) if valid_contexts else " ".join(terms)
+        all_text = (
+            " ".join(valid_contexts)
+            if valid_contexts
+            else (full_text or " ".join(terms))
+        )
         extracted_definitions = self._extract_definitions_from_text(all_text)
 
         for term, definition in extracted_definitions.items():
@@ -877,6 +939,10 @@ class TerminologyValidator:
 
         for term, context in zip(terms, contexts):
             result = self.validate_term(term, context)
+
+            # Extract sentence context if full_text is available
+            if full_text:
+                result.context_excerpt = self._extract_sentence_context(full_text, term)
 
             if result.is_defined:
                 defined_terms.append(result)

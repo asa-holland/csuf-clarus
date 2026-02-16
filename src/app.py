@@ -10,6 +10,59 @@ from clarus.analysis.semantic_extractor import SemanticExtractor
 from clarus.analysis.terminology_validator import TerminologyValidator
 from clarus.analysis.contradiction_analyzer import ContradictionDetector
 import numpy as np
+import re
+import nltk
+from typing import Dict, List, Any, Optional, Union, Tuple
+
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    nltk.download("punkt")
+
+
+def find_term_context(term: str, text: str, window_size: int = 1) -> str:
+    from nltk.tokenize import sent_tokenize
+
+    if not term or not text:
+        return "Context not available"
+
+    pattern = re.compile(re.escape(term), re.IGNORECASE)
+    matches = list(pattern.finditer(text))
+
+    if not matches:
+        return "Term not found in text"
+
+    match = matches[0]
+    start, end = match.span()
+
+    sentences = sent_tokenize(text)
+
+    current_pos = 0
+    target_sentence_idx = -1
+
+    for i, sent in enumerate(sentences):
+        sent_start = text.find(sent, current_pos)
+        sent_end = sent_start + len(sent)
+        current_pos = sent_end
+
+        if sent_start <= start < sent_end:
+            target_sentence_idx = i
+            break
+
+    if target_sentence_idx == -1:
+        return "Context not available"
+
+    start_idx = max(0, target_sentence_idx - window_size)
+    end_idx = min(len(sentences), target_sentence_idx + window_size + 1)
+    context_sentences = sentences[start_idx:end_idx]
+
+    target_sentence = context_sentences[target_sentence_idx - start_idx]
+    highlighted_sentence = pattern.sub(
+        f"<strong>{match.group(0)}</strong>", target_sentence
+    )
+    context_sentences[target_sentence_idx - start_idx] = highlighted_sentence
+
+    return " ... ".join(context_sentences)
 
 
 def convert_numpy_types(obj):
@@ -254,42 +307,40 @@ def analyze_document():
         max_terms = 50
         terms_to_validate = extracted_terms[:max_terms]
 
-        terminology_result = terminology_validator.validate_terms(terms_to_validate)
+        terminology_result = terminology_validator.validate_terms(
+            terms_to_validate, full_text=data["text"]
+        )
+
+        document_text = data.get("text", "")
+
+        def create_term_entry(result):
+            return {
+                "term": result.term,
+                "normalized_term": result.normalized_term,
+                "is_defined": result.is_defined,
+                "classification": {
+                    "is_domain_term": result.classification.is_domain_term,
+                    "is_common_english": result.classification.is_common_english,
+                    "confidence": float(result.classification.confidence),
+                },
+                "suggested_definition": result.suggested_definition,
+                "context_excerpt": result.context_excerpt,
+            }
 
         terminology_data = {
             "statistics": convert_numpy_types(terminology_result.statistics),
             "defined_terms": [
-                {
-                    "term": result.term,
-                    "normalized_term": result.normalized_term,
-                    "is_defined": result.is_defined,
-                    "classification": {
-                        "is_domain_term": result.classification.is_domain_term,
-                        "is_common_english": result.classification.is_common_english,
-                        "confidence": float(result.classification.confidence),
-                    },
-                    "suggested_definition": result.suggested_definition,
-                }
-                for result in terminology_result.defined_terms
+                create_term_entry(result) for result in terminology_result.defined_terms
             ],
             "undefined_terms": [
-                {
-                    "term": result.term,
-                    "normalized_term": result.normalized_term,
-                    "is_defined": result.is_defined,
-                    "classification": {
-                        "is_domain_term": result.classification.is_domain_term,
-                        "is_common_english": result.classification.is_common_english,
-                        "confidence": float(result.classification.confidence),
-                    },
-                    "suggested_definition": result.suggested_definition,
-                }
+                create_term_entry(result)
                 for result in terminology_result.undefined_terms
             ],
             "term_occurrences": [
                 {
                     "term": result.term,
                     "is_defined": result.is_defined,
+                    "context_excerpt": result.context_excerpt,
                 }
                 for result in terminology_result.defined_terms
                 + terminology_result.undefined_terms
