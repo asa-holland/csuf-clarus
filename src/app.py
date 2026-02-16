@@ -7,8 +7,27 @@ from clarus.steps.preprocess import extract_text_from_file, allowed_file
 from clarus.steps.corpus_operations import create_corpus_zip, preprocess_corpus_files
 from clarus.analysis.document_processor import DocumentProcessor
 from clarus.analysis.semantic_extractor import SemanticExtractor
-from clarus.analysis.terminology_analyzer import TerminologyAnalyzer
+from clarus.analysis.modern_terminology_validator import ModernTerminologyValidator
 from clarus.analysis.contradiction_analyzer import ContradictionDetector
+import numpy as np
+
+
+def convert_numpy_types(obj):
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.bool_):
+        return bool(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    else:
+        return obj
+
 
 template_dir = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "clarus", "templates"
@@ -227,25 +246,40 @@ def analyze_document():
         if not data or "text" not in data:
             return jsonify({"error": "No text provided"}), 400
 
-        terminology_analyzer = TerminologyAnalyzer()
+        modern_validator = ModernTerminologyValidator()
         contradiction_detector = ContradictionDetector(config={"enable_ml": False})
 
-        terminology_result = terminology_analyzer.analyze_document(data["text"])
+        terminology_result = modern_validator.validate_terms_modern([data["text"]])
 
         terminology_data = {
-            "statistics": terminology_result.statistics,
-            "term_occurrences": [
+            "statistics": convert_numpy_types(terminology_result.statistics),
+            "defined_terms": [
                 {
-                    "term": occ.term,
-                    "normalized_term": occ.normalized_term,
-                    "is_defined": occ.is_defined,
-                    "sentence": occ.sentence,
+                    "term": result.term,
+                    "normalized_term": result.normalized_term,
+                    "is_defined": result.is_defined,
+                    "classification": {
+                        "is_domain_term": result.classification.is_domain_term,
+                        "is_common_english": result.classification.is_common_english,
+                        "confidence": float(result.classification.confidence),
+                    },
+                    "suggested_definition": result.suggested_definition,
                 }
-                for occ in terminology_result.term_occurrences
+                for result in terminology_result.defined_terms
             ],
             "undefined_terms": [
-                {"term": occ.term, "sentence": occ.sentence}
-                for occ in terminology_result.undefined_terms
+                {
+                    "term": result.term,
+                    "normalized_term": result.normalized_term,
+                    "is_defined": result.is_defined,
+                    "classification": {
+                        "is_domain_term": result.classification.is_domain_term,
+                        "is_common_english": result.classification.is_common_english,
+                        "confidence": float(result.classification.confidence),
+                    },
+                    "suggested_definition": result.suggested_definition,
+                }
+                for result in terminology_result.undefined_terms
             ],
         }
 
@@ -275,16 +309,20 @@ def analyze_document():
             for contra in contradictions
         ]
 
-        return jsonify(
-            {
-                "success": True,
-                "terminology": terminology_data,
-                "contradictions": contradictions_data,
-            }
-        )
+        response_data = {
+            "success": True,
+            "terminology": terminology_data,
+            "contradictions": contradictions_data,
+        }
+
+        return jsonify(convert_numpy_types(response_data))
 
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+        import traceback
+
+        error_details = f"Error: {str(e)}\nTraceback: {traceback.format_exc()}"
+        print(f"DEBUG: analyze-document error:\n{error_details}")
+        return jsonify({"error": str(e), "debug_details": error_details}), 500
 
 
 if __name__ == "__main__":

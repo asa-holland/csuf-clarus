@@ -1,18 +1,15 @@
 import re
 import torch
 import numpy as np
-from typing import List, Dict, Set, Optional, Tuple, Union
+from typing import List, Dict, Optional, Union
 from dataclasses import dataclass
 from collections import defaultdict
-import string
 
 try:
     from transformers import (
         AutoTokenizer,
-        AutoModel,
         AutoModelForSequenceClassification,
         AutoModelForTokenClassification,
-        pipeline,
     )
     from sentence_transformers import SentenceTransformer
 
@@ -157,7 +154,6 @@ class ModernTerminologyValidator:
             if not line:
                 continue
 
-            # Pattern 1: "Term is definition."
             match = re.search(
                 r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s+is\s+([^.!?]+?)(?=[.!?]|$)",
                 line,
@@ -175,7 +171,6 @@ class ModernTerminologyValidator:
                     definitions[term.lower()] = definition
                 continue
 
-            # Pattern 2: "Term (definition)"
             match = re.search(
                 r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*\(\s*([A-Za-z][A-Za-z0-9\s\-\.\d]{5,80}?)\s*\)(?=[.!?]|$)",
                 line,
@@ -193,7 +188,6 @@ class ModernTerminologyValidator:
                     definitions[term.lower()] = definition
                 continue
 
-            # Pattern 3: "Term - definition"
             match = re.search(
                 r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*-\s*([^.!?]+)",
                 line,
@@ -211,7 +205,6 @@ class ModernTerminologyValidator:
                     definitions[term.lower()] = definition
                 continue
 
-            # Pattern 4: "Term: definition"
             match = re.search(
                 r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?):\s*([^.!?]+)",
                 line,
@@ -732,15 +725,13 @@ class ModernTerminologyValidator:
         if contexts is None:
             contexts = [None] * len(terms)
 
-        # First, extract definitions from the text and add to glossary
-        all_text = " ".join(contexts) if contexts else " ".join(terms)
+        valid_contexts = [ctx for ctx in contexts if ctx is not None]
+        all_text = " ".join(valid_contexts) if valid_contexts else " ".join(terms)
         extracted_definitions = self._extract_definitions_from_text(all_text)
 
-        # Add extracted definitions to glossary
         for term, definition in extracted_definitions.items():
             self.glossary[term] = definition
 
-        # Rebuild term index with new definitions
         self._term_index = self._build_term_index()
 
         defined_terms = []
