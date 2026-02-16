@@ -13,6 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN python -m spacy download en_core_web_sm
 
+RUN python -c "import spacy; nlp = spacy.load('en_core_web_sm'); doc = nlp('The system shall process data.'); assert len(doc) > 0; assert hasattr(doc[0], 'pos_'); assert hasattr(doc[0], 'dep_'); print('✅ SpaCy functionality validated')"
+
 COPY clarus/ clarus/
 COPY app.py .
 COPY clarus/templates/ templates/
