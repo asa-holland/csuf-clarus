@@ -383,7 +383,11 @@
             const segmentsDiv = document.getElementById('segments-container');
             segmentsDiv.innerHTML = '<h4>Document Segments</h4>';
 
-            result.segments.slice(0, 5).forEach((segment, index) => {
+            const scrollableContainer = document.createElement('div');
+            scrollableContainer.className = 'scrollable-container';
+            segmentsDiv.appendChild(scrollableContainer);
+
+            result.segments.forEach((segment, index) => {
                 const segmentDiv = document.createElement('div');
                 segmentDiv.className = `segment-item ${segment.element_type}`;
                 segmentDiv.innerHTML = `
@@ -393,7 +397,7 @@
                     </div>
                     <div class="segment-text">${segment.text}</div>
                 `;
-                segmentsDiv.appendChild(segmentDiv);
+                scrollableContainer.appendChild(segmentDiv);
             });
         }
 
@@ -415,8 +419,12 @@
             const profilesDiv = document.getElementById('semantic-profiles');
             profilesDiv.innerHTML = '<h4>Semantic Profiles</h4>';
 
+            const profilesScrollableContainer = document.createElement('div');
+            profilesScrollableContainer.className = 'scrollable-container';
+            profilesDiv.appendChild(profilesScrollableContainer);
+
             if (result.profiles) {
-                result.profiles.slice(0, 3).forEach((profile, index) => {
+                result.profiles.forEach((profile, index) => {
                     const profileDiv = document.createElement('div');
                     profileDiv.className = 'semantic-profile';
                     profileDiv.innerHTML = `
@@ -430,7 +438,7 @@
                             ${profile.negation ? `<div><strong>Negation:</strong> ${profile.negation}</div>` : ''}
                         </div>
                     `;
-                    profilesDiv.appendChild(profileDiv);
+                    profilesScrollableContainer.appendChild(profileDiv);
                 });
             }
         }
@@ -449,9 +457,9 @@
                             <span class="stat-label">Undefined Terms</span>
                         </div>
                     </div>
-                    <div class="terms-list">
+                    <div class="terms-list scrollable-container">
                         <h5>Sample Terms</h5>
-                        ${result.terminology.term_occurrences?.slice(0, 5).map(occ =>
+                        ${result.terminology.term_occurrences?.map(occ =>
                             `<div class="term-item">${occ.term} ${occ.is_defined ? '✓' : '?'}</div>`
                         ).join('') || '<p>No terms found</p>'}
                     </div>
@@ -467,8 +475,8 @@
                             <span class="stat-label">Contradictions Found</span>
                         </div>
                     </div>
-                    <div class="contradictions-list">
-                        ${result.contradictions.slice(0, 3).map((contradiction, index) => `
+                    <div class="contradictions-list scrollable-container">
+                        ${result.contradictions.map((contradiction, index) => `
                             <div class="contradiction-item">
                                 <div class="contradiction-header">
                                     <span class="contradiction-type">${contradiction.contradiction_type}</span>
