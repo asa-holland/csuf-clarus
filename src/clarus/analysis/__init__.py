@@ -1,11 +1,11 @@
 from .document_processor import DocumentProcessor
 from .semantic_extractor import SemanticExtractor
-from .modern_terminology_validator import ModernTerminologyValidator
+from .terminology_validator import TerminologyValidator
 from .contradiction_analyzer import ContradictionDetector
 
 __all__ = [
     "DocumentProcessor",
     "SemanticExtractor",
-    "ModernTerminologyValidator",
+    "TerminologyValidator",
     "ContradictionDetector",
 ]

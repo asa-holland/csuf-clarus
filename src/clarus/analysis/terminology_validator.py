@@ -50,7 +50,7 @@ class DefinitionDetection:
 
 
 @dataclass
-class ModernValidationResult:
+class ValidationResult:
 
     term: str
     normalized_term: str
@@ -62,17 +62,17 @@ class ModernValidationResult:
 
 
 @dataclass
-class ModernValidationReport:
+class ValidationReport:
 
-    defined_terms: List[ModernValidationResult]
-    undefined_terms: List[ModernValidationResult]
-    common_english_terms: List[ModernValidationResult]
-    potential_domain_terms: List[ModernValidationResult]
+    defined_terms: List[ValidationResult]
+    undefined_terms: List[ValidationResult]
+    common_english_terms: List[ValidationResult]
+    potential_domain_terms: List[ValidationResult]
     statistics: Dict[str, Union[int, float]]
     semantic_clusters: Optional[Dict[str, List[str]]] = None
 
 
-class ModernTerminologyValidator:
+class TerminologyValidator:
     def __init__(
         self,
         glossary: Optional[Dict[str, str]] = None,
@@ -674,9 +674,9 @@ class ModernTerminologyValidator:
             print(f"Error calculating semantic similarity: {e}")
             return 0.0
 
-    def validate_term_modern(
+    def validate_term(
         self, term: str, context: Optional[str] = None
-    ) -> ModernValidationResult:
+    ) -> ValidationResult:
         term_clean = term.strip()
         term_normalized = term_clean.lower()
 
@@ -709,7 +709,7 @@ class ModernTerminologyValidator:
         elif definition_detection and definition_detection.definition_text:
             suggested_definition = definition_detection.definition_text
 
-        return ModernValidationResult(
+        return ValidationResult(
             term=term_clean,
             normalized_term=term_normalized,
             is_defined=is_defined,
@@ -719,9 +719,9 @@ class ModernTerminologyValidator:
             suggested_definition=suggested_definition,
         )
 
-    def validate_terms_modern(
+    def validate_terms(
         self, terms: List[str], contexts: Optional[List[str]] = None
-    ) -> ModernValidationReport:
+    ) -> ValidationReport:
         if contexts is None:
             contexts = [None] * len(terms)
 
@@ -740,7 +740,7 @@ class ModernTerminologyValidator:
         potential_domain_terms = []
 
         for term, context in zip(terms, contexts):
-            result = self.validate_term_modern(term, context)
+            result = self.validate_term(term, context)
 
             if result.is_defined:
                 defined_terms.append(result)
@@ -776,7 +776,7 @@ class ModernTerminologyValidator:
             ),
         }
 
-        return ModernValidationReport(
+        return ValidationReport(
             defined_terms=defined_terms,
             undefined_terms=undefined_terms,
             common_english_terms=common_english_terms,
@@ -786,7 +786,7 @@ class ModernTerminologyValidator:
         )
 
     def _create_semantic_clusters(
-        self, undefined_terms: List[ModernValidationResult]
+        self, undefined_terms: List[ValidationResult]
     ) -> Dict[str, List[str]]:
         if self.semantic_model is None or not undefined_terms:
             return {}
@@ -820,7 +820,7 @@ class ModernTerminologyValidator:
             return {}
 
     def get_priority_undefined_terms(
-        self, report: ModernValidationReport, top_k: int = 10
+        self, report: ValidationReport, top_k: int = 10
     ) -> List[Dict]:
         priority_terms = []
 

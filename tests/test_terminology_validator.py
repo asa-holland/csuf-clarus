@@ -1,8 +1,8 @@
 import pytest
-from clarus.analysis.modern_terminology_validator import ModernTerminologyValidator
+from clarus.analysis.terminology_validator import TerminologyValidator
 
 
-class TestModernTerminologyValidator:
+class TestTerminologyValidator:
 
     @pytest.fixture
     def sample_glossary(self):
@@ -14,10 +14,10 @@ class TestModernTerminologyValidator:
 
     @pytest.fixture
     def analyzer(self, sample_glossary):
-        return ModernTerminologyValidator(glossary=sample_glossary)
+        return TerminologyValidator(glossary=sample_glossary)
 
     def test_should_initialize_with_empty_glossary(self):
-        validator = ModernTerminologyValidator()
+        validator = TerminologyValidator()
 
         assert validator.glossary == {}
         assert validator._term_index == {}
@@ -85,7 +85,7 @@ class TestModernTerminologyValidator:
 
     def test_should_validate_defined_term(self, analyzer):
         validator = analyzer
-        result = validator.validate_term_modern("API")
+        result = validator.validate_term("API")
 
         assert result.term == "API"
         assert result.is_defined is True
@@ -93,7 +93,7 @@ class TestModernTerminologyValidator:
 
     def test_should_validate_undefined_domain_term(self, analyzer):
         validator = analyzer
-        result = validator.validate_term_modern("AuthenticationService")
+        result = validator.validate_term("AuthenticationService")
 
         assert result.term == "AuthenticationService"
         assert result.is_defined is False
@@ -102,7 +102,7 @@ class TestModernTerminologyValidator:
 
     def test_should_validate_common_english_term(self, analyzer):
         validator = analyzer
-        result = validator.validate_term_modern("system")
+        result = validator.validate_term("system")
 
         assert result.term == "system"
         assert result.is_defined is False
@@ -112,9 +112,9 @@ class TestModernTerminologyValidator:
     def test_should_validate_multiple_terms(self, analyzer):
         validator = analyzer
         terms = ["API", "system", "Blockchain", "the"]
-        report = validator.validate_terms_modern(terms)
+        report = validator.validate_terms(terms)
 
-        assert isinstance(report, ModernValidationReport)
+        assert isinstance(report, ValidationReport)
         assert report.statistics["total_terms"] == 4
         assert len(report.defined_terms) == 1
         assert len(report.undefined_terms) == 2
@@ -147,8 +147,8 @@ class TestModernTerminologyValidator:
     def test_should_create_empty_semantic_clusters_when_no_model(self, analyzer):
         validator = analyzer
         undefined_terms = [
-            validator.validate_term_modern("term1"),
-            validator.validate_term_modern("term2"),
+            validator.validate_term("term1"),
+            validator.validate_term("term2"),
         ]
 
         clusters = validator._create_semantic_clusters(undefined_terms)
@@ -157,19 +157,19 @@ class TestModernTerminologyValidator:
 
     def test_should_get_priority_undefined_terms_empty_list(self, analyzer):
         validator = analyzer
-        report = validator.validate_terms_modern([])
+        report = validator.validate_terms([])
 
-        assert isinstance(report, ModernValidationReport)
+        assert isinstance(report, ValidationReport)
         assert report.statistics["total_terms"] == 0
 
     def test_should_get_priority_undefined_terms_sorted_by_score(self, analyzer):
         validator = analyzer
 
-        result1 = validator.validate_term_modern("term1")
-        result2 = validator.validate_term_modern("term2")
+        result1 = validator.validate_term("term1")
+        result2 = validator.validate_term("term2")
 
         priority_terms = validator.get_priority_undefined_terms(
-            validator.validate_terms_modern([result1, result2]), top_k=2
+            validator.validate_terms([result1, result2]), top_k=2
         )
 
         assert len(priority_terms) == 2

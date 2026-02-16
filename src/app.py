@@ -7,7 +7,7 @@ from clarus.steps.preprocess import extract_text_from_file, allowed_file
 from clarus.steps.corpus_operations import create_corpus_zip, preprocess_corpus_files
 from clarus.analysis.document_processor import DocumentProcessor
 from clarus.analysis.semantic_extractor import SemanticExtractor
-from clarus.analysis.modern_terminology_validator import ModernTerminologyValidator
+from clarus.analysis.terminology_validator import TerminologyValidator
 from clarus.analysis.contradiction_analyzer import ContradictionDetector
 import numpy as np
 
@@ -246,10 +246,10 @@ def analyze_document():
         if not data or "text" not in data:
             return jsonify({"error": "No text provided"}), 400
 
-        modern_validator = ModernTerminologyValidator()
+        terminology_validator = TerminologyValidator()
         contradiction_detector = ContradictionDetector(config={"enable_ml": False})
 
-        terminology_result = modern_validator.validate_terms_modern([data["text"]])
+        terminology_result = terminology_validator.validate_terms([data["text"]])
 
         terminology_data = {
             "statistics": convert_numpy_types(terminology_result.statistics),
