@@ -35,7 +35,7 @@ class SemanticProfile:
     temporal: Optional[SemanticAnchor] = None
     negation: Optional[SemanticAnchor] = None
     confidence: float = 0.0
-    metadata: Dict = None
+    metadata: Optional[Dict] = None
 
     def __post_init__(self):
         if self.metadata is None:
