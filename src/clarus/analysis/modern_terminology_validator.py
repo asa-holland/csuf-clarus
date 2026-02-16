@@ -146,6 +146,91 @@ class ModernTerminologyValidator:
         self.glossary.update(terms)
         self._term_index = self._build_term_index()
 
+    def _extract_definitions_from_text(self, text: str) -> Dict[str, str]:
+        """Extract definitions from text using rule-based patterns"""
+        definitions = {}
+
+        lines = text.split("\n")
+
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+
+            # Pattern 1: "Term is definition."
+            match = re.search(
+                r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s+is\s+([^.!?]+?)(?=[.!?]|$)",
+                line,
+                re.IGNORECASE,
+            )
+            if match:
+                term = match.group(1).strip()
+                definition = match.group(2).strip()
+                if (
+                    term
+                    and definition
+                    and len(term) <= 25
+                    and len(definition.strip()) > len(term.strip())
+                ):
+                    definitions[term.lower()] = definition
+                continue
+
+            # Pattern 2: "Term (definition)"
+            match = re.search(
+                r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*\(\s*([A-Za-z][A-Za-z0-9\s\-\.\d]{5,80}?)\s*\)(?=[.!?]|$)",
+                line,
+                re.IGNORECASE,
+            )
+            if match:
+                term = match.group(1).strip()
+                definition = match.group(2).strip()
+                if (
+                    term
+                    and definition
+                    and len(term) <= 25
+                    and len(definition.strip()) > len(term.strip())
+                ):
+                    definitions[term.lower()] = definition
+                continue
+
+            # Pattern 3: "Term - definition"
+            match = re.search(
+                r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*-\s*([^.!?]+)",
+                line,
+                re.IGNORECASE,
+            )
+            if match:
+                term = match.group(1).strip()
+                definition = match.group(2).strip()
+                if (
+                    term
+                    and definition
+                    and len(term) <= 25
+                    and len(definition.strip()) > len(term.strip())
+                ):
+                    definitions[term.lower()] = definition
+                continue
+
+            # Pattern 4: "Term: definition"
+            match = re.search(
+                r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?):\s*([^.!?]+)",
+                line,
+                re.IGNORECASE,
+            )
+            if match:
+                term = match.group(1).strip()
+                definition = match.group(2).strip()
+                if (
+                    term
+                    and definition
+                    and len(term) <= 25
+                    and len(definition.strip()) > len(term.strip())
+                ):
+                    definitions[term.lower()] = definition
+                continue
+
+        return definitions
+
     def _build_term_index(self) -> Dict[str, str]:
         index = {}
         for term, definition in self.glossary.items():
@@ -646,6 +731,17 @@ class ModernTerminologyValidator:
     ) -> ModernValidationReport:
         if contexts is None:
             contexts = [None] * len(terms)
+
+        # First, extract definitions from the text and add to glossary
+        all_text = " ".join(contexts) if contexts else " ".join(terms)
+        extracted_definitions = self._extract_definitions_from_text(all_text)
+
+        # Add extracted definitions to glossary
+        for term, definition in extracted_definitions.items():
+            self.glossary[term] = definition
+
+        # Rebuild term index with new definitions
+        self._term_index = self._build_term_index()
 
         defined_terms = []
         undefined_terms = []
