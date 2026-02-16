@@ -1,8 +1,7 @@
 import re
-import spacy
-from typing import List, Dict, Tuple, Optional
 from dataclasses import dataclass, field
 from enum import Enum
+from typing import List, Dict, Optional, Tuple
 
 
 class ElementType(Enum):
@@ -15,7 +14,6 @@ class ElementType(Enum):
 
 @dataclass
 class DocumentSegment:
-    """Represents a segmented portion of the document"""
 
     text: str
     element_type: ElementType
@@ -25,51 +23,64 @@ class DocumentSegment:
     end_line: int = 0
     confidence: float = 0.0
     semantic_anchors: Optional["SemanticAnchor"] = None
-    errors: List[Dict] = field(default_factory=list)
-
-
-@dataclass
-class ProcessedDocument:
-    """Result of document processing with segmented elements"""
-
-    original_text: str
-    segments: List[DocumentSegment]
-    metadata: Dict[str, any]
-    processing_stats: Dict[str, int]
 
 
 @dataclass
 class SemanticAnchor:
-    condition: Optional[str] = None
+
     subject: Optional[str] = None
-    modality: Optional[str] = None
     object: Optional[str] = None
+    modality: Optional[str] = None
     temporal: Optional[str] = None
+    condition: Optional[str] = None
     negation: Optional[str] = None
     confidence: float = 0.0
 
 
-class ErrorType(Enum):
-    UNDEFINED_TERM = "Undefined Term"
-    SYNONYM_INCONSISTENCY = "Synonym Inconsistency"
-    DIRECT_CONTRADICTION = "Direct Contradiction"
-    MODAL_INCONSISTENCY = "Modal Inconsistency"
-    HIDDEN_NORMATIVE = "Hidden Normative"
-    VAGUE_QUALIFIERS = "Vague Qualifiers"
-    AMBIGUOUS_REFERENT = "Ambiguous Referent"
-    MISSING_TEMPORAL = "Missing Temporal Anchor"
+@dataclass
+class ProcessedDocument:
+
+    original_text: str
+    segments: List[DocumentSegment]
+    metadata: Dict = field(default_factory=dict)
+    processing_stats: Dict = field(default_factory=dict)
 
 
 class DocumentProcessor:
 
     def __init__(self):
+        import spacy
+        from spacy.cli import download
+
         try:
             self.nlp = spacy.load("en_core_web_sm")
-        except OSError:
-            print(
-                "Warning: SpaCy model not found. Run: python -m spacy download en_core_web_sm"
-            )
+            print(f"✅ SpaCy model 'en_core_web_sm' loaded successfully")
+
+        except OSError as e:
+            print(f"❌ SpaCy model not found: {e}")
+            print("🔄 Attempting to download SpaCy model...")
+
+            try:
+                download("en_core_web_sm")
+                print("✅ SpaCy model downloaded successfully")
+
+                try:
+                    self.nlp = spacy.load("en_core_web_sm")
+                    print(f"✅ SpaCy model loaded successfully after download")
+                except OSError as e2:
+                    print(f"❌ Still failed to load SpaCy model after download: {e2}")
+                    self.nlp = None
+
+            except Exception as download_error:
+                print(f"❌ Failed to download SpaCy model: {download_error}")
+                self.nlp = None
+
+        except Exception as e:
+            print(f"❌ Unexpected error loading SpaCy: {e}")
             self.nlp = None
+
+        if self.nlp is not None:
+            self._validate_spacy_functionality()
 
         self.modality_verbs = {
             "shall",
@@ -134,6 +145,216 @@ class DocumentProcessor:
             re.compile(pattern, re.MULTILINE) for pattern in self.heading_patterns
         ]
 
+    def _validate_spacy_functionality(self):
+        try:
+            test_doc = self.nlp("The system shall process data.")
+
+            if len(test_doc) == 0:
+                print("❌ SpaCy validation failed: No tokens produced")
+                self.nlp = None
+                return
+
+            has_pos = hasattr(test_doc[0], "pos_") if test_doc else False
+            has_dep = hasattr(test_doc[0], "dep_") if test_doc else False
+
+            if not has_pos or not has_dep:
+                print("❌ SpaCy validation failed: Missing linguistic features")
+                self.nlp = None
+                return
+
+            print("✅ SpaCy validation passed: All features available")
+
+        except Exception as e:
+            print(f"❌ SpaCy validation failed: {e}")
+            self.nlp = None
+
+    def _classify_line(self, line: str) -> ElementType:
+        if not self.nlp:
+            return self._classify_line_regex(line)
+
+        doc = self.nlp(line)
+
+        informative_lemmas = [
+            "example",
+            "note",
+            "remark",
+            "comment",
+            "illustrate",
+            "demonstrate",
+            "section",
+            "detail",
+            "see",
+            "reference",
+        ]
+        informative_found = any(
+            token.lemma_.lower() in informative_lemmas for token in doc
+        )
+
+        if informative_found:
+            return ElementType.INFORMATIVE
+
+        if any(token.text == "?" for token in doc):
+            return ElementType.INFORMATIVE
+
+        modality_tokens = []
+        for token in doc:
+            if token.lemma_.lower() in self.modality_verbs:
+                negated = False
+                for child in token.children:
+                    if child.lemma_.lower() in self.negation_words:
+                        negated = True
+                        break
+                modality_tokens.append(
+                    (token.lemma_.lower(), "negated" if negated else "positive")
+                )
+
+        if modality_tokens:
+            positive_modalities = [t[0] for t in modality_tokens if t[1] == "positive"]
+            negated_modalities = [t[0] for t in modality_tokens if t[1] == "negated"]
+
+            strong_normative = any(
+                lemma in ["shall", "must"] for lemma in positive_modalities
+            )
+
+            if strong_normative and not negated_modalities:
+                return ElementType.NORMATIVE
+
+            elif negated_modalities:
+                return ElementType.INFORMATIVE
+
+            elif any(
+                lemma in ["should", "may", "can", "could"]
+                for lemma in positive_modalities
+            ):
+                return ElementType.INFORMATIVE
+
+            return ElementType.NORMATIVE
+
+        negation_found = any(
+            token.lemma_.lower() in self.negation_words for token in doc
+        )
+        imperative_found = False
+        for sent in doc.sents:
+            if sent.root and sent.root.tag_ in [
+                "VB",
+                "VBP",
+            ]:
+                imperative_found = True
+                break
+
+        if imperative_found and not negation_found and self._is_clear_imperative(doc):
+            return ElementType.NORMATIVE
+
+        return self._classify_line_regex(line)
+
+    def _is_clear_imperative(self, doc) -> bool:
+        imperative_indicators = [
+            "shall",
+            "must",
+            "should",
+            "ensure",
+            "verify",
+            "validate",
+        ]
+
+        for token in doc:
+            if token.lemma_.lower() in imperative_indicators:
+                return True
+
+        return False
+
+    def _classify_line_regex(self, line: str) -> ElementType:
+        if self.normative_regex.search(line):
+            return ElementType.NORMATIVE
+
+        if self.informative_regex.search(line):
+            return ElementType.INFORMATIVE
+
+        informative_keywords = ["example", "note", "remark", "comment"]
+        if any(keyword in line.lower() for keyword in informative_keywords):
+            return ElementType.INFORMATIVE
+
+        return ElementType.UNKNOWN
+
+    def _calculate_confidence(self, text: str, element_type: ElementType) -> float:
+        if not self.nlp:
+            return self._calculate_confidence_regex(text, element_type)
+
+        doc = self.nlp(text)
+
+        if element_type == ElementType.NORMATIVE:
+            strong_modalities = ["shall", "must", "will"]
+            weak_modalities = ["should", "may", "can", "could", "would"]
+
+            strong_found = any(
+                token.lemma_.lower() in strong_modalities for token in doc
+            )
+            weak_found = any(token.lemma_.lower() in weak_modalities for token in doc)
+            negation_found = any(
+                token.lemma_.lower() in self.negation_words for token in doc
+            )
+
+            if strong_found and not weak_found and not negation_found:
+                return 0.95  # High confidence: strong normative
+            elif strong_found and not negation_found:
+                return 0.85  # Good confidence: normative with some weak modalities
+            elif weak_found and not negation_found:
+                return 0.65  # Medium confidence: weak modalities
+            elif negation_found:
+                return 0.45  # Low confidence: negated normative
+            else:
+                return 0.75  # Decent confidence: mixed signals
+
+        elif element_type == ElementType.INFORMATIVE:
+            informative_lemmas = [
+                "example",
+                "note",
+                "remark",
+                "comment",
+                "illustrate",
+                "section",
+                "detail",
+                "see",
+            ]
+            question_found = any(token.text == "?" for token in doc)
+
+            clear_informative = any(
+                token.lemma_.lower() in informative_lemmas for token in doc
+            )
+            if clear_informative or question_found:
+                return 0.90  # High confidence: clear informative
+            else:
+                return 0.60  # Medium confidence: inferred informative
+
+        return 0.40  # Low confidence: unknown
+
+    def _calculate_confidence_regex(
+        self, text: str, element_type: ElementType
+    ) -> float:
+        if element_type == ElementType.NORMATIVE:
+            normative_matches = len(self.normative_regex.findall(text))
+            informative_matches = len(self.informative_regex.findall(text))
+
+            if normative_matches > 0 and informative_matches == 0:
+                return 0.9
+            elif normative_matches > informative_matches:
+                return 0.7
+            else:
+                return 0.3
+
+        elif element_type == ElementType.INFORMATIVE:
+            informative_matches = len(self.informative_regex.findall(text))
+            normative_matches = len(self.normative_regex.findall(text))
+
+            if informative_matches > 0 and normative_matches == 0:
+                return 0.8
+            elif informative_matches > normative_matches:
+                return 0.6
+            else:
+                return 0.3
+
+        return 0.1
+
     def extract_semantic_anchors(self, text: str) -> SemanticAnchor:
         if not self.nlp:
             return SemanticAnchor()
@@ -160,12 +381,6 @@ class DocumentProcessor:
             if token.text.lower() in self.temporal_indicators:
                 anchors.temporal = token.text
                 break
-
-        if not anchors.temporal:
-            for ent in doc.ents:
-                if ent.label_ in ["TIME", "DATE", "DURATION"]:
-                    anchors.temporal = ent.text
-                    break
 
         for condition_indicator in self.condition_indicators:
             if condition_indicator in text.lower():
@@ -228,8 +443,8 @@ class DocumentProcessor:
                 should_start_new = True
             elif current_segment is None:
                 should_start_new = True
-            elif (
-                current_segment.element_type != element_type
+            elif current_segment.element_type != element_type or (
+                current_segment.element_type == element_type
                 and not self._is_continuation(stripped_line)
             ):
                 should_start_new = True
@@ -274,128 +489,6 @@ class DocumentProcessor:
             processing_stats=stats,
         )
 
-    def _should_start_new_segment(
-        self, current_segment: DocumentSegment, new_line: str
-    ) -> bool:
-        if self._is_sentence_complete(current_segment.text):
-            if not self._is_continuation(new_line):
-                return True
-
-        return False
-
-    def _is_continuation(self, line: str) -> bool:
-        continuation_words = [
-            "and",
-            "or",
-            "but",
-            "to",
-            "for",
-            "with",
-            "without",
-            "as",
-            "by",
-            "at",
-            "in",
-            "on",
-            "from",
-            "of",
-            "while",
-            "since",
-            "because",
-            "although",
-            "though",
-        ]
-
-        words = line.lower().split()
-        if words and words[0] in continuation_words:
-            return True
-
-        if line and line[0].islower():
-            return True
-
-        return False
-
-    def _is_sentence_complete(self, text: str) -> bool:
-        stripped = text.strip()
-        if not stripped or stripped[-1] not in ".!?":
-            return False
-
-        lines = text.split("\n")
-        if len(lines) > 1:
-            last_line = lines[-1].strip()
-            if self._is_continuation(last_line):
-                return False
-
-        return True
-
-    def _identify_heading(self, line: str) -> Optional[Tuple[Optional[str], str]]:
-        for pattern in self.heading_regex:
-            match = pattern.match(line)
-            if match:
-                if len(match.groups()) == 2:
-                    return match.group(1), match.group(2)
-                else:
-                    return None, match.group(1)
-        return None
-
-    def _classify_line(self, line: str) -> ElementType:
-        if self.normative_regex.search(line):
-            return ElementType.NORMATIVE
-
-        if self.informative_regex.search(line):
-            return ElementType.INFORMATIVE
-
-        informative_keywords = ["example", "note", "remark", "comment"]
-        if any(keyword in line.lower() for keyword in informative_keywords):
-            return ElementType.INFORMATIVE
-
-        return ElementType.UNKNOWN
-
-    def _calculate_confidence(self, text: str, element_type: ElementType) -> float:
-        if element_type == ElementType.NORMATIVE:
-            normative_matches = len(self.normative_regex.findall(text))
-            informative_matches = len(self.informative_regex.findall(text))
-
-            if normative_matches > 0 and informative_matches == 0:
-                return 0.9
-            elif normative_matches > informative_matches:
-                return 0.7
-            else:
-                return 0.3
-
-        elif element_type == ElementType.INFORMATIVE:
-            informative_matches = len(self.informative_regex.findall(text))
-            normative_matches = len(self.normative_regex.findall(text))
-
-            if informative_matches > 0 and normative_matches == 0:
-                return 0.8
-            elif informative_matches > normative_matches:
-                return 0.6
-            else:
-                return 0.3
-
-        return 0.1
-
-    def _calculate_stats(self, segments: List[DocumentSegment]) -> Dict[str, int]:
-        stats = {
-            "total_segments": len(segments),
-            "normative_segments": sum(
-                1 for s in segments if s.element_type == ElementType.NORMATIVE
-            ),
-            "informative_segments": sum(
-                1 for s in segments if s.element_type == ElementType.INFORMATIVE
-            ),
-            "unknown_segments": sum(
-                1 for s in segments if s.element_type == ElementType.UNKNOWN
-            ),
-            "high_confidence_segments": sum(1 for s in segments if s.confidence >= 0.7),
-            "medium_confidence_segments": sum(
-                1 for s in segments if 0.3 <= s.confidence < 0.7
-            ),
-            "low_confidence_segments": sum(1 for s in segments if s.confidence < 0.3),
-        }
-        return stats
-
     def get_normative_segments(
         self, processed_doc: ProcessedDocument
     ) -> List[DocumentSegment]:
@@ -411,3 +504,47 @@ class DocumentProcessor:
             for s in processed_doc.segments
             if s.element_type == ElementType.INFORMATIVE
         ]
+
+    def _identify_heading(self, line: str) -> Optional[Tuple[str, str]]:
+        for i, pattern in enumerate(self.heading_regex):
+            match = pattern.search(line)
+            if match:
+                if "section" in match.groupdict():
+                    return match.group("section"), match.group("heading")
+                elif i == 0:  # Numbered heading pattern: ^(\d+\.?\d*)\s+(.+)$
+                    return match.group(1), match.group(2)
+                elif i == 1:  # All-caps pattern: ^([A-Z]+[A-Z\s]*)$
+                    return None, match.group(1)
+                elif i == 2:  # Roman numeral pattern: ^([IVX]+\.?\s*.+)$
+                    return match.group(1), (
+                        match.group(2) if len(match.groups()) > 1 else match.group(1)
+                    )
+        return None
+
+    def _is_continuation(self, line: str) -> bool:
+        return not (line[0].isupper() or line[0].isdigit() or line.startswith("("))
+
+    def _should_start_new_segment(
+        self, current_segment: DocumentSegment, line: str
+    ) -> bool:
+        return len(current_segment.text.split()) > 20 and len(line.split()) > 5
+
+    def _calculate_stats(self, segments: List[DocumentSegment]) -> Dict[str, int]:
+        stats = {
+            "total_segments": len(segments),
+            "normative_segments": sum(
+                1 for s in segments if s.element_type == ElementType.NORMATIVE
+            ),
+            "informative_segments": sum(
+                1 for s in segments if s.element_type == ElementType.INFORMATIVE
+            ),
+            "unknown_segments": sum(
+                1 for s in segments if s.element_type == ElementType.UNKNOWN
+            ),
+            "high_confidence_segments": sum(1 for s in segments if s.confidence >= 0.7),
+            "medium_confidence_segments": sum(
+                1 for s in segments if 0.4 <= s.confidence < 0.7
+            ),
+            "low_confidence_segments": sum(1 for s in segments if s.confidence < 0.4),
+        }
+        return stats
