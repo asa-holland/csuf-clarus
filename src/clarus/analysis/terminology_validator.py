@@ -1,9 +1,21 @@
 import re
+import sys
+import logging
 import torch
 import numpy as np
 from typing import List, Dict, Optional, Union
 from dataclasses import dataclass
 from collections import defaultdict
+
+_handler = logging.StreamHandler(sys.stdout)
+_handler.setFormatter(
+    logging.Formatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s")
+)
+logger = logging.getLogger("clarus.terminology_validator")
+logger.setLevel(logging.DEBUG)
+if not logger.handlers:
+    logger.addHandler(_handler)
+logger.propagate = False
 
 try:
     from transformers import (
@@ -268,19 +280,47 @@ class TerminologyValidator:
 
             with torch.no_grad():
                 outputs = self.term_extraction_model(**inputs)
-                predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
-                confidence = torch.max(predictions).item()
+                logits = outputs.logits
+                if not torch.isfinite(logits).all():
+                    logger.warning(
+                        "Non-finite logits for term '%s' (shape %s) — zeroing before softmax",
+                        term, tuple(logits.shape),
+                    )
+                    logits = torch.zeros_like(logits)
+                predictions = torch.nn.functional.softmax(logits, dim=-1)
+                confidence_tensor = torch.max(predictions)
+                if not torch.isfinite(confidence_tensor):
+                    logger.warning(
+                        "Non-finite softmax output for term '%s' — defaulting confidence to 0.5",
+                        term,
+                    )
+                    confidence = 0.5
+                else:
+                    confidence = confidence_tensor.item()
+                logger.debug("term='%s' transformer confidence=%.4f", term, confidence)
                 is_domain_term = confidence > 0.7
 
             embedding = self._get_term_embedding(term)
 
-            is_common_english = self._is_common_english_semantic(term, embedding)
+            # All-caps terms (acronyms) are never common English prose words.
+            # Bypassing the semantic check here prevents the sentence-transformer
+            # from incorrectly mapping e.g. "ACMEN" near common English embeddings.
+            if term.isupper() and len(term) >= 3:
+                is_common_english = False
+                is_domain_term = True
+                classification_reason = "undefined_acronym"
+            else:
+                is_common_english = self._is_common_english_semantic(term, embedding)
+                classification_reason = "transformer_classification"
+                if is_domain_term:
+                    classification_reason = "domain_term_detected"
+                elif is_common_english:
+                    classification_reason = "common_english_detected"
 
-            classification_reason = "transformer_classification"
-            if is_domain_term:
-                classification_reason = "domain_term_detected"
-            elif is_common_english:
-                classification_reason = "common_english_detected"
+            logger.debug(
+                "term='%s' is_domain=%s is_common=%s reason=%s",
+                term, is_domain_term, is_common_english, classification_reason,
+            )
 
             return TermClassification(
                 term=term,
@@ -292,7 +332,7 @@ class TerminologyValidator:
             )
 
         except Exception as e:
-            print(f"Error in transformer classification for '{term}': {e}")
+            logger.error("Transformer classification failed for '%s': %s", term, e)
             return self._classify_term_rule_based(term, context)
 
     def _classify_term_rule_based(
@@ -969,16 +1009,12 @@ class TerminologyValidator:
             "potential_domain_terms": len(potential_domain_terms),
             "definition_coverage": len(defined_terms) / len(terms) if terms else 0,
             "avg_confidence": (
-                float(
-                    np.mean(
-                        [
-                            r.classification.confidence
-                            for r in defined_terms + undefined_terms
-                        ]
-                    )
-                )
-                if terms
-                else 0
+                float(np.mean([
+                    r.classification.confidence
+                    for r in defined_terms + undefined_terms
+                ]))
+                if (defined_terms or undefined_terms)
+                else 0.0
             ),
             "semantic_clusters_found": (
                 len(semantic_clusters) if semantic_clusters else 0
@@ -1455,32 +1491,27 @@ class TerminologyValidator:
         }
 
     def _is_likely_acronym(self, acronym: str, text: str) -> bool:
-        """Check if an uppercase string is likely a meaningful acronym"""
-        # Skip common single-letter or pattern-based acronyms
-        if len(acronym) < 2 or acronym in ["A", "I", "US", "UK", "UN", "EU"]:
+        """Check if an uppercase string is likely a meaningful domain acronym.
+
+        We intentionally include undefined acronyms — the whole purpose of
+        terminology validation is to surface acronyms that lack a definition
+        in the document.  Previously this method required a nearby definition
+        pattern, which is exactly backwards: an acronym with a definition is
+        already understandable; one without is the problem.
+        """
+        # Skip noise: very short tokens and common non-domain abbreviations.
+        _skip = {"A", "I", "US", "UK", "UN", "EU", "IT", "OR", "IF",
+                 "AS", "AT", "BY", "IN", "ON", "TO", "DO", "IS", "BE"}
+        if acronym in _skip or len(acronym) < 3:
             return False
 
-        # Look for definition patterns nearby
-        context_window = 100
-        text_lower = text.lower()
-        acronym_pos = text_lower.find(acronym.lower())
-
-        if acronym_pos == -1:
+        # Check whether the acronym actually appears in the text (guard against
+        # regex false-positives on punctuation remnants).
+        if acronym not in text:
             return False
 
-        start = max(0, acronym_pos - context_window)
-        end = min(len(text), acronym_pos + len(acronym) + context_window)
-        context = text_lower[start:end]
-
-        # Look for definition patterns
-        definition_patterns = [
-            f"{acronym.lower()} (",
-            f"{acronym.lower()} stands for",
-            f"{acronym.lower()} is",
-            f"({acronym.lower()})",
-        ]
-
-        return any(pattern in context for pattern in definition_patterns)
+        logger.debug("_is_likely_acronym: '%s' accepted as domain acronym", acronym)
+        return True
 
     def _is_likely_technical_term(self, term: str) -> bool:
         """Check if a quoted term is likely a technical term"""

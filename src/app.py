@@ -1,5 +1,8 @@
 from flask import Flask, request, render_template, jsonify, send_file
 import os
+import sys
+import logging
+import math
 from pathlib import Path
 from werkzeug.utils import secure_filename
 from datetime import datetime
@@ -15,14 +18,23 @@ import nltk
 import os
 from typing import Dict, List, Any, Optional, Union, Tuple
 
-# Set NLTK data path to use pre-downloaded data in Docker
+
+_handler = logging.StreamHandler(sys.stdout)
+_handler.setFormatter(
+    logging.Formatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s")
+)
+logger = logging.getLogger("clarus.app")
+logger.setLevel(logging.DEBUG)
+if not logger.handlers:
+    logger.addHandler(_handler)
+logger.propagate = False
+
 nltk_data_path = os.path.expanduser("~/nltk_data")
 if os.path.exists("/root/nltk_data"):
     nltk.data.path.append("/root/nltk_data")
 elif os.path.exists(nltk_data_path):
     nltk.data.path.append(nltk_data_path)
 
-# Set environment variables to use cached models and enable offline mode
 os.environ["HF_HOME"] = "/root/.cache/huggingface"
 os.environ["TRANSFORMERS_CACHE"] = "/root/.cache/transformers"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
@@ -80,11 +92,20 @@ def find_term_context(term: str, text: str, window_size: int = 1) -> str:
     return " ... ".join(context_sentences)
 
 
+def _safe_float(v: float) -> object:
+    if math.isnan(v) or math.isinf(v):
+        logger.warning("Non-finite float detected (%s) — serialising as null", v)
+        return None
+    return v
+
+
 def convert_numpy_types(obj):
     if isinstance(obj, np.integer):
         return int(obj)
     elif isinstance(obj, np.floating):
-        return float(obj)
+        return _safe_float(float(obj))
+    elif isinstance(obj, float):
+        return _safe_float(obj)
     elif isinstance(obj, np.bool_):
         return bool(obj)
     elif isinstance(obj, np.ndarray):
@@ -337,7 +358,6 @@ def analyze_document():
             if len(high_quality_terms) >= max_terms:
                 break
 
-        # If no high-quality domain terms, fall back to best available
         if not high_quality_terms:
             high_quality_terms = extracted_terms[:max_terms]
 
@@ -347,15 +367,42 @@ def analyze_document():
 
         document_text = data.get("text", "")
 
+        logger.info(
+            "analyze-document: %d term(s) extracted, %d high-quality selected",
+            len(extracted_terms),
+            len(high_quality_terms),
+        )
+        logger.debug(
+            "terminology stats: defined=%d undefined=%d avg_confidence=%s",
+            terminology_result.statistics.get("defined_terms"),
+            terminology_result.statistics.get("undefined_terms"),
+            terminology_result.statistics.get("avg_confidence"),
+        )
+
         def create_term_entry(result):
+            raw_confidence = result.classification.confidence
+            if math.isnan(raw_confidence) or math.isinf(raw_confidence):
+                logger.warning(
+                    "Non-finite confidence for term '%s': %s — clamping to 0.0",
+                    result.term,
+                    raw_confidence,
+                )
+                raw_confidence = 0.0
+            is_undefined_acronym = (
+                result.term.isupper()
+                and len(result.term) >= 2
+                and not result.is_defined
+            )
             return {
                 "term": result.term,
                 "normalized_term": result.normalized_term,
                 "is_defined": result.is_defined,
+                "is_undefined_acronym": is_undefined_acronym,
                 "classification": {
                     "is_domain_term": result.classification.is_domain_term,
                     "is_common_english": result.classification.is_common_english,
-                    "confidence": float(result.classification.confidence),
+                    "confidence": float(raw_confidence),
+                    "classification_reason": result.classification.classification_reason,
                 },
                 "suggested_definition": result.suggested_definition,
                 "context_excerpt": result.context_excerpt,
@@ -374,6 +421,11 @@ def analyze_document():
                 {
                     "term": result.term,
                     "is_defined": result.is_defined,
+                    "is_undefined_acronym": (
+                        result.term.isupper()
+                        and len(result.term) >= 2
+                        and not result.is_defined
+                    ),
                     "context_excerpt": result.context_excerpt,
                 }
                 for result in terminology_result.defined_terms
@@ -381,19 +433,30 @@ def analyze_document():
             ],
         }
 
-        normative_statements = []
+        candidate_statements = []
         if "segments" in data:
             for segment in data["segments"]:
-                if segment.get("element_type") == "normative":
-                    normative_statements.append(segment["text"])
+                if segment.get("element_type") in ("normative", "unknown"):
+                    candidate_statements.append(segment["text"])
         else:
             processor = DocumentProcessor()
             processed = processor.process_document(data["text"])
-            normative_segments = processor.get_normative_segments(processed)
-            normative_statements = [seg.text for seg in normative_segments]
+            candidate_statements = [
+                seg.text
+                for seg in processed.segments
+                if seg.element_type.value in ("normative", "unknown")
+            ]
 
+        logger.info(
+            "contradiction detection: %d candidate statements (%s)",
+            len(candidate_statements),
+            candidate_statements,
+        )
         contradictions = contradiction_detector.detect_contradictions(
-            normative_statements
+            candidate_statements
+        )
+        logger.info(
+            "contradiction detection: %d contradiction(s) found", len(contradictions)
         )
 
         contradictions_data = [
@@ -413,13 +476,14 @@ def analyze_document():
             "contradictions": contradictions_data,
         }
 
-        return jsonify(convert_numpy_types(response_data))
+        serialized = convert_numpy_types(response_data)
+        return jsonify(serialized)
 
     except Exception as e:
         import traceback
 
         error_details = f"Error: {str(e)}\nTraceback: {traceback.format_exc()}"
-        print(f"DEBUG: analyze-document error:\n{error_details}")
+        logger.error("analyze-document error:\n%s", error_details)
         return jsonify({"error": str(e), "debug_details": error_details}), 500
 
 

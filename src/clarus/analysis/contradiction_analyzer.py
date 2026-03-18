@@ -2,6 +2,18 @@ from typing import List, Dict, Optional, Set, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
 import re
+import sys
+import logging
+
+_handler = logging.StreamHandler(sys.stdout)
+_handler.setFormatter(
+    logging.Formatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s")
+)
+logger = logging.getLogger("clarus.contradiction_analyzer")
+logger.setLevel(logging.DEBUG)
+if not logger.handlers:
+    logger.addHandler(_handler)
+logger.propagate = False
 
 
 class ContradictionType(Enum):
@@ -77,10 +89,19 @@ class ContradictionDetector:
         self.initialize()
         contradictions = []
 
+        logger.info("detect_contradictions: received %d statement(s)", len(statements))
+        for idx, s in enumerate(statements):
+            logger.debug("  [%d] %s", idx, s)
+
         if not statements or len(statements) < 2:
+            logger.info("detect_contradictions: fewer than 2 statements — skipping")
             return contradictions
 
         candidate_pairs = self._generate_candidate_pairs(statements, context)
+        logger.info(
+            "detect_contradictions: %d candidate pair(s) generated",
+            len(candidate_pairs),
+        )
 
         for i, j in candidate_pairs:
             if i >= len(statements) or j >= len(statements):
@@ -246,6 +267,41 @@ class ContradictionDetector:
                 re.search(pos, text_b) and re.search(neg, text_a)
             ):
                 return True
+
+        value_antonyms = [
+            ("true", "false"),
+            ("yes", "no"),
+            ("enabled", "disabled"),
+            ("active", "inactive"),
+            ("valid", "invalid"),
+            ("allowed", "prohibited"),
+            ("required", "optional"),
+            ("present", "absent"),
+            ("correct", "incorrect"),
+            ("on", "off"),
+            ("supported", "unsupported"),
+            ("mandatory", "optional"),
+            ("positive", "negative"),
+            ("high", "low"),
+            ("greater than", "less than"),
+            ("more than", "fewer than"),
+            ("above", "below"),
+        ]
+        for val_a, val_b in value_antonyms:
+            pat_a = rf"\bis\s+{val_a}\b"
+            pat_b = rf"\bis\s+{val_b}\b"
+            if (re.search(pat_a, text_a) and re.search(pat_b, text_b)) or (
+                re.search(pat_a, text_b) and re.search(pat_b, text_a)
+            ):
+                if self._share_significant_terms(text_a, text_b):
+                    logger.debug(
+                        "Value antonym contradiction: '%s' vs '%s' (pair: %s/%s)",
+                        text_a[:60],
+                        text_b[:60],
+                        val_a,
+                        val_b,
+                    )
+                    return True
 
         num_a = set(re.findall(r"\b\d+(?:\.\d+)?\b", text_a))
         num_b = set(re.findall(r"\b\d+(?:\.\d+)?\b", text_b))
