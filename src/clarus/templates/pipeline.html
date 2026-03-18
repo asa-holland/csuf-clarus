@@ -3,164 +3,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Analysis Pipeline</title>
+    <title>Clarus | CSUF Computer Science</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pipeline.css') }}">
 </head>
-<body>
-    <div class="container">
-        <header>
-            <div class="header-nav">
-                <h1>🔍 Document Analysis Pipeline</h1>
-                <nav>
-                    <a href="/" class="nav-link">📄 Extractor</a>
+<body class="page-pipeline">
+    <div class="page-wrapper">
+
+        <header class="site-header">
+            <div class="header-top-stripe"></div>
+            <div class="header-main">
+                <div class="header-institution">
+                    <a href="https://www.fullerton.edu" target="_blank" rel="noopener" class="csuf-logo-link">
+                        <img
+                            src="https://www.fullerton.edu/_resources/images/core/CalStateFullerton-reversed-orange.png"
+                            alt="California State University, Fullerton"
+                            class="csuf-logo"
+                            onerror="this.onerror=null; this.src='https://www.fullerton.edu/_resources/images/core/CalStateFullerton-logo.svg'; this.classList.add('csuf-logo-fallback');"
+                        >
+                    </a>
+                    <div class="dept-label">Department of Computer Science</div>
+                </div>
+
+                <div class="header-center">
+                    <div class="clarus-brand">
+                        <div class="clarus-logo-mark" aria-hidden="true">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="18" cy="18" r="16" stroke="#FF7900" stroke-width="2"/>
+                                <circle cx="18" cy="18" r="9" fill="#FF7900" fill-opacity="0.15" stroke="#FF7900" stroke-width="1.5"/>
+                                <line x1="18" y1="4" x2="18" y2="32" stroke="#FF7900" stroke-width="1" stroke-dasharray="2 3"/>
+                                <line x1="4" y1="18" x2="32" y2="18" stroke="#FF7900" stroke-width="1" stroke-dasharray="2 3"/>
+                                <circle cx="18" cy="18" r="3" fill="#FF7900"/>
+                            </svg>
+                        </div>
+                        <div class="clarus-text">
+                            <span class="clarus-name">Clarus</span>
+                            <span class="clarus-subtitle">Requirement Document Analysis Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="header-nav">
+                    <a href="/" class="nav-link">Extractor</a>
                     <a href="/pipeline" class="nav-link active">Analysis Pipeline</a>
                 </nav>
             </div>
-            <p>Complete document processing: preprocessing → semantic extraction → terminology analysis → contradiction detection</p>
+            <div class="header-description-bar">
+                <p>Automated semantic extraction &middot; Terminology validation &middot; Contradiction detection</p>
+            </div>
         </header>
 
-        <section class="upload-section">
-            <div class="upload-area" id="uploadArea">
-                <div class="upload-icon">📁</div>
-                <div class="upload-text">Drop your document here or click to browse</div>
-                <div class="upload-subtext">Supports: PDF, DOCX, HTML, TXT (Max 16MB)</div>
-                <input type="file" id="fileInput" accept=".pdf,.docx,.html,.htm,.txt">
-            </div>
+        <main class="main-content">
 
-            <div class="file-info" id="fileInfo">
-                <strong>Selected file:</strong> <span id="fileName"></span>
-                <br>
-                <strong>Size:</strong> <span id="fileSize"></span>
-            </div>
+            <section class="upload-section">
+                <div class="section-intro">
+                    <h2 class="section-title">Document Analysis Pipeline</h2>
+                    <p class="section-desc">Upload a technical or requirements document to run the complete four-stage analysis pipeline.</p>
+                </div>
 
-            <button class="process-btn" id="processBtn" disabled>🚀 Start Analysis Pipeline</button>
-        </section>
-
-        <div class="error" id="errorDiv"></div>
-        <div class="success" id="successDiv"></div>
-
-        <div class="loading" id="loadingDiv">
-            <div class="spinner"></div>
-            <p id="loadingText">Processing document...</p>
-        </div>
-
-        <section class="pipeline-section" id="pipelineSection">
-            <div class="pipeline-header">
-                <h2>🔄 Analysis Pipeline</h2>
-                <div class="pipeline-progress">
-                    <div class="progress-bar" id="progressBar">
-                        <div class="progress-fill" id="progressFill"></div>
+                <div class="upload-card">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon-wrapper" aria-hidden="true">
+                            <svg class="upload-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="8" y="6" width="32" height="36" rx="3" stroke="currentColor" stroke-width="2"/>
+                                <line x1="14" y1="16" x2="34" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="14" y1="22" x2="34" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="14" y1="28" x2="26" y2="28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="36" cy="36" r="9" fill="#FF7900"/>
+                                <line x1="36" y1="31" x2="36" y2="41" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                <line x1="31" y1="36" x2="41" y2="36" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="upload-text">Drop your document here or click to browse</div>
+                        <div class="upload-subtext">Supported formats: PDF, DOCX, HTML, TXT &nbsp;&bull;&nbsp; Maximum file size: 16 MB</div>
+                        <input type="file" id="fileInput" accept=".pdf,.docx,.html,.htm,.txt">
                     </div>
-                    <span class="progress-text" id="progressText">0/4 stages completed</span>
+
+                    <div class="file-info" id="fileInfo">
+                        <div class="file-info-inner">
+                            <svg class="file-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5"/>
+                                <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <div class="file-details">
+                                <strong id="fileName">—</strong>
+                                <span id="fileSize" class="file-size-label">—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="process-btn" id="processBtn" disabled>
+                        <span class="btn-icon" aria-hidden="true">
+                            <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 2v8m0 0l-3-3m3 3l3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 14v2a2 2 0 002 2h10a2 2 0 002-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                        Run Analysis Pipeline
+                    </button>
+                </div>
+
+                <div class="pipeline-overview">
+                    <div class="pipeline-overview-step">
+                        <div class="step-numeral">I</div>
+                        <div class="step-label">Document<br>Preprocessing</div>
+                    </div>
+                    <div class="pipeline-overview-arrow" aria-hidden="true">&#8594;</div>
+                    <div class="pipeline-overview-step">
+                        <div class="step-numeral">II</div>
+                        <div class="step-label">Processing &amp;<br>Segmentation</div>
+                    </div>
+                    <div class="pipeline-overview-arrow" aria-hidden="true">&#8594;</div>
+                    <div class="pipeline-overview-step">
+                        <div class="step-numeral">III</div>
+                        <div class="step-label">Semantic<br>Extraction</div>
+                    </div>
+                    <div class="pipeline-overview-arrow" aria-hidden="true">&#8594;</div>
+                    <div class="pipeline-overview-step">
+                        <div class="step-numeral">IV</div>
+                        <div class="step-label">Terminology &amp;<br>Contradiction Analysis</div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="messages-area">
+                <div class="msg-error" id="errorDiv" role="alert" aria-live="assertive"></div>
+                <div class="msg-success" id="successDiv" role="status" aria-live="polite"></div>
+            </div>
+
+            <div class="loading" id="loadingDiv" aria-live="polite">
+                <div class="loading-inner">
+                    <div class="loading-spinner" aria-hidden="true">
+                        <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="20" fill="none" stroke="#00244E" stroke-width="4" stroke-linecap="round" stroke-dasharray="80 40"/>
+                        </svg>
+                    </div>
+                    <p class="loading-text" id="loadingText">Processing document&hellip;</p>
                 </div>
             </div>
 
-            <div class="pipeline-stages">
-                <div class="stage" id="stage-preprocessing">
-                    <div class="stage-header" onclick="toggleStage('preprocessing')">
-                        <div class="stage-info">
-                            <div class="stage-icon">📄</div>
-                            <div class="stage-title">
-                                <h3>Document Preprocessing</h3>
+            <section class="pipeline-section" id="pipelineSection">
+                <div class="pipeline-header">
+                    <h2 class="pipeline-title">Analysis Pipeline</h2>
+                    <div class="pipeline-progress-wrapper">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="4">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                        <span class="progress-text" id="progressText">0 of 4 stages completed</span>
+                    </div>
+                </div>
+
+                <div class="pipeline-stages">
+
+                    <div class="stage" id="stage-preprocessing">
+                        <div class="stage-header" onclick="toggleStage('preprocessing')" role="button" tabindex="0"
+                             onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('preprocessing')">
+                            <div class="stage-info">
+                                <div class="stage-numeral" aria-label="Stage 1">I</div>
+                                <div class="stage-title-block">
+                                    <h3>Document Preprocessing</h3>
+                                    <p class="stage-desc">Text extraction, format normalization, and metadata collection</p>
+                                </div>
+                            </div>
+                            <div class="stage-right">
                                 <span class="stage-status" id="status-preprocessing">Pending</span>
+                                <span class="stage-toggle" aria-hidden="true">&#9660;</span>
                             </div>
                         </div>
-                        <div class="stage-toggle">▼</div>
-                    </div>
-                    <div class="stage-content" id="content-preprocessing">
-                        <div class="stage-results">
-                            <div class="metadata-grid" id="preprocessing-metadata"></div>
-                            <div class="text-preview">
-                                <h4>Extracted Text Preview</h4>
-                                <div class="text-output" id="preprocessing-text"></div>
+                        <div class="stage-content" id="content-preprocessing">
+                            <div class="stage-results">
+                                <div class="metadata-grid" id="preprocessing-metadata"></div>
+                                <div class="text-preview">
+                                    <h4 class="results-label">Extracted Text Preview</h4>
+                                    <div class="text-output" id="preprocessing-text"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="stage" id="stage-processing">
-                    <div class="stage-header" onclick="toggleStage('processing')">
-                        <div class="stage-info">
-                            <div class="stage-icon">🔧</div>
-                            <div class="stage-title">
-                                <h3>Document Processing & Segmentation</h3>
+                    <div class="stage" id="stage-processing">
+                        <div class="stage-header" onclick="toggleStage('processing')" role="button" tabindex="0"
+                             onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('processing')">
+                            <div class="stage-info">
+                                <div class="stage-numeral" aria-label="Stage 2">II</div>
+                                <div class="stage-title-block">
+                                    <h3>Processing &amp; Segmentation</h3>
+                                    <p class="stage-desc">Sentence segmentation and classification into normative, informative, and unknown types</p>
+                                </div>
+                            </div>
+                            <div class="stage-right">
                                 <span class="stage-status" id="status-processing">Pending</span>
+                                <span class="stage-toggle" aria-hidden="true">&#9660;</span>
                             </div>
                         </div>
-                        <div class="stage-toggle">▼</div>
-                    </div>
-                    <div class="stage-content" id="content-processing">
-                        <div class="stage-results">
-                            <div class="processing-stats" id="processing-stats"></div>
-                            <div class="segments-container" id="segments-container"></div>
+                        <div class="stage-content" id="content-processing">
+                            <div class="stage-results">
+                                <div class="processing-stats" id="processing-stats"></div>
+                                <div class="segments-container" id="segments-container"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="stage" id="stage-semantic">
-                    <div class="stage-header" onclick="toggleStage('semantic')">
-                        <div class="stage-info">
-                            <div class="stage-icon">🧠</div>
-                            <div class="stage-title">
-                                <h3>Semantic Extraction</h3>
+                    <div class="stage" id="stage-semantic">
+                        <div class="stage-header" onclick="toggleStage('semantic')" role="button" tabindex="0"
+                             onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('semantic')">
+                            <div class="stage-info">
+                                <div class="stage-numeral" aria-label="Stage 3">III</div>
+                                <div class="stage-title-block">
+                                    <h3>Semantic Extraction</h3>
+                                    <p class="stage-desc">Modal verb analysis, subject-predicate extraction, and semantic profiling</p>
+                                </div>
+                            </div>
+                            <div class="stage-right">
                                 <span class="stage-status" id="status-semantic">Pending</span>
+                                <span class="stage-toggle" aria-hidden="true">&#9660;</span>
                             </div>
                         </div>
-                        <div class="stage-toggle">▼</div>
-                    </div>
-                    <div class="stage-content" id="content-semantic">
-                        <div class="stage-results">
-                            <div class="semantic-overview" id="semantic-overview"></div>
-                            <div class="semantic-profiles" id="semantic-profiles"></div>
+                        <div class="stage-content" id="content-semantic">
+                            <div class="stage-results">
+                                <div class="semantic-overview" id="semantic-overview"></div>
+                                <div class="semantic-profiles" id="semantic-profiles"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="stage" id="stage-analysis">
-                    <div class="stage-header" onclick="toggleStage('analysis')">
-                        <div class="stage-info">
-                            <div class="stage-icon">⚖️</div>
-                            <div class="stage-title">
-                                <h3>Terminology & Contradiction Analysis</h3>
+                    <div class="stage" id="stage-analysis">
+                        <div class="stage-header" onclick="toggleStage('analysis')" role="button" tabindex="0"
+                             onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('analysis')">
+                            <div class="stage-info">
+                                <div class="stage-numeral" aria-label="Stage 4">IV</div>
+                                <div class="stage-title-block">
+                                    <h3>Terminology &amp; Contradiction Analysis</h3>
+                                    <p class="stage-desc">Domain term validation, undefined acronym detection, and logical contradiction identification</p>
+                                </div>
+                            </div>
+                            <div class="stage-right">
                                 <span class="stage-status" id="status-analysis">Pending</span>
+                                <span class="stage-toggle" aria-hidden="true">&#9660;</span>
                             </div>
                         </div>
-                        <div class="stage-toggle">▼</div>
+                        <div class="stage-content" id="content-analysis">
+                            <div class="analysis-tabs" role="tablist">
+                                <button class="tab-btn active" onclick="switchTab('terminology')" role="tab" aria-selected="true">Terminology</button>
+                                <button class="tab-btn" onclick="switchTab('contradictions')" role="tab" aria-selected="false">Contradictions</button>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="terminology-tab" role="tabpanel">
+                                    <div class="terminology-results" id="terminology-results"></div>
+                                </div>
+                                <div class="tab-pane" id="contradictions-tab" role="tabpanel">
+                                    <div class="contradictions-results" id="contradictions-results"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stage-content" id="content-analysis">
-                        <div class="analysis-tabs">
-                            <button class="tab-btn active" onclick="switchTab('terminology')">📚 Terminology</button>
-                            <button class="tab-btn" onclick="switchTab('contradictions')">⚠️ Contradictions</button>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="terminology-tab">
-                                <div class="terminology-results" id="terminology-results"></div>
-                            </div>
-                            <div class="tab-pane" id="contradictions-tab">
-                                <div class="contradictions-results" id="contradictions-results"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="export-section" id="exportSection" style="display: none;">
-            <h2>📥 Export Results</h2>
-            <div class="export-buttons">
-                <button class="export-btn" onclick="exportResults('json')">
-                    📄 Export Full Report (JSON)
-                </button>
-                <button class="export-btn" onclick="exportResults('csv')">
-                    📊 Export Statistics (CSV)
-                </button>
-                <button class="export-btn" onclick="exportResults('pdf')">
-                    📋 Export Summary (PDF)
-                </button>
+                </div>
+            </section>
+
+            <section class="export-section" id="exportSection" style="display: none;">
+                <h2 class="export-title">Export Analysis Results</h2>
+                <p class="export-desc">Download the complete analysis report in your preferred format.</p>
+                <div class="export-buttons">
+                    <button class="export-btn" onclick="exportResults('json')">
+                        <span class="export-btn-label">Full Report</span>
+                        <span class="export-btn-format">JSON</span>
+                    </button>
+                    <button class="export-btn" onclick="exportResults('csv')">
+                        <span class="export-btn-label">Statistics</span>
+                        <span class="export-btn-format">CSV</span>
+                    </button>
+                    <button class="export-btn" onclick="exportResults('pdf')">
+                        <span class="export-btn-label">Summary</span>
+                        <span class="export-btn-format">PDF</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <span class="footer-copy">&copy; California State University, Fullerton: College of Engineering and Computer Science, Department of Computer Science</span>
+                <span class="footer-product">Clarus: Requirement Document Analysis Platform</span>
             </div>
-        </section>
-    </div>
+        </footer>
+
+    </div><!-- /.page-wrapper -->
 
     <script>
         let analysisResults = {};
@@ -230,27 +362,27 @@
             pipelineSection.classList.add('active');
 
             try {
-                updateLoadingText('Preprocessing document...');
+                updateLoadingText('Preprocessing document\u2026');
                 await runPreprocessing(file);
                 updateStageStatus('preprocessing', 'completed');
                 updateProgress(1);
 
-                updateLoadingText('Processing and segmenting document...');
+                updateLoadingText('Processing and segmenting document\u2026');
                 await runDocumentProcessing();
                 updateStageStatus('processing', 'completed');
                 updateProgress(2);
 
-                updateLoadingText('Extracting semantic information...');
+                updateLoadingText('Extracting semantic information\u2026');
                 await runSemanticExtraction();
                 updateStageStatus('semantic', 'completed');
                 updateProgress(3);
 
-                updateLoadingText('Analyzing terminology and contradictions...');
+                updateLoadingText('Analysing terminology and contradictions\u2026');
                 await runAnalysis();
                 updateStageStatus('analysis', 'completed');
                 updateProgress(4);
 
-                showSuccess('Document analysis completed successfully!');
+                showSuccess('Document analysis completed successfully.');
                 document.getElementById('exportSection').style.display = 'block';
 
             } catch (error) {
@@ -374,7 +506,7 @@
                 displayAnalysisResults(result);
             } catch (error) {
                 console.error('Error in runAnalysis:', error);
-                throw error; // Re-throw to be caught by the outer try-catch
+                throw error;
             }
         }
 
@@ -394,14 +526,14 @@
                 const div = document.createElement('div');
                 div.className = 'metadata-item';
                 div.innerHTML = `
-                    <span class="metadata-label">${item.key}:</span>
+                    <span class="metadata-label">${item.key}</span>
                     <span class="metadata-value">${item.value}</span>
                 `;
                 metadataDiv.appendChild(div);
             });
 
             const textDiv = document.getElementById('preprocessing-text');
-            textDiv.textContent = result.text.substring(0, 1000) + (result.text.length > 1000 ? '...' : '');
+            textDiv.textContent = result.text.substring(0, 1000) + (result.text.length > 1000 ? '\u2026' : '');
         }
 
         function displayProcessingResults(result) {
@@ -430,7 +562,7 @@
             `;
 
             const segmentsDiv = document.getElementById('segments-container');
-            segmentsDiv.innerHTML = '<h4>Document Segments</h4>';
+            segmentsDiv.innerHTML = '<h4 class="results-label">Document Segments</h4>';
 
             const scrollableContainer = document.createElement('div');
             scrollableContainer.className = 'scrollable-container';
@@ -442,7 +574,7 @@
                 segmentDiv.innerHTML = `
                     <div class="segment-header">
                         <span class="segment-type">${segment.element_type}</span>
-                        <span class="segment-confidence">Confidence: ${(segment.confidence * 100).toFixed(1)}%</span>
+                        <span class="segment-confidence">${(segment.confidence * 100).toFixed(1)}% confidence</span>
                     </div>
                     <div class="segment-text">${segment.text}</div>
                 `;
@@ -460,13 +592,13 @@
                     </div>
                     <div class="semantic-stat">
                         <span class="stat-number">${result.avg_confidence ? (result.avg_confidence * 100).toFixed(1) + '%' : 'N/A'}</span>
-                        <span class="stat-label">Avg Confidence</span>
+                        <span class="stat-label">Avg. Confidence</span>
                     </div>
                 </div>
             `;
 
             const profilesDiv = document.getElementById('semantic-profiles');
-            profilesDiv.innerHTML = '<h4>Semantic Profiles</h4>';
+            profilesDiv.innerHTML = '<h4 class="results-label">Semantic Profiles</h4>';
 
             const profilesScrollableContainer = document.createElement('div');
             profilesScrollableContainer.className = 'scrollable-container';
@@ -507,20 +639,31 @@
                         </div>
                     </div>
                     <div class="terms-list scrollable-container">
-                        <h5>Sample Terms</h5>
+                        <h5 class="results-label">Extracted Terms</h5>
                         ${result.terminology.term_occurrences?.map(occ => {
-                            const statusIcon = occ.is_defined ? '✓' : '?';
-                            const statusClass = occ.is_defined ? 'term-defined' : 'term-undefined';
+                            let statusIcon, statusClass, badge = '';
+                            if (occ.is_defined) {
+                                statusIcon = '&#10003;';
+                                statusClass = 'term-defined';
+                            } else if (occ.is_undefined_acronym) {
+                                statusIcon = '!';
+                                statusClass = 'term-undefined-acronym';
+                                badge = '<span class="acronym-badge">Undefined Acronym</span>';
+                            } else {
+                                statusIcon = '?';
+                                statusClass = 'term-undefined';
+                            }
                             return `
                                 <div class="term-item">
                                     <div class="term-header">
                                         <span class="term-text">${occ.term}</span>
-                                        <span class="term-status ${statusClass}">${statusIcon}</span>
+                                        ${badge}
+                                        <span class="term-status ${statusClass}" aria-label="${statusClass}">${statusIcon}</span>
                                     </div>
                                     <div class="term-context">${occ.context_excerpt || occ.context || 'No context available'}</div>
                                 </div>
                             `;
-                        }).join('') || '<p>No terms found</p>'}
+                        }).join('') || '<p class="no-results">No terms found.</p>'}
                     </div>
                 `;
             }
@@ -531,23 +674,29 @@
                     <div class="contradictions-summary">
                         <div class="contradiction-stat">
                             <span class="stat-number">${result.contradictions.length}</span>
-                            <span class="stat-label">Contradictions Found</span>
+                            <span class="stat-label">Contradiction${result.contradictions.length !== 1 ? 's' : ''} Detected</span>
                         </div>
                     </div>
                     <div class="contradictions-list scrollable-container">
-                        ${result.contradictions.map((contradiction, index) => `
-                            <div class="contradiction-item">
-                                <div class="contradiction-header">
-                                    <span class="contradiction-type">${contradiction.contradiction_type}</span>
-                                    <span class="contradiction-confidence">Confidence: ${(contradiction.confidence * 100).toFixed(1)}%</span>
+                        ${result.contradictions.length > 0
+                            ? result.contradictions.map((contradiction, index) => `
+                                <div class="contradiction-item">
+                                    <div class="contradiction-header">
+                                        <div class="contradiction-meta">
+                                            <span class="contradiction-index">#${index + 1}</span>
+                                            <span class="contradiction-type">${contradiction.contradiction_type}</span>
+                                        </div>
+                                        <span class="contradiction-confidence">Confidence: ${(contradiction.confidence * 100).toFixed(1)}%</span>
+                                    </div>
+                                    <div class="contradiction-text">
+                                        <div class="stmt stmt-a"><span class="stmt-label">A</span><span class="stmt-content">${contradiction.statement_a}</span></div>
+                                        <div class="stmt stmt-b"><span class="stmt-label">B</span><span class="stmt-content">${contradiction.statement_b}</span></div>
+                                    </div>
+                                    <div class="contradiction-explanation">${contradiction.explanation}</div>
                                 </div>
-                                <div class="contradiction-text">
-                                    <div><strong>A:</strong> ${contradiction.statement_a}</div>
-                                    <div><strong>B:</strong> ${contradiction.statement_b}</div>
-                                </div>
-                                <div class="contradiction-explanation">${contradiction.explanation}</div>
-                            </div>
-                        `).join('') || '<p>No contradictions found</p>'}
+                            `).join('')
+                            : '<p class="no-results">No contradictions detected.</p>'
+                        }
                     </div>
                 `;
             }
@@ -565,10 +714,12 @@
             completedStages = completed;
             const progressFill = document.getElementById('progressFill');
             const progressText = document.getElementById('progressText');
+            const progressBar = progressFill.closest('[role="progressbar"]');
 
             const percentage = (completed / 4) * 100;
             progressFill.style.width = `${percentage}%`;
-            progressText.textContent = `${completed}/4 stages completed`;
+            progressText.textContent = `${completed} of 4 stages completed`;
+            if (progressBar) progressBar.setAttribute('aria-valuenow', completed);
         }
 
         function updateLoadingText(text) {
@@ -581,16 +732,20 @@
 
             if (content.style.display === 'none' || !content.style.display) {
                 content.style.display = 'block';
-                toggle.textContent = '▼';
+                toggle.innerHTML = '&#9660;';
             } else {
                 content.style.display = 'none';
-                toggle.textContent = '▶';
+                toggle.innerHTML = '&#9654;';
             }
         }
 
         function switchTab(tab) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
             event.target.classList.add('active');
+            event.target.setAttribute('aria-selected', 'true');
 
             document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
             document.getElementById(`${tab}-tab`).classList.add('active');
@@ -604,7 +759,7 @@
             ['preprocessing', 'processing', 'semantic', 'analysis'].forEach(stage => {
                 updateStageStatus(stage, 'pending');
                 document.getElementById(`content-${stage}`).style.display = 'block';
-                document.querySelector(`#stage-${stage} .stage-toggle`).textContent = '▼';
+                document.querySelector(`#stage-${stage} .stage-toggle`).innerHTML = '&#9660;';
             });
 
             document.getElementById('preprocessing-metadata').innerHTML = '';
@@ -618,7 +773,7 @@
         }
 
         function exportResults(format) {
-            showSuccess(`Exporting results as ${format.toUpperCase()}...`);
+            showSuccess(`Preparing ${format.toUpperCase()} export\u2026`);
         }
 
         function showError(message) {
@@ -631,7 +786,7 @@
             successDiv.classList.add('active');
             setTimeout(() => {
                 successDiv.classList.remove('active');
-            }, 3000);
+            }, 4000);
         }
 
         function hideMessages() {
