@@ -776,144 +776,149 @@ class TerminologyValidator:
 
     def extract_terms_from_text(self, text: str) -> List[str]:
         terms = set()
+        term_scores = {}
 
         if self.nlp:
             try:
                 doc = self.nlp(text)
+
+                # Extract noun chunks with scoring
                 for chunk in doc.noun_chunks:
-                    if len(chunk.text.strip()) > 2 and len(chunk.text.strip()) <= 25:
-                        terms.add(chunk.text.strip())
+                    term = chunk.text.strip()
+                    if 3 < len(term) <= 25:
+                        score = self._calculate_term_score(term, chunk)
+                        if score > 0.3:  # Minimum quality threshold
+                            terms.add(term)
+                            term_scores[term] = score
 
+                # Extract named entities with higher scoring
                 for ent in doc.ents:
-                    if len(ent.text.strip()) > 2 and len(ent.text.strip()) <= 25:
-                        terms.add(ent.text.strip())
+                    term = ent.text.strip()
+                    if 2 < len(term) <= 25:
+                        score = (
+                            self._calculate_term_score(term, ent) + 0.3
+                        )  # Boost entities
+                        if score > 0.3:
+                            terms.add(term)
+                            term_scores[term] = score
 
+                # Extract individual nouns with context
                 for token in doc:
                     if token.pos_ in ["NOUN", "PROPN"] and len(token.text) > 3:
+                        # Build phrase from surrounding tokens
                         start = max(0, token.i - 2)
                         end = min(len(doc), token.i + 3)
-                        phrase = " ".join(
-                            [
-                                t.text
-                                for t in doc[start:end]
-                                if t.pos_ in ["NOUN", "PROPN", "ADJ", "NUM"]
-                            ]
-                        )
-                        if len(phrase.split()) >= 2 and len(phrase) <= 25:
-                            terms.add(phrase)
+                        phrase_tokens = [
+                            t
+                            for t in doc[start:end]
+                            if t.pos_ in ["NOUN", "PROPN", "ADJ", "NUM"]
+                            and not t.is_stop
+                        ]
+
+                        if len(phrase_tokens) >= 2:
+                            phrase = " ".join([t.text for t in phrase_tokens])
+                            if len(phrase) <= 25:
+                                score = self._calculate_term_score(
+                                    phrase, phrase_tokens[0]
+                                )
+                                if score > 0.4:  # Higher threshold for phrases
+                                    terms.add(phrase)
+                                    term_scores[phrase] = score
+
+                        # Also consider single important nouns
+                        if not token.is_stop and len(token.text) > 4:
+                            score = self._calculate_term_score(token.text, token)
+                            if score > 0.5:  # Higher threshold for single nouns
+                                terms.add(token.text)
+                                term_scores[token.text] = score
             except Exception as e:
                 print(f"Error in spaCy term extraction: {e}")
 
-        acronyms = re.findall(r"\b[A-Z]{2,}\b", text)
-        terms.update(acronyms)
+        # Extract acronyms with high confidence
+        acronyms = re.findall(r"\b[A-Z]{2,6}\b", text)
+        for acronym in acronyms:
+            if self._is_likely_acronym(acronym, text):
+                terms.add(acronym)
+                term_scores[acronym] = 0.8
 
+        # Extract CamelCase terms
         camelcase = re.findall(r"\b[A-Z][a-z]+[A-Z][a-zA-Z]*\b", text)
-        terms.update(camelcase)
+        for camel in camelcase:
+            if len(camel) > 4:
+                terms.add(camel)
+                term_scores[camel] = 0.7
 
-        tech_suffixes = [
-            "tion",
-            "ment",
-            "ness",
-            "ity",
-            "er",
-            "or",
-            "ism",
-            "ist",
-            "ive",
-            "able",
-            "ible",
-            "al",
-            "ial",
-            "ic",
-            "ical",
-            "ous",
-            "ious",
-            "ful",
-            "less",
-            "ize",
-            "ise",
-            "fy",
-            "ate",
-            "en",
-            "ify",
-        ]
-        for suffix in tech_suffixes:
-            pattern = rf"\b\w+{suffix}\b"
-            matches = re.findall(pattern, text, re.IGNORECASE)
-            terms.update([match for match in matches if 3 < len(match) <= 20])
-
-        quoted = re.findall(r'"([^"]+)"', text)
-        terms.update([quote for quote in quoted if 2 < len(quote) <= 25])
-
-        common_english = {
-            "the",
-            "and",
-            "have",
-            "will",
-            "time",
-            "person",
-            "way",
-            "day",
-            "man",
-            "thing",
-            "use",
-            "make",
-            "work",
-            "part",
-            "take",
-            "get",
-            "place",
-            "live",
-            "back",
-            "only",
-            "is",
-            "are",
-            "was",
-            "were",
-            "be",
-            "been",
-            "being",
-            "have",
-            "has",
-            "had",
-            "do",
-            "does",
-            "did",
-            "will",
-            "would",
-            "could",
-            "should",
-            "may",
-            "might",
-            "can",
-            "must",
-            "shall",
-            "this",
-            "that",
-            "these",
-            "those",
-            "a",
-            "an",
+        # More selective technical suffix matching
+        tech_patterns = {
+            r"\b\w+(?:tion|ment|ness|ity|ism|ist)\b": 0.6,
+            r"\b\w+(?:er|or|ive|able|ible|al|ial|ic|ical|ous|ious)\b": 0.5,
+            r"\b\w+(?:ful|less|ize|ise|fy|ate|en|ify)\b": 0.4,
         }
 
-        filtered_terms = []
+        for pattern, base_score in tech_patterns.items():
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            for match in matches:
+                term = match.strip()
+                if (
+                    4 < len(term) <= 20
+                    and term.lower() not in self._get_expanded_common_words()
+                ):
+                    # Additional context check for technical terms
+                    context_score = self._calculate_technical_context_score(term, text)
+                    total_score = base_score * context_score
+                    if total_score > 0.3:
+                        terms.add(term)
+                        term_scores[term] = total_score
+
+        # Extract quoted terms (often definitions)
+        quoted = re.findall(r'"([^"]{3,25})"', text)
+        for quote in quoted:
+            if self._is_likely_technical_term(quote):
+                terms.add(quote)
+                term_scores[quote] = 0.6
+
+        # Enhanced filtering with scoring
+        expanded_common = self._get_expanded_common_words()
+
+        scored_terms = []
         for term in terms:
             term_lower = term.lower()
-            if (
-                term_lower not in common_english
-                and len(term.strip()) > 2
-                and len(term.strip()) <= 25
-                and not term.isdigit()
-                and not re.match(r"^[.,!?;:]+$", term)
-            ):
-                filtered_terms.append(term.strip())
+            base_score = term_scores.get(term, 0.5)
 
-        return sorted(list(set(filtered_terms)), key=len, reverse=True)
+            # Apply filters with penalties
+            if term_lower in expanded_common:
+                continue  # Skip common words entirely
+
+            if len(term.strip()) <= 2 or len(term.strip()) > 25:
+                continue
+
+            if term.isdigit() or re.match(r"^[.,!?;:]+$", term):
+                continue
+
+            # Apply quality penalties
+            if term_lower.startswith("the") or term_lower.startswith("a"):
+                base_score *= 0.3
+
+            if term.count(" ") > 3:  # Too many words
+                base_score *= 0.5
+
+            # Boost for domain indicators
+            if self._has_domain_indicators(term):
+                base_score *= 1.3
+
+            # Only include terms with sufficient quality score
+            if base_score > 0.35:
+                scored_terms.append((term.strip(), base_score))
+
+        # Sort by score first, then by length
+        scored_terms.sort(key=lambda x: (x[1], len(x[0])), reverse=True)
+
+        return [term for term, score in scored_terms]
 
     def validate_terms(
         self,
         terms: List[str],
-        contexts: Optional[List[str]] = None,
+        contexts: Optional[List[Optional[str]]] = None,
         full_text: Optional[str] = None,
     ) -> ValidationReport:
         if contexts is None:
@@ -956,7 +961,7 @@ class TerminologyValidator:
 
         semantic_clusters = self._create_semantic_clusters(undefined_terms)
 
-        statistics = {
+        statistics: Dict[str, Union[int, float]] = {
             "total_terms": len(terms),
             "defined_terms": len(defined_terms),
             "undefined_terms": len(undefined_terms),
@@ -964,11 +969,13 @@ class TerminologyValidator:
             "potential_domain_terms": len(potential_domain_terms),
             "definition_coverage": len(defined_terms) / len(terms) if terms else 0,
             "avg_confidence": (
-                np.mean(
-                    [
-                        r.classification.confidence
-                        for r in defined_terms + undefined_terms
-                    ]
+                float(
+                    np.mean(
+                        [
+                            r.classification.confidence
+                            for r in defined_terms + undefined_terms
+                        ]
+                    )
                 )
                 if terms
                 else 0
@@ -1056,6 +1063,519 @@ class TerminologyValidator:
                     }
                 )
 
-        priority_terms.sort(key=lambda x: x["priority_score"], reverse=True)
+        priority_terms.sort(key=lambda x: float(x["priority_score"]), reverse=True)
 
         return priority_terms[:top_k]
+
+    def _calculate_term_score(self, term: str, linguistic_obj) -> float:
+        """Calculate quality score for a term based on linguistic features"""
+        score = 0.5  # Base score
+
+        try:
+            # Boost for named entities
+            if hasattr(linguistic_obj, "label_"):
+                if linguistic_obj.label_ in ["ORG", "PRODUCT", "TECHNOLOGY", "CONCEPT"]:
+                    score += 0.3
+                elif linguistic_obj.label_ in ["PERSON", "DATE", "GPE"]:
+                    score += 0.1
+
+            # Boost for noun chunks with adjectives
+            if hasattr(linguistic_obj, "root"):
+                root = linguistic_obj.root
+                if hasattr(root, "pos_") and root.pos_ == "NOUN":
+                    # Check for adjectives in the chunk
+                    for token in linguistic_obj:
+                        if token.pos_ == "ADJ":
+                            score += 0.1
+                            break
+
+            # Length-based scoring
+            if 4 <= len(term) <= 8:
+                score += 0.1  # Sweet spot length
+            elif len(term) > 15:
+                score -= 0.2  # Too long
+
+            # Capitalization patterns
+            if term.istitle():
+                score += 0.1
+            elif term.isupper() and len(term) >= 2:
+                score += 0.2  # Likely acronym
+
+            # Penalize common patterns
+            if term.lower().startswith(("the ", "a ", "an ")):
+                score -= 0.3
+            if (
+                term.count(" ") == 0
+                and term.lower() in self._get_expanded_common_words()
+            ):
+                score -= 0.4
+
+        except Exception as e:
+            print(f"Error calculating term score for '{term}': {e}")
+
+        return max(0.0, min(1.0, score))
+
+    def _get_expanded_common_words(self) -> set:
+        """Get expanded list of common English words to filter out"""
+        return {
+            # Original common words
+            "the",
+            "and",
+            "have",
+            "will",
+            "time",
+            "person",
+            "way",
+            "day",
+            "man",
+            "thing",
+            "use",
+            "make",
+            "work",
+            "part",
+            "take",
+            "get",
+            "place",
+            "live",
+            "back",
+            "only",
+            "is",
+            "are",
+            "was",
+            "were",
+            "be",
+            "been",
+            "being",
+            "have",
+            "has",
+            "had",
+            "do",
+            "does",
+            "did",
+            "will",
+            "would",
+            "could",
+            "should",
+            "may",
+            "might",
+            "can",
+            "must",
+            "shall",
+            "this",
+            "that",
+            "these",
+            "those",
+            "a",
+            "an",
+            # Additional common words
+            "also",
+            "because",
+            "been",
+            "before",
+            "being",
+            "between",
+            "both",
+            "but",
+            "by",
+            "can",
+            "cannot",
+            "could",
+            "did",
+            "do",
+            "does",
+            "doing",
+            "done",
+            "down",
+            "during",
+            "each",
+            "even",
+            "every",
+            "for",
+            "from",
+            "further",
+            "had",
+            "has",
+            "have",
+            "having",
+            "here",
+            "how",
+            "if",
+            "in",
+            "into",
+            "is",
+            "it",
+            "its",
+            "just",
+            "may",
+            "might",
+            "more",
+            "most",
+            "much",
+            "must",
+            "never",
+            "no",
+            "nor",
+            "not",
+            "now",
+            "of",
+            "off",
+            "on",
+            "once",
+            "only",
+            "or",
+            "other",
+            "our",
+            "out",
+            "over",
+            "own",
+            "said",
+            "same",
+            "see",
+            "she",
+            "should",
+            "since",
+            "so",
+            "some",
+            "still",
+            "such",
+            "than",
+            "that",
+            "the",
+            "their",
+            "them",
+            "then",
+            "there",
+            "these",
+            "they",
+            "thing",
+            "things",
+            "think",
+            "this",
+            "those",
+            "though",
+            "through",
+            "to",
+            "too",
+            "under",
+            "up",
+            "upon",
+            "us",
+            "used",
+            "using",
+            "very",
+            "want",
+            "was",
+            "way",
+            "we",
+            "well",
+            "went",
+            "were",
+            "what",
+            "when",
+            "where",
+            "which",
+            "while",
+            "who",
+            "whom",
+            "whose",
+            "why",
+            "will",
+            "with",
+            "would",
+            "you",
+            "your",
+            # Common business/academic terms that aren't necessarily domain-specific
+            "information",
+            "process",
+            "method",
+            "approach",
+            "technique",
+            "function",
+            "procedure",
+            "operation",
+            "activity",
+            "task",
+            "step",
+            "phase",
+            "stage",
+            "level",
+            "type",
+            "kind",
+            "form",
+            "format",
+            "structure",
+            "model",
+            "framework",
+            "design",
+            "implementation",
+            "development",
+            "analysis",
+            "evaluation",
+            "assessment",
+            "testing",
+            "validation",
+            "verification",
+            "system",
+            "program",
+            "question",
+            "work",
+            "government",
+            "number",
+            "night",
+            "point",
+            "home",
+            "water",
+            "room",
+            "mother",
+            "area",
+            "money",
+            "story",
+            "fact",
+            "month",
+            "lot",
+            "right",
+            "study",
+            "book",
+            "eye",
+            "job",
+            "word",
+            "business",
+            "issue",
+            "side",
+            "head",
+            "house",
+            "service",
+            "friend",
+            "father",
+            "power",
+            "hour",
+            "game",
+            "line",
+            "end",
+            "member",
+            "law",
+            "car",
+            "city",
+            "data",
+            "company",
+            "group",
+            "country",
+            "problem",
+            "hand",
+            "part",
+            "place",
+            "case",
+            "week",
+            "school",
+            "state",
+            "family",
+            "student",
+            "group",
+            "country",
+            "problem",
+            "hand",
+            "part",
+            "place",
+            "case",
+            "week",
+            "company",
+            "system",
+            "program",
+            "question",
+            "work",
+            "government",
+            "number",
+            "night",
+            "point",
+            "home",
+            "water",
+            "room",
+            "mother",
+            "area",
+            "money",
+            "story",
+            "fact",
+            "month",
+            "lot",
+            "right",
+            "study",
+            "book",
+            "eye",
+            "job",
+            "word",
+            "business",
+            "issue",
+            "side",
+            "kind",
+            "head",
+            "house",
+            "service",
+            "friend",
+            "father",
+            "power",
+            "hour",
+            "game",
+            "line",
+            "end",
+            "member",
+            "law",
+            "car",
+            "city",
+            "data",
+            "information",
+            "process",
+            "method",
+            "approach",
+            "technique",
+            "function",
+            "procedure",
+            "operation",
+            "activity",
+            "task",
+            "step",
+            "phase",
+            "stage",
+            "level",
+            "type",
+            "kind",
+            "form",
+            "format",
+            "structure",
+            "model",
+            "framework",
+            "design",
+            "implementation",
+            "development",
+            "analysis",
+            "evaluation",
+            "assessment",
+            "testing",
+            "validation",
+            "verification",
+        }
+
+    def _is_likely_acronym(self, acronym: str, text: str) -> bool:
+        """Check if an uppercase string is likely a meaningful acronym"""
+        # Skip common single-letter or pattern-based acronyms
+        if len(acronym) < 2 or acronym in ["A", "I", "US", "UK", "UN", "EU"]:
+            return False
+
+        # Look for definition patterns nearby
+        context_window = 100
+        text_lower = text.lower()
+        acronym_pos = text_lower.find(acronym.lower())
+
+        if acronym_pos == -1:
+            return False
+
+        start = max(0, acronym_pos - context_window)
+        end = min(len(text), acronym_pos + len(acronym) + context_window)
+        context = text_lower[start:end]
+
+        # Look for definition patterns
+        definition_patterns = [
+            f"{acronym.lower()} (",
+            f"{acronym.lower()} stands for",
+            f"{acronym.lower()} is",
+            f"({acronym.lower()})",
+        ]
+
+        return any(pattern in context for pattern in definition_patterns)
+
+    def _is_likely_technical_term(self, term: str) -> bool:
+        """Check if a quoted term is likely a technical term"""
+        technical_indicators = [
+            "system",
+            "process",
+            "method",
+            "algorithm",
+            "protocol",
+            "standard",
+            "interface",
+            "architecture",
+            "framework",
+            "platform",
+            "service",
+            "component",
+            "module",
+            "function",
+            "procedure",
+            "technique",
+            "technology",
+            "solution",
+            "approach",
+            "strategy",
+            "model",
+        ]
+
+        term_lower = term.lower()
+        return any(indicator in term_lower for indicator in technical_indicators)
+
+    def _has_domain_indicators(self, term: str) -> bool:
+        """Check if term has indicators of being domain-specific"""
+        domain_patterns = [
+            r"\b[A-Z]{2,}\b",  # Acronyms
+            r"[a-z][A-Z]",  # CamelCase
+            r"\w+(?:tion|ment|ness|ity|ism|ist)\b",  # Technical suffixes
+            r"\w+(?:er|or|ive|able|ible|al|ial|ic|ical|ous|ious)\b",  # More suffixes
+        ]
+
+        return any(re.search(pattern, term) for pattern in domain_patterns)
+
+    def _calculate_technical_context_score(self, term: str, text: str) -> float:
+        """Calculate score based on technical context around the term"""
+        technical_context_words = [
+            "system",
+            "process",
+            "method",
+            "algorithm",
+            "protocol",
+            "standard",
+            "interface",
+            "architecture",
+            "framework",
+            "platform",
+            "service",
+            "component",
+            "module",
+            "function",
+            "procedure",
+            "technique",
+            "technology",
+            "solution",
+            "approach",
+            "strategy",
+            "model",
+            "implement",
+            "develop",
+            "design",
+            "analyze",
+            "optimize",
+            "configure",
+        ]
+
+        # Look for technical words near the term
+        context_window = 50
+        text_lower = text.lower()
+        term_pos = text_lower.find(term.lower())
+
+        if term_pos == -1:
+            return 0.5  # Default score
+
+        start = max(0, term_pos - context_window)
+        end = min(len(text), term_pos + len(term) + context_window)
+        context = text_lower[start:end]
+
+        technical_word_count = sum(
+            1 for word in technical_context_words if word in context
+        )
+
+        # Score based on technical context density
+        if technical_word_count >= 3:
+            return 1.0
+        elif technical_word_count >= 2:
+            return 0.8
+        elif technical_word_count >= 1:
+            return 0.6
+        else:
+            return 0.4

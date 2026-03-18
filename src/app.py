@@ -12,7 +12,22 @@ from clarus.analysis.contradiction_analyzer import ContradictionDetector
 import numpy as np
 import re
 import nltk
+import os
 from typing import Dict, List, Any, Optional, Union, Tuple
+
+# Set NLTK data path to use pre-downloaded data in Docker
+nltk_data_path = os.path.expanduser("~/nltk_data")
+if os.path.exists("/root/nltk_data"):
+    nltk.data.path.append("/root/nltk_data")
+elif os.path.exists(nltk_data_path):
+    nltk.data.path.append(nltk_data_path)
+
+# Set environment variables to use cached models and enable offline mode
+os.environ["HF_HOME"] = "/root/.cache/huggingface"
+os.environ["TRANSFORMERS_CACHE"] = "/root/.cache/transformers"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["HF_DATASETS_OFFLINE"] = "1"
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 try:
     nltk.data.find("tokenizers/punkt")
@@ -304,11 +319,30 @@ def analyze_document():
 
         extracted_terms = terminology_validator.extract_terms_from_text(data["text"])
 
+        # Use quality-based selection instead of fixed limit
+        min_quality_threshold = 0.4
         max_terms = 50
-        terms_to_validate = extracted_terms[:max_terms]
+
+        # Filter terms by quality score and limit
+        high_quality_terms = []
+        for term in extracted_terms:
+            # Get validation result to check quality
+            result = terminology_validator.validate_term(term)
+            if (
+                result.classification.confidence >= min_quality_threshold
+                and result.classification.is_domain_term
+                and not result.classification.is_common_english
+            ):
+                high_quality_terms.append(term)
+            if len(high_quality_terms) >= max_terms:
+                break
+
+        # If no high-quality domain terms, fall back to best available
+        if not high_quality_terms:
+            high_quality_terms = extracted_terms[:max_terms]
 
         terminology_result = terminology_validator.validate_terms(
-            terms_to_validate, full_text=data["text"]
+            high_quality_terms, full_text=data["text"]
         )
 
         document_text = data.get("text", "")
