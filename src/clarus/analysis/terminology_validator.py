@@ -284,7 +284,8 @@ class TerminologyValidator:
                 if not torch.isfinite(logits).all():
                     logger.warning(
                         "Non-finite logits for term '%s' (shape %s) — zeroing before softmax",
-                        term, tuple(logits.shape),
+                        term,
+                        tuple(logits.shape),
                     )
                     logits = torch.zeros_like(logits)
                 predictions = torch.nn.functional.softmax(logits, dim=-1)
@@ -302,9 +303,6 @@ class TerminologyValidator:
 
             embedding = self._get_term_embedding(term)
 
-            # All-caps terms (acronyms) are never common English prose words.
-            # Bypassing the semantic check here prevents the sentence-transformer
-            # from incorrectly mapping e.g. "ACMEN" near common English embeddings.
             if term.isupper() and len(term) >= 3:
                 is_common_english = False
                 is_domain_term = True
@@ -319,7 +317,10 @@ class TerminologyValidator:
 
             logger.debug(
                 "term='%s' is_domain=%s is_common=%s reason=%s",
-                term, is_domain_term, is_common_english, classification_reason,
+                term,
+                is_domain_term,
+                is_common_english,
+                classification_reason,
             )
 
             return TermClassification(
@@ -761,48 +762,36 @@ class TerminologyValidator:
         )
 
     def _extract_sentence_context(self, text: str, term: str) -> Optional[str]:
-        """Extract sentence context around a term with surrounding sentences"""
         try:
-            # Split text into sentences using spaCy if available, otherwise regex
             if self.nlp:
                 doc = self.nlp(text)
                 sentences = [
                     sent.text.strip() for sent in doc.sents if sent.text.strip()
                 ]
             else:
-                # Fallback to regex sentence splitting
                 sentences = re.split(r"[.!?]+", text)
                 sentences = [s.strip() for s in sentences if s.strip()]
 
-            # Find sentence containing the term
             for i, sentence in enumerate(sentences):
                 if re.search(r"\b" + re.escape(term) + r"\b", sentence, re.IGNORECASE):
-                    # Build context with previous and next sentences
                     context_parts = []
 
-                    # Add previous sentence if available
                     if i > 0:
                         prev_sentence = sentences[i - 1]
-                        # Take last part of previous sentence
                         if len(prev_sentence) > 100:
                             prev_sentence = "..." + prev_sentence[-100:]
                         context_parts.append(prev_sentence)
 
-                    # Add current sentence
                     context_parts.append(sentence)
 
-                    # Add next sentence if available
                     if i < len(sentences) - 1:
                         next_sentence = sentences[i + 1]
-                        # Take first part of next sentence
                         if len(next_sentence) > 100:
                             next_sentence = next_sentence[:100] + "..."
                         context_parts.append(next_sentence)
 
-                    # Join with proper spacing and punctuation
                     context = " ".join(context_parts)
 
-                    # Limit total length
                     if len(context) > 300:
                         context = context[:300] + "..."
 
@@ -822,7 +811,6 @@ class TerminologyValidator:
             try:
                 doc = self.nlp(text)
 
-                # Extract noun chunks with scoring
                 for chunk in doc.noun_chunks:
                     term = chunk.text.strip()
                     if 3 < len(term) <= 25:
@@ -831,7 +819,6 @@ class TerminologyValidator:
                             terms.add(term)
                             term_scores[term] = score
 
-                # Extract named entities with higher scoring
                 for ent in doc.ents:
                     term = ent.text.strip()
                     if 2 < len(term) <= 25:
@@ -842,10 +829,8 @@ class TerminologyValidator:
                             terms.add(term)
                             term_scores[term] = score
 
-                # Extract individual nouns with context
                 for token in doc:
                     if token.pos_ in ["NOUN", "PROPN"] and len(token.text) > 3:
-                        # Build phrase from surrounding tokens
                         start = max(0, token.i - 2)
                         end = min(len(doc), token.i + 3)
                         phrase_tokens = [
@@ -865,7 +850,6 @@ class TerminologyValidator:
                                     terms.add(phrase)
                                     term_scores[phrase] = score
 
-                        # Also consider single important nouns
                         if not token.is_stop and len(token.text) > 4:
                             score = self._calculate_term_score(token.text, token)
                             if score > 0.5:  # Higher threshold for single nouns
@@ -874,21 +858,27 @@ class TerminologyValidator:
             except Exception as e:
                 print(f"Error in spaCy term extraction: {e}")
 
-        # Extract acronyms with high confidence
         acronyms = re.findall(r"\b[A-Z]{2,6}\b", text)
+        logger.debug("extract_terms: raw acronyms found by regex: %s", acronyms)
         for acronym in acronyms:
             if self._is_likely_acronym(acronym, text):
                 terms.add(acronym)
                 term_scores[acronym] = 0.8
+                logger.debug(
+                    "extract_terms: acronym '%s' accepted (score=0.8)", acronym
+                )
+            else:
+                logger.debug(
+                    "extract_terms: acronym '%s' rejected by _is_likely_acronym",
+                    acronym,
+                )
 
-        # Extract CamelCase terms
         camelcase = re.findall(r"\b[A-Z][a-z]+[A-Z][a-zA-Z]*\b", text)
         for camel in camelcase:
             if len(camel) > 4:
                 terms.add(camel)
                 term_scores[camel] = 0.7
 
-        # More selective technical suffix matching
         tech_patterns = {
             r"\b\w+(?:tion|ment|ness|ity|ism|ist)\b": 0.6,
             r"\b\w+(?:er|or|ive|able|ible|al|ial|ic|ical|ous|ious)\b": 0.5,
@@ -903,21 +893,18 @@ class TerminologyValidator:
                     4 < len(term) <= 20
                     and term.lower() not in self._get_expanded_common_words()
                 ):
-                    # Additional context check for technical terms
                     context_score = self._calculate_technical_context_score(term, text)
                     total_score = base_score * context_score
                     if total_score > 0.3:
                         terms.add(term)
                         term_scores[term] = total_score
 
-        # Extract quoted terms (often definitions)
         quoted = re.findall(r'"([^"]{3,25})"', text)
         for quote in quoted:
             if self._is_likely_technical_term(quote):
                 terms.add(quote)
                 term_scores[quote] = 0.6
 
-        # Enhanced filtering with scoring
         expanded_common = self._get_expanded_common_words()
 
         scored_terms = []
@@ -925,7 +912,6 @@ class TerminologyValidator:
             term_lower = term.lower()
             base_score = term_scores.get(term, 0.5)
 
-            # Apply filters with penalties
             if term_lower in expanded_common:
                 continue  # Skip common words entirely
 
@@ -935,22 +921,23 @@ class TerminologyValidator:
             if term.isdigit() or re.match(r"^[.,!?;:]+$", term):
                 continue
 
-            # Apply quality penalties
-            if term_lower.startswith("the") or term_lower.startswith("a"):
+            if term_lower.startswith("the ") or term_lower.startswith("a "):
                 base_score *= 0.3
 
             if term.count(" ") > 3:  # Too many words
                 base_score *= 0.5
 
-            # Boost for domain indicators
             if self._has_domain_indicators(term):
                 base_score *= 1.3
 
-            # Only include terms with sufficient quality score
+            logger.debug(
+                "extract_terms: scoring '%s': score=%.3f (threshold=0.35)",
+                term,
+                base_score,
+            )
             if base_score > 0.35:
                 scored_terms.append((term.strip(), base_score))
 
-        # Sort by score first, then by length
         scored_terms.sort(key=lambda x: (x[1], len(x[0])), reverse=True)
 
         return [term for term, score in scored_terms]
@@ -985,7 +972,6 @@ class TerminologyValidator:
         for term, context in zip(terms, contexts):
             result = self.validate_term(term, context)
 
-            # Extract sentence context if full_text is available
             if full_text:
                 result.context_excerpt = self._extract_sentence_context(full_text, term)
 
@@ -1009,10 +995,14 @@ class TerminologyValidator:
             "potential_domain_terms": len(potential_domain_terms),
             "definition_coverage": len(defined_terms) / len(terms) if terms else 0,
             "avg_confidence": (
-                float(np.mean([
-                    r.classification.confidence
-                    for r in defined_terms + undefined_terms
-                ]))
+                float(
+                    np.mean(
+                        [
+                            r.classification.confidence
+                            for r in defined_terms + undefined_terms
+                        ]
+                    )
+                )
                 if (defined_terms or undefined_terms)
                 else 0.0
             ),
@@ -1108,36 +1098,30 @@ class TerminologyValidator:
         score = 0.5  # Base score
 
         try:
-            # Boost for named entities
             if hasattr(linguistic_obj, "label_"):
                 if linguistic_obj.label_ in ["ORG", "PRODUCT", "TECHNOLOGY", "CONCEPT"]:
                     score += 0.3
                 elif linguistic_obj.label_ in ["PERSON", "DATE", "GPE"]:
                     score += 0.1
 
-            # Boost for noun chunks with adjectives
             if hasattr(linguistic_obj, "root"):
                 root = linguistic_obj.root
                 if hasattr(root, "pos_") and root.pos_ == "NOUN":
-                    # Check for adjectives in the chunk
                     for token in linguistic_obj:
                         if token.pos_ == "ADJ":
                             score += 0.1
                             break
 
-            # Length-based scoring
             if 4 <= len(term) <= 8:
                 score += 0.1  # Sweet spot length
             elif len(term) > 15:
                 score -= 0.2  # Too long
 
-            # Capitalization patterns
             if term.istitle():
                 score += 0.1
             elif term.isupper() and len(term) >= 2:
                 score += 0.2  # Likely acronym
 
-            # Penalize common patterns
             if term.lower().startswith(("the ", "a ", "an ")):
                 score -= 0.3
             if (
@@ -1154,7 +1138,6 @@ class TerminologyValidator:
     def _get_expanded_common_words(self) -> set:
         """Get expanded list of common English words to filter out"""
         return {
-            # Original common words
             "the",
             "and",
             "have",
@@ -1203,7 +1186,6 @@ class TerminologyValidator:
             "those",
             "a",
             "an",
-            # Additional common words
             "also",
             "because",
             "been",
@@ -1320,7 +1302,6 @@ class TerminologyValidator:
             "would",
             "you",
             "your",
-            # Common business/academic terms that aren't necessarily domain-specific
             "information",
             "process",
             "method",
@@ -1491,22 +1472,29 @@ class TerminologyValidator:
         }
 
     def _is_likely_acronym(self, acronym: str, text: str) -> bool:
-        """Check if an uppercase string is likely a meaningful domain acronym.
-
-        We intentionally include undefined acronyms — the whole purpose of
-        terminology validation is to surface acronyms that lack a definition
-        in the document.  Previously this method required a nearby definition
-        pattern, which is exactly backwards: an acronym with a definition is
-        already understandable; one without is the problem.
-        """
-        # Skip noise: very short tokens and common non-domain abbreviations.
-        _skip = {"A", "I", "US", "UK", "UN", "EU", "IT", "OR", "IF",
-                 "AS", "AT", "BY", "IN", "ON", "TO", "DO", "IS", "BE"}
+        _skip = {
+            "A",
+            "I",
+            "US",
+            "UK",
+            "UN",
+            "EU",
+            "IT",
+            "OR",
+            "IF",
+            "AS",
+            "AT",
+            "BY",
+            "IN",
+            "ON",
+            "TO",
+            "DO",
+            "IS",
+            "BE",
+        }
         if acronym in _skip or len(acronym) < 3:
             return False
 
-        # Check whether the acronym actually appears in the text (guard against
-        # regex false-positives on punctuation remnants).
         if acronym not in text:
             return False
 
@@ -1514,7 +1502,6 @@ class TerminologyValidator:
         return True
 
     def _is_likely_technical_term(self, term: str) -> bool:
-        """Check if a quoted term is likely a technical term"""
         technical_indicators = [
             "system",
             "process",
@@ -1543,7 +1530,6 @@ class TerminologyValidator:
         return any(indicator in term_lower for indicator in technical_indicators)
 
     def _has_domain_indicators(self, term: str) -> bool:
-        """Check if term has indicators of being domain-specific"""
         domain_patterns = [
             r"\b[A-Z]{2,}\b",  # Acronyms
             r"[a-z][A-Z]",  # CamelCase
@@ -1554,7 +1540,6 @@ class TerminologyValidator:
         return any(re.search(pattern, term) for pattern in domain_patterns)
 
     def _calculate_technical_context_score(self, term: str, text: str) -> float:
-        """Calculate score based on technical context around the term"""
         technical_context_words = [
             "system",
             "process",
@@ -1585,7 +1570,6 @@ class TerminologyValidator:
             "configure",
         ]
 
-        # Look for technical words near the term
         context_window = 50
         text_lower = text.lower()
         term_pos = text_lower.find(term.lower())
@@ -1601,7 +1585,6 @@ class TerminologyValidator:
             1 for word in technical_context_words if word in context
         )
 
-        # Score based on technical context density
         if technical_word_count >= 3:
             return 1.0
         elif technical_word_count >= 2:
