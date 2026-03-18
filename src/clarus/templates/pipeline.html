@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clarus | CSUF Computer Science</title>
+    <title>Clarus — Analysis Pipeline | CSUF Computer Science</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,6 +13,7 @@
 <body class="page-pipeline">
     <div class="page-wrapper">
 
+        <!-- Site Header -->
         <header class="site-header">
             <div class="header-top-stripe"></div>
             <div class="header-main">
@@ -40,24 +41,26 @@
                             </svg>
                         </div>
                         <div class="clarus-text">
-                            <span class="clarus-name">Clarus</span>
+                            <span class="clarus-name">CLARUS</span>
                             <span class="clarus-subtitle">Requirement Document Analysis Platform</span>
                         </div>
                     </div>
                 </div>
 
-                <nav class="header-nav">
-                    <a href="/" class="nav-link">Extractor</a>
-                    <a href="/pipeline" class="nav-link active">Analysis Pipeline</a>
-                </nav>
             </div>
             <div class="header-description-bar">
                 <p>Automated semantic extraction &middot; Terminology validation &middot; Contradiction detection</p>
             </div>
         </header>
 
+        <div class="disclaimer-bar" role="note">
+            <span class="disclaimer-icon" aria-hidden="true">&#9888;</span>
+            <span class="disclaimer-text">For Research Use Only: Not intended for production, legal, or regulatory purposes.</span>
+        </div>
+
         <main class="main-content">
 
+            <!-- Upload Section -->
             <section class="upload-section">
                 <div class="section-intro">
                     <h2 class="section-title">Document Analysis Pipeline</h2>
@@ -106,6 +109,7 @@
                     </button>
                 </div>
 
+                <!-- Pipeline Stage Overview -->
                 <div class="pipeline-overview">
                     <div class="pipeline-overview-step">
                         <div class="step-numeral">I</div>
@@ -129,11 +133,13 @@
                 </div>
             </section>
 
+            <!-- Messages -->
             <div class="messages-area">
                 <div class="msg-error" id="errorDiv" role="alert" aria-live="assertive"></div>
                 <div class="msg-success" id="successDiv" role="status" aria-live="polite"></div>
             </div>
 
+            <!-- Loading Indicator -->
             <div class="loading" id="loadingDiv" aria-live="polite">
                 <div class="loading-inner">
                     <div class="loading-spinner" aria-hidden="true">
@@ -145,6 +151,7 @@
                 </div>
             </div>
 
+            <!-- Analysis Pipeline Results -->
             <section class="pipeline-section" id="pipelineSection">
                 <div class="pipeline-header">
                     <h2 class="pipeline-title">Analysis Pipeline</h2>
@@ -158,6 +165,7 @@
 
                 <div class="pipeline-stages">
 
+                    <!-- Stage I: Document Preprocessing -->
                     <div class="stage" id="stage-preprocessing">
                         <div class="stage-header" onclick="toggleStage('preprocessing')" role="button" tabindex="0"
                              onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('preprocessing')">
@@ -184,6 +192,7 @@
                         </div>
                     </div>
 
+                    <!-- Stage II: Document Processing -->
                     <div class="stage" id="stage-processing">
                         <div class="stage-header" onclick="toggleStage('processing')" role="button" tabindex="0"
                              onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('processing')">
@@ -207,6 +216,7 @@
                         </div>
                     </div>
 
+                    <!-- Stage III: Semantic Extraction -->
                     <div class="stage" id="stage-semantic">
                         <div class="stage-header" onclick="toggleStage('semantic')" role="button" tabindex="0"
                              onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('semantic')">
@@ -230,6 +240,7 @@
                         </div>
                     </div>
 
+                    <!-- Stage IV: Terminology & Contradiction Analysis -->
                     <div class="stage" id="stage-analysis">
                         <div class="stage-header" onclick="toggleStage('analysis')" role="button" tabindex="0"
                              onkeydown="if(event.key==='Enter'||event.key===' ')toggleStage('analysis')">
@@ -264,6 +275,7 @@
                 </div>
             </section>
 
+            <!-- Export Section -->
             <section class="export-section" id="exportSection" style="display: none;">
                 <h2 class="export-title">Export Analysis Results</h2>
                 <p class="export-desc">Download the complete analysis report in your preferred format.</p>
@@ -288,7 +300,7 @@
         <footer class="site-footer">
             <div class="footer-inner">
                 <span class="footer-copy">&copy; California State University, Fullerton: College of Engineering and Computer Science, Department of Computer Science</span>
-                <span class="footer-product">Clarus: Requirement Document Analysis Platform</span>
+                <span class="footer-product">CLARUS: Requirement Document Analysis Platform</span>
             </div>
         </footer>
 
@@ -506,7 +518,7 @@
                 displayAnalysisResults(result);
             } catch (error) {
                 console.error('Error in runAnalysis:', error);
-                throw error;
+                throw error; // Re-throw to be caught by the outer try-catch
             }
         }
 
