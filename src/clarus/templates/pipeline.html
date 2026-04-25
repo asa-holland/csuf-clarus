@@ -803,8 +803,37 @@
             document.getElementById('contradictions-results').innerHTML = '';
         }
 
-        function exportResults(format) {
+        async function exportResults(format) {
+            if (!analysisResults || !analysisResults.preprocessing) {
+                showError('No analysis results to export.');
+                return;
+            }
             showSuccess(`Preparing ${format.toUpperCase()} export\u2026`);
+            try {
+                const response = await fetch(`/export/${format}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(analysisResults),
+                });
+                if (!response.ok) {
+                    const err = await response.json().catch(() => ({}));
+                    throw new Error(err.error || `Export failed (${response.status})`);
+                }
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                const raw = analysisResults.preprocessing?.metadata?.original_filename || 'analysis';
+                const base = raw.replace(/\.[^/.]+$/, '');
+                const ext = format === 'json' ? 'json' : format === 'csv' ? 'csv' : 'pdf';
+                a.download = `${base}_${format === 'json' ? 'report' : format === 'csv' ? 'statistics' : 'summary'}.${ext}`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (e) {
+                showError(`Export failed: ${e.message}`);
+            }
         }
 
         function showError(message) {

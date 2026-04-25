@@ -488,5 +488,267 @@ def analyze_document():
         return jsonify({"error": str(e), "debug_details": error_details}), 500
 
 
+@app.route("/export/json", methods=["POST"])
+def export_json():
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+    import json as _json
+    from flask import Response
+    output = _json.dumps(data, indent=2, default=str)
+    filename = (
+        data.get("preprocessing", {}).get("metadata", {}).get("original_filename", "analysis")
+    )
+    base = re.sub(r"\.[^/.]+$", "", filename)
+    return Response(
+        output,
+        mimetype="application/json",
+        headers={"Content-Disposition": f'attachment; filename="{base}_report.json"'},
+    )
+
+
+@app.route("/export/csv", methods=["POST"])
+def export_csv():
+    import csv
+    import io as _io
+    from flask import Response
+
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    preprocessing = data.get("preprocessing", {})
+    meta = preprocessing.get("metadata", {})
+    proc_stats = data.get("processing", {}).get("processing_stats", {})
+    semantic = data.get("semantic", {})
+    analysis = data.get("analysis", {})
+    term_stats = analysis.get("terminology", {}).get("statistics", {})
+    contradictions = analysis.get("contradictions", [])
+
+    buf = _io.StringIO()
+    w = csv.writer(buf)
+
+    w.writerow(["DOCUMENT STATISTICS"])
+    w.writerow(["Filename", meta.get("original_filename", "Unknown")])
+    w.writerow(["Text Length (chars)", meta.get("text_length", 0)])
+    w.writerow(["Analyzed At", meta.get("processed_at", "Unknown")])
+    w.writerow(["Total Segments", proc_stats.get("total_segments", 0)])
+    w.writerow(["  Normative", proc_stats.get("normative_segments", 0)])
+    w.writerow(["  Informative", proc_stats.get("informative_segments", 0)])
+    w.writerow(["  Unknown", proc_stats.get("unknown_segments", 0)])
+    w.writerow(["High Confidence Segments (≥0.7)", proc_stats.get("high_confidence_segments", 0)])
+    w.writerow(["Medium Confidence Segments", proc_stats.get("medium_confidence_segments", 0)])
+    w.writerow(["Low Confidence Segments (<0.4)", proc_stats.get("low_confidence_segments", 0)])
+    w.writerow([])
+
+    w.writerow(["SEMANTIC EXTRACTION"])
+    w.writerow(["Total Profiles", semantic.get("total_profiles", 0)])
+    avg_conf = semantic.get("avg_confidence") or 0
+    w.writerow(["Average Profile Confidence", f"{avg_conf * 100:.1f}%"])
+    w.writerow([])
+
+    w.writerow(["TERMINOLOGY"])
+    w.writerow(["Defined Terms", term_stats.get("defined_terms", 0)])
+    w.writerow(["Undefined Terms", term_stats.get("undefined_terms", 0)])
+    cov = term_stats.get("definition_coverage") or 0
+    w.writerow(["Definition Coverage", f"{cov * 100:.1f}%"])
+    w.writerow([])
+
+    w.writerow(["CONTRADICTIONS"])
+    w.writerow(["Total Detected", len(contradictions)])
+    w.writerow([])
+    if contradictions:
+        w.writerow(["#", "Type", "Confidence", "Statement A", "Statement B"])
+        for i, c in enumerate(contradictions, 1):
+            w.writerow([
+                i,
+                c.get("contradiction_type", ""),
+                f"{(c.get('confidence') or 0) * 100:.1f}%",
+                c.get("statement_a", ""),
+                c.get("statement_b", ""),
+            ])
+
+    filename = meta.get("original_filename", "analysis")
+    base = re.sub(r"\.[^/.]+$", "", filename)
+    return Response(
+        buf.getvalue(),
+        mimetype="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="{base}_statistics.csv"'},
+    )
+
+
+@app.route("/export/pdf", methods=["POST"])
+def export_pdf():
+    try:
+        from reportlab.lib.pagesizes import letter
+        from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+        from reportlab.lib.units import inch
+        from reportlab.lib import colors
+        from reportlab.platypus import (
+            SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable,
+        )
+        from reportlab.lib.enums import TA_LEFT
+    except ImportError:
+        return jsonify({"error": "reportlab is not installed"}), 500
+
+    import io as _io
+    import html as _html
+
+    data = request.get_json()
+    if not data:
+        return jsonify({"error": "No data provided"}), 400
+
+    preprocessing = data.get("preprocessing", {})
+    meta = preprocessing.get("metadata", {})
+    proc_stats = data.get("processing", {}).get("processing_stats", {})
+    semantic = data.get("semantic", {})
+    profiles = semantic.get("profiles", [])
+    analysis = data.get("analysis", {})
+    term_stats = analysis.get("terminology", {}).get("statistics", {})
+    contradictions = analysis.get("contradictions", [])
+
+    ORANGE = colors.HexColor("#E87722")
+
+    buf = _io.BytesIO()
+    doc = SimpleDocTemplate(
+        buf, pagesize=letter,
+        topMargin=0.75 * inch, bottomMargin=0.75 * inch,
+        leftMargin=0.75 * inch, rightMargin=0.75 * inch,
+    )
+
+    styles = getSampleStyleSheet()
+    title_style = ParagraphStyle("ClarusTitle", parent=styles["Title"], fontSize=20, spaceAfter=4)
+    h1 = ParagraphStyle("ClarusH1", parent=styles["Heading1"], fontSize=13, textColor=ORANGE, spaceBefore=14, spaceAfter=4)
+    body = ParagraphStyle("ClarusBody", parent=styles["Normal"], fontSize=9, spaceAfter=2)
+    small = ParagraphStyle("ClarusSmall", parent=styles["Normal"], fontSize=8, textColor=colors.HexColor("#666666"))
+
+    def esc(s):
+        return _html.escape(str(s or ""))
+
+    def stats_table(rows):
+        t = Table(rows, colWidths=[3 * inch, 2.5 * inch])
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, -1), 9),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+            ("LEFTPADDING", (0, 0), (-1, -1), 6),
+        ]))
+        return t
+
+    story = []
+
+    story.append(Paragraph("CLARUS Analysis Report", title_style))
+    story.append(Paragraph(f"<b>Document:</b> {esc(meta.get('original_filename', 'Unknown'))}", body))
+    story.append(Paragraph(f"<b>Analyzed:</b> {esc(meta.get('processed_at', 'Unknown'))}", body))
+    story.append(Spacer(1, 0.15 * inch))
+    story.append(HRFlowable(width="100%", thickness=2, color=ORANGE))
+    story.append(Spacer(1, 0.1 * inch))
+
+    # --- 1. Document Processing ---
+    story.append(Paragraph("1. Document Processing", h1))
+    story.append(stats_table([
+        ["Metric", "Value"],
+        ["Total Segments", proc_stats.get("total_segments", 0)],
+        ["Normative Segments", proc_stats.get("normative_segments", 0)],
+        ["Informative Segments", proc_stats.get("informative_segments", 0)],
+        ["Unknown Segments", proc_stats.get("unknown_segments", 0)],
+        ["High Confidence (≥0.7)", proc_stats.get("high_confidence_segments", 0)],
+        ["Low Confidence (<0.4)", proc_stats.get("low_confidence_segments", 0)],
+        ["Text Length (chars)", meta.get("text_length", 0)],
+    ]))
+    story.append(Spacer(1, 0.15 * inch))
+
+    # --- 2. Semantic Extraction ---
+    story.append(Paragraph("2. Semantic Extraction", h1))
+    avg_conf = (semantic.get("avg_confidence") or 0) * 100
+    story.append(stats_table([
+        ["Metric", "Value"],
+        ["Total Profiles", semantic.get("total_profiles", 0)],
+        ["Average Confidence", f"{avg_conf:.1f}%"],
+    ]))
+    story.append(Spacer(1, 0.08 * inch))
+
+    if profiles:
+        story.append(Paragraph(f"Profiles ({len(profiles)})", ParagraphStyle("ph2", parent=h1, fontSize=10, spaceBefore=6)))
+        prof_rows = [["#", "Sentence", "Subject", "Object", "Modality", "Condition"]]
+        for i, p in enumerate(profiles, 1):
+            sent = esc(p.get("original_sentence") or "")
+            if len(sent) > 70:
+                sent = sent[:67] + "…"
+            prof_rows.append([
+                str(i), sent,
+                esc(p.get("subject") or "—"),
+                esc(p.get("object") or "—"),
+                esc(p.get("modality") or "—"),
+                esc(p.get("condition") or "—"),
+            ])
+        pt = Table(prof_rows, colWidths=[0.25*inch, 2.5*inch, 0.9*inch, 0.9*inch, 0.9*inch, 1.05*inch])
+        pt.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, -1), 7),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 4),
+        ]))
+        story.append(pt)
+    story.append(Spacer(1, 0.15 * inch))
+
+    # --- 3. Terminology ---
+    story.append(Paragraph("3. Terminology Analysis", h1))
+    cov = (term_stats.get("definition_coverage") or 0) * 100
+    story.append(stats_table([
+        ["Metric", "Value"],
+        ["Defined Terms", term_stats.get("defined_terms", 0)],
+        ["Undefined Terms", term_stats.get("undefined_terms", 0)],
+        ["Definition Coverage", f"{cov:.1f}%"],
+    ]))
+    story.append(Spacer(1, 0.15 * inch))
+
+    # --- 4. Contradictions ---
+    story.append(Paragraph("4. Contradiction Analysis", h1))
+    story.append(Paragraph(f"Total contradictions detected: <b>{len(contradictions)}</b>", body))
+    story.append(Spacer(1, 0.06 * inch))
+
+    if contradictions:
+        cont_rows = [["#", "Type", "Conf.", "Statement A", "Statement B"]]
+        for i, c in enumerate(contradictions, 1):
+            sa = esc(c.get("statement_a") or "")
+            sb = esc(c.get("statement_b") or "")
+            if len(sa) > 55: sa = sa[:52] + "…"
+            if len(sb) > 55: sb = sb[:52] + "…"
+            conf = (c.get("confidence") or 0) * 100
+            cont_rows.append([str(i), esc(c.get("contradiction_type") or ""), f"{conf:.0f}%", sa, sb])
+        ct = Table(cont_rows, colWidths=[0.25*inch, 0.9*inch, 0.45*inch, 2.45*inch, 2.45*inch])
+        ct.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, -1), 7),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 4),
+        ]))
+        story.append(ct)
+
+    doc.build(story)
+    buf.seek(0)
+
+    filename = meta.get("original_filename", "analysis")
+    base = re.sub(r"\.[^/.]+$", "", filename)
+    return send_file(
+        buf,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=f"{base}_summary.pdf",
+    )
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
