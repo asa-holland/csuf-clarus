@@ -335,6 +335,24 @@ def analyze_document():
         enable_terminology = config.get("enable_terminology", True)
         enable_contradictions = config.get("enable_contradictions", True)
 
+        # User-defined detection thresholds — all optional; fall back to defaults.
+        thresholds = config.get("detection_thresholds", {})
+        contradiction_config = {
+            "enable_ml": False,
+            "min_confidence": float(thresholds.get("min_confidence", 0.7)),
+            "ml_threshold": float(thresholds.get("ml_threshold", 0.8)),
+            "use_candidate_filter": bool(thresholds.get("use_candidate_filter", True)),
+            "max_segment_distance": (
+                int(thresholds["max_segment_distance"])
+                if thresholds.get("max_segment_distance") is not None
+                else 10
+            ),
+            "min_term_overlap": int(thresholds.get("min_term_overlap", 1)),
+        }
+        logger.info(
+            "analyze-document: detection_thresholds=%s", contradiction_config
+        )
+
         logger.info(
             "analyze-document: enable_terminology=%s enable_contradictions=%s",
             enable_terminology,
@@ -439,7 +457,7 @@ def analyze_document():
 
         contradictions_data = None
         if enable_contradictions:
-            contradiction_detector = ContradictionDetector(config={"enable_ml": False})
+            contradiction_detector = ContradictionDetector(config=contradiction_config)
             candidate_statements = []
             if "segments" in data:
                 for segment in data["segments"]:

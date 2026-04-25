@@ -65,6 +65,10 @@ class ContradictionDetector:
             # likely from different sections/topics and cross-comparisons produce
             # noise.  Set to None to disable the limit.
             "max_segment_distance": 10,
+            # Minimum number of significant (non-stopword, length > 3) terms two
+            # statements must share to be considered a candidate pair.  Higher
+            # values reduce the candidate set more aggressively.
+            "min_term_overlap": 1,
             **({} if config is None else config),
         }
         self.initialized = False
@@ -119,7 +123,7 @@ class ContradictionDetector:
                 statements[i], statements[j], profile_a, profile_b, context
             )
 
-            if detected:
+            if detected and detected.confidence >= self.config["min_confidence"]:
                 contradictions.append(detected)
 
         return sorted(contradictions, key=lambda x: x.confidence, reverse=True)
@@ -140,7 +144,11 @@ class ContradictionDetector:
             for j in range(i + 1, len(statements)):
                 if max_dist is not None and (j - i) > max_dist:
                     continue
-                if self._share_significant_terms(statements[i], statements[j]):
+                if self._share_significant_terms(
+                    statements[i],
+                    statements[j],
+                    min_overlap=self.config.get("min_term_overlap", 1),
+                ):
                     candidates.append((i, j))
         return candidates
 

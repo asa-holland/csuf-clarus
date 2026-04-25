@@ -140,6 +140,81 @@
                                     </label>
                                 </div>
                             </div>
+
+                            <!-- Detection Thresholds -->
+                            <div class="config-thresholds">
+                                <button type="button" class="thresholds-toggle" id="thresholdsToggle" onclick="toggleThresholds()" aria-expanded="false" aria-controls="thresholdsBody">
+                                    <span class="config-modules-label" style="margin:0;">Detection Thresholds</span>
+                                    <span class="thresholds-toggle-arrow" aria-hidden="true">&#9660;</span>
+                                </button>
+                                <div class="thresholds-body" id="thresholdsBody" hidden>
+
+                                    <!-- Candidate Generation Filter -->
+                                    <div class="threshold-group">
+                                        <span class="threshold-group-label">Candidate Generation Filter</span>
+
+                                        <label class="module-toggle-row threshold-toggle-row">
+                                            <input type="checkbox" id="useCandidateFilter" checked onchange="onThresholdChange()">
+                                            <span class="toggle-switch"></span>
+                                            <div class="module-toggle-info">
+                                                <span class="module-toggle-name">Enable Candidate Filter</span>
+                                                <span class="module-toggle-desc">Pre-screens statement pairs by shared terms before full contradiction checking</span>
+                                            </div>
+                                        </label>
+
+                                        <div class="threshold-row" id="maxDistRow">
+                                            <div class="threshold-label-row">
+                                                <label class="threshold-label" for="maxSegmentDistance">Max Segment Distance</label>
+                                                <span class="threshold-value-badge" id="maxSegmentDistanceVal">10</span>
+                                            </div>
+                                            <input type="range" id="maxSegmentDistance" class="threshold-range"
+                                                   min="1" max="50" step="1" value="10"
+                                                   oninput="syncRangeDisplay('maxSegmentDistance','maxSegmentDistanceVal'); onThresholdChange()">
+                                            <p class="threshold-hint">Maximum index gap between two segments eligible for comparison. Lower values reduce noise from cross-section comparisons.</p>
+                                        </div>
+
+                                        <div class="threshold-row" id="minOverlapRow">
+                                            <div class="threshold-label-row">
+                                                <label class="threshold-label" for="minTermOverlap">Min. Shared Terms</label>
+                                                <span class="threshold-value-badge" id="minTermOverlapVal">1</span>
+                                            </div>
+                                            <input type="range" id="minTermOverlap" class="threshold-range"
+                                                   min="1" max="5" step="1" value="1"
+                                                   oninput="syncRangeDisplay('minTermOverlap','minTermOverlapVal'); onThresholdChange()">
+                                            <p class="threshold-hint">Number of significant (non-stopword) terms two segments must share to be treated as a candidate pair. Higher values are more selective.</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Rule-Based / ML Gate -->
+                                    <div class="threshold-group">
+                                        <span class="threshold-group-label">Detection Gate</span>
+
+                                        <div class="threshold-row">
+                                            <div class="threshold-label-row">
+                                                <label class="threshold-label" for="minConfidence">Min. Confidence to Report</label>
+                                                <span class="threshold-value-badge" id="minConfidenceVal">0.70</span>
+                                            </div>
+                                            <input type="range" id="minConfidence" class="threshold-range"
+                                                   min="0.1" max="1.0" step="0.05" value="0.70"
+                                                   oninput="syncRangeDisplayFloat('minConfidence','minConfidenceVal'); onThresholdChange()">
+                                            <p class="threshold-hint">Contradictions below this confidence are suppressed. Raise to see only high-certainty findings; lower to surface weaker signals.</p>
+                                        </div>
+
+                                        <div class="threshold-row">
+                                            <div class="threshold-label-row">
+                                                <label class="threshold-label" for="mlThreshold">ML Model Gate</label>
+                                                <span class="threshold-value-badge" id="mlThresholdVal">0.80</span>
+                                            </div>
+                                            <input type="range" id="mlThreshold" class="threshold-range"
+                                                   min="0.1" max="1.0" step="0.05" value="0.80"
+                                                   oninput="syncRangeDisplayFloat('mlThreshold','mlThresholdVal'); onThresholdChange()">
+                                            <p class="threshold-hint">Minimum ML model confidence required for a machine-learning detection to be accepted (applies when the ML component is active).</p>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="thresholds-reset-btn" onclick="resetThresholds()">Reset to Defaults</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -393,7 +468,22 @@
         let analysisConfig = {
             documentType: 'requirements',
             enableTerminology: true,
-            enableContradictions: true
+            enableContradictions: true,
+            detectionThresholds: {
+                useCandidateFilter: true,
+                maxSegmentDistance: 10,
+                minTermOverlap: 1,
+                minConfidence: 0.70,
+                mlThreshold: 0.80
+            }
+        };
+
+        const THRESHOLD_DEFAULTS = {
+            useCandidateFilter: true,
+            maxSegmentDistance: 10,
+            minTermOverlap: 1,
+            minConfidence: 0.70,
+            mlThreshold: 0.80
         };
 
         const DOC_TYPE_PRESETS = {
@@ -423,6 +513,51 @@
                 hint: 'Configure the active modules as needed for your document.'
             }
         };
+
+        function toggleThresholds() {
+            const body = document.getElementById('thresholdsBody');
+            const btn  = document.getElementById('thresholdsToggle');
+            const expanded = !body.hidden;
+            body.hidden = expanded;
+            btn.setAttribute('aria-expanded', String(!expanded));
+            btn.querySelector('.thresholds-toggle-arrow').style.transform = expanded ? '' : 'rotate(180deg)';
+        }
+
+        function syncRangeDisplay(rangeId, badgeId) {
+            document.getElementById(badgeId).textContent = document.getElementById(rangeId).value;
+        }
+
+        function syncRangeDisplayFloat(rangeId, badgeId) {
+            const v = parseFloat(document.getElementById(rangeId).value);
+            document.getElementById(badgeId).textContent = v.toFixed(2);
+        }
+
+        function onThresholdChange() {
+            const useCandFilter = document.getElementById('useCandidateFilter').checked;
+            document.getElementById('maxDistRow').classList.toggle('threshold-row-disabled', !useCandFilter);
+            document.getElementById('minOverlapRow').classList.toggle('threshold-row-disabled', !useCandFilter);
+            analysisConfig.detectionThresholds = {
+                useCandidateFilter: useCandFilter,
+                maxSegmentDistance: parseInt(document.getElementById('maxSegmentDistance').value, 10),
+                minTermOverlap: parseInt(document.getElementById('minTermOverlap').value, 10),
+                minConfidence: parseFloat(document.getElementById('minConfidence').value),
+                mlThreshold: parseFloat(document.getElementById('mlThreshold').value)
+            };
+        }
+
+        function resetThresholds() {
+            const d = THRESHOLD_DEFAULTS;
+            document.getElementById('useCandidateFilter').checked = d.useCandidateFilter;
+            document.getElementById('maxSegmentDistance').value = d.maxSegmentDistance;
+            document.getElementById('maxSegmentDistanceVal').textContent = d.maxSegmentDistance;
+            document.getElementById('minTermOverlap').value = d.minTermOverlap;
+            document.getElementById('minTermOverlapVal').textContent = d.minTermOverlap;
+            document.getElementById('minConfidence').value = d.minConfidence;
+            document.getElementById('minConfidenceVal').textContent = d.minConfidence.toFixed(2);
+            document.getElementById('mlThreshold').value = d.mlThreshold;
+            document.getElementById('mlThresholdVal').textContent = d.mlThreshold.toFixed(2);
+            onThresholdChange();
+        }
 
         function applyDocTypePreset(type) {
             const preset = DOC_TYPE_PRESETS[type];
@@ -670,12 +805,20 @@
                 console.log('Sending analysis request...');
                 const stageIVDesc = document.querySelector('#stage-analysis .stage-desc');
                 if (stageIVDesc) stageIVDesc.textContent = getStageIVDescription();
+                const t = analysisConfig.detectionThresholds;
                 const requestData = {
                     text: analysisResults.preprocessing.text,
                     segments: analysisResults.processing.segments,
                     config: {
                         enable_terminology: analysisConfig.enableTerminology,
-                        enable_contradictions: analysisConfig.enableContradictions
+                        enable_contradictions: analysisConfig.enableContradictions,
+                        detection_thresholds: {
+                            use_candidate_filter: t.useCandidateFilter,
+                            max_segment_distance: t.maxSegmentDistance,
+                            min_term_overlap: t.minTermOverlap,
+                            min_confidence: t.minConfidence,
+                            ml_threshold: t.mlThreshold
+                        }
                     }
                 };
                 console.log('Request data:', JSON.stringify(requestData).substring(0, 200) + '...');
