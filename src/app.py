@@ -291,22 +291,22 @@ def extract_semantics():
         total_confidence = 0
 
         for segment_data in data["segments"]:
-            if segment_data.get("element_type") == "normative":
-                profile = extractor.extract_semantic_profile(segment_data["text"])
-                profiles.append(
-                    {
-                        "original_sentence": profile.original_sentence,
-                        "confidence": profile.confidence,
-                        "modality": profile.modality.text if profile.modality else None,
-                        "condition": (
-                            profile.condition.text if profile.condition else None
-                        ),
-                        "subject": profile.subject.text if profile.subject else None,
-                        "object": profile.object.text if profile.object else None,
-                        "temporal": profile.temporal.text if profile.temporal else None,
-                        "negation": profile.negation.text if profile.negation else None,
-                    }
-                )
+            profile = extractor.extract_semantic_profile(segment_data["text"])
+            profile_data = {
+                "original_sentence": profile.original_sentence,
+                "confidence": profile.confidence,
+                "modality": profile.modality.text if profile.modality else None,
+                "condition": profile.condition.text if profile.condition else None,
+                "subject": profile.subject.text if profile.subject else None,
+                "object": profile.object.text if profile.object else None,
+                "temporal": profile.temporal.text if profile.temporal else None,
+                "negation": profile.negation.text if profile.negation else None,
+            }
+            # A profile is only meaningful when it has the four core components.
+            # Temporal and negation are optional bonuses.
+            required_keys = ("subject", "object", "modality", "condition")
+            if all(profile_data[k] for k in required_keys):
+                profiles.append(profile_data)
                 total_confidence += profile.confidence
 
         avg_confidence = total_confidence / len(profiles) if profiles else 0

@@ -82,16 +82,31 @@ class SemanticExtractor:
 
         self.condition_patterns = [
             r"(?:if|when|whenever|in case|in the event that)\s+([^,;.]+?)(?:[,;.]|$)",
-            r"(?:provided that|on condition that)\s+([^,;.]+?)(?:[,;.]|$)",
+            r"(?:provided that|on condition that|assuming that|given that)\s+([^,;.]+?)(?:[,;.]|$)",
+            r"(?:as long as|so long as)\s+([^,;.]+?)(?:[,;.]|$)",
+            r"(?:unless|except\s+(?:when|if))\s+([^,;.]+?)(?:[,;.]|$)",
             r"(?:where|wherever)\s+([^,;.]+?)(?:[,;.]|$)",
         ]
 
         self.temporal_patterns = [
-            r"\b(?:immediately|promptly|instantly)\b",
-            r"\b(?:within|in)\s+\d+\s+(?:seconds?|minutes?|hours?|days?)\b",
-            r"\b(?:before|after|by|no later than)\s+([^,;.]+?)(?:[,;.]|$)",
-            r"\b(?:as soon as possible|ASAP)\b",
+            # Quantity + unit duration
+            r"\b(?:within|in)\s+\d+\s+(?:seconds?|minutes?|hours?|days?|weeks?|months?|years?)\b",
+            # Point-in-time adverbs
+            r"\b(?:immediately|promptly|instantly|now|then|soon|already|finally|subsequently|previously|thereafter|eventually)\b",
+            # Frequency adverbs
+            r"\b(?:always|never|once|twice|repeatedly|daily|weekly|nightly)\b",
+            # Temporal preposition + NP
+            r"\b(?:before|after|by|until|since|during|throughout)\s+([^,;.]+?)(?:[,;.]|$)",
+            # "no later than" / "as soon as possible"
+            r"\b(?:no later than|as soon as possible|ASAP)\b",
+            # each/every/per + any time word
+            r"\b(?:each|every|per)\s+(\w+)\b",
+            # once per [period]
+            r"\bonce\s+per\s+\w+\b",
+            # at/on + NP (keep broad — temporal prepositions before a noun phrase)
             r"\b(?:at|on)\s+([^,;.]+?)(?:[,;.]|$)",
+            # the next/first/last/following + [period word]
+            r"\b(?:the\s+)?(?:next|first|last|following)\s+\w+\b",
         ]
 
         self.negation_patterns = [
@@ -100,17 +115,46 @@ class SemanticExtractor:
             r"\bnever\b",
             r"\bnone\b",
             r"\bwithout\b",
+            r"\bcannot\b",
+            r"\bcan't\b",
+            r"\bwon't\b",
+            r"\bisn't\b",
+            r"\baren't\b",
+            r"\bdoesn't\b",
+            r"\bdon't\b",
         ]
 
+        # Personal and impersonal pronouns, then general NP patterns.
+        # No domain-specific role names — subject detection is purely structural.
         self.subject_patterns = [
-            r"\b(?:the|a|an)\s+([A-Z][a-z]+(?:\s+[a-z]+)*?)\s+(?:shall|must|may|should|can|is|are|has|have)",
-            r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)\s+(?:shall|must|may|should|can|is|are|has|have)",
-            r"\b(?:users?|operators?|administrators?|system|component|module|application|service)\b",
+            # Personal/impersonal pronouns
+            r"\b(I|you|he|she|it|we|they|one)\b",
+            # Quantifier + (optional modifiers) + noun, followed by any auxiliary
+            r"\b((?:each|every|all|any|some|no|another|both|either|neither)\s+"
+            r"(?:[a-z]+\s+){0,2}[a-z]+)\s+"
+            r"(?:is|are|was|were|will|shall|must|may|should|can|could|would|might"
+            r"|has|have|had|does|do|did|cannot|can't)\b",
+            # Article + noun phrase, followed by any auxiliary
+            r"\b(?:the|a|an)\s+((?:[a-z]+\s+){0,2}[a-z]+)\s+"
+            r"(?:is|are|was|were|will|shall|must|may|should|can|could|would|might"
+            r"|has|have|had|does|do|did|cannot|can't)\b",
+            # Proper noun(s) before auxiliary/modal
+            r"\b([A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,2})\s+"
+            r"(?:is|are|was|were|will|shall|must|may|should|can|could|would|might)\b",
         ]
 
+        # Objects: modal+NP, and common everyday transitive verbs + NP.
+        # No domain-specific verb lists — only high-frequency general English verbs.
         self.object_patterns = [
-            r"(?:shall|must|may|should|can|is|are|has|have)\s+(?:to\s+)?(?:be\s+)?([a-z]+(?:\s+[a-z]+)*?)(?:[,;.]|$)",
-            r"(?:process|handle|manage|store|retrieve|validate|verify|authenticate|authorize)\s+([a-z]+(?:\s+[a-z]+)*?)(?:[,;.]|$)",
+            # After a modal/auxiliary: "must/may/shall/etc. [not] [to/be] <object>"
+            r"(?:shall|must|may|should|can|will|would|could|might)\s+"
+            r"(?:not\s+)?(?:to\s+)?(?:be\s+)?([a-z]+(?:\s+[a-z]+){0,4}?)(?:[,;.]|$)",
+            # Common high-frequency transitive verbs + article/determiner + NP
+            r"\b(?:choose|select|take|give|make|find|get|send|keep|hold|use|add|"
+            r"change|show|move|bring|call|set|ask|put|turn|leave|pass|play|stop|"
+            r"allow|require|include|affect|create|remove|replace|receive|provide|"
+            r"reveal|announce|inform|tell|know|learn|discover)\s+"
+            r"(?:a|an|the|another|two|three|no)?\s*([a-z]+(?:\s+[a-z]+){0,3}?)(?:[,;.:]|$)",
         ]
 
         self.compiled_patterns = self._compile_patterns()

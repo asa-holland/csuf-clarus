@@ -613,26 +613,45 @@
             profilesDiv.innerHTML = '<h4 class="results-label">Semantic Profiles</h4>';
 
             const profilesScrollableContainer = document.createElement('div');
-            profilesScrollableContainer.className = 'scrollable-container';
+            profilesScrollableContainer.className = 'scrollable-container profiles-table-wrap';
             profilesDiv.appendChild(profilesScrollableContainer);
 
-            if (result.profiles) {
+            if (result.profiles && result.profiles.length > 0) {
+                const table = document.createElement('table');
+                table.className = 'profiles-table';
+                table.innerHTML = `
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Sentence</th>
+                            <th>Subject</th>
+                            <th>Object</th>
+                            <th>Modality</th>
+                            <th>Condition</th>
+                            <th>Temporal</th>
+                            <th>Negation</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                `;
+                const tbody = table.querySelector('tbody');
                 result.profiles.forEach((profile, index) => {
-                    const profileDiv = document.createElement('div');
-                    profileDiv.className = 'semantic-profile';
-                    profileDiv.innerHTML = `
-                        <div class="profile-header">Profile ${index + 1}</div>
-                        <div class="profile-details">
-                            ${profile.modality ? `<div><strong>Modality:</strong> ${profile.modality}</div>` : ''}
-                            ${profile.subject ? `<div><strong>Subject:</strong> ${profile.subject}</div>` : ''}
-                            ${profile.object ? `<div><strong>Object:</strong> ${profile.object}</div>` : ''}
-                            ${profile.condition ? `<div><strong>Condition:</strong> ${profile.condition}</div>` : ''}
-                            ${profile.temporal ? `<div><strong>Temporal:</strong> ${profile.temporal}</div>` : ''}
-                            ${profile.negation ? `<div><strong>Negation:</strong> ${profile.negation}</div>` : ''}
-                        </div>
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="profile-num">${index + 1}</td>
+                        <td class="profile-sentence">${profile.original_sentence || '—'}</td>
+                        <td>${profile.subject || '—'}</td>
+                        <td>${profile.object || '—'}</td>
+                        <td>${profile.modality || '—'}</td>
+                        <td>${profile.condition || '—'}</td>
+                        <td>${profile.temporal || '—'}</td>
+                        <td>${profile.negation || '—'}</td>
                     `;
-                    profilesScrollableContainer.appendChild(profileDiv);
+                    tbody.appendChild(tr);
                 });
+                profilesScrollableContainer.appendChild(table);
+            } else {
+                profilesScrollableContainer.innerHTML = '<p class="no-results">No profiles met the required criteria (subject + object + modality + condition).</p>';
             }
         }
 
