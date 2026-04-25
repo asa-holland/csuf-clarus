@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clarus — Analysis Pipeline | CSUF Computer Science</title>
+    <title>Clarus - Analysis Pipeline | CSUF Computer Science</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -92,8 +92,8 @@
                                 <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="1.5"/>
                             </svg>
                             <div class="file-details">
-                                <strong id="fileName">—</strong>
-                                <span id="fileSize" class="file-size-label">—</span>
+                                <strong id="fileName">-</strong>
+                                <span id="fileSize" class="file-size-label">-</span>
                             </div>
                         </div>
                     </div>
@@ -314,8 +314,8 @@
                 <button class="conf-modal-close" onclick="closeConfModal()" aria-label="Close">&times;</button>
             </div>
             <div class="conf-modal-body">
-                <p>All scores use a <strong>0&ndash;5 scale</strong> derived mechanically from the number and strength of signals found during analysis. No subjective judgment is applied.</p>
-                <p>The raw signal value (0.0&ndash;1.0) is converted by: <code>score = round(raw &times; 5)</code>, clamped to the range 0&ndash;5.</p>
+                <p>All scores use a <strong>0-5 scale</strong> derived mechanically from the number and strength of signals found during analysis. No subjective judgment is applied.</p>
+                <p>The raw signal value (0.0-1.0) is converted by: <code>score = round(raw &times; 5)</code>, clamped to the range 0-5.</p>
 
                 <table class="conf-score-table">
                     <thead><tr><th>Score</th><th>What it means</th></tr></thead>
@@ -331,13 +331,13 @@
 
                 <h4>How signals are counted per context</h4>
 
-                <p><strong>Document Segments</strong> &mdash; counts how many normative or informative keyword patterns appear in the segment text (e.g. <em>shall</em>, <em>must</em>, <em>should</em>, example markers). More matching patterns raises the score.</p>
+                <p><strong>Document Segments</strong> - counts how many normative or informative keyword patterns appear in the segment text (e.g. <em>shall</em>, <em>must</em>, <em>should</em>, example markers). More matching patterns raises the score.</p>
 
-                <p><strong>Semantic Profiles</strong> &mdash; counts how many of the 6 possible linguistic anchors were successfully extracted: Subject, Object, Modality, Condition, Temporal, and Negation. The average extraction confidence of those anchors scales the result.</p>
+                <p><strong>Semantic Profiles</strong> - counts how many of the 6 possible linguistic anchors were successfully extracted: Subject, Object, Modality, Condition, Temporal, and Negation. The average extraction confidence of those anchors scales the result.</p>
 
-                <p><strong>Contradictions</strong> &mdash; reflects which detection method triggered. Negated-verb matches (e.g. <em>learn</em> vs. <em>do not learn</em>) and outcome-antonym pairs score 4&ndash;5. Modal-keyword contradictions (e.g. <em>must</em> vs. <em>must not</em>) score 3&ndash;4.</p>
+                <p><strong>Contradictions</strong> - reflects which detection method triggered. Negated-verb matches (e.g. <em>learn</em> vs. <em>do not learn</em>) and outcome-antonym pairs score 4-5. Modal-keyword contradictions (e.g. <em>must</em> vs. <em>must not</em>) score 3-4.</p>
 
-                <p><strong>Average scores</strong> &mdash; the arithmetic mean of all individual scores in a section, displayed to one decimal place.</p>
+                <p><strong>Average scores</strong> - the arithmetic mean of all individual scores in a section, displayed to one decimal place.</p>
             </div>
         </div>
     </div>
@@ -349,7 +349,7 @@
         // Convert a raw 0-1 confidence float to a 0-5 integer score.
         // Mechanical derivation: round(raw * 5), clamped to [0, 5].
         function toScore(raw) {
-            if (raw == null) return '—';
+            if (raw == null) return '-';
             return Math.min(5, Math.round((raw || 0) * 5));
         }
         // Same conversion but returns a 1-decimal string for averages.
@@ -696,13 +696,13 @@
                     const tr = document.createElement('tr');
                     tr.innerHTML = `
                         <td class="profile-num">${index + 1}</td>
-                        <td class="profile-sentence">${profile.original_sentence || '—'}</td>
-                        <td>${profile.subject || '—'}</td>
-                        <td>${profile.object || '—'}</td>
-                        <td>${profile.modality || '—'}</td>
-                        <td>${profile.condition || '—'}</td>
-                        <td>${profile.temporal || '—'}</td>
-                        <td>${profile.negation || '—'}</td>
+                        <td class="profile-sentence">${profile.original_sentence || '-'}</td>
+                        <td>${profile.subject || '-'}</td>
+                        <td>${profile.object || '-'}</td>
+                        <td>${profile.modality || '-'}</td>
+                        <td>${profile.condition || '-'}</td>
+                        <td>${profile.temporal || '-'}</td>
+                        <td>${profile.negation || '-'}</td>
                     `;
                     tbody.appendChild(tr);
                 });
