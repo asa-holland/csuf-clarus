@@ -992,6 +992,118 @@ body.page-pipeline {
   font-size: 0.80rem;
 }
 
+/* -- 14. Confidence Info Button -- */
+.conf-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin-left: 4px;
+  background: var(--csuf-orange);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  vertical-align: middle;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.conf-info-btn:hover { opacity: 1; }
+
+/* -- 15. Confidence Score Modal -- */
+.conf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9000;
+}
+
+.conf-modal {
+  background: var(--bg-card);
+  border-radius: var(--radius-md, 8px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  max-width: 560px;
+  width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.conf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 12px;
+  border-bottom: 2px solid var(--csuf-orange);
+}
+
+.conf-modal-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.conf-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0 4px;
+}
+.conf-modal-close:hover { color: var(--csuf-orange); }
+
+.conf-modal-body {
+  padding: 16px 20px 20px;
+  overflow-y: auto;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+.conf-modal-body p { margin: 0 0 10px; }
+.conf-modal-body h4 { margin: 14px 0 6px; font-size: 0.88rem; color: var(--csuf-orange); }
+.conf-modal-body code {
+  background: var(--bg-secondary);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.82rem;
+}
+
+.conf-score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+  font-size: 0.84rem;
+}
+.conf-score-table th {
+  background: var(--csuf-orange);
+  color: #fff;
+  padding: 6px 10px;
+  text-align: left;
+  font-weight: 700;
+}
+.conf-score-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+.conf-score-table td:first-child {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--csuf-orange);
+}
+.conf-score-table tbody tr:last-child td { border-bottom: none; }
+
 /* -- 14. Analysis Tabs -- */
 .analysis-tabs {
   display: flex;

@@ -306,9 +306,66 @@
 
     </div><!-- /.page-wrapper -->
 
+    <!-- Confidence Score Explanation Modal -->
+    <div id="confidenceModal" class="conf-modal-overlay" onclick="closeConfModal(event)" role="dialog" aria-modal="true" aria-labelledby="confModalTitle" style="display:none;">
+        <div class="conf-modal">
+            <div class="conf-modal-header">
+                <h3 id="confModalTitle">How Confidence Scores Work</h3>
+                <button class="conf-modal-close" onclick="closeConfModal()" aria-label="Close">&times;</button>
+            </div>
+            <div class="conf-modal-body">
+                <p>All scores use a <strong>0&ndash;5 scale</strong> derived mechanically from the number and strength of signals found during analysis. No subjective judgment is applied.</p>
+                <p>The raw signal value (0.0&ndash;1.0) is converted by: <code>score = round(raw &times; 5)</code>, clamped to the range 0&ndash;5.</p>
+
+                <table class="conf-score-table">
+                    <thead><tr><th>Score</th><th>What it means</th></tr></thead>
+                    <tbody>
+                        <tr><td>0 / 5</td><td>No supporting signals detected; result is a best-guess fallback.</td></tr>
+                        <tr><td>1 / 5</td><td>Single weak signal; very low certainty.</td></tr>
+                        <tr><td>2 / 5</td><td>One moderate signal, or several weak ones.</td></tr>
+                        <tr><td>3 / 5</td><td>Multiple independent signals; reasonable confidence.</td></tr>
+                        <tr><td>4 / 5</td><td>Strong evidence from multiple independent sources.</td></tr>
+                        <tr><td>5 / 5</td><td>Maximum confidence; all expected signals present.</td></tr>
+                    </tbody>
+                </table>
+
+                <h4>How signals are counted per context</h4>
+
+                <p><strong>Document Segments</strong> &mdash; counts how many normative or informative keyword patterns appear in the segment text (e.g. <em>shall</em>, <em>must</em>, <em>should</em>, example markers). More matching patterns raises the score.</p>
+
+                <p><strong>Semantic Profiles</strong> &mdash; counts how many of the 6 possible linguistic anchors were successfully extracted: Subject, Object, Modality, Condition, Temporal, and Negation. The average extraction confidence of those anchors scales the result.</p>
+
+                <p><strong>Contradictions</strong> &mdash; reflects which detection method triggered. Negated-verb matches (e.g. <em>learn</em> vs. <em>do not learn</em>) and outcome-antonym pairs score 4&ndash;5. Modal-keyword contradictions (e.g. <em>must</em> vs. <em>must not</em>) score 3&ndash;4.</p>
+
+                <p><strong>Average scores</strong> &mdash; the arithmetic mean of all individual scores in a section, displayed to one decimal place.</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         let analysisResults = {};
         let completedStages = 0;
+
+        // Convert a raw 0-1 confidence float to a 0-5 integer score.
+        // Mechanical derivation: round(raw * 5), clamped to [0, 5].
+        function toScore(raw) {
+            if (raw == null) return '—';
+            return Math.min(5, Math.round((raw || 0) * 5));
+        }
+        // Same conversion but returns a 1-decimal string for averages.
+        function toScoreAvg(raw) {
+            if (raw == null) return 'N/A';
+            return Math.min(5, (raw || 0) * 5).toFixed(1);
+        }
+
+        function openConfModal() {
+            document.getElementById('confidenceModal').style.display = 'flex';
+        }
+        function closeConfModal(e) {
+            if (!e || e.target.id === 'confidenceModal') {
+                document.getElementById('confidenceModal').style.display = 'none';
+            }
+        }
 
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
@@ -568,7 +625,7 @@
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">${stats.high_confidence_segments}</div>
-                        <div class="stat-label">High Confidence</div>
+                        <div class="stat-label">Score ≥ 4</div>
                     </div>
                 </div>
             `;
@@ -586,7 +643,7 @@
                 segmentDiv.innerHTML = `
                     <div class="segment-header">
                         <span class="segment-type">${segment.element_type}</span>
-                        <span class="segment-confidence">${(segment.confidence * 100).toFixed(1)}% confidence</span>
+                        <span class="segment-confidence">${toScore(segment.confidence)}/5 <button class="conf-info-btn" onclick="openConfModal()" title="About confidence scores">?</button></span>
                     </div>
                     <div class="segment-text">${segment.text}</div>
                 `;
@@ -603,8 +660,8 @@
                         <span class="stat-label">Semantic Profiles</span>
                     </div>
                     <div class="semantic-stat">
-                        <span class="stat-number">${result.avg_confidence ? (result.avg_confidence * 100).toFixed(1) + '%' : 'N/A'}</span>
-                        <span class="stat-label">Avg. Confidence</span>
+                        <span class="stat-number">${result.avg_confidence != null ? toScoreAvg(result.avg_confidence) + '/5' : 'N/A'}</span>
+                        <span class="stat-label">Avg. Confidence <button class="conf-info-btn" onclick="openConfModal()" title="About confidence scores">?</button></span>
                     </div>
                 </div>
             `;
@@ -717,7 +774,7 @@
                                             <span class="contradiction-index">#${index + 1}</span>
                                             <span class="contradiction-type">${contradiction.contradiction_type}</span>
                                         </div>
-                                        <span class="contradiction-confidence">Confidence: ${(contradiction.confidence * 100).toFixed(1)}%</span>
+                                        <span class="contradiction-confidence">Score: ${toScore(contradiction.confidence)}/5</span>
                                     </div>
                                     <div class="contradiction-text">
                                         <div class="stmt stmt-a"><span class="stmt-label">A</span><span class="stmt-content">${contradiction.statement_a}</span></div>
