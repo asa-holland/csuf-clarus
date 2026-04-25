@@ -163,7 +163,6 @@ class TerminologyValidator:
             return False
         if len(words) >= 2:
             return any(w[0].isupper() for w in words)
-        # Single word: must start with a capital letter (proper noun)
         return words[0][0].isupper()
 
     def _extract_definitions_from_text(self, text: str) -> Dict[str, str]:
