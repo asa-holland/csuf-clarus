@@ -98,6 +98,51 @@
                         </div>
                     </div>
 
+                    <!-- Analysis Configuration -->
+                    <div class="analysis-config" id="analysisConfigPanel">
+                        <div class="config-section-header">
+                            <svg class="config-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <circle cx="10" cy="10" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M10 3v1.5M10 15.5V17M3 10h1.5M15.5 10H17M4.93 4.93l1.06 1.06M14.01 14.01l1.06 1.06M4.93 15.07l1.06-1.06M14.01 5.99l1.06-1.06" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                            <span class="config-section-title">Analysis Configuration</span>
+                        </div>
+                        <div class="config-body">
+                            <div class="config-preset-row">
+                                <label class="config-label" for="docTypeSelect">Document Type</label>
+                                <select id="docTypeSelect" class="config-select" onchange="applyDocTypePreset(this.value)">
+                                    <option value="requirements">Requirements Document</option>
+                                    <option value="technical">Technical Specification</option>
+                                    <option value="legal">Legal Document</option>
+                                    <option value="narrative">Narrative / General Text</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            <p class="config-preset-hint" id="docTypeHint">Full analysis &#8212; both terminology extraction and contradiction detection enabled.</p>
+                            <div class="config-modules">
+                                <span class="config-modules-label">Active Modules</span>
+                                <div class="module-toggle-list">
+                                    <label class="module-toggle-row">
+                                        <input type="checkbox" id="enableTerminology" checked onchange="onModuleToggle()">
+                                        <span class="toggle-switch"></span>
+                                        <div class="module-toggle-info">
+                                            <span class="module-toggle-name">Terminology Extraction</span>
+                                            <span class="module-toggle-desc">Identifies and validates domain terms, acronyms, and undefined references</span>
+                                        </div>
+                                    </label>
+                                    <label class="module-toggle-row">
+                                        <input type="checkbox" id="enableContradictions" checked onchange="onModuleToggle()">
+                                        <span class="toggle-switch"></span>
+                                        <div class="module-toggle-info">
+                                            <span class="module-toggle-name">Contradiction Detection</span>
+                                            <span class="module-toggle-desc">Detects logical, modal, and semantic contradictions between normative statements</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <button class="process-btn" id="processBtn" disabled>
                         <span class="btn-icon" aria-hidden="true">
                             <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,8 +303,8 @@
                         </div>
                         <div class="stage-content" id="content-analysis">
                             <div class="analysis-tabs" role="tablist">
-                                <button class="tab-btn active" onclick="switchTab('terminology')" role="tab" aria-selected="true">Terminology</button>
-                                <button class="tab-btn" onclick="switchTab('contradictions')" role="tab" aria-selected="false">Contradictions</button>
+                                <button class="tab-btn active" id="tab-btn-terminology" onclick="switchTab('terminology')" role="tab" aria-selected="true">Terminology</button>
+                                <button class="tab-btn" id="tab-btn-contradictions" onclick="switchTab('contradictions')" role="tab" aria-selected="false">Contradictions</button>
                             </div>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="terminology-tab" role="tabpanel">
@@ -345,6 +390,85 @@
     <script>
         let analysisResults = {};
         let completedStages = 0;
+        let analysisConfig = {
+            documentType: 'requirements',
+            enableTerminology: true,
+            enableContradictions: true
+        };
+
+        const DOC_TYPE_PRESETS = {
+            requirements: {
+                enableTerminology: true,
+                enableContradictions: true,
+                hint: 'Full analysis — both terminology extraction and contradiction detection enabled.'
+            },
+            technical: {
+                enableTerminology: true,
+                enableContradictions: true,
+                hint: 'Full analysis — both modules are recommended for technical specifications.'
+            },
+            legal: {
+                enableTerminology: true,
+                enableContradictions: false,
+                hint: 'Terminology-focused — contradiction detection disabled for narrative legal text.'
+            },
+            narrative: {
+                enableTerminology: false,
+                enableContradictions: true,
+                hint: 'Contradiction-focused — terminology extraction disabled for general narrative text.'
+            },
+            custom: {
+                enableTerminology: true,
+                enableContradictions: true,
+                hint: 'Configure the active modules as needed for your document.'
+            }
+        };
+
+        function applyDocTypePreset(type) {
+            const preset = DOC_TYPE_PRESETS[type];
+            if (!preset) return;
+            analysisConfig.documentType = type;
+            if (type !== 'custom') {
+                analysisConfig.enableTerminology = preset.enableTerminology;
+                analysisConfig.enableContradictions = preset.enableContradictions;
+                document.getElementById('enableTerminology').checked = preset.enableTerminology;
+                document.getElementById('enableContradictions').checked = preset.enableContradictions;
+            }
+            document.getElementById('docTypeHint').textContent = preset.hint;
+        }
+
+        function onModuleToggle() {
+            analysisConfig.enableTerminology = document.getElementById('enableTerminology').checked;
+            analysisConfig.enableContradictions = document.getElementById('enableContradictions').checked;
+            if (document.getElementById('docTypeSelect').value !== 'custom') {
+                document.getElementById('docTypeSelect').value = 'custom';
+                analysisConfig.documentType = 'custom';
+                document.getElementById('docTypeHint').textContent = DOC_TYPE_PRESETS.custom.hint;
+            }
+        }
+
+        function activateTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
+            const btn = document.getElementById('tab-btn-' + tab);
+            if (btn) {
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+            }
+            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+
+        function getStageIVDescription() {
+            const t = analysisConfig.enableTerminology;
+            const c = analysisConfig.enableContradictions;
+            if (t && c) return 'Domain term validation, undefined acronym detection, and logical contradiction identification';
+            if (t) return 'Domain term validation and undefined acronym detection';
+            if (c) return 'Logical contradiction identification between normative statements';
+            return 'No analysis modules are enabled for this run';
+        }
 
         // Convert a raw 0-1 confidence float to a 0-5 integer score.
         // Mechanical derivation: round(raw * 5), clamped to [0, 5].
@@ -544,9 +668,15 @@
         async function runAnalysis() {
             try {
                 console.log('Sending analysis request...');
+                const stageIVDesc = document.querySelector('#stage-analysis .stage-desc');
+                if (stageIVDesc) stageIVDesc.textContent = getStageIVDescription();
                 const requestData = {
                     text: analysisResults.preprocessing.text,
-                    segments: analysisResults.processing.segments
+                    segments: analysisResults.processing.segments,
+                    config: {
+                        enable_terminology: analysisConfig.enableTerminology,
+                        enable_contradictions: analysisConfig.enableContradictions
+                    }
                 };
                 console.log('Request data:', JSON.stringify(requestData).substring(0, 200) + '...');
 
@@ -713,6 +843,17 @@
         }
 
         function displayAnalysisResults(result) {
+            // Reflect which modules ran in the tab buttons
+            document.getElementById('tab-btn-terminology').classList.toggle('tab-disabled', !result.terminology);
+            document.getElementById('tab-btn-contradictions').classList.toggle('tab-disabled', !result.contradictions);
+
+            // Auto-select the first active tab
+            if (!result.terminology && result.contradictions) {
+                activateTab('contradictions');
+            } else {
+                activateTab('terminology');
+            }
+
             const terminologyDiv = document.getElementById('terminology-results');
             if (result.terminology) {
                 terminologyDiv.innerHTML = `
@@ -754,6 +895,8 @@
                         }).join('') || '<p class="no-results">No terms found.</p>'}
                     </div>
                 `;
+            } else {
+                terminologyDiv.innerHTML = '<p class="module-disabled-msg">Terminology extraction was not enabled for this run. Enable it in the Analysis Configuration above and re-run the pipeline.</p>';
             }
 
             const contradictionsDiv = document.getElementById('contradictions-results');
@@ -787,6 +930,8 @@
                         }
                     </div>
                 `;
+            } else {
+                contradictionsDiv.innerHTML = '<p class="module-disabled-msg">Contradiction detection was not enabled for this run. Enable it in the Analysis Configuration above and re-run the pipeline.</p>';
             }
         }
 
@@ -858,6 +1003,11 @@
             document.getElementById('semantic-profiles').innerHTML = '';
             document.getElementById('terminology-results').innerHTML = '';
             document.getElementById('contradictions-results').innerHTML = '';
+            document.getElementById('tab-btn-terminology').classList.remove('tab-disabled');
+            document.getElementById('tab-btn-contradictions').classList.remove('tab-disabled');
+            activateTab('terminology');
+            document.querySelector('#stage-analysis .stage-desc').textContent =
+                'Domain term validation, undefined acronym detection, and logical contradiction identification';
         }
 
         async function exportResults(format) {

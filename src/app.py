@@ -331,145 +331,150 @@ def analyze_document():
         if not data or "text" not in data:
             return jsonify({"error": "No text provided"}), 400
 
-        terminology_validator = TerminologyValidator()
-        contradiction_detector = ContradictionDetector(config={"enable_ml": False})
-
-        extracted_terms = terminology_validator.extract_terms_from_text(data["text"])
-
-        # Use quality-based selection instead of fixed limit
-        min_quality_threshold = 0.4
-        max_terms = 50
-
-        # Filter terms by quality score and limit
-        high_quality_terms = []
-        for term in extracted_terms:
-            # Get validation result to check quality
-            result = terminology_validator.validate_term(term)
-            if (
-                result.classification.confidence >= min_quality_threshold
-                and result.classification.is_domain_term
-                and not result.classification.is_common_english
-            ):
-                high_quality_terms.append(term)
-            if len(high_quality_terms) >= max_terms:
-                break
-
-        if not high_quality_terms:
-            # Fall back only to multi-word terms or capitalised proper nouns —
-            # avoids flooding the UI with ordinary single-word game vocabulary.
-            high_quality_terms = [
-                t for t in extracted_terms
-                if " " in t or (t[0].isupper() and not t.isupper())
-            ][:max_terms]
-
-        terminology_result = terminology_validator.validate_terms(
-            high_quality_terms, full_text=data["text"]
-        )
-
-        document_text = data.get("text", "")
+        config = data.get("config", {})
+        enable_terminology = config.get("enable_terminology", True)
+        enable_contradictions = config.get("enable_contradictions", True)
 
         logger.info(
-            "analyze-document: %d term(s) extracted, %d high-quality selected",
-            len(extracted_terms),
-            len(high_quality_terms),
-        )
-        logger.debug(
-            "terminology stats: defined=%d undefined=%d avg_confidence=%s",
-            terminology_result.statistics.get("defined_terms"),
-            terminology_result.statistics.get("undefined_terms"),
-            terminology_result.statistics.get("avg_confidence"),
+            "analyze-document: enable_terminology=%s enable_contradictions=%s",
+            enable_terminology,
+            enable_contradictions,
         )
 
-        def create_term_entry(result):
-            raw_confidence = result.classification.confidence
-            if math.isnan(raw_confidence) or math.isinf(raw_confidence):
-                logger.warning(
-                    "Non-finite confidence for term '%s': %s — clamping to 0.0",
-                    result.term,
-                    raw_confidence,
-                )
-                raw_confidence = 0.0
-            is_undefined_acronym = (
-                result.term.isupper()
-                and len(result.term) >= 2
-                and not result.is_defined
+        terminology_data = None
+        if enable_terminology:
+            terminology_validator = TerminologyValidator()
+            extracted_terms = terminology_validator.extract_terms_from_text(data["text"])
+
+            min_quality_threshold = 0.4
+            max_terms = 50
+
+            high_quality_terms = []
+            for term in extracted_terms:
+                result = terminology_validator.validate_term(term)
+                if (
+                    result.classification.confidence >= min_quality_threshold
+                    and result.classification.is_domain_term
+                    and not result.classification.is_common_english
+                ):
+                    high_quality_terms.append(term)
+                if len(high_quality_terms) >= max_terms:
+                    break
+
+            if not high_quality_terms:
+                high_quality_terms = [
+                    t for t in extracted_terms
+                    if " " in t or (t[0].isupper() and not t.isupper())
+                ][:max_terms]
+
+            terminology_result = terminology_validator.validate_terms(
+                high_quality_terms, full_text=data["text"]
             )
-            return {
-                "term": result.term,
-                "normalized_term": result.normalized_term,
-                "is_defined": result.is_defined,
-                "is_undefined_acronym": is_undefined_acronym,
-                "classification": {
-                    "is_domain_term": result.classification.is_domain_term,
-                    "is_common_english": result.classification.is_common_english,
-                    "confidence": float(raw_confidence),
-                    "classification_reason": result.classification.classification_reason,
-                },
-                "suggested_definition": result.suggested_definition,
-                "context_excerpt": result.context_excerpt,
-            }
 
-        terminology_data = {
-            "statistics": convert_numpy_types(terminology_result.statistics),
-            "defined_terms": [
-                create_term_entry(result) for result in terminology_result.defined_terms
-            ],
-            "undefined_terms": [
-                create_term_entry(result)
-                for result in terminology_result.undefined_terms
-            ],
-            "term_occurrences": [
-                {
+            logger.info(
+                "analyze-document: %d term(s) extracted, %d high-quality selected",
+                len(extracted_terms),
+                len(high_quality_terms),
+            )
+            logger.debug(
+                "terminology stats: defined=%d undefined=%d avg_confidence=%s",
+                terminology_result.statistics.get("defined_terms"),
+                terminology_result.statistics.get("undefined_terms"),
+                terminology_result.statistics.get("avg_confidence"),
+            )
+
+            def create_term_entry(result):
+                raw_confidence = result.classification.confidence
+                if math.isnan(raw_confidence) or math.isinf(raw_confidence):
+                    logger.warning(
+                        "Non-finite confidence for term '%s': %s — clamping to 0.0",
+                        result.term,
+                        raw_confidence,
+                    )
+                    raw_confidence = 0.0
+                is_undefined_acronym = (
+                    result.term.isupper()
+                    and len(result.term) >= 2
+                    and not result.is_defined
+                )
+                return {
                     "term": result.term,
+                    "normalized_term": result.normalized_term,
                     "is_defined": result.is_defined,
-                    "is_undefined_acronym": (
-                        result.term.isupper()
-                        and len(result.term) >= 2
-                        and not result.is_defined
-                    ),
+                    "is_undefined_acronym": is_undefined_acronym,
+                    "classification": {
+                        "is_domain_term": result.classification.is_domain_term,
+                        "is_common_english": result.classification.is_common_english,
+                        "confidence": float(raw_confidence),
+                        "classification_reason": result.classification.classification_reason,
+                    },
+                    "suggested_definition": result.suggested_definition,
                     "context_excerpt": result.context_excerpt,
                 }
-                for result in terminology_result.defined_terms
-                + terminology_result.undefined_terms
-            ],
-        }
 
-        candidate_statements = []
-        if "segments" in data:
-            for segment in data["segments"]:
-                if segment.get("element_type") in ("normative", "unknown"):
-                    candidate_statements.append(segment["text"])
-        else:
-            processor = DocumentProcessor()
-            processed = processor.process_document(data["text"])
-            candidate_statements = [
-                seg.text
-                for seg in processed.segments
-                if seg.element_type.value in ("normative", "unknown")
-            ]
-
-        logger.info(
-            "contradiction detection: %d candidate statements (%s)",
-            len(candidate_statements),
-            candidate_statements,
-        )
-        contradictions = contradiction_detector.detect_contradictions(
-            candidate_statements
-        )
-        logger.info(
-            "contradiction detection: %d contradiction(s) found", len(contradictions)
-        )
-
-        contradictions_data = [
-            {
-                "contradiction_type": contra.contradiction_type.value,
-                "statement_a": contra.statement_a,
-                "statement_b": contra.statement_b,
-                "confidence": contra.confidence,
-                "explanation": contra.explanation,
+            terminology_data = {
+                "statistics": convert_numpy_types(terminology_result.statistics),
+                "defined_terms": [
+                    create_term_entry(result) for result in terminology_result.defined_terms
+                ],
+                "undefined_terms": [
+                    create_term_entry(result)
+                    for result in terminology_result.undefined_terms
+                ],
+                "term_occurrences": [
+                    {
+                        "term": result.term,
+                        "is_defined": result.is_defined,
+                        "is_undefined_acronym": (
+                            result.term.isupper()
+                            and len(result.term) >= 2
+                            and not result.is_defined
+                        ),
+                        "context_excerpt": result.context_excerpt,
+                    }
+                    for result in terminology_result.defined_terms
+                    + terminology_result.undefined_terms
+                ],
             }
-            for contra in contradictions
-        ]
+
+        contradictions_data = None
+        if enable_contradictions:
+            contradiction_detector = ContradictionDetector(config={"enable_ml": False})
+            candidate_statements = []
+            if "segments" in data:
+                for segment in data["segments"]:
+                    if segment.get("element_type") in ("normative", "unknown"):
+                        candidate_statements.append(segment["text"])
+            else:
+                processor = DocumentProcessor()
+                processed = processor.process_document(data["text"])
+                candidate_statements = [
+                    seg.text
+                    for seg in processed.segments
+                    if seg.element_type.value in ("normative", "unknown")
+                ]
+
+            logger.info(
+                "contradiction detection: %d candidate statements",
+                len(candidate_statements),
+            )
+            contradictions = contradiction_detector.detect_contradictions(
+                candidate_statements
+            )
+            logger.info(
+                "contradiction detection: %d contradiction(s) found", len(contradictions)
+            )
+
+            contradictions_data = [
+                {
+                    "contradiction_type": contra.contradiction_type.value,
+                    "statement_a": contra.statement_a,
+                    "statement_b": contra.statement_b,
+                    "confidence": contra.confidence,
+                    "explanation": contra.explanation,
+                }
+                for contra in contradictions
+            ]
 
         response_data = {
             "success": True,
