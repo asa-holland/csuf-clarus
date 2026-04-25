@@ -338,7 +338,6 @@ def analyze_document():
         # User-defined detection thresholds — all optional; fall back to defaults.
         thresholds = config.get("detection_thresholds", {})
         contradiction_config = {
-            "enable_ml": False,
             "min_confidence": float(thresholds.get("min_confidence", 0.7)),
             "ml_threshold": float(thresholds.get("ml_threshold", 0.8)),
             "use_candidate_filter": bool(thresholds.get("use_candidate_filter", True)),
