@@ -233,21 +233,33 @@ class ContradictionDetector:
         text_a = text_a.lower()
         text_b = text_b.lower()
 
-        negation_patterns = [
-            (r"\bnot\s+(\w+)", r"\1"),  # "not X" vs "X"
-            (r"(\w+)\s+never\b", r"\1 always"),  # "X never" vs "X always"
-            (r"(\w+)\s+only\b", r"\1 not only"),  # "X only" vs "X not only"
+        # Negated-verb contradictions: one text has "not/cannot/never VERB", the other has
+        # the positive form.  Covers patterns like "do not learn" vs "learn", "cannot die"
+        # vs "they die", etc. that are common in game-rules and natural-language specs.
+        negatable_verbs = [
+            "learn", "die", "vote", "win", "lose", "execute", "nominate",
+            "target", "protect", "choose", "use",
         ]
-
-        for pattern, replacement in negation_patterns:
-            if (
-                re.search(pattern, text_a)
-                and re.sub(pattern, replacement, text_a) == text_b
-            ):
+        neg_re_str = r"(?:not|cannot|can't|does\s+not|do\s+not|never)\s+{v}"
+        for verb in negatable_verbs:
+            neg_re = re.compile(neg_re_str.format(v=verb))
+            pos_re = re.compile(rf"\b{verb}\b")
+            a_neg = bool(neg_re.search(text_a))
+            b_neg = bool(neg_re.search(text_b))
+            a_pos = bool(pos_re.search(text_a)) and not a_neg
+            b_pos = bool(pos_re.search(text_b)) and not b_neg
+            if (a_neg and b_pos) or (b_neg and a_pos):
                 return True
-            if (
-                re.search(pattern, text_b)
-                and re.sub(pattern, replacement, text_b) == text_a
+
+        # Game-outcome antonyms (e.g. "good wins" vs "evil wins", "good loses" vs "evil wins")
+        outcome_pairs = [
+            (r"\bgood\s+wins\b", r"\bevil\s+wins\b"),
+            (r"\bgood\s+loses\b", r"\bevil\s+wins\b"),
+            (r"\bgood\s+wins\b", r"\bgood\s+loses\b"),
+        ]
+        for pat_pos, pat_neg in outcome_pairs:
+            if (re.search(pat_pos, text_a) and re.search(pat_neg, text_b)) or (
+                re.search(pat_pos, text_b) and re.search(pat_neg, text_a)
             ):
                 return True
 

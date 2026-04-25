@@ -355,7 +355,12 @@ def analyze_document():
                 break
 
         if not high_quality_terms:
-            high_quality_terms = extracted_terms[:max_terms]
+            # Fall back only to multi-word terms or capitalised proper nouns —
+            # avoids flooding the UI with ordinary single-word game vocabulary.
+            high_quality_terms = [
+                t for t in extracted_terms
+                if " " in t or (t[0].isupper() and not t.isupper())
+            ][:max_terms]
 
         terminology_result = terminology_validator.validate_terms(
             high_quality_terms, full_text=data["text"]
