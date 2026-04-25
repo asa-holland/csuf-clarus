@@ -156,8 +156,17 @@ class TerminologyValidator:
         self.glossary.update(terms)
         self._term_index = self._build_term_index()
 
+    @staticmethod
+    def _is_plausible_defined_term(term: str) -> bool:
+        words = [w for w in term.split() if w]
+        if not words:
+            return False
+        if len(words) >= 2:
+            return any(w[0].isupper() for w in words)
+        # Single word: must start with a capital letter (proper noun)
+        return words[0][0].isupper()
+
     def _extract_definitions_from_text(self, text: str) -> Dict[str, str]:
-        """Extract definitions from text using rule-based patterns"""
         definitions = {}
 
         lines = text.split("\n")
@@ -180,6 +189,7 @@ class TerminologyValidator:
                     and definition
                     and len(term) <= 25
                     and len(definition.strip()) > len(term.strip())
+                    and self._is_plausible_defined_term(term)
                 ):
                     definitions[term.lower()] = definition
                 continue
@@ -197,6 +207,7 @@ class TerminologyValidator:
                     and definition
                     and len(term) <= 25
                     and len(definition.strip()) > len(term.strip())
+                    and self._is_plausible_defined_term(term)
                 ):
                     definitions[term.lower()] = definition
                 continue
@@ -214,6 +225,7 @@ class TerminologyValidator:
                     and definition
                     and len(term) <= 25
                     and len(definition.strip()) > len(term.strip())
+                    and self._is_plausible_defined_term(term)
                 ):
                     definitions[term.lower()] = definition
                 continue
@@ -231,6 +243,7 @@ class TerminologyValidator:
                     and definition
                     and len(term) <= 25
                     and len(definition.strip()) > len(term.strip())
+                    and self._is_plausible_defined_term(term)
                 ):
                     definitions[term.lower()] = definition
                 continue
