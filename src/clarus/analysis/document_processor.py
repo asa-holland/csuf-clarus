@@ -116,8 +116,19 @@ class DocumentProcessor:
             r"\bmust\b",
             r"\bshall not\b",
             r"\bmust not\b",
+            r"\bwill\b",
             r"\bis required to\b",
+            r"\bare required to\b",
             r"\bis prohibited from\b",
+            r"\brequires?\b",
+            r"\bprohibits?\b",
+            r"\bforbids?\b",
+            r"\bmandatory\b",
+            r"\bensures?\b",
+            r"\bis mandatory\b",
+            r"\bhas to\b",
+            r"\bhave to\b",
+            r"\bobligation\b",
         ]
 
         self.informative_patterns = [
@@ -129,6 +140,24 @@ class DocumentProcessor:
             r"\bi\.e\.\b",
             r"\bnote\b",
             r"\bexample\b",
+            r"\btypically\b",
+            r"\busually\b",
+            r"\bgenerally\b",
+            r"\bin general\b",
+            r"\bfor instance\b",
+            r"\bsuch as\b",
+            r"\bincluding\b",
+            r"\brefers? to\b",
+            r"\bdescribes?\b",
+            r"\bexplains?\b",
+            r"\bmeans?\b",
+            r"\brepresents?\b",
+            r"\bis defined as\b",
+            r"\bindicates?\b",
+            r"\bsuggests?\b",
+            r"\bimplies?\b",
+            r"\boptional\b",
+            r"\brecommended\b",
         ]
 
         self.heading_patterns = [
@@ -175,93 +204,70 @@ class DocumentProcessor:
 
         doc = self.nlp(line)
 
-        informative_lemmas = [
-            "example",
-            "note",
-            "remark",
-            "comment",
-            "illustrate",
-            "demonstrate",
-            "section",
-            "detail",
-            "see",
-            "reference",
-        ]
-        informative_found = any(
-            token.lemma_.lower() in informative_lemmas for token in doc
-        )
-
-        if informative_found:
+        # Step 1: Unambiguous informative markers
+        informative_lemmas = {
+            "example", "note", "remark", "comment", "illustrate",
+            "demonstrate", "section", "detail", "see", "reference",
+            "describe", "explain", "mean", "represent", "indicate",
+            "suggest", "imply", "define",
+        }
+        if any(token.lemma_.lower() in informative_lemmas for token in doc):
             return ElementType.INFORMATIVE
-
         if any(token.text == "?" for token in doc):
             return ElementType.INFORMATIVE
 
+        # Step 2: Modal verb analysis
         modality_tokens = []
         for token in doc:
             if token.lemma_.lower() in self.modality_verbs:
-                negated = False
-                for child in token.children:
-                    if child.lemma_.lower() in self.negation_words:
-                        negated = True
-                        break
+                negated = any(
+                    child.lemma_.lower() in self.negation_words
+                    for child in token.children
+                )
                 modality_tokens.append(
                     (token.lemma_.lower(), "negated" if negated else "positive")
                 )
 
         if modality_tokens:
-            positive_modalities = [t[0] for t in modality_tokens if t[1] == "positive"]
-            negated_modalities = [t[0] for t in modality_tokens if t[1] == "negated"]
+            positive = [t[0] for t in modality_tokens if t[1] == "positive"]
+            negated = [t[0] for t in modality_tokens if t[1] == "negated"]
 
-            strong_normative = any(
-                lemma in ["shall", "must"] for lemma in positive_modalities
-            )
-
-            if strong_normative and not negated_modalities:
+            # Strong obligation (shall/must) or strong prohibition (shall not / must not) = normative
+            strong_positive = any(l in ("shall", "must", "will") for l in positive)
+            strong_negated = any(l in ("shall", "must") for l in negated)
+            if strong_positive or strong_negated:
                 return ElementType.NORMATIVE
 
-            elif negated_modalities:
-                return ElementType.INFORMATIVE
+            # Weak modals (may, should, can, could, would) = informative
+            return ElementType.INFORMATIVE
 
-            elif any(
-                lemma in ["should", "may", "can", "could"]
-                for lemma in positive_modalities
-            ):
-                return ElementType.INFORMATIVE
-
+        # Step 3: Additional normative verb indicators (require, prohibit, mandate…)
+        normative_verb_lemmas = {
+            "require", "prohibit", "forbid", "mandate",
+            "enforce", "specify", "obligate",
+        }
+        if any(token.lemma_.lower() in normative_verb_lemmas for token in doc):
             return ElementType.NORMATIVE
 
-        negation_found = any(
-            token.lemma_.lower() in self.negation_words for token in doc
-        )
-        imperative_found = False
-        for sent in doc.sents:
-            if sent.root and sent.root.tag_ in [
-                "VB",
-                "VBP",
-            ]:
-                imperative_found = True
-                break
-
-        if imperative_found and not negation_found and self._is_clear_imperative(doc):
+        # Step 4: Syntactic imperative detection — root is base-form verb with no
+        # nominal subject in the sentence. These are commands/rules, not descriptions.
+        if self._is_syntactic_imperative(doc):
             return ElementType.NORMATIVE
 
+        # Step 5: Regex and keyword fallback (expands coverage beyond spaCy)
         return self._classify_line_regex(line)
 
-    def _is_clear_imperative(self, doc) -> bool:
-        imperative_indicators = [
-            "shall",
-            "must",
-            "should",
-            "ensure",
-            "verify",
-            "validate",
-        ]
-
-        for token in doc:
-            if token.lemma_.lower() in imperative_indicators:
-                return True
-
+    def _is_syntactic_imperative(self, doc) -> bool:
+        """Return True when a sentence's root is a base-form verb with no subject."""
+        for sent in doc.sents:
+            root = sent.root
+            if root.tag_ in ("VB", "VBP"):
+                has_subject = any(
+                    child.dep_ in ("nsubj", "nsubjpass", "csubj")
+                    for child in root.children
+                )
+                if not has_subject:
+                    return True
         return False
 
     def _classify_line_regex(self, line: str) -> ElementType:
@@ -271,8 +277,18 @@ class DocumentProcessor:
         if self.informative_regex.search(line):
             return ElementType.INFORMATIVE
 
-        informative_keywords = ["example", "note", "remark", "comment"]
-        if any(keyword in line.lower() for keyword in informative_keywords):
+        extra_informative = [
+            "example", "note", "remark", "comment", "typically", "usually",
+            "generally", "such as", "for instance", "including", "described",
+            "explained", "means", "represents", "indicates", "suggests",
+        ]
+        if any(kw in line.lower() for kw in extra_informative):
+            return ElementType.INFORMATIVE
+
+        # Sentences with enough words are descriptive content — classify as
+        # informative rather than leaving them as unknown.  Short fragments
+        # (headings, labels, single words) stay as unknown.
+        if len(line.split()) >= 5:
             return ElementType.INFORMATIVE
 
         return ElementType.UNKNOWN
@@ -528,7 +544,7 @@ class DocumentProcessor:
     def _should_start_new_segment(
         self, current_segment: DocumentSegment, line: str
     ) -> bool:
-        return len(current_segment.text.split()) > 20 and len(line.split()) > 5
+        return len(current_segment.text.split()) > 60 and len(line.split()) > 8
 
     def _calculate_stats(self, segments: List[DocumentSegment]) -> Dict[str, int]:
         stats = {
