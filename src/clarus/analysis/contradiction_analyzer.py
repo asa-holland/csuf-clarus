@@ -60,6 +60,11 @@ class ContradictionDetector:
             "enable_ml": False,
             "ml_threshold": 0.8,
             "use_candidate_filter": True,
+            # Maximum distance (in segment indices) between two statements that
+            # can be flagged as a contradiction.  Statements farther apart are
+            # likely from different sections/topics and cross-comparisons produce
+            # noise.  Set to None to disable the limit.
+            "max_segment_distance": 10,
             **({} if config is None else config),
         }
         self.initialized = False
@@ -129,9 +134,12 @@ class ContradictionDetector:
                 for j in range(i + 1, len(statements))
             ]
 
+        max_dist = self.config.get("max_segment_distance")
         candidates = []
         for i in range(len(statements)):
             for j in range(i + 1, len(statements)):
+                if max_dist is not None and (j - i) > max_dist:
+                    continue
                 if self._share_significant_terms(statements[i], statements[j]):
                     candidates.append((i, j))
         return candidates
