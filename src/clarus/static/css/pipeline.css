@@ -1628,6 +1628,20 @@ body.page-pipeline {
   padding: 9px 14px;
   background: var(--csuf-navy);
   color: #fff;
+  width: 100%;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.config-section-header:hover {
+  background: var(--csuf-navy-light, #1a6bb5);
+}
+
+.config-section-arrow {
+  margin-left: auto;
+  font-size: 0.7rem;
+  transition: transform 0.2s;
 }
 
 .config-icon {
