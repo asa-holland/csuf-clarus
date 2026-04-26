@@ -4,6 +4,7 @@ from enum import Enum
 import re
 import sys
 import logging
+import threading
 
 _handler = logging.StreamHandler(sys.stdout)
 _handler.setFormatter(
@@ -14,6 +15,42 @@ logger.setLevel(logging.DEBUG)
 if not logger.handlers:
     logger.addHandler(_handler)
 logger.propagate = False
+
+# ---------------------------------------------------------------------------
+# Module-level NLI CrossEncoder singleton.
+# Shared across all ContradictionDetector instances to avoid reloading the
+# model for every request.  Uses double-checked locking so only one thread
+# ever triggers the (expensive) load.
+#   _nli_model is None   → never attempted
+#   _nli_model is False  → load failed; do not retry
+#   _nli_model is <obj>  → ready to use
+# ---------------------------------------------------------------------------
+_nli_model_lock = threading.Lock()
+_nli_model = None  # type: ignore[assignment]
+
+# DeBERTa NLI label index mapping for cross-encoder/nli-deberta-v3-base
+_NLI_LABEL_MAP = {0: "contradiction", 1: "entailment", 2: "neutral"}
+_NLI_MODEL_NAME = "cross-encoder/nli-deberta-v3-base"
+
+
+def _get_nli_model():
+    global _nli_model
+    if _nli_model is not None:
+        return _nli_model if _nli_model is not False else None
+    with _nli_model_lock:
+        if _nli_model is None:
+            try:
+                from sentence_transformers import CrossEncoder  # noqa: PLC0415
+
+                logger.info("Loading NLI model %s …", _NLI_MODEL_NAME)
+                _nli_model = CrossEncoder(_NLI_MODEL_NAME)
+                logger.info("NLI model loaded successfully")
+            except Exception as exc:
+                logger.warning(
+                    "NLI model unavailable (%s) — rule-based detection only", exc
+                )
+                _nli_model = False
+    return _nli_model if _nli_model is not False else None
 
 
 class ContradictionType(Enum):
@@ -57,24 +94,18 @@ class ContradictionDetector:
     def __init__(self, config: Optional[Dict] = None):
         self.config = {
             "min_confidence": 0.7,
-            "enable_ml": False,
+            "enable_ml": True,
             "ml_threshold": 0.8,
             "use_candidate_filter": True,
-            # Maximum distance (in segment indices) between two statements that
-            # can be flagged as a contradiction.  Statements farther apart are
-            # likely from different sections/topics and cross-comparisons produce
-            # noise.  Set to None to disable the limit.
             "max_segment_distance": 10,
-            # Minimum number of significant (non-stopword, length > 3) terms two
-            # statements must share to be considered a candidate pair.  Higher
-            # values reduce the candidate set more aggressively.
             "min_term_overlap": 1,
+            "min_nli_words": 6,
             **({} if config is None else config),
         }
         self.initialized = False
         self.ml_model = None
         self.embedding_model = None
-        self.term_variants = {}  # For terminology consistency
+        self.term_variants = {}
 
     def initialize(self):
         if not self.initialized:
@@ -83,12 +114,12 @@ class ContradictionDetector:
             self.initialized = True
 
     def _initialize_ml_components(self):
-        # TODO: implement ML/NLI model
-        try:
-            pass
-        except ImportError:
-            print(
-                "Warning: ML components not available. Falling back to rule-based only."
+        model = _get_nli_model()
+        if model is not None:
+            self.ml_model = model
+        else:
+            logger.warning(
+                "ML components unavailable — disabling for this detector instance"
             )
             self.config["enable_ml"] = False
 
@@ -155,9 +186,10 @@ class ContradictionDetector:
     def _share_significant_terms(
         self, text_a: str, text_b: str, min_overlap: int = 1
     ) -> bool:
-        # TODO: look at TF-IDF or embeddings
-        words_a = set(re.findall(r"\b\w+\b", text_a.lower()))
-        words_b = set(re.findall(r"\b\w+\b", text_b.lower()))
+        clean_a = re.sub(r"\[.*?\]", " ", text_a).lower()
+        clean_b = re.sub(r"\[.*?\]", " ", text_b).lower()
+        words_a = set(re.findall(r"\b\w+\b", clean_a))
+        words_b = set(re.findall(r"\b\w+\b", clean_b))
         common = words_a.intersection(words_b)
 
         significant = {
@@ -200,18 +232,25 @@ class ContradictionDetector:
 
         if self.config["enable_ml"]:
             ml_result = self._check_ml_contradiction(text_a, text_b)
-            if ml_result and ml_result["confidence"] > self.config["ml_threshold"]:
+            if (
+                ml_result
+                and ml_result["is_conflict"]
+                and ml_result["confidence"] > self.config["ml_threshold"]
+            ):
                 return Contradiction(
                     contradiction_type=ContradictionType.SEMANTIC,
                     statement_a=text_a,
                     statement_b=text_b,
                     confidence=ml_result["confidence"],
-                    explanation=ml_result.get(
-                        "explanation", "Potential contradiction detected"
+                    explanation=(
+                        f"NLI model detected semantic contradiction "
+                        f"(score: {ml_result['confidence']:.2f})"
                     ),
                     evidence={
                         "type": "ml_detected",
-                        "model_confidence": ml_result["confidence"],
+                        "model": _NLI_MODEL_NAME,
+                        "label": ml_result["label"],
+                        "model_confidence": str(round(ml_result["confidence"], 4)),
                     },
                     semantic_profile_a=profile_a,
                     semantic_profile_b=profile_b,
@@ -220,19 +259,13 @@ class ContradictionDetector:
         return None
 
     def _extract_subject(self, text: str) -> str:
-        """Extract subject from text (simplified)"""
-        # TODO, this would use dependency parsing
         return text.split()[0] if text else ""
 
     def _extract_predicate(self, text: str) -> str:
-        """Extract predicate from text (simplified)"""
-        # TODO, this would use dependency parsing
         words = text.split()
         return " ".join(words[1:-1]) if len(words) > 2 else ""
 
     def _extract_object(self, text: str) -> str:
-        """Extract object from text (simplified)"""
-        # TODO, this would use dependency parsing
         words = text.split()
         return words[-1] if words else ""
 
@@ -248,37 +281,6 @@ class ContradictionDetector:
     def _check_direct_contradiction(self, text_a: str, text_b: str) -> bool:
         text_a = text_a.lower()
         text_b = text_b.lower()
-
-        # Negated-verb contradictions: one text has "not/cannot/never VERB", the other has
-        # the positive form.  Covers patterns like "do not learn" vs "learn", "cannot die"
-        # vs "they die", etc. that are common in game-rules and natural-language specs.
-        negatable_verbs = [
-            "learn", "die", "vote", "win", "lose", "execute", "nominate",
-            "target", "protect", "choose", "use",
-        ]
-        neg_re_str = r"(?:not|cannot|can't|does\s+not|do\s+not|never)\s+{v}"
-        for verb in negatable_verbs:
-            neg_re = re.compile(neg_re_str.format(v=verb))
-            pos_re = re.compile(rf"\b{verb}\b")
-            a_neg = bool(neg_re.search(text_a))
-            b_neg = bool(neg_re.search(text_b))
-            a_pos = bool(pos_re.search(text_a)) and not a_neg
-            b_pos = bool(pos_re.search(text_b)) and not b_neg
-            if (a_neg and b_pos) or (b_neg and a_pos):
-                return True
-
-        # Game-outcome antonyms (e.g. "good wins" vs "evil wins", "good loses" vs "evil wins")
-        outcome_pairs = [
-            (r"\bgood\s+wins\b", r"\bevil\s+wins\b"),
-            (r"\bgood\s+loses\b", r"\bevil\s+wins\b"),
-            (r"\bgood\s+wins\b", r"\bgood\s+loses\b"),
-        ]
-        for pat_pos, pat_neg in outcome_pairs:
-            if (re.search(pat_pos, text_a) and re.search(pat_neg, text_b)) or (
-                re.search(pat_pos, text_b) and re.search(pat_neg, text_a)
-            ):
-                return True
-
         modal_contradictions = [
             (r"\bmust\b", r"must not"),
             (r"\bshall\b", r"shall not"),
@@ -352,20 +354,43 @@ class ContradictionDetector:
 
         return False
 
+    _MIN_NLI_WORDS: int = 6
+
     def _check_ml_contradiction(self, text_a: str, text_b: str) -> Optional[Dict]:
-        # TODO: implement ML/NLI model
         if not self.config["enable_ml"] or self.ml_model is None:
             return None
 
-        try:
+        min_words = self.config.get("min_nli_words", self._MIN_NLI_WORDS)
+        words_a = len(text_a.split())
+        words_b = len(text_b.split())
+        if words_a < min_words or words_b < min_words:
+            logger.debug(
+                "NLI skipped — segments too short (%d / %d words, min %d)",
+                words_a,
+                words_b,
+                min_words,
+            )
+            return None
 
+        try:
+            scores = self.ml_model.predict([(text_a, text_b)], apply_softmax=True)[0]
+            contradiction_score = float(scores[0])
+            top_idx = int(scores.argmax())
+            label = _NLI_LABEL_MAP[top_idx]
+            logger.debug(
+                "NLI scores — contradiction=%.3f entailment=%.3f neutral=%.3f → %s",
+                float(scores[0]),
+                float(scores[1]),
+                float(scores[2]),
+                label,
+            )
             return {
-                "contradiction": True,
-                "confidence": 0.85,
-                "explanation": "ML model detected potential contradiction",
+                "label": label,
+                "confidence": contradiction_score,
+                "is_conflict": label == "contradiction",
             }
-        except Exception as e:
-            print(f"Error in ML contradiction check: {e}")
+        except Exception as exc:
+            logger.warning("NLI inference failed: %s", exc)
             return None
 
     def _get_stopwords(self) -> Set[str]:
@@ -458,7 +483,7 @@ class ContradictionDetector:
 
 
 if __name__ == "__main__":
-    detector = ContradictionDetector(config={"enable_ml": False})
+    detector = ContradictionDetector()
 
     statements = [
         "Users must authenticate with a password.",

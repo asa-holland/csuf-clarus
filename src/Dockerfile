@@ -19,17 +19,12 @@ RUN python -m spacy download en_core_web_sm
 
 RUN python -c "import spacy; nlp = spacy.load('en_core_web_sm'); doc = nlp('The system shall process data.'); assert len(doc) > 0; assert hasattr(doc[0], 'pos_'); assert hasattr(doc[0], 'dep_'); print('✅ SpaCy functionality validated')"
 
-# Pre-download transformer models to cache (requires internet during build)
+# Pre-download ML models to cache (requires internet during build).
+# Failures are non-fatal: the image still builds and models are fetched at runtime.
 ENV HF_HOME=/root/.cache/huggingface
 ENV TRANSFORMERS_CACHE=/root/.cache/transformers
-RUN python -c "from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('roberta-base', cache_dir='/root/.cache/transformers'); print('RoBERTa tokenizer downloaded')" \
-        || echo "Warning: RoBERTa tokenizer download failed, will download at runtime" ; \
-    python -c "from transformers import AutoModelForSequenceClassification; AutoModelForSequenceClassification.from_pretrained('roberta-base', cache_dir='/root/.cache/transformers'); print('RoBERTa sequence classification model downloaded')" \
-        || echo "Warning: RoBERTa sequence classification download failed" ; \
-    python -c "from transformers import AutoModelForTokenClassification; AutoModelForTokenClassification.from_pretrained('roberta-base', cache_dir='/root/.cache/transformers'); print('RoBERTa token classification model downloaded')" \
-        || echo "Warning: RoBERTa token classification download failed" ; \
-    python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', cache_folder='/root/.cache/transformers'); print('Sentence transformer model downloaded')" \
-        || echo "Warning: Sentence transformer download failed"
+COPY download_models.py .
+RUN python download_models.py || echo "Warning: one or more models could not be pre-downloaded"
 
 # Create cache directories and set permissions
 RUN mkdir -p /root/.cache/huggingface /root/.cache/transformers && chmod -R 755 /root/.cache
