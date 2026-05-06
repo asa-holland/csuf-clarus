@@ -1,4 +1,4 @@
-# Clarus
+# Clarus Documentation
 
 A requirements document quality analysis tool developed in association with California State University, Fullerton's Master of Software Engineering program.
 
