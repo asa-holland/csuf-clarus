@@ -12,6 +12,7 @@ from clarus.analysis.document_processor import DocumentProcessor
 from clarus.analysis.semantic_extractor import SemanticExtractor
 from clarus.analysis.terminology_validator import TerminologyValidator
 from clarus.analysis.contradiction_analyzer import ContradictionDetector
+from clarus.analysis.s2_analyzer import S2Analyzer
 import numpy as np
 import re
 import nltk
@@ -493,10 +494,30 @@ def analyze_document():
                 for contra in contradictions
             ]
 
+        # S2 Taxonomy analysis — FAIL-002, 004, 005, 006, 007, 008
+        s2_proc = DocumentProcessor()
+        s2_doc = s2_proc.process_document(data["text"])
+        s2_findings_raw = S2Analyzer().analyze(data["text"], s2_doc.segments)
+        s2_findings_data = [
+            {
+                "uid": f.uid,
+                "error_type": f.error_type,
+                "category": f.category,
+                "severity": f.severity,
+                "text_span": f.text_span,
+                "context": f.context,
+                "explanation": f.explanation,
+                "segment_type": f.segment_type,
+                "confidence": f.confidence,
+            }
+            for f in s2_findings_raw
+        ]
+
         response_data = {
             "success": True,
             "terminology": terminology_data,
             "contradictions": contradictions_data,
+            "s2_findings": s2_findings_data,
         }
 
         serialized = convert_numpy_types(response_data)
