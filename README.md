@@ -2,7 +2,7 @@
 
 A requirements document quality analysis tool developed in association with California State University, Fullerton's Master of Software Engineering program.
 
-Clarus analyzes technical requirement documents to surface quality issues including undefined terminology, logical contradictions, modal inconsistencies, vague qualifiers, ambiguous references, and hidden normative statements — producing structured reports suitable for review or export.
+Clarus analyzes technical requirement documents to surface quality issues including undefined terminology, logical contradictions, modal inconsistencies, vague qualifiers, ambiguous references, and hidden normative statements: producing structured reports suitable for review or export.
 
 ---
 
@@ -66,22 +66,22 @@ csuf-clarus/
 
 ### Component Responsibilities
 
-**Preprocessing** — `clarus/steps/preprocess.py`
+**Preprocessing**: `clarus/steps/preprocess.py`
 Extracts raw text and metadata from uploaded files. Uses `pdfminer.six` for PDFs with layout analysis, `python-docx` for DOCX, `readability-lxml` + BeautifulSoup for HTML, and `chardet` for encoding-aware TXT parsing.
 
-**Document Processor** — `clarus/analysis/document_processor.py`
+**Document Processor**: `clarus/analysis/document_processor.py`
 Classifies each segment as normative (contains obligation modalities like *shall*, *must*) or informative (examples, notes, explanations). Uses SpaCy for POS tagging and dependency parsing when available; falls back to regex patterns.
 
-**Semantic Extractor** — `clarus/analysis/semantic_extractor.py`
+**Semantic Extractor**: `clarus/analysis/semantic_extractor.py`
 Extracts a semantic profile from each sentence: subject, object, modality type (obligation/prohibition/permission/recommendation/capability), conditional clause, temporal clause, and negation. Returns a confidence score per sentence.
 
-**Terminology Validator** — `clarus/analysis/terminology_validator.py`
+**Terminology Validator**: `clarus/analysis/terminology_validator.py`
 Uses a RoBERTa-based model to distinguish domain-specific terms from common English vocabulary. Detects whether each domain term has an explicit definition in the document. Clusters semantically related terms via sentence-transformers embeddings. Produces a validation report with defined/undefined term lists and coverage metrics.
 
-**Contradiction Analyzer** — `clarus/analysis/contradiction_analyzer.py`
+**Contradiction Analyzer**: `clarus/analysis/contradiction_analyzer.py`
 Runs every pair of normative segments through an NLI cross-encoder (`nli-deberta-v3-base`) to score entailment vs. contradiction. Applies rule-based pre-filters (overlapping subject terms, conflicting modalities) to reduce candidate pairs before model inference.
 
-**S2 Taxonomy** — `clarus/analysis/s2_taxonomy.py`
+**S2 Taxonomy**: `clarus/analysis/s2_taxonomy.py`
 Defines 8 named error types with severity levels:
 
 | Error Type                | Category    | Severity |
@@ -152,7 +152,7 @@ POST /upload
 Content-Type: multipart/form-data
 ```
 
-**Form field:** `file` — a PDF, DOCX, HTML, or TXT file.
+**Form field:** `file`: a PDF, DOCX, HTML, or TXT file.
 
 **Response:**
 
@@ -343,9 +343,9 @@ Content-Type: application/json
 **Request body:** The full analysis result object from `/analyze-document`.
 
 **Responses:**
-- `/export/json` — `application/json` file download
-- `/export/csv` — `text/csv` file download with statistics table and contradiction list
-- `/export/pdf` — `application/pdf` ReportLab-generated report
+- `/export/json`: `application/json` file download
+- `/export/csv`: `text/csv` file download with statistics table and contradiction list
+- `/export/pdf`: `application/pdf` ReportLab-generated report
 
 ---
 
@@ -399,13 +399,13 @@ Defined in `src/clarus/steps/preprocess.py`: `pdf`, `docx`, `html`, `htm`, `txt`
 
 ## Export Formats
 
-**JSON** — Full analysis result as pretty-printed JSON. All NaN/Inf float values are serialized as `null` for compatibility.
+**JSON**: Full analysis result as pretty-printed JSON. All NaN/Inf float values are serialized as `null` for compatibility.
 
-**CSV** — Two sections:
+**CSV**: Two sections:
 1. Statistics table (term counts, coverage percentage)
 2. Contradiction list with type, confidence, and both statements
 
-**PDF** — Formatted report via ReportLab with:
+**PDF**: Formatted report via ReportLab with:
 - Summary section (document metadata, analysis date)
 - Terminology findings (defined/undefined term tables)
 - Contradiction findings (one entry per detected contradiction with evidence)
@@ -426,10 +426,10 @@ flask run
 
 ### Project Layout Conventions
 
-- **`clarus/steps/`** — stateless I/O operations (file reading, format conversion)
-- **`clarus/analysis/`** — stateful analysis components; each is a class with lazy ML model initialization
-- **`clarus/analysis/interfaces.py`** — all abstract base classes and shared dataclasses; import from here to avoid circular dependencies
-- **`app.py`** — thin Flask layer; delegates all logic to `clarus/` modules
+- **`clarus/steps/`**: stateless I/O operations (file reading, format conversion)
+- **`clarus/analysis/`**: stateful analysis components; each is a class with lazy ML model initialization
+- **`clarus/analysis/interfaces.py`**: all abstract base classes and shared dataclasses; import from here to avoid circular dependencies
+- **`app.py`**: thin Flask layer; delegates all logic to `clarus/` modules
 
 ### Adding a New Analysis Step
 
@@ -496,4 +496,4 @@ If models are unavailable at runtime, the document processor degrades gracefully
 
 ## License
 
-Apache 2.0 — see [LICENSE](LICENSE).
+Apache 2.0: see [LICENSE](LICENSE).
