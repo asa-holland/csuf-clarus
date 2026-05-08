@@ -1,0 +1,70 @@
+DOCUMENT STATISTICS
+Filename,rfc1034.txt
+Text Length (chars),129180
+Analyzed At,2026-05-06T15:00:31.277034
+Total Segments,1344
+  Normative,168
+  Informative,719
+  Unknown,457
+High Confidence Segments (≥0.7),261
+Medium Confidence Segments,1083
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,21
+Average Profile Confidence,70.8%
+
+TERMINOLOGY
+Defined Terms,1
+Undefined Terms,49
+Definition Coverage,2.0%
+
+CONTRADICTIONS
+Total Detected,26
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,obtain new zone copies when changes have been made.,"impossible to perform a serial check for the EXPIRE interval, it must
+assume that its copy of the zone is obsolete an discard it."
+2,semantic,100.0%,"which happens to require a suffix toward the end of the search list,
+will generate multiple name errors whenever it is used.","cached due to direct SOA queries, and name servers are not required to"
+3,semantic,100.0%,"limit on how fast a zone can be updated, basically that old copies must
+die out before the serial number covers half of its 32 bit range.  In","impossible to perform a serial check for the EXPIRE interval, it must
+assume that its copy of the zone is obsolete an discard it."
+4,semantic,100.0%,data or the cache.  Go to step 4.,"not the node with the ""*"" label.  Go to step 6."
+5,semantic,100.0%,"cached due to direct SOA queries, and name servers are not required to","inevitable changes are made, they must be distributed to all of the name"
+6,semantic,99.9%,6.3.2. Get the host name for address 26.6.0.65,6.3.3. Get the host address of poneria.ISI.EDU
+7,semantic,99.9%,obtain new zone copies when changes have been made.,"limit on how fast a zone can be updated, basically that old copies must
+die out before the serial number covers half of its 32 bit range.  In"
+8,semantic,99.9%,servers in response to client requests.  Resolvers must be,"query using referrals to other name servers.  A resolver will
+typically be a system routine that is directly accessible to"
+9,semantic,99.9%,"inevitable changes are made, they must be distributed to all of the name","impossible to perform a serial check for the EXPIRE interval, it must
+assume that its copy of the zone is obsolete an discard it."
+10,semantic,99.6%,assume that the name does not exist during the TTL period without,"cached due to direct SOA queries, and name servers are not required to"
+11,semantic,99.6%,load the new zone.  The other non-master or secondary servers for the,"impossible to perform a serial check for the EXPIRE interval, it must
+assume that its copy of the zone is obsolete an discard it."
+12,semantic,99.5%,"wish to use datagrams for queries and responses, and only
+establish virtual circuits for transactions that need the",systems will use virtual circuits exclusively.
+13,semantic,99.5%,"MX data at X.COM and A.X.COM is required, and that none of the RRs above","cached due to direct SOA queries, and name servers are not required to"
+14,semantic,99.4%,return an MX RR pointing at A.X.COM.  Two wildcard RRs are required,"cached due to direct SOA queries, and name servers are not required to"
+15,semantic,99.4%,"3. Start matching down, label by label, in the zone.  The","not the node with the ""*"" label.  Go to step 6."
+16,semantic,99.2%,This function will often follow the form of previous,matching RRs.  This function will often use the DNS format
+17,semantic,99.1%,"host which has a name in that domain.  In many cases, a zone will be","server ""closer"" to the answer.  All name servers must
+implement non-recursive queries."
+18,semantic,98.6%,return an MX RR pointing at A.X.COM.  Two wildcard RRs are required,"MX data at X.COM and A.X.COM is required, and that none of the RRs above"
+19,semantic,97.1%,"server ""closer"" to the answer.  All name servers must
+implement non-recursive queries.",bit specifies specifies whether the requester wants recursive
+20,semantic,96.0%,"2. Search the available zones for the zone which is the nearest
+ancestor to QNAME.  If such a zone is found, go to step 3,
+otherwise step 4.",data or the cache.  Go to step 4.
+21,semantic,93.0%,with local caching to improve performance.  Approaches that,"wish to use datagrams for queries and responses, and only
+establish virtual circuits for transactions that need the"
+22,semantic,90.7%,"impossible to perform a serial check for the EXPIRE interval, it must
+assume that its copy of the zone is obsolete an discard it.",Each secondary server is required to perform the following operations
+23,modality,90.0%,"cached due to direct SOA queries, and name servers are not required to","become part of the standard protocol in the future.  Name servers are
+not required to add the SOA RRs in all authoritative responses, nor are
+resolvers required to cache negative results.  Both are recommended."
+24,modality,90.0%,"cached due to direct SOA queries, and name servers are not required to",All resolvers and recursive name servers are required to at least be
+25,modality,90.0%,"become part of the standard protocol in the future.  Name servers are
+not required to add the SOA RRs in all authoritative responses, nor are
+resolvers required to cache negative results.  Both are recommended.",All resolvers and recursive name servers are required to at least be
+26,semantic,81.9%,be the case that the addresses are not available.  The resolver has many,to cycle around all of the addresses for all of the servers with a

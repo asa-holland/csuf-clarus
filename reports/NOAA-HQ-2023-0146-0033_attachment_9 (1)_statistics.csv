@@ -1,0 +1,55 @@
+DOCUMENT STATISTICS
+Filename,NOAA-HQ-2023-0146-0033_attachment_9 (1).pdf
+Text Length (chars),430919
+Analyzed At,2026-05-06T04:43:19.072637
+Total Segments,3791
+  Normative,491
+  Informative,2077
+  Unknown,1223
+High Confidence Segments (≥0.7),587
+Medium Confidence Segments,3204
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,8
+Average Profile Confidence,70.0%
+
+TERMINOLOGY
+Defined Terms,1
+Undefined Terms,49
+Definition Coverage,2.0%
+
+CONTRADICTIONS
+Total Detected,22
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,protect the rights and interests of people and hold officials accountable for their actions. Permanent,and-file policies and requires agencies to implement new approaches to manage their documents
+2,semantic,99.9%,"jeopardize  U.S.  national  security  and  foreign  policy  interests;  searches,  inspects,  detains,  and",BIS  ensures  continued  U.S.  technology  leadership  in  industries  that  are  essential  to  national
+3,semantic,99.9%,The Internet of Things Advisory Board will advise the Internet of Things Federal Working Group,The  National  Artificial  Intelligence  Advisory  Committee  will  advise  the  president  and  other
+4,semantic,99.8%,"assistance, engagement, referral, and experience. MBDA’s Chatbot is a new system that will","for information. Further, the data will help MBDA to prioritize new content and user responses
+for improved engagements.  Most importantly, MBDA’s Chatbot will not capture or record"
+5,semantic,99.8%,"those with misspellings. Overtime and as usage increase, the Chatbot will be able to discern
+good informational responses to users from less-than-optimal responses. MBDA will use data","for information. Further, the data will help MBDA to prioritize new content and user responses
+for improved engagements.  Most importantly, MBDA’s Chatbot will not capture or record"
+6,semantic,99.8%,The Internet of Things Advisory Board will advise the Internet of Things Federal Working Group,The  Industrial  Advisory  Committee  will  advise  the  U.S.  government  on  matters  related  to
+7,semantic,99.7%,"develop ideas, technologies, products, and services.",Ensure spectrum is available for federal government and commercial services;
+8,semantic,99.7%,"for information. Further, the data will help MBDA to prioritize new content and user responses
+for improved engagements.  Most importantly, MBDA’s Chatbot will not capture or record","Act), requires that federal agencies make strategic data assets accessible to the public in machine-"
+9,semantic,99.6%,"tolerate  retaliation  against  whistleblowers.   Both  the  Department  and  BOUs  continue  to  ensure,  in",remedies under the prohibited personnel practices and whistleblower retaliation protection provisions of Title
+10,semantic,99.5%,respond to the growing request and case-load burden.,"through  Direct  Bill  funding,  to  decrease  its  FOIA  litigation  load  by  57%,  increasing  NOAA’s"
+11,semantic,99.5%,tailor their outreach efforts that encourage residents to mail in their census forms. The application,"issued new regulations on February 13, 2020. The map viewer will allow members of the public
+to enter an address and determine whether their proposed real estate transactions are subject to"
+12,semantic,99.5%,"tolerate  retaliation  against  whistleblowers.   Both  the  Department  and  BOUs  continue  to  ensure,  in",and  ensures  the  Department’s  view  are  considered  as  eRulemaking  participants  propose  and  evaluate
+13,semantic,99.5%,ensure that information is appropriately secured to prevent information loss or erroneous release.,"tolerate  retaliation  against  whistleblowers.   Both  the  Department  and  BOUs  continue  to  ensure,  in"
+14,semantic,98.9%,"cross  collaborate  with  other  Centers  and  local  partners.  As  such,  business  referral  services  are",considered “business confidential” and will not be shared with any other person or organization
+15,semantic,98.9%,obligation and a core component of our institutional culture. Modern computers and today’s data-,threats will protect 2020 Census data products (other than the apportionment data; those state-level
+16,semantic,98.0%,Global Value Chains – BEA is developing new data about U.S. trade that will help analyze the,"reflect  a  new  treatment  or  more  people  being  treated.  In  January,  BEA  released  2019  data  by"
+17,semantic,97.0%,have to be obtained through Freedom of Information Act (FOIA) requests.,required  under  the  Federal  Information  Security  Management  Act  (FISMA).    NTIA  follows
+18,semantic,96.7%,"or acquired by statistical agencies and units. Qualified users will experience a simpler process to
+identify and apply for access to restricted use data in a “one-stop-shop.”",threats will protect 2020 Census data products (other than the apportionment data; those state-level
+19,semantic,95.2%,The OIG will be continuing to improve records management policies.,and LinkedIn. The OIG will continue to review its website to improve customer communications.
+20,semantic,93.3%,feature contour maps showing where federal systems that utilize spectrum are located across the,establish a software bill of materials (SBOM) – a nested inventory that makes up the “ingredients
+21,semantic,93.1%,associated costs. This platform will support ITA’s internal data analysts by providing an easily,"only enhance the data visualizations currently available on the website, it will also provide ITA"
+22,semantic,89.8%,"for information. Further, the data will help MBDA to prioritize new content and user responses
+for improved engagements.  Most importantly, MBDA’s Chatbot will not capture or record","discovery through https://data.gov. These assets will be inventoried and, if not already publicly
+available, will be prioritized by NIST’s Chief Data Officer for release."

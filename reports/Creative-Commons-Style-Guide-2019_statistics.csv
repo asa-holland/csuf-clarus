@@ -1,0 +1,29 @@
+DOCUMENT STATISTICS
+Filename,Creative-Commons-Style-Guide-2019.pdf
+Text Length (chars),19767
+Analyzed At,2026-05-06T04:14:18.008509
+Total Segments,307
+  Normative,37
+  Informative,131
+  Unknown,139
+High Confidence Segments (≥0.7),42
+Medium Confidence Segments,265
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,6
+Average Profile Confidence,71.3%
+
+TERMINOLOGY
+Defined Terms,4
+Undefined Terms,46
+Definition Coverage,8.0%
+
+CONTRADICTIONS
+Total Detected,4
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,"With	first	instances,	always	spell	out	the	entire	name	followed	by	the	acronym	in	parenthesis.","is	not	necessary	to	spell	them	out	and	list	the	acronym.	Instead,	spell	out	the	acronym	in	the	first"
+2,semantic,99.9%,"be aware of the language, concepts, and theories behind CC’s work (e.g., global commons, public",not know what the CC Global Summit is.
+3,semantic,99.8%,"Use the international standard with the year in front of the month, followed by the day","With	first	instances,	always	spell	out	the	entire	name	followed	by	the	acronym	in	parenthesis."
+4,semantic,99.7%,Learn more about the history and inspiration behind CC’s logo in “A Masterwork in Simplicity: The Story,Learn more about this font in “Introducing CC Accidenz Commons: An Open Licensed Font.”

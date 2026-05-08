@@ -1,0 +1,2357 @@
+{
+  "preprocessing": {
+    "metadata": {
+      "character_count": 9051,
+      "encoding": "ascii",
+      "encoding_confidence": 1,
+      "extraction_method": "direct read + chardet",
+      "file_size": 9051,
+      "format": "TXT",
+      "line_count": 200,
+      "original_filename": "cern_ohl_p_v2.txt",
+      "processed_at": "2026-05-06T04:06:33.521618",
+      "text_length": 9051,
+      "word_count": 1311
+    },
+    "success": true,
+    "text": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly reciprocal).\r\n\r\nThe CERN-OHL-P is copyright CERN 2020. Anyone is welcome to use it, in\r\nunmodified form only.\r\n\r\nUse of this Licence does not imply any endorsement by CERN of any\r\nLicensor or their designs nor does it imply any involvement by CERN in\r\ntheir development.\r\n\r\n\r\n1 Definitions\r\n\r\n  1.1 'Licence' means this CERN-OHL-P.\r\n\r\n  1.2 'Source' means information such as design materials or digital\r\n      code which can be applied to Make or test a Product or to\r\n      prepare a Product for use, Conveyance or sale, regardless of its\r\n      medium or how it is expressed. It may include Notices.\r\n\r\n  1.3 'Covered Source' means Source that is explicitly made available\r\n      under this Licence.\r\n\r\n  1.4 'Product' means any device, component, work or physical object,\r\n      whether in finished or intermediate form, arising from the use,\r\n      application or processing of Covered Source.\r\n\r\n  1.5 'Make' means to create or configure something, whether by\r\n      manufacture, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise.\r\n\r\n  1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to this Licence\r\n      and to the disclaimer of warranties that are included in the\r\n      Covered Source.\r\n\r\n  1.7 'Licensee' or 'You' means any person exercising rights under\r\n      this Licence.\r\n\r\n  1.8 'Licensor' means a person who creates Source or modifies Covered\r\n      Source and subsequently Conveys the resulting Covered Source\r\n      under the terms and conditions of this Licence. A person may be\r\n      a Licensee and a Licensor at the same time.\r\n\r\n  1.9 'Convey' means to communicate to the public or distribute.\r\n\r\n\r\n2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Covered Source and Products, and the Making of Products. By\r\n      exercising any right granted under this Licence, You irrevocably\r\n      accept these terms and conditions.\r\n\r\n  2.2 This Licence is granted by the Licensor directly to You, and\r\n      shall apply worldwide and without limitation in time.\r\n\r\n  2.3 You shall not attempt to restrict by contract or otherwise the\r\n      rights granted under this Licence to other Licensees.\r\n\r\n  2.4 This Licence is not intended to restrict fair use, fair dealing,\r\n      or any other similar right.\r\n\r\n\r\n3 Copying, Modifying and Conveying Covered Source\r\n\r\n  3.1 You may copy and Convey verbatim copies of Covered Source, in\r\n      any medium, provided You retain all Notices.\r\n\r\n  3.2 You may modify Covered Source, other than Notices.\r\n\r\n      You may only delete Notices if they are no longer applicable to\r\n      the corresponding Covered Source as modified by You and You may\r\n      add additional Notices applicable to Your modifications.\r\n\r\n  3.3 You may Convey modified Covered Source (with the effect that You\r\n      shall also become a Licensor) provided that You:\r\n\r\n       a) retain Notices as required in subsection 3.2; and\r\n\r\n       b) add a Notice to the modified Covered Source stating that You\r\n          have modified it, with the date and brief description of how\r\n          You have modified it.\r\n\r\n  3.4 You may Convey Covered Source or modified Covered Source under\r\n      licence terms which differ from the terms of this Licence\r\n      provided that You:\r\n\r\n       a) comply at all times with subsection 3.3; and\r\n\r\n       b) provide a copy of this Licence to anyone to whom You\r\n          Convey Covered Source or modified Covered Source.\r\n\r\n\r\n4 Making and Conveying Products\r\n\r\nYou may Make Products, and/or Convey them, provided that You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product.\r\n\r\n\r\n5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limited to, implied warranties of\r\n      merchantability, of satisfactory quality, non-infringement of\r\n      third party rights, and fitness for a particular purpose or use\r\n      are disclaimed in respect of any Source or Product to the\r\n      maximum extent permitted by law. The Licensor makes no\r\n      representation that any Source or Product does not or will not\r\n      infringe any patent, copyright, trade secret or other\r\n      proprietary right. The entire risk as to the use, quality, and\r\n      performance of any Source or Product shall be with You and not\r\n      the Licensor. This disclaimer of warranty is an essential part\r\n      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence.\r\n\r\n  5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      direct, indirect, special, incidental, consequential, exemplary,\r\n      punitive or other damages of any character including, without\r\n      limitation, procurement of substitute goods or services, loss of\r\n      use, data or profits, or business interruption, however caused\r\n      and on any theory of contract, warranty, tort (including\r\n      negligence), product liability or otherwise, arising in any way\r\n      in relation to the Covered Source, modified Covered Source\r\n      and/or the Making or Conveyance of a Product, even if advised of\r\n      the possibility of such damages, and You shall hold the\r\n      Licensor(s) free and harmless from any liability, costs,\r\n      damages, fees and expenses, including claims by third parties,\r\n      in relation to such use.\r\n\r\n\r\n6 Patents\r\n\r\n  6.1 Subject to the terms and conditions of this Licence, each\r\n      Licensor hereby grants to You a perpetual, worldwide,\r\n      non-exclusive, no-charge, royalty-free, irrevocable (except as\r\n      stated in this section 6, or where terminated by the Licensor\r\n      for cause) patent licence to Make, have Made, use, offer to\r\n      sell, sell, import, and otherwise transfer the Covered Source\r\n      and Products, where such licence applies only to those patent\r\n      claims licensable by such Licensor that are necessarily\r\n      infringed by exercising rights under the Covered Source as\r\n      Conveyed by that Licensor.\r\n\r\n  6.2 If You institute patent litigation against any entity (including\r\n      a cross-claim or counterclaim in a lawsuit) alleging that the\r\n      Covered Source or a Product constitutes direct or contributory\r\n      patent infringement, or You seek any declaration that a patent\r\n      licensed to You under this Licence is invalid or unenforceable\r\n      then any rights granted to You under this Licence shall\r\n      terminate as of the date such process is initiated.\r\n\r\n\r\n7 General\r\n\r\n  7.1 If any provisions of this Licence are or subsequently become\r\n      invalid or unenforceable for any reason, the remaining\r\n      provisions shall remain effective.\r\n\r\n  7.2 You shall not use any of the name (including acronyms and\r\n      abbreviations), image, or logo by which the Licensor or CERN is\r\n      known, except where needed to comply with section 3, or where\r\n      the use is otherwise allowed by law. Any such permitted use\r\n      shall be factual and shall not be made so as to suggest any kind\r\n      of endorsement or implication of involvement by the Licensor or\r\n      its personnel.\r\n\r\n  7.3 CERN may publish updated versions and variants of this Licence\r\n      which it considers to be in the spirit of this version, but may\r\n      differ in detail to address new problems or concerns. New\r\n      versions will be published with a unique version number and a\r\n      variant identifier specifying the variant. If the Licensor has\r\n      specified that a given variant applies to the Covered Source\r\n      without specifying a version, You may treat that Covered Source\r\n      as being released under any version of the CERN-OHL with that\r\n      variant. If no variant is specified, the Covered Source shall be\r\n      treated as being released under CERN-OHL-S. The Licensor may\r\n      also specify that the Covered Source is subject to a specific\r\n      version of the CERN-OHL or any later version in which case You\r\n      may apply this or any later version of CERN-OHL with the same\r\n      variant identifier published by CERN.\r\n\r\n  7.4 This Licence shall not be enforceable except by a Licensor\r\n      acting as such, and third party beneficiary rights are\r\n      specifically excluded.\r\n"
+  },
+  "processing": {
+    "metadata": {},
+    "processing_stats": {
+      "high_confidence_segments": 18,
+      "informative_segments": 52,
+      "low_confidence_segments": 0,
+      "medium_confidence_segments": 74,
+      "normative_segments": 22,
+      "total_segments": 92,
+      "unknown_segments": 18
+    },
+    "segments": [
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 1,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 1,
+        "text": "CERN Open Hardware Licence Version 2 - Permissive"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 4,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 4,
+        "text": "Preamble"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 9,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 6,
+        "text": "CERN has developed this licence to promote collaboration among\nhardware designers and to provide a legal tool which supports the\nfreedom to use, study, modify, share and distribute hardware designs\nand products based on those designs. Version 2 of the CERN Open"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 10,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 10,
+        "text": "Hardware Licence comes in three variants: this licence, CERN-OHL-P"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 12,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 11,
+        "text": "(permissive); and two reciprocal licences: CERN-OHL-W (weakly\nreciprocal) and CERN-OHL-S (strongly reciprocal)."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 14,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 14,
+        "text": "The CERN-OHL-P is copyright CERN 2020. Anyone is welcome to use it, in"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 15,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 15,
+        "text": "unmodified form only."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 17,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 17,
+        "text": "Use of this Licence does not imply any endorsement by CERN of any"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 18,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 18,
+        "text": "Licensor or their designs nor does it imply any involvement by CERN in"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 19,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 19,
+        "text": "their development."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 22,
+        "errors": [],
+        "heading": "Definitions",
+        "section_number": "1",
+        "start_line": 22,
+        "text": "1 Definitions"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 24,
+        "errors": [],
+        "heading": "'Licence' means this CERN-OHL-P.",
+        "section_number": "1.1",
+        "start_line": 24,
+        "text": "1.1 'Licence' means this CERN-OHL-P."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 27,
+        "errors": [],
+        "heading": "'Source' means information such as design materials or digital",
+        "section_number": "1.2",
+        "start_line": 26,
+        "text": "1.2 'Source' means information such as design materials or digital\ncode which can be applied to Make or test a Product or to"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 28,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "Product",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 28,
+        "text": "prepare a Product for use, Conveyance or sale, regardless of its"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 29,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 29,
+        "text": "medium or how it is expressed. It may include Notices."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 31,
+        "errors": [],
+        "heading": "'Covered Source' means Source that is explicitly made available",
+        "section_number": "1.3",
+        "start_line": 31,
+        "text": "1.3 'Covered Source' means Source that is explicitly made available"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 32,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 32,
+        "text": "under this Licence."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 36,
+        "errors": [],
+        "heading": "'Product' means any device, component, work or physical object,",
+        "section_number": "1.4",
+        "start_line": 34,
+        "text": "1.4 'Product' means any device, component, work or physical object,\nwhether in finished or intermediate form, arising from the use,\napplication or processing of Covered Source."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 39,
+        "errors": [],
+        "heading": "'Make' means to create or configure something, whether by",
+        "section_number": "1.5",
+        "start_line": 38,
+        "text": "1.5 'Make' means to create or configure something, whether by\nmanufacture, assembly, compiling, loading or applying Covered"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 40,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 40,
+        "text": "Source or another Product or otherwise."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 43,
+        "errors": [],
+        "heading": "'Notice' means copyright, acknowledgement and trademark notices,",
+        "section_number": "1.6",
+        "start_line": 42,
+        "text": "1.6 'Notice' means copyright, acknowledgement and trademark notices,\nreferences to the location of any Notices, modification notices"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 45,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 44,
+        "text": "(subsection 3.3(b)) and all notices that refer to this Licence\nand to the disclaimer of warranties that are included in the"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 46,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 46,
+        "text": "Covered Source."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 48,
+        "errors": [],
+        "heading": "'Licensee' or 'You' means any person exercising rights under",
+        "section_number": "1.7",
+        "start_line": 48,
+        "text": "1.7 'Licensee' or 'You' means any person exercising rights under"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 49,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 49,
+        "text": "this Licence."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 51,
+        "errors": [],
+        "heading": "'Licensor' means a person who creates Source or modifies Covered",
+        "section_number": "1.8",
+        "start_line": 51,
+        "text": "1.8 'Licensor' means a person who creates Source or modifies Covered"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 54,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 52,
+        "text": "Source and subsequently Conveys the resulting Covered Source\nunder the terms and conditions of this Licence. A person may be\na Licensee and a Licensor at the same time."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 56,
+        "errors": [],
+        "heading": "'Convey' means to communicate to the public or distribute.",
+        "section_number": "1.9",
+        "start_line": 56,
+        "text": "1.9 'Convey' means to communicate to the public or distribute."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 59,
+        "errors": [],
+        "heading": "Applicability",
+        "section_number": "2",
+        "start_line": 59,
+        "text": "2 Applicability"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 63,
+        "errors": [],
+        "heading": "This Licence governs the use, copying, modification, Conveying",
+        "section_number": "2.1",
+        "start_line": 61,
+        "text": "2.1 This Licence governs the use, copying, modification, Conveying\nof Covered Source and Products, and the Making of Products. By\nexercising any right granted under this Licence, You irrevocably"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 64,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "terms",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 64,
+        "text": "accept these terms and conditions."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 66,
+        "errors": [],
+        "heading": "This Licence is granted by the Licensor directly to You, and",
+        "section_number": "2.2",
+        "start_line": 66,
+        "text": "2.2 This Licence is granted by the Licensor directly to You, and"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 67,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "shall",
+          "negation": "without",
+          "object": "limitation",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 67,
+        "text": "shall apply worldwide and without limitation in time."
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 69,
+        "errors": [],
+        "heading": "You shall not attempt to restrict by contract or otherwise the",
+        "section_number": "2.3",
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.6666666666666666,
+          "modality": "shall",
+          "negation": "not",
+          "object": "contract",
+          "subject": "You",
+          "temporal": null
+        },
+        "start_line": 69,
+        "text": "2.3 You shall not attempt to restrict by contract or otherwise the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 70,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 70,
+        "text": "rights granted under this Licence to other Licensees."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 73,
+        "errors": [],
+        "heading": "This Licence is not intended to restrict fair use, fair dealing,",
+        "section_number": "2.4",
+        "start_line": 72,
+        "text": "2.4 This Licence is not intended to restrict fair use, fair dealing,\nor any other similar right."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 76,
+        "errors": [],
+        "heading": "Copying, Modifying and Conveying Covered Source",
+        "section_number": "3",
+        "start_line": 76,
+        "text": "3 Copying, Modifying and Conveying Covered Source"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 79,
+        "errors": [],
+        "heading": "You may copy and Convey verbatim copies of Covered Source, in",
+        "section_number": "3.1",
+        "start_line": 78,
+        "text": "3.1 You may copy and Convey verbatim copies of Covered Source, in\nany medium, provided You retain all Notices."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 81,
+        "errors": [],
+        "heading": "You may modify Covered Source, other than Notices.",
+        "section_number": "3.2",
+        "start_line": 81,
+        "text": "3.2 You may modify Covered Source, other than Notices."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 84,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 83,
+        "text": "You may only delete Notices if they are no longer applicable to\nthe corresponding Covered Source as modified by You and You may"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 85,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ifications",
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "Notices",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 85,
+        "text": "add additional Notices applicable to Your modifications."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 87,
+        "errors": [],
+        "heading": "You may Convey modified Covered Source (with the effect that You",
+        "section_number": "3.3",
+        "start_line": 87,
+        "text": "3.3 You may Convey modified Covered Source (with the effect that You"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 88,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "provided that You:",
+          "confidence": 0.5,
+          "modality": "shall",
+          "negation": null,
+          "object": "You",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 88,
+        "text": "shall also become a Licensor) provided that You:"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 90,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "subsection",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 90,
+        "text": "a) retain Notices as required in subsection 3.2; and"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 92,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ified Covered Source stating that You",
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "Notice",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 92,
+        "text": "b) add a Notice to the modified Covered Source stating that You"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 93,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 93,
+        "text": "have modified it, with the date and brief description of how"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 94,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 94,
+        "text": "You have modified it."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 97,
+        "errors": [],
+        "heading": "You may Convey Covered Source or modified Covered Source under",
+        "section_number": "3.4",
+        "start_line": 96,
+        "text": "3.4 You may Convey Covered Source or modified Covered Source under\nlicence terms which differ from the terms of this Licence"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 98,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 98,
+        "text": "provided that You:"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 100,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 100,
+        "text": "a) comply at all times with subsection 3.3; and"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 102,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "copy",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 102,
+        "text": "b) provide a copy of this Licence to anyone to whom You"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 103,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ified Covered Source",
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "Source",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 103,
+        "text": "Convey Covered Source or modified Covered Source."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 106,
+        "errors": [],
+        "heading": "Making and Conveying Products",
+        "section_number": "4",
+        "start_line": 106,
+        "text": "4 Making and Conveying Products"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 109,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 108,
+        "text": "You may Make Products, and/or Convey them, provided that You ensure\nthat the recipient of the Product has access to any Notices applicable"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 110,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 110,
+        "text": "to the Product."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 113,
+        "errors": [],
+        "heading": "DISCLAIMER AND LIABILITY",
+        "section_number": "5",
+        "start_line": 113,
+        "text": "5 DISCLAIMER AND LIABILITY"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 121,
+        "errors": [],
+        "heading": "DISCLAIMER OF WARRANTY -- The Covered Source and any Products",
+        "section_number": "5.1",
+        "start_line": 115,
+        "text": "5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\nare provided 'as is' and any express or implied warranties,\nincluding, but not limited to, implied warranties of\nmerchantability, of satisfactory quality, non-infringement of\nthird party rights, and fitness for a particular purpose or use\nare disclaimed in respect of any Source or Product to the\nmaximum extent permitted by law. The Licensor makes no"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 123,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.6666666666666666,
+          "modality": "will",
+          "negation": "not",
+          "object": "patent",
+          "subject": "Source",
+          "temporal": null
+        },
+        "start_line": 122,
+        "text": "representation that any Source or Product does not or will not\ninfringe any patent, copyright, trade secret or other"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 124,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 124,
+        "text": "proprietary right. The entire risk as to the use, quality, and"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 125,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.6666666666666666,
+          "modality": "shall",
+          "negation": "not",
+          "object": "Source",
+          "subject": "performance",
+          "temporal": null
+        },
+        "start_line": 125,
+        "text": "performance of any Source or Product shall be with You and not"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 127,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 126,
+        "text": "the Licensor. This disclaimer of warranty is an essential part\nof this Licence and a condition for the grant of any rights"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 128,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 128,
+        "text": "granted under this Licence."
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 130,
+        "errors": [],
+        "heading": "EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to",
+        "section_number": "5.2",
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "shall",
+          "negation": null,
+          "object": "LIABILITY",
+          "subject": "Licensor",
+          "temporal": null
+        },
+        "start_line": 130,
+        "text": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 137,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 131,
+        "text": "the maximum extent permitted by law, have no liability for\ndirect, indirect, special, incidental, consequential, exemplary,\npunitive or other damages of any character including, without\nlimitation, procurement of substitute goods or services, loss of\nuse, data or profits, or business interruption, however caused\nand on any theory of contract, warranty, tort (including\nnegligence), product liability or otherwise, arising in any way"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 139,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 138,
+        "text": "in relation to the Covered Source, modified Covered Source\nand/or the Making or Conveyance of a Product, even if advised of"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 140,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "shall",
+          "negation": null,
+          "object": "damages",
+          "subject": "You",
+          "temporal": null
+        },
+        "start_line": 140,
+        "text": "the possibility of such damages, and You shall hold the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 143,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 141,
+        "text": "Licensor(s) free and harmless from any liability, costs,\ndamages, fees and expenses, including claims by third parties,\nin relation to such use."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 146,
+        "errors": [],
+        "heading": "Patents",
+        "section_number": "6",
+        "start_line": 146,
+        "text": "6 Patents"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 148,
+        "errors": [],
+        "heading": "Subject to the terms and conditions of this Licence, each",
+        "section_number": "6.1",
+        "start_line": 148,
+        "text": "6.1 Subject to the terms and conditions of this Licence, each"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 152,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 149,
+        "text": "Licensor hereby grants to You a perpetual, worldwide,\nnon-exclusive, no-charge, royalty-free, irrevocable (except as\nstated in this section 6, or where terminated by the Licensor\nfor cause) patent licence to Make, have Made, use, offer to"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 153,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "Source",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 153,
+        "text": "sell, sell, import, and otherwise transfer the Covered Source"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 156,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 154,
+        "text": "and Products, where such licence applies only to those patent\nclaims licensable by such Licensor that are necessarily\ninfringed by exercising rights under the Covered Source as"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 157,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 157,
+        "text": "Conveyed by that Licensor."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 160,
+        "errors": [],
+        "heading": "If You institute patent litigation against any entity (including",
+        "section_number": "6.2",
+        "start_line": 159,
+        "text": "6.2 If You institute patent litigation against any entity (including\na cross-claim or counterclaim in a lawsuit) alleging that the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 163,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 161,
+        "text": "Covered Source or a Product constitutes direct or contributory\npatent infringement, or You seek any declaration that a patent\nlicensed to You under this Licence is invalid or unenforceable"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 165,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "shall",
+          "negation": null,
+          "object": "You",
+          "subject": "rights",
+          "temporal": null
+        },
+        "start_line": 164,
+        "text": "then any rights granted to You under this Licence shall\nterminate as of the date such process is initiated."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 168,
+        "errors": [],
+        "heading": "General",
+        "section_number": "7",
+        "start_line": 168,
+        "text": "7 General"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 171,
+        "errors": [],
+        "heading": "If any provisions of this Licence are or subsequently become",
+        "section_number": "7.1",
+        "start_line": 170,
+        "text": "7.1 If any provisions of this Licence are or subsequently become\ninvalid or unenforceable for any reason, the remaining"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 172,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": "shall",
+          "negation": null,
+          "object": null,
+          "subject": "provisions",
+          "temporal": null
+        },
+        "start_line": 172,
+        "text": "provisions shall remain effective."
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 174,
+        "errors": [],
+        "heading": "You shall not use any of the name (including acronyms and",
+        "section_number": "7.2",
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.6666666666666666,
+          "modality": "shall",
+          "negation": "not",
+          "object": "any",
+          "subject": "You",
+          "temporal": null
+        },
+        "start_line": 174,
+        "text": "7.2 You shall not use any of the name (including acronyms and"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 179,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 175,
+        "text": "abbreviations), image, or logo by which the Licensor or CERN is\nknown, except where needed to comply with section 3, or where\nthe use is otherwise allowed by law. Any such permitted use\nshall be factual and shall not be made so as to suggest any kind\nof endorsement or implication of involvement by the Licensor or"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 180,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 180,
+        "text": "its personnel."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 184,
+        "errors": [],
+        "heading": "CERN may publish updated versions and variants of this Licence",
+        "section_number": "7.3",
+        "start_line": 182,
+        "text": "7.3 CERN may publish updated versions and variants of this Licence\nwhich it considers to be in the spirit of this version, but may\ndiffer in detail to address new problems or concerns. New"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 187,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ifier specifying the variant",
+          "confidence": 0.8333333333333334,
+          "modality": "will",
+          "negation": null,
+          "object": "number",
+          "subject": "versions",
+          "temporal": "If"
+        },
+        "start_line": 185,
+        "text": "versions will be published with a unique version number and a\nvariant identifier specifying the variant. If the Licensor has\nspecified that a given variant applies to the Covered Source"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 189,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 188,
+        "text": "without specifying a version, You may treat that Covered Source\nas being released under any version of the CERN-OHL with that"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 190,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "If no variant is specified",
+          "confidence": 0.8333333333333334,
+          "modality": "shall",
+          "negation": "no",
+          "object": null,
+          "subject": "variant",
+          "temporal": "If"
+        },
+        "start_line": 190,
+        "text": "variant. If no variant is specified, the Covered Source shall be"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 191,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 191,
+        "text": "treated as being released under CERN-OHL-S. The Licensor may"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 192,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ify that the Covered Source is subject to a specific",
+          "confidence": 0.5,
+          "modality": null,
+          "negation": null,
+          "object": "specific",
+          "subject": "Source",
+          "temporal": null
+        },
+        "start_line": 192,
+        "text": "also specify that the Covered Source is subject to a specific"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 195,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 193,
+        "text": "version of the CERN-OHL or any later version in which case You\nmay apply this or any later version of CERN-OHL with the same\nvariant identifier published by CERN."
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 197,
+        "errors": [],
+        "heading": "This Licence shall not be enforceable except by a Licensor",
+        "section_number": "7.4",
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.6666666666666666,
+          "modality": "shall",
+          "negation": "not",
+          "object": "Licensor",
+          "subject": "Licence",
+          "temporal": null
+        },
+        "start_line": 197,
+        "text": "7.4 This Licence shall not be enforceable except by a Licensor"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 198,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 198,
+        "text": "acting as such, and third party beneficiary rights are"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 199,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 199,
+        "text": "specifically excluded."
+      }
+    ],
+    "success": true
+  },
+  "semantic": {
+    "avg_confidence": 0.71,
+    "profiles": [
+      {
+        "condition": "You ensure\nthat the recipient of the Product has access to any Notices applicable",
+        "confidence": 0.7,
+        "modality": "may",
+        "negation": null,
+        "object": "Make Products",
+        "original_sentence": "You may Make Products, and/or Convey them, provided that You ensure\nthat the recipient of the Product has access to any Notices applicable",
+        "subject": "You",
+        "temporal": null
+      },
+      {
+        "condition": "no variant is specified",
+        "confidence": 0.72,
+        "modality": "shall",
+        "negation": "no",
+        "object": "be",
+        "original_sentence": "variant. If no variant is specified, the Covered Source shall be",
+        "subject": "no variant",
+        "temporal": null
+      }
+    ],
+    "success": true,
+    "total_profiles": 2
+  },
+  "analysis": {
+    "contradictions": [
+      {
+        "confidence": 0.9996428489685059,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "add additional Notices applicable to Your modifications.",
+        "statement_b": "a) retain Notices as required in subsection 3.2; and"
+      },
+      {
+        "confidence": 0.9994019269943237,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "performance of any Source or Product shall be with You and not",
+        "statement_b": "then any rights granted to You under this Licence shall\nterminate as of the date such process is initiated."
+      },
+      {
+        "confidence": 0.9993108510971069,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "the possibility of such damages, and You shall hold the",
+        "statement_b": "then any rights granted to You under this Licence shall\nterminate as of the date such process is initiated."
+      },
+      {
+        "confidence": 0.9990044236183167,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "versions will be published with a unique version number and a\nvariant identifier specifying the variant. If the Licensor has\nspecified that a given variant applies to the Covered Source",
+        "statement_b": "variant. If no variant is specified, the Covered Source shall be"
+      },
+      {
+        "confidence": 0.9974769949913025,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "performance of any Source or Product shall be with You and not",
+        "statement_b": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to"
+      },
+      {
+        "confidence": 0.9959184527397156,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "Convey Covered Source or modified Covered Source.",
+        "statement_b": "performance of any Source or Product shall be with You and not"
+      },
+      {
+        "confidence": 0.9940851926803589,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.99)",
+        "statement_a": "sell, sell, import, and otherwise transfer the Covered Source",
+        "statement_b": "variant. If no variant is specified, the Covered Source shall be"
+      },
+      {
+        "confidence": 0.9415636658668518,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.94)",
+        "statement_a": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to",
+        "statement_b": "the possibility of such damages, and You shall hold the"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "shall apply worldwide and without limitation in time.",
+        "statement_b": "2.3 You shall not attempt to restrict by contract or otherwise the"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "2.3 You shall not attempt to restrict by contract or otherwise the",
+        "statement_b": "shall also become a Licensor) provided that You:"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "performance of any Source or Product shall be with You and not",
+        "statement_b": "7.2 You shall not use any of the name (including acronyms and"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to",
+        "statement_b": "7.2 You shall not use any of the name (including acronyms and"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "the possibility of such damages, and You shall hold the",
+        "statement_b": "7.2 You shall not use any of the name (including acronyms and"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "then any rights granted to You under this Licence shall\nterminate as of the date such process is initiated.",
+        "statement_b": "7.2 You shall not use any of the name (including acronyms and"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "then any rights granted to You under this Licence shall\nterminate as of the date such process is initiated.",
+        "statement_b": "7.4 This Licence shall not be enforceable except by a Licensor"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "provisions shall remain effective.",
+        "statement_b": "7.2 You shall not use any of the name (including acronyms and"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "provisions shall remain effective.",
+        "statement_b": "7.4 This Licence shall not be enforceable except by a Licensor"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "7.2 You shall not use any of the name (including acronyms and",
+        "statement_b": "variant. If no variant is specified, the Covered Source shall be"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "7.2 You shall not use any of the name (including acronyms and",
+        "statement_b": "7.4 This Licence shall not be enforceable except by a Licensor"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "variant. If no variant is specified, the Covered Source shall be",
+        "statement_b": "7.4 This Licence shall not be enforceable except by a Licensor"
+      },
+      {
+        "confidence": 0.8509527444839478,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.85)",
+        "statement_a": "the possibility of such damages, and You shall hold the",
+        "statement_b": "variant. If no variant is specified, the Covered Source shall be"
+      },
+      {
+        "confidence": 0.8340145349502563,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.83)",
+        "statement_a": "performance of any Source or Product shall be with You and not",
+        "statement_b": "sell, sell, import, and otherwise transfer the Covered Source"
+      }
+    ],
+    "s2_findings": [],
+    "success": true,
+    "terminology": {
+      "defined_terms": [
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": true,
+          "is_undefined_acronym": false,
+          "normalized_term": "cern",
+          "suggested_definition": "OHL-W (weakly",
+          "term": "CERN"
+        }
+      ],
+      "statistics": {
+        "avg_confidence": 0.7999999999999998,
+        "common_english_terms": 0,
+        "defined_terms": 1,
+        "definition_coverage": 0.02,
+        "potential_domain_terms": 49,
+        "semantic_clusters_found": 0,
+        "total_terms": 50,
+        "undefined_terms": 49
+      },
+      "term_occurrences": [
+        {
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": true,
+          "is_undefined_acronym": false,
+          "term": "CERN"
+        },
+        {
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN-OHL-S"
+        },
+        {
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN-OHL-W"
+        },
+        {
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN-OHL"
+        },
+        {
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "CERN-OHL-P\r\n(permissive"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN-OHL-S."
+        },
+        {
+          "context_excerpt": "...; and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly reciprocal). The CERN-OHL-P is copyright CERN 2020. Anyone is welcome to use it, in\r\nunmodified form only.",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN 2020"
+        },
+        {
+          "context_excerpt": "...ny kind\r\n      of endorsement or implication of involvement by the Licensor or\r\n      its personnel. 7.3 CERN may publish updated versions and variants of this Licence\r\n      which it considers to be in the spirit of this version, but may\r\n      differ in detail to address new problems or concern...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "7.3 CERN"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN OHL"
+        },
+        {
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "WARRANTY"
+        },
+        {
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "OHL"
+        },
+        {
+          "context_excerpt": "...      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence. 5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      dire...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "5.2 EXCLUSION"
+        },
+        {
+          "context_excerpt": "...ure, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise. 1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "DISCLAIMER"
+        },
+        {
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CERN-OHL-P"
+        },
+        {
+          "context_excerpt": "2.2 This Licence is granted by the Licensor directly to You, and\r\n      shall apply worldwide and without limitation in time. 2.3",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "LIMITATION"
+        },
+        {
+          "context_excerpt": "...      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence. 5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      dire...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "EXCLUSION"
+        },
+        {
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "LIABILITY"
+        },
+        {
+          "context_excerpt": "Anyone is welcome to use it, in\r\nunmodified form only. Use of this Licence does not imply any endorsement by CERN of any\r\nLicensor or their designs nor does it imply any involvement by CERN in\r\ntheir development. 1 Definitions\r\n\r\n  1.1 'Licence' means this CERN-OHL-P.\r\n\r\n  1.2 'Source' means informa...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Licensor"
+        },
+        {
+          "context_excerpt": "...s granted to You under this Licence shall\r\n      terminate as of the date such process is initiated. 7 General\r\n\r\n  7.1 If any provisions of this Licence are or subsequently become\r\n      invalid or unenforceable for any reason, the remaining\r\n      provisions shall remain effective. 7.2",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "General"
+        },
+        {
+          "context_excerpt": "1.9 'Convey' means to communicate to the public or distribute. 2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Covered Source and Products, and the Making of Products. By\r\n      exercising any right granted under this Licence, You irrevocably\r\n      ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "2 Applicability"
+        },
+        {
+          "context_excerpt": "1.7 'Licensee' or 'You' means any person exercising rights under\r\n      this Licence. 1.8 'Licensor' means a person who creates Source or modifies Covered\r\n      Source and subsequently Conveys the resulting Covered Source\r\n      under the terms and conditions of this Licence. A person may be\r\n     ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "1.8 'Licensor"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "7 General 7.1"
+        },
+        {
+          "context_excerpt": "1.9 'Convey' means to communicate to the public or distribute. 2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Covered Source and Products, and the Making of Products. By\r\n      exercising any right granted under this Licence, You irrevocably\r\n      ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Applicability"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "1.8 Licensor"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "S. Licensor"
+        },
+        {
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Permissive"
+        },
+        {
+          "context_excerpt": "...ure, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise. 1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "location"
+        },
+        {
+          "context_excerpt": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      direct, indirect, special, incidental, consequential, exemplary,\r\n      punitive or other damages of any character including, without\r\n      limitation, procur...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "relation"
+        },
+        {
+          "context_excerpt": "...      damages, fees and expenses, including claims by third parties,\r\n      in relation to such use. 6 Patents\r\n\r\n  6.1 Subject to the terms and conditions of this Licence, each\r\n      Licensor hereby grants to You a perpetual, worldwide,\r\n      non-exclusive, no-charge, royalty-free, irrevocable...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "section"
+        },
+        {
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "quality"
+        },
+        {
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "fitness"
+        },
+        {
+          "context_excerpt": "A person may be\r\n      a Licensee and a Licensor at the same time. 1.9 'Convey' means to communicate to the public or distribute. 2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Co...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "public"
+        },
+        {
+          "context_excerpt": "6.2 If You institute patent litigation against any entity (including\r\n      a cross-claim or counterclaim in a lawsuit) alleging that the\r\n      Covered Source or a Product constitutes direct or contributory\r\n      patent infringement, or You seek any declaration that a patent\r\n      licensed to You...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "entity"
+        },
+        {
+          "context_excerpt": "...o restrict by contract or otherwise the\r\n      rights granted under this Licence to other Licensees. 2.4 This Licence is not intended to restrict fair use, fair dealing,\r\n      or any other similar right. 3 Copying, Modifying and Conveying Covered Source\r\n\r\n  3.1 You may copy and Convey verbatim ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "fair use"
+        },
+        {
+          "context_excerpt": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      direct, indirect, special, incidental, consequential, exemplary,\r\n      punitive or other damages of any character including, without\r\n      limitation, procur...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "such use"
+        },
+        {
+          "context_excerpt": "...s Licence\r\n      and to the disclaimer of warranties that are included in the\r\n      Covered Source. 1.7 'Licensee' or 'You' means any person exercising rights under\r\n      this Licence. 1.8 'Licensor' means a person who creates Source or modifies Covered\r\n      Source and subsequently ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Licensee"
+        },
+        {
+          "context_excerpt": "...epare a Product for use, Conveyance or sale, regardless of its\r\n      medium or how it is expressed. It may include Notices. 1.3 'Covered Source' means Source that is explicitly made available\r\n      under this Licence.",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Notices"
+        },
+        {
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Version"
+        },
+        {
+          "context_excerpt": "It may include Notices. 1.3 'Covered Source' means Source that is explicitly made available\r\n      under this Licence. 1.4 'Product' means any device, component, work or physical object,\r\n      whether in finished or in...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Covered"
+        },
+        {
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Licence"
+        },
+        {
+          "context_excerpt": "...      damages, fees and expenses, including claims by third parties,\r\n      in relation to such use. 6 Patents\r\n\r\n  6.1 Subject to the terms and conditions of this Licence, each\r\n      Licensor hereby grants to You a perpetual, worldwide,\r\n      non-exclusive, no-charge, royalty-free, irrevocable...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Patents"
+        },
+        {
+          "context_excerpt": "...ure, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise. 1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Notice"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "5.2 EXCLUSION LIMITATION"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "DISCLAIMER LIABILITY 5.1"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "5.1 DISCLAIMER WARRANTY"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "5 DISCLAIMER LIABILITY"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "LIMITATION LIABILITY"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "DISCLAIMER WARRANTY"
+        },
+        {
+          "context_excerpt": "...lity, and\r\n      performance of any Source or Product shall be with You and not\r\n      the Licensor. This disclaimer of warranty is an essential part\r\n      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence. 5.2 EXCLUSION AND LIMITATION OF LIABILITY --",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "This disclaimer"
+        },
+        {
+          "context_excerpt": "Anyone is welcome to use it, in\r\nunmodified form only. Use of this Licence does not imply any endorsement by CERN of any\r\nLicensor or their designs nor does it imply any involvement by CERN in\r\ntheir development. 1 Definitions\r\n\r\n  1.1 'Licence' means this CERN-OHL-P.\r\n\r\n  1.2 'Source' means informa...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "any involvement"
+        }
+      ],
+      "undefined_terms": [
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern-ohl-s",
+          "suggested_definition": null,
+          "term": "CERN-OHL-S"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern-ohl-w",
+          "suggested_definition": null,
+          "term": "CERN-OHL-W"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern-ohl",
+          "suggested_definition": null,
+          "term": "CERN-OHL"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "cern-ohl-p\r\n(permissive",
+          "suggested_definition": null,
+          "term": "CERN-OHL-P\r\n(permissive"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern-ohl-s.",
+          "suggested_definition": null,
+          "term": "CERN-OHL-S."
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...; and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly reciprocal). The CERN-OHL-P is copyright CERN 2020. Anyone is welcome to use it, in\r\nunmodified form only.",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern 2020",
+          "suggested_definition": null,
+          "term": "CERN 2020"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ny kind\r\n      of endorsement or implication of involvement by the Licensor or\r\n      its personnel. 7.3 CERN may publish updated versions and variants of this Licence\r\n      which it considers to be in the spirit of this version, but may\r\n      differ in detail to address new problems or concern...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "7.3 cern",
+          "suggested_definition": null,
+          "term": "7.3 CERN"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern ohl",
+          "suggested_definition": null,
+          "term": "CERN OHL"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "warranty",
+          "suggested_definition": null,
+          "term": "WARRANTY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "ohl",
+          "suggested_definition": null,
+          "term": "OHL"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence. 5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      dire...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "5.2 exclusion",
+          "suggested_definition": null,
+          "term": "5.2 EXCLUSION"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ure, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise. 1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "disclaimer",
+          "suggested_definition": null,
+          "term": "DISCLAIMER"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...m to use, study, modify, share and distribute hardware designs\r\nand products based on those designs. Version 2 of the CERN Open\r\nHardware Licence comes in three variants: this licence, CERN-OHL-P\r\n(permissive); and two reciprocal licences: CERN-OHL-W (weakly\r\nreciprocal) and CERN-OHL-S (strongly ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cern-ohl-p",
+          "suggested_definition": null,
+          "term": "CERN-OHL-P"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "2.2 This Licence is granted by the Licensor directly to You, and\r\n      shall apply worldwide and without limitation in time. 2.3",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "limitation",
+          "suggested_definition": null,
+          "term": "LIMITATION"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence. 5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      dire...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "exclusion",
+          "suggested_definition": null,
+          "term": "EXCLUSION"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "liability",
+          "suggested_definition": null,
+          "term": "LIABILITY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "Anyone is welcome to use it, in\r\nunmodified form only. Use of this Licence does not imply any endorsement by CERN of any\r\nLicensor or their designs nor does it imply any involvement by CERN in\r\ntheir development. 1 Definitions\r\n\r\n  1.1 'Licence' means this CERN-OHL-P.\r\n\r\n  1.2 'Source' means informa...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "licensor",
+          "suggested_definition": null,
+          "term": "Licensor"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...s granted to You under this Licence shall\r\n      terminate as of the date such process is initiated. 7 General\r\n\r\n  7.1 If any provisions of this Licence are or subsequently become\r\n      invalid or unenforceable for any reason, the remaining\r\n      provisions shall remain effective. 7.2",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "general",
+          "suggested_definition": null,
+          "term": "General"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "1.9 'Convey' means to communicate to the public or distribute. 2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Covered Source and Products, and the Making of Products. By\r\n      exercising any right granted under this Licence, You irrevocably\r\n      ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "2 applicability",
+          "suggested_definition": null,
+          "term": "2 Applicability"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "1.7 'Licensee' or 'You' means any person exercising rights under\r\n      this Licence. 1.8 'Licensor' means a person who creates Source or modifies Covered\r\n      Source and subsequently Conveys the resulting Covered Source\r\n      under the terms and conditions of this Licence. A person may be\r\n     ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "1.8 'licensor",
+          "suggested_definition": null,
+          "term": "1.8 'Licensor"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "7 general 7.1",
+          "suggested_definition": null,
+          "term": "7 General 7.1"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "1.9 'Convey' means to communicate to the public or distribute. 2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Covered Source and Products, and the Making of Products. By\r\n      exercising any right granted under this Licence, You irrevocably\r\n      ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "applicability",
+          "suggested_definition": null,
+          "term": "Applicability"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "1.8 licensor",
+          "suggested_definition": null,
+          "term": "1.8 Licensor"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "s. licensor",
+          "suggested_definition": null,
+          "term": "S. Licensor"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "permissive",
+          "suggested_definition": null,
+          "term": "Permissive"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ure, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise. 1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "location",
+          "suggested_definition": null,
+          "term": "location"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      direct, indirect, special, incidental, consequential, exemplary,\r\n      punitive or other damages of any character including, without\r\n      limitation, procur...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "relation",
+          "suggested_definition": null,
+          "term": "relation"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...      damages, fees and expenses, including claims by third parties,\r\n      in relation to such use. 6 Patents\r\n\r\n  6.1 Subject to the terms and conditions of this Licence, each\r\n      Licensor hereby grants to You a perpetual, worldwide,\r\n      non-exclusive, no-charge, royalty-free, irrevocable...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "section",
+          "suggested_definition": null,
+          "term": "section"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "quality",
+          "suggested_definition": null,
+          "term": "quality"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... You ensure\r\nthat the recipient of the Product has access to any Notices applicable\r\nto the Product. 5 DISCLAIMER AND LIABILITY\r\n\r\n  5.1 DISCLAIMER OF WARRANTY -- The Covered Source and any Products\r\n      are provided 'as is' and any express or implied warranties,\r\n      including, but not limit...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "fitness",
+          "suggested_definition": null,
+          "term": "fitness"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A person may be\r\n      a Licensee and a Licensor at the same time. 1.9 'Convey' means to communicate to the public or distribute. 2 Applicability\r\n\r\n  2.1 This Licence governs the use, copying, modification, Conveying\r\n      of Co...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "public",
+          "suggested_definition": null,
+          "term": "public"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "6.2 If You institute patent litigation against any entity (including\r\n      a cross-claim or counterclaim in a lawsuit) alleging that the\r\n      Covered Source or a Product constitutes direct or contributory\r\n      patent infringement, or You seek any declaration that a patent\r\n      licensed to You...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "entity",
+          "suggested_definition": null,
+          "term": "entity"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...o restrict by contract or otherwise the\r\n      rights granted under this Licence to other Licensees. 2.4 This Licence is not intended to restrict fair use, fair dealing,\r\n      or any other similar right. 3 Copying, Modifying and Conveying Covered Source\r\n\r\n  3.1 You may copy and Convey verbatim ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "fair use",
+          "suggested_definition": null,
+          "term": "fair use"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to\r\n      the maximum extent permitted by law, have no liability for\r\n      direct, indirect, special, incidental, consequential, exemplary,\r\n      punitive or other damages of any character including, without\r\n      limitation, procur...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "such use",
+          "suggested_definition": null,
+          "term": "such use"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...s Licence\r\n      and to the disclaimer of warranties that are included in the\r\n      Covered Source. 1.7 'Licensee' or 'You' means any person exercising rights under\r\n      this Licence. 1.8 'Licensor' means a person who creates Source or modifies Covered\r\n      Source and subsequently ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "licensee",
+          "suggested_definition": null,
+          "term": "Licensee"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...epare a Product for use, Conveyance or sale, regardless of its\r\n      medium or how it is expressed. It may include Notices. 1.3 'Covered Source' means Source that is explicitly made available\r\n      under this Licence.",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "notices",
+          "suggested_definition": null,
+          "term": "Notices"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "version",
+          "suggested_definition": null,
+          "term": "Version"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "It may include Notices. 1.3 'Covered Source' means Source that is explicitly made available\r\n      under this Licence. 1.4 'Product' means any device, component, work or physical object,\r\n      whether in finished or in...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "covered",
+          "suggested_definition": null,
+          "term": "Covered"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "CERN Open Hardware Licence Version 2 - Permissive\r\n\r\n\r\nPreamble\r\n\r\nCERN has developed this licence to promote collaboration among\r\nhardware designers and to provide a legal tool which supports the\r\nfreedom to use, study, modify, share and distribute hardware designs\r\nand products based on those desi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "licence",
+          "suggested_definition": null,
+          "term": "Licence"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...      damages, fees and expenses, including claims by third parties,\r\n      in relation to such use. 6 Patents\r\n\r\n  6.1 Subject to the terms and conditions of this Licence, each\r\n      Licensor hereby grants to You a perpetual, worldwide,\r\n      non-exclusive, no-charge, royalty-free, irrevocable...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "patents",
+          "suggested_definition": null,
+          "term": "Patents"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ure, assembly, compiling, loading or applying Covered\r\n      Source or another Product or otherwise. 1.6 'Notice' means copyright, acknowledgement and trademark notices,\r\n      references to the location of any Notices, modification notices\r\n      (subsection 3.3(b)) and all notices that refer to...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "notice",
+          "suggested_definition": null,
+          "term": "Notice"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "5.2 exclusion limitation",
+          "suggested_definition": null,
+          "term": "5.2 EXCLUSION LIMITATION"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "disclaimer liability 5.1",
+          "suggested_definition": null,
+          "term": "DISCLAIMER LIABILITY 5.1"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "5.1 disclaimer warranty",
+          "suggested_definition": null,
+          "term": "5.1 DISCLAIMER WARRANTY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "5 disclaimer liability",
+          "suggested_definition": null,
+          "term": "5 DISCLAIMER LIABILITY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "limitation liability",
+          "suggested_definition": null,
+          "term": "LIMITATION LIABILITY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "disclaimer warranty",
+          "suggested_definition": null,
+          "term": "DISCLAIMER WARRANTY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...lity, and\r\n      performance of any Source or Product shall be with You and not\r\n      the Licensor. This disclaimer of warranty is an essential part\r\n      of this Licence and a condition for the grant of any rights\r\n      granted under this Licence. 5.2 EXCLUSION AND LIMITATION OF LIABILITY --",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "this disclaimer",
+          "suggested_definition": null,
+          "term": "This disclaimer"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "Anyone is welcome to use it, in\r\nunmodified form only. Use of this Licence does not imply any endorsement by CERN of any\r\nLicensor or their designs nor does it imply any involvement by CERN in\r\ntheir development. 1 Definitions\r\n\r\n  1.1 'Licence' means this CERN-OHL-P.\r\n\r\n  1.2 'Source' means informa...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "any involvement",
+          "suggested_definition": null,
+          "term": "any involvement"
+        }
+      ]
+    }
+  }
+}

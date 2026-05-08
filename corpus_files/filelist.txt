@@ -1,0 +1,27 @@
+99-0117.pdf
+bagleykeene_meetingact.pdf
+BIS-2024-0005-0160_content (1).pdf
+cern_ohl_p_v2.txt
+Creative Commons guide_24_final (2).pdf
+Creative-Commons-Style-Guide-2019.pdf
+DHS-2024-0033-0001_content (1).pdf
+dl600.pdf
+EPA-HQ-OAR-2002-0083-0835_content (2).pdf
+fdl-1.3.txt
+fil21012b.pdf
+filelist.txt
+LICENSE-2.0.txt
+nihgps.pdf
+NOAA-HQ-2023-0146-0033_attachment_9 (1).pdf
+OMB-2021-0005-0454_attachment_4 (2).pdf
+Open_Content_-_A_Practical_Guide_to_Using_Creative_Commons_Licences.pdf
+policy.pdf
+RAND_TL301.rulebook.pdf
+README.md
+rfc1034.txt
+rfc2460.txt
+rfc2616.txt
+rfc5321.txt
+rfc7540.txt
+rfc793.txt
+rfc8446.txt

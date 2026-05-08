@@ -1,0 +1,232 @@
+DOCUMENT STATISTICS
+Filename,BIS-2024-0005-0160_content (1).pdf
+Text Length (chars),505958
+Analyzed At,2026-05-06T03:34:46.426017
+Total Segments,9362
+  Normative,1562
+  Informative,4033
+  Unknown,3767
+High Confidence Segments (≥0.7),1908
+Medium Confidence Segments,7454
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,15
+Average Profile Confidence,70.9%
+
+TERMINOLOGY
+Defined Terms,0
+Undefined Terms,50
+Definition Coverage,0.0%
+
+CONTRADICTIONS
+Total Detected,83
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,"documentation—that will be permitted
+or required when the Berman","prescribe any specific requirements as
+to what that documentation must
+consist of. BIS did not receive any"
+2,semantic,100.0%,(e) BIS shall issue an advisory opinion,decline to issue an advisory opinion
+3,semantic,100.0%,request an in-person informal hearing in,"necessary to protect CBI. To solicit an
+advisory opinion from BIS, persons will
+be required to submit a written request"
+4,semantic,100.0%,"foreign shareholders to block
+resolutions and important decisions
+regarding Company A’s management.",fall outside of the scope of foreign
+5,semantic,100.0%,"(Oct. 11, 2023), https://
+chinapower.csis.org/analysis/china-
+construct-ro-ro-vessels-military-","Council (Jan. 2023), https://
+www.atlanticcouncil.org/content-series/
+the-5x5/the-5x5-chinas-cyber-
+operations/."
+6,semantic,100.0%,publish on its website an advisory,"will be available on the BIS website. BIS
+will not accept advisory opinion"
+7,semantic,100.0%,"foreign shareholders to block
+resolutions and important decisions
+regarding Company A’s management.",do not constitute a foreign interest. BIS
+8,semantic,100.0%,required a Declaration of Conformity. To,not require a Declaration of Conformity.
+9,semantic,100.0%,"issuance of an advisory opinion will
+depend upon prompt responses by the","will be available on the BIS website. BIS
+will not accept advisory opinion"
+10,semantic,100.0%,"subcomponents that were designed,
+developed, manufactured, or supplied","software subcomponents are not
+maintained, augmented, or otherwise"
+11,semantic,100.0%,more easily comply with the timeline.,"interfere with those obligations, and BIS"
+12,semantic,99.9%,issue a general authorization at a later,"anticipates that each specific
+authorization granted under an"
+13,semantic,99.9%,to include the transfer of completed,does not include a hardware or software
+14,semantic,99.9%,"(Mar. 17, 2022), https://
+www.statista.com/statistics/233942/
+chinas-share-of-global-production-
+capacity-of-the-automobile-industry/.","https://www.ap.org/news-highlights/
+spotlights/2024/prospect-of-low-priced-
+chinese-evs-reaching-us-from-mexico-
+poses-threat-to-automakers/; Daina Beth"
+15,semantic,99.9%,"communication function of VCS
+hardware (e.g., brackets, fasteners,",hardware will not be considered to be
+16,semantic,99.9%,"necessary to protect CBI. To solicit an
+advisory opinion from BIS, persons will
+be required to submit a written request","will be available on the BIS website. BIS
+will not accept advisory opinion"
+17,semantic,99.9%,to address only those vehicles under,to jointly address the national security
+18,semantic,99.9%,"will be available on the BIS website. BIS
+will not accept advisory opinion",during which BIS will allow advisory
+19,semantic,99.9%,clarify that the list of VCS hardware,"definition. BIS rejects this
+recommendation because VCS hardware"
+20,semantic,99.9%,"believe it necessary to amend the
+definition to specify this point or to
+provide an exhaustive list of claims that","software, BIS ensures that this rule only"
+21,semantic,99.9%,"accepted the majority of
+recommendations to exclude certain","exclude them all, as the term is broad"
+22,semantic,99.9%,"vehicles that Company B will eventually
+import and sell into the United States.",into the United States is a prohibited
+23,semantic,99.9%,BIS anticipates that it will limit this,circumvent the prohibitions of this rule.
+24,semantic,99.8%,"completed connected vehicles
+incorporating covered software, which",VCS or ADS; and (3) prohibit connected
+25,semantic,99.8%,"(a) Prohibit ICTS transactions that
+involve certain software and hardware",and to confirm that no prohibited
+26,semantic,99.8%,publish on its website an advisory,"necessary to protect CBI. To solicit an
+advisory opinion from BIS, persons will
+be required to submit a written request"
+27,semantic,99.7%,"upon the effective date of this rule, seek",sector will not be covered by this
+28,semantic,99.6%,utilize a suite of national security laws,"China, (Dec. 2022), https://
+www.dhs.gov/sites/default/files/
+publications/20_1222_data-security-
+business-advisory.pdf; Ministry of Civil"
+29,semantic,99.6%,"vehicles that Company B will eventually
+import and sell into the United States.","States is a prohibited transaction, unless"
+30,semantic,99.6%,"control the vehicle’s safe operation, and","disable the vehicle’s function, leading to"
+31,semantic,99.6%,fall outside of the scope of foreign,regulate. BIS has included a foreign
+32,semantic,99.5%,"of completed connected vehicles
+incorporating VCS software developed","person completed connected vehicle
+manufacturer, purchases ADS software"
+33,semantic,99.5%,"software subcomponents are not
+maintained, augmented, or otherwise","line between application-level software,
+middleware (e.g., device drivers,
+database management functions), and"
+34,semantic,99.5%,address these risks before PRC and,retroactively to address any of the data
+35,semantic,99.5%,do not constitute a foreign interest. BIS,"NPRM, IEEPA requires a foreign interest"
+36,semantic,99.4%,to match the NTIA’s Minimum Elements,only require the detailed elements ‘‘if
+37,semantic,99.4%,"completed connected vehicles
+incorporating VCS software developed","person completed connected vehicle
+manufacturer, purchases ADS software"
+38,semantic,99.3%,"to consider this threshold but
+anticipates that it will retain the 1,000-",anticipates that it will issue a general
+39,semantic,99.3%,"amended provisions for general
+authorizations, VCS hardware importers
+and connected vehicle manufacturers
+availing themselves of general","general authorizations and is required to
+apply for a specific authorization before
+engaging in an otherwise prohibited"
+40,semantic,99.2%,"hardware currently under production,
+those connected vehicle manufacturers",prohibited VCS hardware if it is for a
+41,semantic,99.2%,request an in-person informal hearing in,"hearing is not required, and the Under"
+42,semantic,99.2%,fall outside of the scope of foreign,"NPRM, IEEPA requires a foreign interest"
+43,semantic,99.2%,specific authorizations will not be made,"specified in the authorization, a specific"
+44,semantic,99.1%,and to confirm that no prohibited,"prohibited by this subpart, where the"
+45,semantic,99.1%,"NPRM, IEEPA requires a foreign interest",regulate. BIS has included a foreign
+46,semantic,99.1%,BIS anticipates that it will limit this,anticipates that it will issue a general
+47,semantic,99.0%,BIS anticipates that it will limit this,anticipate that it will institute a general
+48,semantic,99.0%,"to consider this threshold but
+anticipates that it will retain the 1,000-","qualify for a general authorization. BIS
+does not intend for this rule to capture"
+49,semantic,98.9%,"recommendation and believes it will
+allow industry to more easily identify","definition. BIS rejects this
+recommendation because VCS hardware"
+50,semantic,98.9%,"informal hearing shall submit a written
+report containing a summary of the","submit amicus filings in support of the
+appellant prior to any informal hearing."
+51,semantic,98.9%,"compromise critical infrastructure. BIS
+does not believe that the NHTSA","inform this certification, and that they,"
+52,semantic,98.5%,notice shall be in writing and issued,days shall be deemed to be a waiver of
+53,semantic,98.3%,such records shall be available for,"(b) Third-party assessors are required
+to maintain all records relating to third-"
+54,semantic,98.0%,"connected vehicle constitutes a
+manufacturing operation for a
+completed connected vehicle.","the connected vehicle manufacturer
+imports it."
+55,semantic,97.9%,BIS to narrow its definition of foreign,use a broad definition of ‘‘foreign
+56,semantic,97.9%,"opportunity for connected vehicle
+manufacturers and VCS hardware","requiring importers and manufacturers
+to record all third-party external"
+57,semantic,97.8%,"www.nytimes.com/2024/07/30/
+business/chinese-electric-vehicles-
+thailand.html; Daniel Leussink, BYD’s","https://www.ap.org/news-highlights/
+spotlights/2024/prospect-of-low-priced-
+chinese-evs-reaching-us-from-mexico-
+poses-threat-to-automakers/; Daina Beth"
+58,semantic,97.7%,"https://www.reuters.com/business/
+autos-transportation/byds-global-
+expansion-push-runs-into-stiff-japan-
+test-2024-09-05/; China’s BYD starts
+construction on manufacturing complex","https://www.ap.org/news-highlights/
+spotlights/2024/prospect-of-low-priced-
+chinese-evs-reaching-us-from-mexico-
+poses-threat-to-automakers/; Daina Beth"
+59,semantic,97.4%,and VCS hardware will allow industry,"definition. BIS rejects this
+recommendation because VCS hardware"
+60,semantic,97.4%,covered software will not be considered,"entity designing, developing,
+manufacturing, or supplying the
+software."
+61,semantic,96.9%,"to consider this threshold but
+anticipates that it will retain the 1,000-",circumvent the prohibitions of this rule.
+62,semantic,96.8%,"in another country, that Company B will
+eventually import into the United",into the United States is a prohibited
+63,semantic,96.8%,hardware will not be considered to be,software will not be considered to be
+64,semantic,96.7%,"Given the significant processing
+power and complex decision-making","laws compel compliance with
+government requests, thereby making"
+65,semantic,96.5%,to assess compliance with this rule.,"than provide predetermined general
+authorizations in the rule itself, BIS will
+instead separately issue general"
+66,semantic,96.1%,do not constitute a foreign interest. BIS,regulate. BIS has included a foreign
+67,semantic,95.7%,"and covered software designed,
+developed, manufactured, or supplied",supply the VCS hardware or covered
+68,semantic,95.3%,penalty as specified in the final penalty,prohibited by the final rule. Consistent
+69,semantic,94.1%,(1) Where there are no material,(2) Where there are no material
+70,semantic,93.9%,"requirements for connected vehicle
+manufacturers, connected vehicle","certification, narrow the reporting
+requirements, and add recordkeeping"
+71,semantic,93.9%,"issuing a general authorization, BIS will
+publish this decision on its website","determine the general authorization no
+longer applies, it must, within an
+additional 30 days, cease all prohibited
+conduct and submit a report to BIS"
+72,semantic,91.5%,"compromise critical infrastructure. BIS
+does not believe that the NHTSA","of Conformity, BIS will be able to more
+accurately and efficiently confirm and
+verify that no VCS hardware or covered"
+73,semantic,90.9%,"Fi, Bluetooth, cellular
+telecommunication, and satellite
+connectivity, the incorporation of
+progressively complex hardware and
+software systems enabling vehicle","authorization mechanisms allow VCS
+hardware importers and connected"
+74,modality,90.0%,"clarify that manufacturers or importers
+must submit amended Declarations of",importers must notify BIS of any
+75,modality,90.0%,importers must submit digital,importers must notify BIS of any
+76,modality,90.0%,"informal hearing shall not be made,","informal hearing shall submit a written
+report containing a summary of the"
+77,modality,90.0%,"BIS in determining the appeal, but shall","consideration of an appeal shall not
+affect any administrative action,"
+78,modality,90.0%,"designated official shall decide an
+appeal within a reasonable time after
+receipt of the appeal. The decision shall","consideration of an appeal shall not
+affect any administrative action,"
+79,modality,90.0%,"Secretary or the designated official shall
+be final.","consideration of an appeal shall not
+affect any administrative action,"
+80,semantic,87.9%,(2) An initial finding of violation shall,days shall be deemed to be a waiver of
+81,semantic,87.2%,"authorization exempting hardware ‘‘for
+general communications purposes’’ that","specific instructions that persons must
+follow if they wish to avail themselves"
+82,semantic,85.2%,does not both receive and transmit data,and transmit data to an external source
+83,semantic,82.7%,"(Mar. 17, 2022), https://
+www.statista.com/statistics/233942/
+chinas-share-of-global-production-
+capacity-of-the-automobile-industry/.","https://www.reuters.com/business/
+autos-transportation/byds-global-
+expansion-push-runs-into-stiff-japan-
+test-2024-09-05/; China’s BYD starts
+construction on manufacturing complex"

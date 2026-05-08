@@ -1,0 +1,3500 @@
+{
+  "preprocessing": {
+    "metadata": {
+      "character_count": 23406,
+      "encoding": "ascii",
+      "encoding_confidence": 1,
+      "extraction_method": "direct read + chardet",
+      "file_size": 23406,
+      "format": "TXT",
+      "line_count": 452,
+      "original_filename": "fdl-1.3.txt",
+      "processed_at": "2026-05-06T04:27:06.793338",
+      "text_length": 23406,
+      "word_count": 3689
+    },
+    "success": true,
+    "text": "\r\n                GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not allowed.\r\n\r\n0. PREAMBLE\r\n\r\nThe purpose of this License is to make a manual, textbook, or other\r\nfunctional and useful document \"free\" in the sense of freedom: to\r\nassure everyone the effective freedom to copy and redistribute it,\r\nwith or without modifying it, either commercially or noncommercially.\r\nSecondarily, this License preserves for the author and publisher a way\r\nto get credit for their work, while not being considered responsible\r\nfor modifications made by others.\r\n\r\nThis License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense.  It\r\ncomplements the GNU General Public License, which is a copyleft\r\nlicense designed for free software.\r\n\r\nWe have designed this License in order to use it for manuals for free\r\nsoftware, because free software needs free documentation: a free\r\nprogram should come with manuals providing the same freedoms that the\r\nsoftware does.  But this License is not limited to software manuals;\r\nit can be used for any textual work, regardless of subject matter or\r\nwhether it is published as a printed book.  We recommend this License\r\nprincipally for works whose purpose is instruction or reference.\r\n\r\n\r\n1. APPLICABILITY AND DEFINITIONS\r\n\r\nThis License applies to any manual or other work, in any medium, that\r\ncontains a notice placed by the copyright holder saying it can be\r\ndistributed under the terms of this License.  Such a notice grants a\r\nworld-wide, royalty-free license, unlimited in duration, to use that\r\nwork under the conditions stated herein.  The \"Document\", below,\r\nrefers to any such manual or work.  Any member of the public is a\r\nlicensee, and is addressed as \"you\".  You accept the license if you\r\ncopy, modify or distribute the work in a way requiring permission\r\nunder copyright law.\r\n\r\nA \"Modified Version\" of the Document means any work containing the\r\nDocument or a portion of it, either copied verbatim, or with\r\nmodifications and/or translated into another language.\r\n\r\nA \"Secondary Section\" is a named appendix or a front-matter section of\r\nthe Document that deals exclusively with the relationship of the\r\npublishers or authors of the Document to the Document's overall\r\nsubject (or to related matters) and contains nothing that could fall\r\ndirectly within that overall subject.  (Thus, if the Document is in\r\npart a textbook of mathematics, a Secondary Section may not explain\r\nany mathematics.)  The relationship could be a matter of historical\r\nconnection with the subject or with related matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem.\r\n\r\nThe \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this License.  If a\r\nsection does not fit the above definition of Secondary then it is not\r\nallowed to be designated as Invariant.  The Document may contain zero\r\nInvariant Sections.  If the Document does not identify any Invariant\r\nSections then there are none.\r\n\r\nThe \"Cover Texts\" are certain short passages of text that are listed,\r\nas Front-Cover Texts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License.  A Front-Cover Text may\r\nbe at most 5 words, and a Back-Cover Text may be at most 25 words.\r\n\r\nA \"Transparent\" copy of the Document means a machine-readable copy,\r\nrepresented in a format whose specification is available to the\r\ngeneral public, that is suitable for revising the document\r\nstraightforwardly with generic text editors or (for images composed of\r\npixels) generic paint programs or (for drawings) some widely available\r\ndrawing editor, and that is suitable for input to text formatters or\r\nfor automatic translation to a variety of formats suitable for input\r\nto text formatters.  A copy made in an otherwise Transparent file\r\nformat whose markup, or absence of markup, has been arranged to thwart\r\nor discourage subsequent modification by readers is not Transparent.\r\nAn image format is not Transparent if used for any substantial amount\r\nof text.  A copy that is not \"Transparent\" is called \"Opaque\".\r\n\r\nExamples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification.  Examples of\r\ntransparent image formats include PNG, XCF and JPG.  Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word processors, SGML or XML for which the DTD and/or\r\nprocessing tools are not generally available, and the\r\nmachine-generated HTML, PostScript or PDF produced by some word\r\nprocessors for output purposes only.\r\n\r\nThe \"Title Page\" means, for a printed book, the title page itself,\r\nplus such following pages as are needed to hold, legibly, the material\r\nthis License requires to appear in the title page.  For works in\r\nformats which do not have any title page as such, \"Title Page\" means\r\nthe text near the most prominent appearance of the work's title,\r\npreceding the beginning of the body of the text.\r\n\r\nThe \"publisher\" means any person or entity that distributes copies of\r\nthe Document to the public.\r\n\r\nA section \"Entitled XYZ\" means a named subunit of the Document whose\r\ntitle either is precisely XYZ or contains XYZ in parentheses following\r\ntext that translates XYZ in another language.  (Here XYZ stands for a\r\nspecific section name mentioned below, such as \"Acknowledgements\",\r\n\"Dedications\", \"Endorsements\", or \"History\".)  To \"Preserve the Title\"\r\nof such a section when you modify the Document means that it remains a\r\nsection \"Entitled XYZ\" according to this definition.\r\n\r\nThe Document may include Warranty Disclaimers next to the notice which\r\nstates that this License applies to the Document.  These Warranty\r\nDisclaimers are considered to be included by reference in this\r\nLicense, but only as regards disclaiming warranties: any other\r\nimplication that these Warranty Disclaimers may have is void and has\r\nno effect on the meaning of this License.\r\n\r\n2. VERBATIM COPYING\r\n\r\nYou may copy and distribute the Document in any medium, either\r\ncommercially or noncommercially, provided that this License, the\r\ncopyright notices, and the license notice saying this License applies\r\nto the Document are reproduced in all copies, and that you add no\r\nother conditions whatsoever to those of this License.  You may not use\r\ntechnical measures to obstruct or control the reading or further\r\ncopying of the copies you make or distribute.  However, you may accept\r\ncompensation in exchange for copies.  If you distribute a large enough\r\nnumber of copies you must also follow the conditions in section 3.\r\n\r\nYou may also lend copies, under the same conditions stated above, and\r\nyou may publicly display copies.\r\n\r\n\r\n3. COPYING IN QUANTITY\r\n\r\nIf you publish printed copies (or copies in media that commonly have\r\nprinted covers) of the Document, numbering more than 100, and the\r\nDocument's license notice requires Cover Texts, you must enclose the\r\ncopies in covers that carry, clearly and legibly, all these Cover\r\nTexts: Front-Cover Texts on the front cover, and Back-Cover Texts on\r\nthe back cover.  Both covers must also clearly and legibly identify\r\nyou as the publisher of these copies.  The front cover must present\r\nthe full title with all words of the title equally prominent and\r\nvisible.  You may add other material on the covers in addition.\r\nCopying with changes limited to the covers, as long as they preserve\r\nthe title of the Document and satisfy these conditions, can be treated\r\nas verbatim copying in other respects.\r\n\r\nIf the required texts for either cover are too voluminous to fit\r\nlegibly, you should put the first ones listed (as many as fit\r\nreasonably) on the actual cover, and continue the rest onto adjacent\r\npages.\r\n\r\nIf you publish or distribute Opaque copies of the Document numbering\r\nmore than 100, you must either include a machine-readable Transparent\r\ncopy along with each Opaque copy, or state in or with each Opaque copy\r\na computer-network location from which the general network-using\r\npublic has access to download using public-standard network protocols\r\na complete Transparent copy of the Document, free of added material.\r\nIf you use the latter option, you must take reasonably prudent steps,\r\nwhen you begin distribution of Opaque copies in quantity, to ensure\r\nthat this Transparent copy will remain thus accessible at the stated\r\nlocation until at least one year after the last time you distribute an\r\nOpaque copy (directly or through your agents or retailers) of that\r\nedition to the public.\r\n\r\nIt is requested, but not required, that you contact the authors of the\r\nDocument well before redistributing any large number of copies, to\r\ngive them a chance to provide you with an updated version of the\r\nDocument.\r\n\r\n\r\n4. MODIFICATIONS\r\n\r\nYou may copy and distribute a Modified Version of the Document under\r\nthe conditions of sections 2 and 3 above, provided that you release\r\nthe Modified Version under precisely this License, with the Modified\r\nVersion filling the role of the Document, thus licensing distribution\r\nand modification of the Modified Version to whoever possesses a copy\r\nof it.  In addition, you must do these things in the Modified Version:\r\n\r\nA. Use in the Title Page (and on the covers, if any) a title distinct\r\n   from that of the Document, and from those of previous versions\r\n   (which should, if there were any, be listed in the History section\r\n   of the Document).  You may use the same title as a previous version\r\n   if the original publisher of that version gives permission.\r\nB. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal authors of the\r\n   Document (all of its principal authors, if it has fewer than five),\r\n   unless they release you from this requirement.\r\nC. State on the Title page the name of the publisher of the\r\n   Modified Version, as the publisher.\r\nD. Preserve all the copyright notices of the Document.\r\nE. Add an appropriate copyright notice for your modifications\r\n   adjacent to the other copyright notices.\r\nF. Include, immediately after the copyright notices, a license notice\r\n   giving the public permission to use the Modified Version under the\r\n   terms of this License, in the form shown in the Addendum below.\r\nG. Preserve in that license notice the full lists of Invariant Sections\r\n   and required Cover Texts given in the Document's license notice.\r\nH. Include an unaltered copy of this License.\r\nI. Preserve the section Entitled \"History\", Preserve its Title, and add\r\n   to it an item stating at least the title, year, new authors, and\r\n   publisher of the Modified Version as given on the Title Page.  If\r\n   there is no section Entitled \"History\" in the Document, create one\r\n   stating the title, year, authors, and publisher of the Document as\r\n   given on its Title Page, then add an item describing the Modified\r\n   Version as stated in the previous sentence.\r\nJ. Preserve the network location, if any, given in the Document for\r\n   public access to a Transparent copy of the Document, and likewise\r\n   the network locations given in the Document for previous versions\r\n   it was based on.  These may be placed in the \"History\" section.\r\n   You may omit a network location for a work that was published at\r\n   least four years before the Document itself, or if the original\r\n   publisher of the version it refers to gives permission.\r\nK. For any section Entitled \"Acknowledgements\" or \"Dedications\",\r\n   Preserve the Title of the section, and preserve in the section all\r\n   the substance and tone of each of the contributor acknowledgements\r\n   and/or dedications given therein.\r\nL. Preserve all the Invariant Sections of the Document,\r\n   unaltered in their text and in their titles.  Section numbers\r\n   or the equivalent are not considered part of the section titles.\r\nM. Delete any section Entitled \"Endorsements\".  Such a section\r\n   may not be included in the Modified Version.\r\nN. Do not retitle any existing section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section.\r\nO. Preserve any Warranty Disclaimers.\r\n\r\nIf the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary Sections and contain no material\r\ncopied from the Document, you may at your option designate some or all\r\nof these sections as invariant.  To do this, add their titles to the\r\nlist of Invariant Sections in the Modified Version's license notice.\r\nThese titles must be distinct from any other section titles.\r\n\r\nYou may add a section Entitled \"Endorsements\", provided it contains\r\nnothing but endorsements of your Modified Version by various\r\nparties--for example, statements of peer review or that the text has\r\nbeen approved by an organization as the authoritative definition of a\r\nstandard.\r\n\r\nYou may add a passage of up to five words as a Front-Cover Text, and a\r\npassage of up to 25 words as a Back-Cover Text, to the end of the list\r\nof Cover Texts in the Modified Version.  Only one passage of\r\nFront-Cover Text and one of Back-Cover Text may be added by (or\r\nthrough arrangements made by) any one entity.  If the Document already\r\nincludes a cover text for the same cover, previously added by you or\r\nby arrangement made by the same entity you are acting on behalf of,\r\nyou may not add another; but you may replace the old one, on explicit\r\npermission from the previous publisher that added the old one.\r\n\r\nThe author(s) and publisher(s) of the Document do not by this License\r\ngive permission to use their names for publicity for or to assert or\r\nimply endorsement of any Modified Version.\r\n\r\n\r\n5. COMBINING DOCUMENTS\r\n\r\nYou may combine the Document with other documents released under this\r\nLicense, under the terms defined in section 4 above for modified\r\nversions, provided that you include in the combination all of the\r\nInvariant Sections of all of the original documents, unmodified, and\r\nlist them all as Invariant Sections of your combined work in its\r\nlicense notice, and that you preserve all their Warranty Disclaimers.\r\n\r\nThe combined work need only contain one copy of this License, and\r\nmultiple identical Invariant Sections may be replaced with a single\r\ncopy.  If there are multiple Invariant Sections with the same name but\r\ndifferent contents, make the title of each such section unique by\r\nadding at the end of it, in parentheses, the name of the original\r\nauthor or publisher of that section if known, or else a unique number.\r\nMake the same adjustment to the section titles in the list of\r\nInvariant Sections in the license notice of the combined work.\r\n\r\nIn the combination, you must combine any sections Entitled \"History\"\r\nin the various original documents, forming one section Entitled\r\n\"History\"; likewise combine any sections Entitled \"Acknowledgements\",\r\nand any sections Entitled \"Dedications\".  You must delete all sections\r\nEntitled \"Endorsements\".\r\n\r\n\r\n6. COLLECTIONS OF DOCUMENTS\r\n\r\nYou may make a collection consisting of the Document and other\r\ndocuments released under this License, and replace the individual\r\ncopies of this License in the various documents with a single copy\r\nthat is included in the collection, provided that you follow the rules\r\nof this License for verbatim copying of each of the documents in all\r\nother respects.\r\n\r\nYou may extract a single document from such a collection, and\r\ndistribute it individually under this License, provided you insert a\r\ncopy of this License into the extracted document, and follow this\r\nLicense in all other respects regarding verbatim copying of that\r\ndocument.\r\n\r\n\r\n7. AGGREGATION WITH INDEPENDENT WORKS\r\n\r\nA compilation of the Document or its derivatives with other separate\r\nand independent documents or works, in or on a volume of a storage or\r\ndistribution medium, is called an \"aggregate\" if the copyright\r\nresulting from the compilation is not used to limit the legal rights\r\nof the compilation's users beyond what the individual works permit.\r\nWhen the Document is included in an aggregate, this License does not\r\napply to the other works in the aggregate which are not themselves\r\nderivative works of the Document.\r\n\r\nIf the Cover Text requirement of section 3 is applicable to these\r\ncopies of the Document, then if the Document is less than one half of\r\nthe entire aggregate, the Document's Cover Texts may be placed on\r\ncovers that bracket the Document within the aggregate, or the\r\nelectronic equivalent of covers if the Document is in electronic form.\r\nOtherwise they must appear on printed covers that bracket the whole\r\naggregate.\r\n\r\n\r\n8. TRANSLATION\r\n\r\nTranslation is considered a kind of modification, so you may\r\ndistribute translations of the Document under the terms of section 4.\r\nReplacing Invariant Sections with translations requires special\r\npermission from their copyright holders, but you may include\r\ntranslations of some or all Invariant Sections in addition to the\r\noriginal versions of these Invariant Sections.  You may include a\r\ntranslation of this License, and all the license notices in the\r\nDocument, and any Warranty Disclaimers, provided that you also include\r\nthe original English version of this License and the original versions\r\nof those notices and disclaimers.  In case of a disagreement between\r\nthe translation and the original version of this License or a notice\r\nor disclaimer, the original version will prevail.\r\n\r\nIf a section in the Document is Entitled \"Acknowledgements\",\r\n\"Dedications\", or \"History\", the requirement (section 4) to Preserve\r\nits Title (section 1) will typically require changing the actual\r\ntitle.\r\n\r\n\r\n9. TERMINATION\r\n\r\nYou may not copy, modify, sublicense, or distribute the Document\r\nexcept as expressly provided under this License.  Any attempt\r\notherwise to copy, modify, sublicense, or distribute it is void, and\r\nwill automatically terminate your rights under this License.\r\n\r\nHowever, if you cease all violation of this License, then your license\r\nfrom a particular copyright holder is reinstated (a) provisionally,\r\nunless and until the copyright holder explicitly and finally\r\nterminates your license, and (b) permanently, if the copyright holder\r\nfails to notify you of the violation by some reasonable means prior to\r\n60 days after the cessation.\r\n\r\nMoreover, your license from a particular copyright holder is\r\nreinstated permanently if the copyright holder notifies you of the\r\nviolation by some reasonable means, this is the first time you have\r\nreceived notice of violation of this License (for any work) from that\r\ncopyright holder, and you cure the violation prior to 30 days after\r\nyour receipt of the notice.\r\n\r\nTermination of your rights under this section does not terminate the\r\nlicenses of parties who have received copies or rights from you under\r\nthis License.  If your rights have been terminated and not permanently\r\nreinstated, receipt of a copy of some or all of the same material does\r\nnot give you any rights to use it.\r\n\r\n\r\n10. FUTURE REVISIONS OF THIS LICENSE\r\n\r\nThe Free Software Foundation may publish new, revised versions of the\r\nGNU Free Documentation License from time to time.  Such new versions\r\nwill be similar in spirit to the present version, but may differ in\r\ndetail to address new problems or concerns.  See\r\nhttps://www.gnu.org/licenses/.\r\n\r\nEach version of the License is given a distinguishing version number.\r\nIf the Document specifies that a particular numbered version of this\r\nLicense \"or any later version\" applies to it, you have the option of\r\nfollowing the terms and conditions either of that specified version or\r\nof any later version that has been published (not as a draft) by the\r\nFree Software Foundation.  If the Document does not specify a version\r\nnumber of this License, you may choose any version ever published (not\r\nas a draft) by the Free Software Foundation.  If the Document\r\nspecifies that a proxy can decide which future versions of this\r\nLicense can be used, that proxy's public statement of acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to edit those works.  A\r\npublic wiki that anybody can edit is an example of such a server.  A\r\n\"Massive Multiauthor Collaboration\" (or \"MMC\") contained in the site\r\nmeans any set of copyrightable works thus published on the MMC site.\r\n\r\n\"CC-BY-SA\" means the Creative Commons Attribution-Share Alike 3.0\r\nlicense published by Creative Commons Corporation, a not-for-profit\r\ncorporation with a principal place of business in San Francisco,\r\nCalifornia, as well as future copyleft versions of that license\r\npublished by that same organization.\r\n\r\n\"Incorporate\" means to publish or republish a Document, in whole or in\r\npart, as part of another Document.\r\n\r\nAn MMC is \"eligible for relicensing\" if it is licensed under this\r\nLicense, and if all works that were first published under this License\r\nsomewhere other than this MMC, and subsequently incorporated in whole or\r\nin part into the MMC, (1) had no cover texts or invariant sections, and\r\n(2) were thus incorporated prior to November 1, 2008.\r\n\r\nThe operator of an MMC Site may republish an MMC contained in the site\r\nunder CC-BY-SA on the same site at any time before August 1, 2009,\r\nprovided the MMC is eligible for relicensing.\r\n\r\n\r\nADDENDUM: How to use this License for your documents\r\n\r\nTo use this License in a document you have written, include a copy of\r\nthe License in the document and put the following copyright and\r\nlicense notices just after the title page:\r\n\r\n    Copyright (c)  YEAR  YOUR NAME.\r\n    Permission is granted to copy, distribute and/or modify this document\r\n    under the terms of the GNU Free Documentation License, Version 1.3\r\n    or any later version published by the Free Software Foundation;\r\n    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.\r\n    A copy of the license is included in the section entitled \"GNU\r\n    Free Documentation License\".\r\n\r\nIf you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,\r\nreplace the \"with...Texts.\" line with this:\r\n\r\n    with the Invariant Sections being LIST THEIR TITLES, with the\r\n    Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST.\r\n\r\nIf you have Invariant Sections without Cover Texts, or some other\r\ncombination of the three, merge those two alternatives to suit the\r\nsituation.\r\n\r\nIf your document contains nontrivial examples of program code, we\r\nrecommend releasing these examples in parallel under your choice of\r\nfree software license, such as the GNU General Public License,\r\nto permit their use in free software.\r\n"
+  },
+  "processing": {
+    "metadata": {},
+    "processing_stats": {
+      "high_confidence_segments": 63,
+      "informative_segments": 136,
+      "low_confidence_segments": 0,
+      "medium_confidence_segments": 135,
+      "normative_segments": 35,
+      "total_segments": 198,
+      "unknown_segments": 27
+    },
+    "segments": [
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 2,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 2,
+        "text": "GNU Free Documentation License"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 3,
+        "errors": [],
+        "heading": "Version 1.3, 3 November 2008",
+        "section_number": "Version 1.3, 3 November 2008",
+        "start_line": 3,
+        "text": "Version 1.3, 3 November 2008"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 6,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 6,
+        "text": "Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 7,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 7,
+        "text": "<https://fsf.org/>"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 9,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 8,
+        "text": "Everyone is permitted to copy and distribute verbatim copies\nof this license document, but changing it is not allowed."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 11,
+        "errors": [],
+        "heading": "PREAMBLE",
+        "section_number": "0.",
+        "start_line": 11,
+        "text": "0. PREAMBLE"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 14,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 13,
+        "text": "The purpose of this License is to make a manual, textbook, or other\nfunctional and useful document \"free\" in the sense of freedom: to"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 15,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "everyone",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 15,
+        "text": "assure everyone the effective freedom to copy and redistribute it,"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 16,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 16,
+        "text": "with or without modifying it, either commercially or noncommercially."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 17,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 17,
+        "text": "Secondarily, this License preserves for the author and publisher a way"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 18,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": "not",
+          "object": "credit",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 18,
+        "text": "to get credit for their work, while not being considered responsible"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 19,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 19,
+        "text": "for modifications made by others."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 21,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 21,
+        "text": "This License is a kind of \"copyleft\", which means that derivative"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 22,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "must",
+          "negation": null,
+          "object": "document",
+          "subject": "works",
+          "temporal": null
+        },
+        "start_line": 22,
+        "text": "works of the document must themselves be free in the same sense.  It"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 24,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 23,
+        "text": "complements the GNU General Public License, which is a copyleft\nlicense designed for free software."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 31,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 26,
+        "text": "We have designed this License in order to use it for manuals for free\nsoftware, because free software needs free documentation: a free\nprogram should come with manuals providing the same freedoms that the\nsoftware does.  But this License is not limited to software manuals;\nit can be used for any textual work, regardless of subject matter or\nwhether it is published as a printed book.  We recommend this License"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 32,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 32,
+        "text": "principally for works whose purpose is instruction or reference."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 35,
+        "errors": [],
+        "heading": "APPLICABILITY AND DEFINITIONS",
+        "section_number": "1.",
+        "start_line": 35,
+        "text": "1. APPLICABILITY AND DEFINITIONS"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 40,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 37,
+        "text": "This License applies to any manual or other work, in any medium, that\ncontains a notice placed by the copyright holder saying it can be\ndistributed under the terms of this License.  Such a notice grants a\nworld-wide, royalty-free license, unlimited in duration, to use that"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 41,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "conditions",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 41,
+        "text": "work under the conditions stated herein.  The \"Document\", below,"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 43,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 42,
+        "text": "refers to any such manual or work.  Any member of the public is a\nlicensee, and is addressed as \"you\".  You accept the license if you"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 44,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ify or distribute the work in a way requiring permission",
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "work",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 44,
+        "text": "copy, modify or distribute the work in a way requiring permission"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 45,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 45,
+        "text": "under copyright law."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 47,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 47,
+        "text": "A \"Modified Version\" of the Document means any work containing the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 49,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 48,
+        "text": "Document or a portion of it, either copied verbatim, or with\nmodifications and/or translated into another language."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 56,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 51,
+        "text": "A \"Secondary Section\" is a named appendix or a front-matter section of\nthe Document that deals exclusively with the relationship of the\npublishers or authors of the Document to the Document's overall\nsubject (or to related matters) and contains nothing that could fall\ndirectly within that overall subject.  (Thus, if the Document is in\npart a textbook of mathematics, a Secondary Section may not explain"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 59,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 57,
+        "text": "any mathematics.)  The relationship could be a matter of historical\nconnection with the subject or with related matters, or of legal,\ncommercial, philosophical, ethical or political position regarding"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 60,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 60,
+        "text": "them."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 66,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 62,
+        "text": "The \"Invariant Sections\" are certain Secondary Sections whose titles\nare designated, as being those of Invariant Sections, in the notice\nthat says that the Document is released under this License.  If a\nsection does not fit the above definition of Secondary then it is not\nallowed to be designated as Invariant.  The Document may contain zero"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 67,
+        "errors": [],
+        "heading": "Invariant Sections.  If the Document does not identify any Invariant",
+        "section_number": "Invariant Sections.  If the Document does not identify any Invariant",
+        "start_line": 67,
+        "text": "Invariant Sections.  If the Document does not identify any Invariant"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 68,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 68,
+        "text": "Sections then there are none."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 73,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 70,
+        "text": "The \"Cover Texts\" are certain short passages of text that are listed,\nas Front-Cover Texts or Back-Cover Texts, in the notice that says that\nthe Document is released under this License.  A Front-Cover Text may\nbe at most 5 words, and a Back-Cover Text may be at most 25 words."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 80,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 75,
+        "text": "A \"Transparent\" copy of the Document means a machine-readable copy,\nrepresented in a format whose specification is available to the\ngeneral public, that is suitable for revising the document\nstraightforwardly with generic text editors or (for images composed of\npixels) generic paint programs or (for drawings) some widely available\ndrawing editor, and that is suitable for input to text formatters or"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 84,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 81,
+        "text": "for automatic translation to a variety of formats suitable for input\nto text formatters.  A copy made in an otherwise Transparent file\nformat whose markup, or absence of markup, has been arranged to thwart\nor discourage subsequent modification by readers is not Transparent."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 86,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 85,
+        "text": "An image format is not Transparent if used for any substantial amount\nof text.  A copy that is not \"Transparent\" is called \"Opaque\"."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 88,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 88,
+        "text": "Examples of suitable formats for Transparent copies include plain"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 90,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 89,
+        "text": "ASCII without markup, Texinfo input format, LaTeX input format, SGML\nor XML using a publicly available DTD, and standard-conforming simple"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 97,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 91,
+        "text": "HTML, PostScript or PDF designed for human modification.  Examples of\ntransparent image formats include PNG, XCF and JPG.  Opaque formats\ninclude proprietary formats that can be read and edited only by\nproprietary word processors, SGML or XML for which the DTD and/or\nprocessing tools are not generally available, and the\nmachine-generated HTML, PostScript or PDF produced by some word\nprocessors for output purposes only."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 100,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 99,
+        "text": "The \"Title Page\" means, for a printed book, the title page itself,\nplus such following pages as are needed to hold, legibly, the material"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 101,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "page",
+          "subject": "License",
+          "temporal": null
+        },
+        "start_line": 101,
+        "text": "this License requires to appear in the title page.  For works in"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 104,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 102,
+        "text": "formats which do not have any title page as such, \"Title Page\" means\nthe text near the most prominent appearance of the work's title,\npreceding the beginning of the body of the text."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 107,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 106,
+        "text": "The \"publisher\" means any person or entity that distributes copies of\nthe Document to the public."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 112,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 109,
+        "text": "A section \"Entitled XYZ\" means a named subunit of the Document whose\ntitle either is precisely XYZ or contains XYZ in parentheses following\ntext that translates XYZ in another language.  (Here XYZ stands for a\nspecific section name mentioned below, such as \"Acknowledgements\","
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 113,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "Title",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 113,
+        "text": "\"Dedications\", \"Endorsements\", or \"History\".)  To \"Preserve the Title\""
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 115,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 114,
+        "text": "of such a section when you modify the Document means that it remains a\nsection \"Entitled XYZ\" according to this definition."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 118,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 117,
+        "text": "The Document may include Warranty Disclaimers next to the notice which\nstates that this License applies to the Document.  These Warranty"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 119,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 119,
+        "text": "Disclaimers are considered to be included by reference in this"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 122,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 120,
+        "text": "License, but only as regards disclaiming warranties: any other\nimplication that these Warranty Disclaimers may have is void and has\nno effect on the meaning of this License."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 124,
+        "errors": [],
+        "heading": "VERBATIM COPYING",
+        "section_number": "2.",
+        "start_line": 124,
+        "text": "2. VERBATIM COPYING"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 131,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 126,
+        "text": "You may copy and distribute the Document in any medium, either\ncommercially or noncommercially, provided that this License, the\ncopyright notices, and the license notice saying this License applies\nto the Document are reproduced in all copies, and that you add no\nother conditions whatsoever to those of this License.  You may not use\ntechnical measures to obstruct or control the reading or further"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 134,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 132,
+        "text": "copying of the copies you make or distribute.  However, you may accept\ncompensation in exchange for copies.  If you distribute a large enough\nnumber of copies you must also follow the conditions in section 3."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 137,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 136,
+        "text": "You may also lend copies, under the same conditions stated above, and\nyou may publicly display copies."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 140,
+        "errors": [],
+        "heading": "COPYING IN QUANTITY",
+        "section_number": "3.",
+        "start_line": 140,
+        "text": "3. COPYING IN QUANTITY"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 143,
+        "errors": [],
+        "heading": "If you publish printed copies (or copies in media that commonly have",
+        "section_number": "If you publish printed copies (or copies in media that commonly have",
+        "start_line": 142,
+        "text": "If you publish printed copies (or copies in media that commonly have\nprinted covers) of the Document, numbering more than 100, and the"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 144,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "must",
+          "negation": null,
+          "object": "Texts",
+          "subject": "notice",
+          "temporal": null
+        },
+        "start_line": 144,
+        "text": "Document's license notice requires Cover Texts, you must enclose the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 145,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 145,
+        "text": "copies in covers that carry, clearly and legibly, all these Cover"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 146,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 146,
+        "text": "Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 148,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ify\nyou as the publisher of these copies",
+          "confidence": 0.6666666666666666,
+          "modality": "must",
+          "negation": null,
+          "object": "you",
+          "subject": "covers",
+          "temporal": null
+        },
+        "start_line": 147,
+        "text": "the back cover.  Both covers must also clearly and legibly identify\nyou as the publisher of these copies.  The front cover must present"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 150,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 149,
+        "text": "the full title with all words of the title equally prominent and\nvisible.  You may add other material on the covers in addition."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 153,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 151,
+        "text": "Copying with changes limited to the covers, as long as they preserve\nthe title of the Document and satisfy these conditions, can be treated\nas verbatim copying in other respects."
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 155,
+        "errors": [],
+        "heading": "If the required texts for either cover are too voluminous to fit",
+        "section_number": "If the required texts for either cover are too voluminous to fit",
+        "semantic_anchors": {
+          "condition": "If the required texts for either cover are too voluminous to fit",
+          "confidence": 0.6666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "cover",
+          "subject": "texts",
+          "temporal": "If"
+        },
+        "start_line": 155,
+        "text": "If the required texts for either cover are too voluminous to fit"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 157,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 156,
+        "text": "legibly, you should put the first ones listed (as many as fit\nreasonably) on the actual cover, and continue the rest onto adjacent"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 158,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 158,
+        "text": "pages."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 160,
+        "errors": [],
+        "heading": "If you publish or distribute Opaque copies of the Document numbering",
+        "section_number": "If you publish or distribute Opaque copies of the Document numbering",
+        "start_line": 160,
+        "text": "If you publish or distribute Opaque copies of the Document numbering"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 162,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "must",
+          "negation": null,
+          "object": "copy",
+          "subject": "you",
+          "temporal": null
+        },
+        "start_line": 161,
+        "text": "more than 100, you must either include a machine-readable Transparent\ncopy along with each Opaque copy, or state in or with each Opaque copy"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 165,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 163,
+        "text": "a computer-network location from which the general network-using\npublic has access to download using public-standard network protocols\na complete Transparent copy of the Document, free of added material."
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 168,
+        "errors": [],
+        "heading": "If you use the latter option, you must take reasonably prudent steps,",
+        "section_number": "If you use the latter option, you must take reasonably prudent steps,",
+        "semantic_anchors": {
+          "condition": "when you begin distribution of Opaque copies in quantity",
+          "confidence": 0.8333333333333334,
+          "modality": "must",
+          "negation": null,
+          "object": "option",
+          "subject": "you",
+          "temporal": "If"
+        },
+        "start_line": 166,
+        "text": "If you use the latter option, you must take reasonably prudent steps,\nwhen you begin distribution of Opaque copies in quantity, to ensure\nthat this Transparent copy will remain thus accessible at the stated"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 169,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 169,
+        "text": "location until at least one year after the last time you distribute an"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 170,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 170,
+        "text": "Opaque copy (directly or through your agents or retailers) of that"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 171,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 171,
+        "text": "edition to the public."
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 173,
+        "errors": [],
+        "heading": "It is requested, but not required, that you contact the authors of the",
+        "section_number": "It is requested, but not required, that you contact the authors of the",
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": null,
+          "negation": "not",
+          "object": "authors",
+          "subject": "It",
+          "temporal": null
+        },
+        "start_line": 173,
+        "text": "It is requested, but not required, that you contact the authors of the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 174,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 174,
+        "text": "Document well before redistributing any large number of copies, to"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 175,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "chance",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 175,
+        "text": "give them a chance to provide you with an updated version of the"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 176,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 176,
+        "text": "Document."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 179,
+        "errors": [],
+        "heading": "MODIFICATIONS",
+        "section_number": "4.",
+        "start_line": 179,
+        "text": "4. MODIFICATIONS"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 183,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 181,
+        "text": "You may copy and distribute a Modified Version of the Document under\nthe conditions of sections 2 and 3 above, provided that you release\nthe Modified Version under precisely this License, with the Modified"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 185,
+        "errors": [],
+        "heading": "Version filling the role of the Document, thus licensing distribution",
+        "section_number": "Version filling the role of the Document, thus licensing distribution",
+        "start_line": 184,
+        "text": "Version filling the role of the Document, thus licensing distribution\nand modification of the Modified Version to whoever possesses a copy"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 186,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ified Version:",
+          "confidence": 0.6666666666666666,
+          "modality": "must",
+          "negation": null,
+          "object": "it",
+          "subject": "you",
+          "temporal": null
+        },
+        "start_line": 186,
+        "text": "of it.  In addition, you must do these things in the Modified Version:"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 189,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 188,
+        "text": "A. Use in the Title Page (and on the covers, if any) a title distinct\nfrom that of the Document, and from those of previous versions"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 192,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 190,
+        "text": "(which should, if there were any, be listed in the History section\nof the Document).  You may use the same title as a previous version\nif the original publisher of that version gives permission."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 194,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 193,
+        "text": "B. List on the Title Page, as authors, one or more persons or entities\nresponsible for authorship of the modifications in the Modified"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 195,
+        "errors": [],
+        "heading": "Version, together with at least five of the principal authors of the",
+        "section_number": "Version, together with at least five of the principal authors of the",
+        "start_line": 195,
+        "text": "Version, together with at least five of the principal authors of the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 197,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 196,
+        "text": "Document (all of its principal authors, if it has fewer than five),\nunless they release you from this requirement."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 198,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 198,
+        "text": "C. State on the Title page the name of the publisher of the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 199,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 199,
+        "text": "Modified Version, as the publisher."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 200,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 200,
+        "text": "D. Preserve all the copyright notices of the Document."
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 201,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ifications",
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "notice",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 201,
+        "text": "E. Add an appropriate copyright notice for your modifications"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 202,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 202,
+        "text": "adjacent to the other copyright notices."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 205,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 203,
+        "text": "F. Include, immediately after the copyright notices, a license notice\ngiving the public permission to use the Modified Version under the\nterms of this License, in the form shown in the Addendum below."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 206,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 206,
+        "text": "G. Preserve in that license notice the full lists of Invariant Sections"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 207,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "Texts",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 207,
+        "text": "and required Cover Texts given in the Document's license notice."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 208,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 208,
+        "text": "H. Include an unaltered copy of this License."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 214,
+        "errors": [],
+        "heading": "I. Preserve the section Entitled \"History\", Preserve its Title, and add",
+        "section_number": "I. Preserve the section Entitled \"History\", Preserve its Title, and add",
+        "start_line": 209,
+        "text": "I. Preserve the section Entitled \"History\", Preserve its Title, and add\nto it an item stating at least the title, year, new authors, and\npublisher of the Modified Version as given on the Title Page.  If\nthere is no section Entitled \"History\" in the Document, create one\nstating the title, year, authors, and publisher of the Document as\ngiven on its Title Page, then add an item describing the Modified"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 215,
+        "errors": [],
+        "heading": "Version as stated in the previous sentence.",
+        "section_number": "Version as stated in the previous sentence.",
+        "start_line": 215,
+        "text": "Version as stated in the previous sentence."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 219,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 216,
+        "text": "J. Preserve the network location, if any, given in the Document for\npublic access to a Transparent copy of the Document, and likewise\nthe network locations given in the Document for previous versions\nit was based on.  These may be placed in the \"History\" section."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 222,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 220,
+        "text": "You may omit a network location for a work that was published at\nleast four years before the Document itself, or if the original\npublisher of the version it refers to gives permission."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 223,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 223,
+        "text": "K. For any section Entitled \"Acknowledgements\" or \"Dedications\","
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 225,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 224,
+        "text": "Preserve the Title of the section, and preserve in the section all\nthe substance and tone of each of the contributor acknowledgements"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 226,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 226,
+        "text": "and/or dedications given therein."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 229,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 227,
+        "text": "L. Preserve all the Invariant Sections of the Document,\nunaltered in their text and in their titles.  Section numbers\nor the equivalent are not considered part of the section titles."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 231,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 230,
+        "text": "M. Delete any section Entitled \"Endorsements\".  Such a section\nmay not be included in the Modified Version."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 233,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 232,
+        "text": "N. Do not retitle any existing section to be Entitled \"Endorsements\"\nor to conflict in title with any Invariant Section."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 234,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 234,
+        "text": "O. Preserve any Warranty Disclaimers."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 240,
+        "errors": [],
+        "heading": "If the Modified Version includes new front-matter sections or",
+        "section_number": "If the Modified Version includes new front-matter sections or",
+        "start_line": 236,
+        "text": "If the Modified Version includes new front-matter sections or\nappendices that qualify as Secondary Sections and contain no material\ncopied from the Document, you may at your option designate some or all\nof these sections as invariant.  To do this, add their titles to the\nlist of Invariant Sections in the Modified Version's license notice."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 241,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 241,
+        "text": "These titles must be distinct from any other section titles."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 246,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 243,
+        "text": "You may add a section Entitled \"Endorsements\", provided it contains\nnothing but endorsements of your Modified Version by various\nparties--for example, statements of peer review or that the text has\nbeen approved by an organization as the authoritative definition of a"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 247,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 247,
+        "text": "standard."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 251,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 249,
+        "text": "You may add a passage of up to five words as a Front-Cover Text, and a\npassage of up to 25 words as a Back-Cover Text, to the end of the list\nof Cover Texts in the Modified Version.  Only one passage of"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 256,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 252,
+        "text": "Front-Cover Text and one of Back-Cover Text may be added by (or\nthrough arrangements made by) any one entity.  If the Document already\nincludes a cover text for the same cover, previously added by you or\nby arrangement made by the same entity you are acting on behalf of,\nyou may not add another; but you may replace the old one, on explicit"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 257,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 257,
+        "text": "permission from the previous publisher that added the old one."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 259,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 259,
+        "text": "The author(s) and publisher(s) of the Document do not by this License"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 260,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "permission",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 260,
+        "text": "give permission to use their names for publicity for or to assert or"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 261,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 261,
+        "text": "imply endorsement of any Modified Version."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 264,
+        "errors": [],
+        "heading": "COMBINING DOCUMENTS",
+        "section_number": "5.",
+        "start_line": 264,
+        "text": "5. COMBINING DOCUMENTS"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 266,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 266,
+        "text": "You may combine the Document with other documents released under this"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 268,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 267,
+        "text": "License, under the terms defined in section 4 above for modified\nversions, provided that you include in the combination all of the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 269,
+        "errors": [],
+        "heading": "Invariant Sections of all of the original documents, unmodified, and",
+        "section_number": "Invariant Sections of all of the original documents, unmodified, and",
+        "start_line": 269,
+        "text": "Invariant Sections of all of the original documents, unmodified, and"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 270,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "them",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 270,
+        "text": "list them all as Invariant Sections of your combined work in its"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 271,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 271,
+        "text": "license notice, and that you preserve all their Warranty Disclaimers."
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 273,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "copy",
+          "subject": "work",
+          "temporal": null
+        },
+        "start_line": 273,
+        "text": "The combined work need only contain one copy of this License, and"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 274,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 274,
+        "text": "multiple identical Invariant Sections may be replaced with a single"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 275,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "If there are multiple Invariant Sections with the same name but",
+          "confidence": 0.5,
+          "modality": null,
+          "negation": null,
+          "object": "name",
+          "subject": null,
+          "temporal": "If"
+        },
+        "start_line": 275,
+        "text": "copy.  If there are multiple Invariant Sections with the same name but"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 278,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 276,
+        "text": "different contents, make the title of each such section unique by\nadding at the end of it, in parentheses, the name of the original\nauthor or publisher of that section if known, or else a unique number."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 279,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 279,
+        "text": "Make the same adjustment to the section titles in the list of"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 280,
+        "errors": [],
+        "heading": "Invariant Sections in the license notice of the combined work.",
+        "section_number": "Invariant Sections in the license notice of the combined work.",
+        "start_line": 280,
+        "text": "Invariant Sections in the license notice of the combined work."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 285,
+        "errors": [],
+        "heading": "In the combination, you must combine any sections Entitled \"History\"",
+        "section_number": "In the combination, you must combine any sections Entitled \"History\"",
+        "start_line": 282,
+        "text": "In the combination, you must combine any sections Entitled \"History\"\nin the various original documents, forming one section Entitled\n\"History\"; likewise combine any sections Entitled \"Acknowledgements\",\nand any sections Entitled \"Dedications\".  You must delete all sections"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 286,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 286,
+        "text": "Entitled \"Endorsements\"."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 289,
+        "errors": [],
+        "heading": "COLLECTIONS OF DOCUMENTS",
+        "section_number": "6.",
+        "start_line": 289,
+        "text": "6. COLLECTIONS OF DOCUMENTS"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 295,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 291,
+        "text": "You may make a collection consisting of the Document and other\ndocuments released under this License, and replace the individual\ncopies of this License in the various documents with a single copy\nthat is included in the collection, provided that you follow the rules\nof this License for verbatim copying of each of the documents in all"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 296,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 296,
+        "text": "other respects."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 298,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 298,
+        "text": "You may extract a single document from such a collection, and"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 299,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "it",
+          "subject": "you",
+          "temporal": null
+        },
+        "start_line": 299,
+        "text": "distribute it individually under this License, provided you insert a"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 300,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 300,
+        "text": "copy of this License into the extracted document, and follow this"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 301,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 301,
+        "text": "License in all other respects regarding verbatim copying of that"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 302,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 302,
+        "text": "document."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 305,
+        "errors": [],
+        "heading": "AGGREGATION WITH INDEPENDENT WORKS",
+        "section_number": "7.",
+        "start_line": 305,
+        "text": "7. AGGREGATION WITH INDEPENDENT WORKS"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 311,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 307,
+        "text": "A compilation of the Document or its derivatives with other separate\nand independent documents or works, in or on a volume of a storage or\ndistribution medium, is called an \"aggregate\" if the copyright\nresulting from the compilation is not used to limit the legal rights\nof the compilation's users beyond what the individual works permit."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 312,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 312,
+        "text": "When the Document is included in an aggregate, this License does not"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 313,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": null,
+          "negation": "not",
+          "object": "works",
+          "subject": "which",
+          "temporal": null
+        },
+        "start_line": 313,
+        "text": "apply to the other works in the aggregate which are not themselves"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 314,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 314,
+        "text": "derivative works of the Document."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 320,
+        "errors": [],
+        "heading": "If the Cover Text requirement of section 3 is applicable to these",
+        "section_number": "If the Cover Text requirement of section 3 is applicable to these",
+        "start_line": 316,
+        "text": "If the Cover Text requirement of section 3 is applicable to these\ncopies of the Document, then if the Document is less than one half of\nthe entire aggregate, the Document's Cover Texts may be placed on\ncovers that bracket the Document within the aggregate, or the\nelectronic equivalent of covers if the Document is in electronic form."
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 322,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.5,
+          "modality": "must",
+          "negation": null,
+          "object": "covers",
+          "subject": "they",
+          "temporal": null
+        },
+        "start_line": 321,
+        "text": "Otherwise they must appear on printed covers that bracket the whole\naggregate."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 325,
+        "errors": [],
+        "heading": "TRANSLATION",
+        "section_number": "8.",
+        "start_line": 325,
+        "text": "8. TRANSLATION"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 328,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 327,
+        "text": "Translation is considered a kind of modification, so you may\ndistribute translations of the Document under the terms of section 4."
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 329,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "Sections",
+          "subject": "Replacing",
+          "temporal": null
+        },
+        "start_line": 329,
+        "text": "Replacing Invariant Sections with translations requires special"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 333,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 330,
+        "text": "permission from their copyright holders, but you may include\ntranslations of some or all Invariant Sections in addition to the\noriginal versions of these Invariant Sections.  You may include a\ntranslation of this License, and all the license notices in the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 337,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 334,
+        "text": "Document, and any Warranty Disclaimers, provided that you also include\nthe original English version of this License and the original versions\nof those notices and disclaimers.  In case of a disagreement between\nthe translation and the original version of this License or a notice"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 338,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": "will",
+          "negation": null,
+          "object": null,
+          "subject": "version",
+          "temporal": null
+        },
+        "start_line": 338,
+        "text": "or disclaimer, the original version will prevail."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 342,
+        "errors": [],
+        "heading": "If a section in the Document is Entitled \"Acknowledgements\",",
+        "section_number": "If a section in the Document is Entitled \"Acknowledgements\",",
+        "start_line": 340,
+        "text": "If a section in the Document is Entitled \"Acknowledgements\",\n\"Dedications\", or \"History\", the requirement (section 4) to Preserve\nits Title (section 1) will typically require changing the actual"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 343,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 343,
+        "text": "title."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 346,
+        "errors": [],
+        "heading": "TERMINATION",
+        "section_number": "9.",
+        "start_line": 346,
+        "text": "9. TERMINATION"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 349,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 348,
+        "text": "You may not copy, modify, sublicense, or distribute the Document\nexcept as expressly provided under this License.  Any attempt"
+      },
+      {
+        "confidence": 0.95,
+        "element_type": "normative",
+        "end_line": 351,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ify",
+          "confidence": 0.6666666666666666,
+          "modality": "will",
+          "negation": null,
+          "object": "rights",
+          "subject": "it",
+          "temporal": null
+        },
+        "start_line": 350,
+        "text": "otherwise to copy, modify, sublicense, or distribute it is void, and\nwill automatically terminate your rights under this License."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 357,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 353,
+        "text": "However, if you cease all violation of this License, then your license\nfrom a particular copyright holder is reinstated (a) provisionally,\nunless and until the copyright holder explicitly and finally\nterminates your license, and (b) permanently, if the copyright holder\nfails to notify you of the violation by some reasonable means prior to"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 358,
+        "errors": [],
+        "heading": "days after the cessation.",
+        "section_number": "60",
+        "start_line": 358,
+        "text": "60 days after the cessation."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 365,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 360,
+        "text": "Moreover, your license from a particular copyright holder is\nreinstated permanently if the copyright holder notifies you of the\nviolation by some reasonable means, this is the first time you have\nreceived notice of violation of this License (for any work) from that\ncopyright holder, and you cure the violation prior to 30 days after\nyour receipt of the notice."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 370,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 367,
+        "text": "Termination of your rights under this section does not terminate the\nlicenses of parties who have received copies or rights from you under\nthis License.  If your rights have been terminated and not permanently\nreinstated, receipt of a copy of some or all of the same material does"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 371,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": "not",
+          "object": "rights",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 371,
+        "text": "not give you any rights to use it."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 374,
+        "errors": [],
+        "heading": "FUTURE REVISIONS OF THIS LICENSE",
+        "section_number": "10.",
+        "start_line": 374,
+        "text": "10. FUTURE REVISIONS OF THIS LICENSE"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 376,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 376,
+        "text": "The Free Software Foundation may publish new, revised versions of the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 377,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 377,
+        "text": "GNU Free Documentation License from time to time.  Such new versions"
+      },
+      {
+        "confidence": 0.85,
+        "element_type": "normative",
+        "end_line": 378,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "iffer in",
+          "confidence": 0.5,
+          "modality": "will",
+          "negation": null,
+          "object": "spirit",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 378,
+        "text": "will be similar in spirit to the present version, but may differ in"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 379,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 379,
+        "text": "detail to address new problems or concerns.  See"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 380,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 380,
+        "text": "https://www.gnu.org/licenses/."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 382,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 382,
+        "text": "Each version of the License is given a distinguishing version number."
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 383,
+        "errors": [],
+        "heading": "If the Document specifies that a particular numbered version of this",
+        "section_number": "If the Document specifies that a particular numbered version of this",
+        "semantic_anchors": {
+          "condition": "If the Document specifies that a particular numbered version of this",
+          "confidence": 0.6666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "version",
+          "subject": "Document",
+          "temporal": "If"
+        },
+        "start_line": 383,
+        "text": "If the Document specifies that a particular numbered version of this"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 384,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 384,
+        "text": "License \"or any later version\" applies to it, you have the option of"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 385,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "ified version or",
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "terms",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 385,
+        "text": "following the terms and conditions either of that specified version or"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 386,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 386,
+        "text": "of any later version that has been published (not as a draft) by the"
+      },
+      {
+        "confidence": 0.45,
+        "element_type": "normative",
+        "end_line": 387,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": "If the Document does not specify a version",
+          "confidence": 0.8333333333333334,
+          "modality": null,
+          "negation": "not",
+          "object": "version",
+          "subject": "Document",
+          "temporal": "If"
+        },
+        "start_line": 387,
+        "text": "Free Software Foundation.  If the Document does not specify a version"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 390,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 388,
+        "text": "number of this License, you may choose any version ever published (not\nas a draft) by the Free Software Foundation.  If the Document\nspecifies that a proxy can decide which future versions of this"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 392,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 391,
+        "text": "License can be used, that proxy's public statement of acceptance of a\nversion permanently authorizes you to choose that version for the"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 393,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 393,
+        "text": "Document."
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 395,
+        "errors": [],
+        "heading": "RELICENSING",
+        "section_number": "11.",
+        "start_line": 395,
+        "text": "11. RELICENSING"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 397,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 397,
+        "text": "\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 402,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 398,
+        "text": "World Wide Web server that publishes copyrightable works and also\nprovides prominent facilities for anybody to edit those works.  A\npublic wiki that anybody can edit is an example of such a server.  A\n\"Massive Multiauthor Collaboration\" (or \"MMC\") contained in the site\nmeans any set of copyrightable works thus published on the MMC site."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 406,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 404,
+        "text": "\"CC-BY-SA\" means the Creative Commons Attribution-Share Alike 3.0\nlicense published by Creative Commons Corporation, a not-for-profit\ncorporation with a principal place of business in San Francisco,"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 408,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 407,
+        "text": "California, as well as future copyleft versions of that license\npublished by that same organization."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 411,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 410,
+        "text": "\"Incorporate\" means to publish or republish a Document, in whole or in\npart, as part of another Document."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 413,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 413,
+        "text": "An MMC is \"eligible for relicensing\" if it is licensed under this"
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 416,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 414,
+        "text": "License, and if all works that were first published under this License\nsomewhere other than this MMC, and subsequently incorporated in whole or\nin part into the MMC, (1) had no cover texts or invariant sections, and"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 417,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 417,
+        "text": "(2) were thus incorporated prior to November 1, 2008."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 421,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 419,
+        "text": "The operator of an MMC Site may republish an MMC contained in the site\nunder CC-BY-SA on the same site at any time before August 1, 2009,\nprovided the MMC is eligible for relicensing."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 424,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 424,
+        "text": "ADDENDUM: How to use this License for your documents"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 426,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.3333333333333333,
+          "modality": null,
+          "negation": null,
+          "object": "License",
+          "subject": "you",
+          "temporal": null
+        },
+        "start_line": 426,
+        "text": "To use this License in a document you have written, include a copy of"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 428,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 427,
+        "text": "the License in the document and put the following copyright and\nlicense notices just after the title page:"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 430,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 430,
+        "text": "Copyright (c)  YEAR  YOUR NAME."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 434,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 431,
+        "text": "Permission is granted to copy, distribute and/or modify this document\nunder the terms of the GNU Free Documentation License, Version 1.3\nor any later version published by the Free Software Foundation;\nwith no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 435,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 435,
+        "text": "A copy of the license is included in the section entitled \"GNU"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 436,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 436,
+        "text": "Free Documentation License\"."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 438,
+        "errors": [],
+        "heading": "If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,",
+        "section_number": "If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,",
+        "start_line": 438,
+        "text": "If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 439,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "Texts",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 439,
+        "text": "replace the \"with...Texts.\" line with this:"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 441,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 441,
+        "text": "with the Invariant Sections being LIST THEIR TITLES, with the"
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 442,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 442,
+        "text": "Front-Cover Texts being LIST, and with the Back-Cover Texts being LIST."
+      },
+      {
+        "confidence": 0.6,
+        "element_type": "informative",
+        "end_line": 445,
+        "errors": [],
+        "heading": "If you have Invariant Sections without Cover Texts, or some other",
+        "section_number": "If you have Invariant Sections without Cover Texts, or some other",
+        "start_line": 444,
+        "text": "If you have Invariant Sections without Cover Texts, or some other\ncombination of the three, merge those two alternatives to suit the"
+      },
+      {
+        "confidence": 0.4,
+        "element_type": "unknown",
+        "end_line": 446,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "start_line": 446,
+        "text": "situation."
+      },
+      {
+        "confidence": 0.9,
+        "element_type": "informative",
+        "end_line": 450,
+        "errors": [],
+        "heading": "If your document contains nontrivial examples of program code, we",
+        "section_number": "If your document contains nontrivial examples of program code, we",
+        "start_line": 448,
+        "text": "If your document contains nontrivial examples of program code, we\nrecommend releasing these examples in parallel under your choice of\nfree software license, such as the GNU General Public License,"
+      },
+      {
+        "confidence": 0.75,
+        "element_type": "normative",
+        "end_line": 451,
+        "errors": [],
+        "heading": null,
+        "section_number": null,
+        "semantic_anchors": {
+          "condition": null,
+          "confidence": 0.16666666666666666,
+          "modality": null,
+          "negation": null,
+          "object": "use",
+          "subject": null,
+          "temporal": null
+        },
+        "start_line": 451,
+        "text": "to permit their use in free software."
+      }
+    ],
+    "success": true
+  },
+  "semantic": {
+    "avg_confidence": 0.7106666666666668,
+    "profiles": [
+      {
+        "condition": "the Document is in\npart a textbook of mathematics",
+        "confidence": 0.72,
+        "modality": "may not",
+        "negation": "not",
+        "object": "explain",
+        "original_sentence": "A \"Secondary Section\" is a named appendix or a front-matter section of\nthe Document that deals exclusively with the relationship of the\npublishers or authors of the Document to the Document's overall\nsubject (or to related matters) and contains nothing that could fall\ndirectly within that overall subject.  (Thus, if the Document is in\npart a textbook of mathematics, a Secondary Section may not explain",
+        "subject": "Document",
+        "temporal": null
+      },
+      {
+        "condition": "a\nsection does not fit the above definition of Secondary then it is not\nallowed to be designated as Invariant",
+        "confidence": 0.7166666666666667,
+        "modality": "may",
+        "negation": "not",
+        "object": "contain zero",
+        "original_sentence": "The \"Invariant Sections\" are certain Secondary Sections whose titles\nare designated, as being those of Invariant Sections, in the notice\nthat says that the Document is released under this License.  If a\nsection does not fit the above definition of Secondary then it is not\nallowed to be designated as Invariant.  The Document may contain zero",
+        "subject": "it",
+        "temporal": "then"
+      },
+      {
+        "condition": "you distribute a large enough\nnumber of copies you must also follow the conditions in section 3",
+        "confidence": 0.7,
+        "modality": "may",
+        "negation": null,
+        "object": "or distribute",
+        "original_sentence": "copying of the copies you make or distribute.  However, you may accept\ncompensation in exchange for copies.  If you distribute a large enough\nnumber of copies you must also follow the conditions in section 3.",
+        "subject": "you",
+        "temporal": null
+      },
+      {
+        "condition": "you use the latter option",
+        "confidence": 0.7,
+        "modality": "must",
+        "negation": null,
+        "object": "take reasonably prudent steps",
+        "original_sentence": "If you use the latter option, you must take reasonably prudent steps,\nwhen you begin distribution of Opaque copies in quantity, to ensure\nthat this Transparent copy will remain thus accessible at the stated",
+        "subject": "you",
+        "temporal": "the stated"
+      },
+      {
+        "condition": "the Document already\nincludes a cover text for the same cover",
+        "confidence": 0.7166666666666667,
+        "modality": "may",
+        "negation": "not",
+        "object": "add another",
+        "original_sentence": "Front-Cover Text and one of Back-Cover Text may be added by (or\nthrough arrangements made by) any one entity.  If the Document already\nincludes a cover text for the same cover, previously added by you or\nby arrangement made by the same entity you are acting on behalf of,\nyou may not add another; but you may replace the old one, on explicit",
+        "subject": "one",
+        "temporal": "already"
+      }
+    ],
+    "success": true,
+    "total_profiles": 5
+  },
+  "analysis": {
+    "contradictions": [
+      {
+        "confidence": 0.9998812675476074,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "If the Document specifies that a particular numbered version of this",
+        "statement_b": "Free Software Foundation.  If the Document does not specify a version"
+      },
+      {
+        "confidence": 0.9996955394744873,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "otherwise to copy, modify, sublicense, or distribute it is void, and\nwill automatically terminate your rights under this License.",
+        "statement_b": "not give you any rights to use it."
+      },
+      {
+        "confidence": 0.9973971843719482,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "E. Add an appropriate copyright notice for your modifications",
+        "statement_b": "list them all as Invariant Sections of your combined work in its"
+      },
+      {
+        "confidence": 0.9958997368812561,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
+        "statement_a": "The combined work need only contain one copy of this License, and",
+        "statement_b": "distribute it individually under this License, provided you insert a"
+      },
+      {
+        "confidence": 0.9882407188415527,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.99)",
+        "statement_a": "following the terms and conditions either of that specified version or",
+        "statement_b": "Free Software Foundation.  If the Document does not specify a version"
+      },
+      {
+        "confidence": 0.9752673506736755,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.98)",
+        "statement_a": "this License requires to appear in the title page.  For works in",
+        "statement_b": "\"Dedications\", \"Endorsements\", or \"History\".)  To \"Preserve the Title\""
+      },
+      {
+        "confidence": 0.9683628678321838,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.97)",
+        "statement_a": "assure everyone the effective freedom to copy and redistribute it,",
+        "statement_b": "copy, modify or distribute the work in a way requiring permission"
+      },
+      {
+        "confidence": 0.9143620729446411,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.91)",
+        "statement_a": "Free Software Foundation.  If the Document does not specify a version",
+        "statement_b": "to permit their use in free software."
+      }
+    ],
+    "s2_findings": [
+      {
+        "category": "Vagueness",
+        "confidence": 0.7,
+        "context": "It is requested, but not required, that you contact the authors of the",
+        "error_type": "Ambiguous Referent",
+        "explanation": "Pronoun \"It\" in a normative statement has an ambiguous referent \u2014 the requirement subject cannot be determined without additional context.",
+        "segment_type": "normative",
+        "severity": "Medium",
+        "text_span": "It is",
+        "uid": "FAIL-007"
+      },
+      {
+        "category": "Vagueness",
+        "confidence": 0.7,
+        "context": "Otherwise they must appear on printed covers that bracket the whole\naggregate.",
+        "error_type": "Ambiguous Referent",
+        "explanation": "Pronoun \"they\" in a normative statement has an ambiguous referent \u2014 the requirement subject cannot be determined without additional context.",
+        "segment_type": "normative",
+        "severity": "Medium",
+        "text_span": "they must",
+        "uid": "FAIL-007"
+      },
+      {
+        "category": "Vagueness",
+        "confidence": 0.7,
+        "context": "otherwise to copy, modify, sublicense, or distribute it is void, and\nwill automatically terminate your rights under this License.",
+        "error_type": "Ambiguous Referent",
+        "explanation": "Pronoun \"it\" in a normative statement has an ambiguous referent \u2014 the requirement subject cannot be determined without additional context.",
+        "segment_type": "normative",
+        "severity": "Medium",
+        "text_span": "it is",
+        "uid": "FAIL-007"
+      }
+    ],
+    "success": true,
+    "terminology": {
+      "defined_terms": [
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... an appropriate copyright notice for your modifications\r\n   adjacent to the other copyright notices. F. Include, immediately after the copyright notices, a license notice\r\n   giving the public permission to use the Modified Version under the\r\n   terms of this License, in the form shown in the Add...",
+          "is_defined": true,
+          "is_undefined_acronym": false,
+          "normalized_term": "addendum",
+          "suggested_definition": "How to use this License for your documents",
+          "term": "ADDENDUM"
+        }
+      ],
+      "statistics": {
+        "avg_confidence": 0.7999999999999998,
+        "common_english_terms": 0,
+        "defined_terms": 1,
+        "definition_coverage": 0.02,
+        "potential_domain_terms": 49,
+        "semantic_clusters_found": 0,
+        "total_terms": 50,
+        "undefined_terms": 49
+      },
+      "term_occurrences": [
+        {
+          "context_excerpt": "... an appropriate copyright notice for your modifications\r\n   adjacent to the other copyright notices. F. Include, immediately after the copyright notices, a license notice\r\n   giving the public permission to use the Modified Version under the\r\n   terms of this License, in the form shown in the Add...",
+          "is_defined": true,
+          "is_undefined_acronym": false,
+          "term": "ADDENDUM"
+        },
+        {
+          "context_excerpt": "We recommend this License\r\nprincipally for works whose purpose is instruction or reference. 1. APPLICABILITY AND DEFINITIONS This License applies to any manual or other work, in any medium, that\r\ncontains a notice placed by t...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "DEFINITIONS"
+        },
+        {
+          "context_excerpt": "...r \"MMC\") contained in the site\r\nmeans any set of copyrightable works thus published on the MMC site. \"CC-BY-SA\" means the Creative Commons Attribution-Share Alike 3.0\r\nlicense published by Creative Commons Corporation, a not-for-profit\r\ncorporation with a principal place of business in San Franci...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CC-BY-SA"
+        },
+        {
+          "context_excerpt": "...exts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License. A Front-Cover Text may\r\nbe at most 5 words, and a Back-Cover Text may be at most 25 words. A \"Transparent\" copy of the Document means a machine-readable copy,\r\nrepresented in a format whose s...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Back-Cover Text"
+        },
+        {
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Free Software Foundation"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Invariant Section."
+        },
+        {
+          "context_excerpt": "If the Document does not identify any Invariant\r\nSections then there are none. The \"Cover Texts\" are certain short passages of text that are listed,\r\nas Front-Cover Texts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License. A Front-Cover Text may\r\nbe at mos...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Front-Cover Texts"
+        },
+        {
+          "context_excerpt": "...exts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License. A Front-Cover Text may\r\nbe at most 5 words, and a Back-Cover Text may be at most 25 words. A \"Transparent\" copy of the Document means a machine-readable copy,\r\nrepresented in a format whose s...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Front-Cover Text"
+        },
+        {
+          "context_excerpt": "D. Preserve all the copyright notices of the Document. E. Add an appropriate copyright notice for your modifications\r\n   adjacent to the other copyright notices. F. Include, immediately after the copyright notices, a license notice\r\n   giving the public permissi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "E. Add"
+        },
+        {
+          "context_excerpt": "...porate\" means to publish or republish a Document, in whole or in\r\npart, as part of another Document. An MMC is \"eligible for relicensing\" if it is licensed under this\r\nLicense, and if all works that were first published under this License\r\nsomewhere other than this MMC, and subsequently incorpora...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "November 1, 2008"
+        },
+        {
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "fewer than five"
+        },
+        {
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "at least five"
+        },
+        {
+          "context_excerpt": "... that the text has\r\nbeen approved by an organization as the authoritative definition of a\r\nstandard. You may add a passage of up to five words as a Front-Cover Text, and a\r\npassage of up to 25 words as a Back-Cover Text, to the end of the list\r\nof Cover Texts in the Modified Version. Only one pas...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "up to five"
+        },
+        {
+          "context_excerpt": "However, you may accept\r\ncompensation in exchange for copies. If you distribute a large enough\r\nnumber of copies you must also follow the conditions in section 3. You may also lend copies, under the same conditions stated above, and\r\nyou may publicly display copi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "section 3"
+        },
+        {
+          "context_excerpt": "... may also lend copies, under the same conditions stated above, and\r\nyou may publicly display copies. 3. COPYING IN QUANTITY\r\n\r\nIf you publish printed copies (or copies in media that commonly have\r\nprinted covers) of the Document, numbering more than 100, and the\r\nDocument's license notice require...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "QUANTITY"
+        },
+        {
+          "context_excerpt": "...opy and distribute verbatim copies\r\n of this license document, but changing it is not allowed.\r\n\r\n0. PREAMBLE The purpose of this License is to make a manual, textbook, or other\r\nfunctional and useful document ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "PREAMBLE"
+        },
+        {
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "LICENSE"
+        },
+        {
+          "context_excerpt": "10. FUTURE REVISIONS OF THIS LICENSE\r\n\r\nThe Free Software Foundation may publish new, revised versions of the\r\nGNU Free Documentation License from time to time. Such new versions\r\nwill be similar in spirit to the present version, but may differ in\r\ndetail to ad...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "FUTURE"
+        },
+        {
+          "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "TITLES"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "ASCII"
+        },
+        {
+          "context_excerpt": "...get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense. It\r\ncomplements the GNU General Public License, which is a copyl...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "WORKS"
+        },
+        {
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "\"MMC"
+        },
+        {
+          "context_excerpt": "...recisely XYZ or contains XYZ in parentheses following\r\ntext that translates XYZ in another language. (Here XYZ stands for a\r\nspecific section name mentioned below, such as \"Acknowledgements\",\r\n\"Dedications\", \"Endorsements\", or \"History\".) To \"Preserve the Title\"\r\nof such a section when you modify...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "NAME"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "HTML"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "SGML"
+        },
+        {
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "LIST"
+        },
+        {
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "XCF"
+        },
+        {
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "GNU"
+        },
+        {
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "PNG"
+        },
+        {
+          "context_excerpt": "...acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to e...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "MMC"
+        },
+        {
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "JPG"
+        },
+        {
+          "context_excerpt": "The \"publisher\" means any person or entity that distributes copies of\r\nthe Document to the public. A section \"Entitled XYZ\" means a named subunit of the Document whose\r\ntitle either is precisely XYZ or contains XYZ in parentheses following\r\ntext that translates XYZ in another language. (Here XYZ sta...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "XYZ"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "XML"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "DTD"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "PDF"
+        },
+        {
+          "context_excerpt": "The Document may contain zero\r\nInvariant Sections. If the Document does not identify any Invariant\r\nSections then there are none. The \"Cover Texts\" are certain short passages of text that are listed,\r\nas Front-Cover Texts or Back-...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Invariant\r\nSections"
+        },
+        {
+          "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Invariant Sections"
+        },
+        {
+          "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Secondary Sections"
+        },
+        {
+          "context_excerpt": "...ense if you\r\ncopy, modify or distribute the work in a way requiring permission\r\nunder copyright law. A \"Modified Version\" of the Document means any work containing the\r\nDocument or a portion of it, either copied verbatim, or with\r\nmodifications and/or translated into another language. A \"Secondar...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Modified Version"
+        },
+        {
+          "context_excerpt": "...had no cover texts or invariant sections, and\r\n(2) were thus incorporated prior to November 1, 2008. The operator of an MMC Site may republish an MMC contained in the site\r\nunder CC-BY-SA on the same site at any time before August 1, 2009,\r\nprovided the MMC is eligible for relicensing. ADDENDUM: ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "August 1, 2009"
+        },
+        {
+          "context_excerpt": "...isting section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section. O. Preserve any Warranty Disclaimers. If the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "O. Preserve"
+        },
+        {
+          "context_excerpt": "...Title Page, then add an item describing the Modified\r\n   Version as stated in the previous sentence. J. Preserve the network location, if any, given in the Document for\r\n   public access to a Transparent copy of the Document, and likewise\r\n   the network locations given in the Document for previo...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "J. Preserve"
+        },
+        {
+          "context_excerpt": "H. Include an unaltered copy of this License. I. Preserve the section Entitled \"History\", Preserve its Title, and add\r\n   to it an item stating at least the title, year, new authors, and\r\n   publisher of the Modified Version as given on the Title Page. If\r\n   there is no section Entitled \"History\" i...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "I. Preserve"
+        },
+        {
+          "context_excerpt": "...ull lists of Invariant Sections\r\n   and required Cover Texts given in the Document's license notice. H. Include an unaltered copy of this License. I. Preserve the section Entitled \"History\", Preserve its Title, and add\r\n   to it an item stating at...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "H. Include"
+        },
+        {
+          "context_excerpt": "Section numbers\r\n   or the equivalent are not considered part of the section titles. M. Delete any section Entitled \"Endorsements\". Such a section\r\n   may not be included in the Modified Version.",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "M. Delete"
+        },
+        {
+          "context_excerpt": "...of some or all Invariant Sections in addition to the\r\noriginal versions of these Invariant Sections. You may include a\r\ntranslation of this License, and all the license notices in the\r\nDocument, and any Warranty Disclaimers, provided that you also include\r\nthe original English version of this Lic...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "English"
+        },
+        {
+          "context_excerpt": "...cument, and follow this\r\nLicense in all other respects regarding verbatim copying of that\r\ndocument. 7. AGGREGATION WITH INDEPENDENT WORKS\r\n\r\nA compilation of the Document or its derivatives with other separate\r\nand ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "7. AGGREGATION"
+        },
+        {
+          "context_excerpt": "... to copy and redistribute it,\r\nwith or without modifying it, either commercially or noncommercially. Secondarily, this License preserves for the author and publisher a way\r\nto get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a ki...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "MODIFICATIONS"
+        },
+        {
+          "context_excerpt": "We recommend this License\r\nprincipally for works whose purpose is instruction or reference. 1. APPLICABILITY AND DEFINITIONS This License applies to any manual or other work, in any medium, that\r\ncontains a notice placed by t...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "APPLICABILITY"
+        },
+        {
+          "context_excerpt": "...substance and tone of each of the contributor acknowledgements\r\n   and/or dedications given therein. L. Preserve all the Invariant Sections of the Document,\r\n   unaltered in their text and in their titles. Section numbers\r\n   or the equivalent are not considered part of the section titles.",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "THEIR TITLES"
+        }
+      ],
+      "undefined_terms": [
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "We recommend this License\r\nprincipally for works whose purpose is instruction or reference. 1. APPLICABILITY AND DEFINITIONS This License applies to any manual or other work, in any medium, that\r\ncontains a notice placed by t...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "definitions",
+          "suggested_definition": null,
+          "term": "DEFINITIONS"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...r \"MMC\") contained in the site\r\nmeans any set of copyrightable works thus published on the MMC site. \"CC-BY-SA\" means the Creative Commons Attribution-Share Alike 3.0\r\nlicense published by Creative Commons Corporation, a not-for-profit\r\ncorporation with a principal place of business in San Franci...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "cc-by-sa",
+          "suggested_definition": null,
+          "term": "CC-BY-SA"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...exts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License. A Front-Cover Text may\r\nbe at most 5 words, and a Back-Cover Text may be at most 25 words. A \"Transparent\" copy of the Document means a machine-readable copy,\r\nrepresented in a format whose s...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "back-cover text",
+          "suggested_definition": null,
+          "term": "Back-Cover Text"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "free software foundation",
+          "suggested_definition": null,
+          "term": "Free Software Foundation"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "invariant section.",
+          "suggested_definition": null,
+          "term": "Invariant Section."
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "If the Document does not identify any Invariant\r\nSections then there are none. The \"Cover Texts\" are certain short passages of text that are listed,\r\nas Front-Cover Texts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License. A Front-Cover Text may\r\nbe at mos...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "front-cover texts",
+          "suggested_definition": null,
+          "term": "Front-Cover Texts"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...exts or Back-Cover Texts, in the notice that says that\r\nthe Document is released under this License. A Front-Cover Text may\r\nbe at most 5 words, and a Back-Cover Text may be at most 25 words. A \"Transparent\" copy of the Document means a machine-readable copy,\r\nrepresented in a format whose s...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "front-cover text",
+          "suggested_definition": null,
+          "term": "Front-Cover Text"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "D. Preserve all the copyright notices of the Document. E. Add an appropriate copyright notice for your modifications\r\n   adjacent to the other copyright notices. F. Include, immediately after the copyright notices, a license notice\r\n   giving the public permissi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "e. add",
+          "suggested_definition": null,
+          "term": "E. Add"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...porate\" means to publish or republish a Document, in whole or in\r\npart, as part of another Document. An MMC is \"eligible for relicensing\" if it is licensed under this\r\nLicense, and if all works that were first published under this License\r\nsomewhere other than this MMC, and subsequently incorpora...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "november 1, 2008",
+          "suggested_definition": null,
+          "term": "November 1, 2008"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "fewer than five",
+          "suggested_definition": null,
+          "term": "fewer than five"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "at least five",
+          "suggested_definition": null,
+          "term": "at least five"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... that the text has\r\nbeen approved by an organization as the authoritative definition of a\r\nstandard. You may add a passage of up to five words as a Front-Cover Text, and a\r\npassage of up to 25 words as a Back-Cover Text, to the end of the list\r\nof Cover Texts in the Modified Version. Only one pas...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "up to five",
+          "suggested_definition": null,
+          "term": "up to five"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "However, you may accept\r\ncompensation in exchange for copies. If you distribute a large enough\r\nnumber of copies you must also follow the conditions in section 3. You may also lend copies, under the same conditions stated above, and\r\nyou may publicly display copi...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "section 3",
+          "suggested_definition": null,
+          "term": "section 3"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... may also lend copies, under the same conditions stated above, and\r\nyou may publicly display copies. 3. COPYING IN QUANTITY\r\n\r\nIf you publish printed copies (or copies in media that commonly have\r\nprinted covers) of the Document, numbering more than 100, and the\r\nDocument's license notice require...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "quantity",
+          "suggested_definition": null,
+          "term": "QUANTITY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...opy and distribute verbatim copies\r\n of this license document, but changing it is not allowed.\r\n\r\n0. PREAMBLE The purpose of this License is to make a manual, textbook, or other\r\nfunctional and useful document ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "preamble",
+          "suggested_definition": null,
+          "term": "PREAMBLE"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "license",
+          "suggested_definition": null,
+          "term": "LICENSE"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "10. FUTURE REVISIONS OF THIS LICENSE\r\n\r\nThe Free Software Foundation may publish new, revised versions of the\r\nGNU Free Documentation License from time to time. Such new versions\r\nwill be similar in spirit to the present version, but may differ in\r\ndetail to ad...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "future",
+          "suggested_definition": null,
+          "term": "FUTURE"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "titles",
+          "suggested_definition": null,
+          "term": "TITLES"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "ascii",
+          "suggested_definition": null,
+          "term": "ASCII"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense. It\r\ncomplements the GNU General Public License, which is a copyl...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "works",
+          "suggested_definition": null,
+          "term": "WORKS"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": null,
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "\"mmc",
+          "suggested_definition": null,
+          "term": "\"MMC"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...recisely XYZ or contains XYZ in parentheses following\r\ntext that translates XYZ in another language. (Here XYZ stands for a\r\nspecific section name mentioned below, such as \"Acknowledgements\",\r\n\"Dedications\", \"Endorsements\", or \"History\".) To \"Preserve the Title\"\r\nof such a section when you modify...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "name",
+          "suggested_definition": null,
+          "term": "NAME"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "html",
+          "suggested_definition": null,
+          "term": "HTML"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "sgml",
+          "suggested_definition": null,
+          "term": "SGML"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "list",
+          "suggested_definition": null,
+          "term": "LIST"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "xcf",
+          "suggested_definition": null,
+          "term": "XCF"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "gnu",
+          "suggested_definition": null,
+          "term": "GNU"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "png",
+          "suggested_definition": null,
+          "term": "PNG"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to e...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "mmc",
+          "suggested_definition": null,
+          "term": "MMC"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "jpg",
+          "suggested_definition": null,
+          "term": "JPG"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "The \"publisher\" means any person or entity that distributes copies of\r\nthe Document to the public. A section \"Entitled XYZ\" means a named subunit of the Document whose\r\ntitle either is precisely XYZ or contains XYZ in parentheses following\r\ntext that translates XYZ in another language. (Here XYZ sta...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "xyz",
+          "suggested_definition": null,
+          "term": "XYZ"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "xml",
+          "suggested_definition": null,
+          "term": "XML"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "dtd",
+          "suggested_definition": null,
+          "term": "DTD"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "pdf",
+          "suggested_definition": null,
+          "term": "PDF"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "The Document may contain zero\r\nInvariant Sections. If the Document does not identify any Invariant\r\nSections then there are none. The \"Cover Texts\" are certain short passages of text that are listed,\r\nas Front-Cover Texts or Back-...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "invariant\r\nsections",
+          "suggested_definition": null,
+          "term": "Invariant\r\nSections"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "invariant sections",
+          "suggested_definition": null,
+          "term": "Invariant Sections"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "secondary sections",
+          "suggested_definition": null,
+          "term": "Secondary Sections"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ense if you\r\ncopy, modify or distribute the work in a way requiring permission\r\nunder copyright law. A \"Modified Version\" of the Document means any work containing the\r\nDocument or a portion of it, either copied verbatim, or with\r\nmodifications and/or translated into another language. A \"Secondar...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "modified version",
+          "suggested_definition": null,
+          "term": "Modified Version"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...had no cover texts or invariant sections, and\r\n(2) were thus incorporated prior to November 1, 2008. The operator of an MMC Site may republish an MMC contained in the site\r\nunder CC-BY-SA on the same site at any time before August 1, 2009,\r\nprovided the MMC is eligible for relicensing. ADDENDUM: ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "august 1, 2009",
+          "suggested_definition": null,
+          "term": "August 1, 2009"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...isting section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section. O. Preserve any Warranty Disclaimers. If the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "o. preserve",
+          "suggested_definition": null,
+          "term": "O. Preserve"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...Title Page, then add an item describing the Modified\r\n   Version as stated in the previous sentence. J. Preserve the network location, if any, given in the Document for\r\n   public access to a Transparent copy of the Document, and likewise\r\n   the network locations given in the Document for previo...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "j. preserve",
+          "suggested_definition": null,
+          "term": "J. Preserve"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "H. Include an unaltered copy of this License. I. Preserve the section Entitled \"History\", Preserve its Title, and add\r\n   to it an item stating at least the title, year, new authors, and\r\n   publisher of the Modified Version as given on the Title Page. If\r\n   there is no section Entitled \"History\" i...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "i. preserve",
+          "suggested_definition": null,
+          "term": "I. Preserve"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ull lists of Invariant Sections\r\n   and required Cover Texts given in the Document's license notice. H. Include an unaltered copy of this License. I. Preserve the section Entitled \"History\", Preserve its Title, and add\r\n   to it an item stating at...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "h. include",
+          "suggested_definition": null,
+          "term": "H. Include"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "Section numbers\r\n   or the equivalent are not considered part of the section titles. M. Delete any section Entitled \"Endorsements\". Such a section\r\n   may not be included in the Modified Version.",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "m. delete",
+          "suggested_definition": null,
+          "term": "M. Delete"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...of some or all Invariant Sections in addition to the\r\noriginal versions of these Invariant Sections. You may include a\r\ntranslation of this License, and all the license notices in the\r\nDocument, and any Warranty Disclaimers, provided that you also include\r\nthe original English version of this Lic...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "english",
+          "suggested_definition": null,
+          "term": "English"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...cument, and follow this\r\nLicense in all other respects regarding verbatim copying of that\r\ndocument. 7. AGGREGATION WITH INDEPENDENT WORKS\r\n\r\nA compilation of the Document or its derivatives with other separate\r\nand ...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "7. aggregation",
+          "suggested_definition": null,
+          "term": "7. AGGREGATION"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "... to copy and redistribute it,\r\nwith or without modifying it, either commercially or noncommercially. Secondarily, this License preserves for the author and publisher a way\r\nto get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a ki...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "modifications",
+          "suggested_definition": null,
+          "term": "MODIFICATIONS"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "We recommend this License\r\nprincipally for works whose purpose is instruction or reference. 1. APPLICABILITY AND DEFINITIONS This License applies to any manual or other work, in any medium, that\r\ncontains a notice placed by t...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "applicability",
+          "suggested_definition": null,
+          "term": "APPLICABILITY"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...substance and tone of each of the contributor acknowledgements\r\n   and/or dedications given therein. L. Preserve all the Invariant Sections of the Document,\r\n   unaltered in their text and in their titles. Section numbers\r\n   or the equivalent are not considered part of the section titles.",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "their titles",
+          "suggested_definition": null,
+          "term": "THEIR TITLES"
+        }
+      ]
+    }
+  }
+}

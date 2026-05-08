@@ -1,0 +1,44 @@
+DOCUMENT STATISTICS
+Filename,Creative Commons guide_24_final (2).pdf
+Text Length (chars),49763
+Analyzed At,2026-05-06T04:07:38.458371
+Total Segments,706
+  Normative,119
+  Informative,350
+  Unknown,237
+High Confidence Segments (≥0.7),166
+Medium Confidence Segments,540
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,7
+Average Profile Confidence,70.8%
+
+TERMINOLOGY
+Defined Terms,4
+Undefined Terms,46
+Definition Coverage,8.0%
+
+CONTRADICTIONS
+Total Detected,13
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,consider this in negotiations with your publisher.,Steal Like An Artist – “Do good work and share it with people”
+2,semantic,99.9%,"(author) of a work, to reproduce, publish, modify and
+distribute or sell copies of that work. Without the","ask you to transfer your copyrights or to grant a licence
+to publish."
+3,semantic,99.8%,original work for commercial purposes. Although new works must,"work non-commercially, provided they credit the author and"
+4,semantic,99.7%,and build upon a work – also commercially – provided they,"With this licence others must not remix, tweak, or build upon the"
+5,semantic,99.5%,•  your funder might require you to choose a specific,"require Attribution, i.e. crediting the original author. All"
+6,semantic,99.4%,not have to licence their derivative works on the same terms.,licence their new creations under the identical terms.
+7,semantic,99.0%,"About copyright
+and Creative Commons
+licences","European Union, copyright will remain with the creators"
+8,semantic,98.7%,"European Union, copyright will remain with the creators",transferring copyright – grant certain permissions to use
+9,semantic,93.2%,licensed is mandatory for all types of reuse.,"authors can proceed to publish the article under a CC BY license. This will enable the text of the article to
+be widely reused, while the object will be protected from unauthorized commercial reuse and derivatives."
+10,semantic,92.6%,longer exercise them. That is why it is important to grant,"exercise those rights as standard in the contract, the
+author will have to seek permission."
+11,semantic,92.0%,"With this licence others must not remix, tweak, or build upon the",not have to licence their derivative works on the same terms.
+12,modality,90.0%,"Similar to CC BY; however, others must licence new creations","With this licence others must not remix, tweak, or build upon the"
+13,modality,90.0%,"With this licence others must not remix, tweak, or build upon the",original work for commercial purposes. Although new works must

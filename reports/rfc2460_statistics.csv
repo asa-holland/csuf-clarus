@@ -1,0 +1,259 @@
+DOCUMENT STATISTICS
+Filename,rfc2460.txt
+Text Length (chars),88077
+Analyzed At,2026-05-06T15:16:44.439081
+Total Segments,903
+  Normative,114
+  Informative,527
+  Unknown,262
+High Confidence Segments (≥0.7),169
+Medium Confidence Segments,734
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,10
+Average Profile Confidence,70.5%
+
+TERMINOLOGY
+Defined Terms,0
+Undefined Terms,50
+Definition Coverage,0.0%
+
+CONTRADICTIONS
+Total Detected,83
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,"Its alignment requirement is 8n+2, to ensure that the 8-octet field","Its alignment requirement is 4n+3, to ensure that the 4-octet field"
+2,semantic,100.0%,highest-order two bits specify the action that must be taken if the,entire Option Data field must be treated as zero-valued octets when
+3,semantic,100.0%,"o  If any other action is desired, the information must be encoded","contains 59, those octets must be ignored, and passed on unchanged if"
+4,semantic,99.9%,"The sequence of options within a header must be processed strictly in
+the order they appear in the header; a receiver must not, for",00 - skip over this option and continue processing the header.
+5,semantic,99.9%,"65,535 octets, then that fragment must be discarded and an ICMP","contains 59, those octets must be ignored, and passed on unchanged if"
+6,semantic,99.9%,flow's path must be specified as part of the description of the,must be careful not to use a flow label that it might have used for
+7,semantic,99.9%,of 8 octets in length.  These padding options must be recognized by,not have length and value fields.
+8,semantic,99.7%,ensure that multi-octet values within Option Data fields fall on,not have length and value fields.
+9,semantic,99.7%,"If an option X required two data fields, one of length 8 octets and","+-+-+-+-+-+-+-+-+
+| Option Type=Y |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+10,semantic,99.6%,accept fragmented packets that reassemble to more than 1500 octets.,not send packets larger than 1500 octets unless it has assurance that
+11,semantic,99.5%,addresses from the IP header in its checksum computation must be,"computation yields a result of zero, it must be changed to hex"
+12,semantic,99.5%,"10 - discard the packet and, regardless of whether or not the","11 - discard the packet and, only if the packet's Destination"
+13,semantic,99.5%,"Its alignment requirement is 8n+2, to ensure that the 8-octet field","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+14,semantic,99.5%,"Its alignment requirement is 8n+2, to ensure that the 8-octet field","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+15,semantic,99.3%,"Its alignment requirement is 4n+3, to ensure that the 4-octet field","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+16,semantic,99.3%,"not required, to verify that these conditions are satisfied.  If a","If an option X required two data fields, one of length 8 octets and"
+17,semantic,99.3%,"not required, to verify that these conditions are satisfied.  If a",or to design a header compression scheme that only worked on packets
+18,semantic,99.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+19,semantic,99.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+20,semantic,99.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+21,semantic,99.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+22,semantic,99.1%,"fragment of that packet, reassembly of that packet must be","of that fragment is 1, then that fragment must be discarded and an"
+23,semantic,98.9%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
+.                                                               .
+.                       type-specific data                      .
+.                                                               .
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","header with an unrecognized Routing Type value, the required behavior"
+24,semantic,98.9%,"adjust its packets to fit the measured path MTU (i.e., down to 1280",is not required to reduce the size of subsequent packets to less than
+25,semantic,98.5%,a Routing header must send an ICMP Packet Too Big message in,from the set of fields that must remain the same for all packets
+26,semantic,98.4%,"o  If any other action is desired, the information must be encoded","packet in one piece, link-specific fragmentation and reassembly must"
+27,semantic,98.4%,00 - skip over this option and continue processing the header.,ensure that multi-octet values within Option Data fields fall on
+28,semantic,98.3%,constraints relative to the above listed headers must be specified.,IPv6 nodes must accept and attempt to process extension headers in
+29,semantic,98.2%,"packets includes a Hop-by-Hop Options header, then they all must be",must be careful not to use a flow label that it might have used for
+30,semantic,98.1%,"originating a UDP packet, an IPv6 node must compute a UDP","Unlike IPv4, IPv6 nodes are not required to enforce maximum packet"
+31,semantic,97.9%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                                                               |
++                         Source Address                        +
+|                                                               |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                                                               +
+|                                                               |
++                      Destination Address                      +
+|                                                               |
++                                                               +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","destination.  At the originating node, that address will be in"
+32,semantic,97.8%,"packets includes a Hop-by-Hop Options header, then they all must be","If any of those packets includes a Routing header, then they all must"
+33,semantic,97.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+34,semantic,97.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+35,semantic,97.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+36,semantic,97.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+37,semantic,97.2%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+38,semantic,94.9%,"appear immediately after an IPv6 header only.  Nonetheless, it is",00 - skip over this option and continue processing the header.
+39,semantic,93.4%,All packets belonging to the same flow must be sent with the same,must be careful not to use a flow label that it might have used for
+40,semantic,92.9%,"o  The service interface to the IPv6 service within a node must
+provide a means for an upper-layer protocol to supply the value",layer protocol.  The default value must be zero for all 8 bits.
+41,semantic,90.4%,(optional) data confidentiality are specified for IPv6.,"The IPv6 version of ICMP, which all IPv6 implementations are required
+to include, is specified in [ICMPv6]."
+42,modality,90.0%,constraints relative to the above listed headers must be specified.,"The sequence of options within a header must be processed strictly in
+the order they appear in the header; a receiver must not, for"
+43,modality,90.0%,IPv6 nodes must accept and attempt to process extension headers in,"The sequence of options within a header must be processed strictly in
+the order they appear in the header; a receiver must not, for"
+44,modality,90.0%,"The sequence of options within a header must be processed strictly in
+the order they appear in the header; a receiver must not, for",highest-order two bits specify the action that must be taken if the
+45,modality,90.0%,"The sequence of options within a header must be processed strictly in
+the order they appear in the header; a receiver must not, for",entire Option Data field must be treated as zero-valued octets when
+46,modality,90.0%,"If Segments Left is zero, the node must ignore the Routing header
+and proceed to process the next header in the packet, whose type","Multicast addresses must not appear in a Routing header of Type 0, or"
+47,modality,90.0%,"If Segments Left is non-zero, the node must discard the packet and
+send an ICMP Parameter Problem, Code 0, message to the packet's","Multicast addresses must not appear in a Routing header of Type 0, or"
+48,modality,90.0%,must discard the packet and send an ICMP Packet Too Big message to,"Multicast addresses must not appear in a Routing header of Type 0, or"
+49,modality,90.0%,"contains 59, those octets must be ignored, and passed on unchanged if",1661]) must be configured to have an MTU of at least 1280 octets; it
+50,modality,90.0%,IPv6 requires that every link in the internet have an MTU of 1280,1661]) must be configured to have an MTU of at least 1280 octets; it
+51,modality,90.0%,IPv6 requires that every link in the internet have an MTU of 1280,accept fragmented packets that reassemble to more than 1500 octets.
+52,modality,90.0%,1661]) must be configured to have an MTU of at least 1280 octets; it,"adjust its packets to fit the measured path MTU (i.e., down to 1280"
+53,modality,90.0%,1661]) must be configured to have an MTU of at least 1280 octets; it,accept fragmented packets that reassemble to more than 1500 octets.
+54,modality,90.0%,1661]) must be configured to have an MTU of at least 1280 octets; it,not send packets larger than 1500 octets unless it has assurance that
+55,modality,90.0%,"adjust its packets to fit the measured path MTU (i.e., down to 1280",accept fragmented packets that reassemble to more than 1500 octets.
+56,modality,90.0%,accept fragmented packets that reassemble to more than 1500 octets.,"1280, but must include a Fragment header in those packets so that the"
+57,modality,90.0%,is not required to reduce the size of subsequent packets to less than,"required to set the field to zero when originating a packet, pass the"
+58,modality,90.0%,"o  The service interface to the IPv6 service within a node must
+provide a means for an upper-layer protocol to supply the value",o  An upper-layer protocol must not assume that the value of the
+59,modality,90.0%,layer protocol.  The default value must be zero for all 8 bits.,o  An upper-layer protocol must not assume that the value of the
+60,modality,90.0%,o  An upper-layer protocol must not assume that the value of the,addresses from the IP header in its checksum computation must be
+61,modality,90.0%,"originating a UDP packet, an IPv6 node must compute a UDP",packet(s) must not include a Routing header that was automatically
+62,modality,90.0%,"computation yields a result of zero, it must be changed to hex",packet(s) must not include a Routing header that was automatically
+63,modality,90.0%,FFFF for placement in the UDP header.  IPv6 receivers must,packet(s) must not include a Routing header that was automatically
+64,modality,90.0%,"data, an upper-layer protocol must take into account the larger size",packet(s) must not include a Routing header that was automatically
+65,modality,90.0%,"MSS must be computed as the maximum packet size minus 60 octets,",packet(s) must not include a Routing header that was automatically
+66,modality,90.0%,packet(s) must not include a Routing header that was automatically,"flow labels must be chosen (pseudo-)randomly and uniformly from the
+range 1 to FFFFF hex.  The purpose of the random allocation is to
+make any set of bits within the Flow Label field suitable for use as"
+67,modality,90.0%,packet(s) must not include a Routing header that was automatically,All packets belonging to the same flow must be sent with the same
+68,modality,90.0%,packet(s) must not include a Routing header that was automatically,"packets includes a Hop-by-Hop Options header, then they all must be"
+69,modality,90.0%,packet(s) must not include a Routing header that was automatically,"If any of those packets includes a Routing header, then they all must"
+70,modality,90.0%,"flow labels must be chosen (pseudo-)randomly and uniformly from the
+range 1 to FFFFF hex.  The purpose of the random allocation is to
+make any set of bits within the Flow Label field suitable for use as","protocol or the flow-setup hop-by-hop option.  A source must not re-
+use a flow label for a new flow within the maximum lifetime of any"
+71,modality,90.0%,All packets belonging to the same flow must be sent with the same,"protocol or the flow-setup hop-by-hop option.  A source must not re-
+use a flow label for a new flow within the maximum lifetime of any"
+72,modality,90.0%,"packets includes a Hop-by-Hop Options header, then they all must be","protocol or the flow-setup hop-by-hop option.  A source must not re-
+use a flow label for a new flow within the maximum lifetime of any"
+73,modality,90.0%,"If any of those packets includes a Routing header, then they all must","protocol or the flow-setup hop-by-hop option.  A source must not re-
+use a flow label for a new flow within the maximum lifetime of any"
+74,modality,90.0%,flow's path must be specified as part of the description of the,"protocol or the flow-setup hop-by-hop option.  A source must not re-
+use a flow label for a new flow within the maximum lifetime of any"
+75,modality,90.0%,"protocol or the flow-setup hop-by-hop option.  A source must not re-
+use a flow label for a new flow within the maximum lifetime of any",must be careful not to use a flow label that it might have used for
+76,modality,90.0%,a Routing header must send an ICMP Packet Too Big message in,must not include the reverse of the Routing header in the
+77,modality,90.0%,from the set of fields that must remain the same for all packets,must not include the reverse of the Routing header in the
+78,semantic,87.5%,"If Segments Left is zero, the node must ignore the Routing header
+and proceed to process the next header in the packet, whose type",must discard the packet and send an ICMP Packet Too Big message to
+79,semantic,82.1%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+80,semantic,82.1%,"+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+","+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                         4-octet field                         |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                                                               |
++                         8-octet field                         +
+|                                                               |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+"
+81,semantic,82.0%,"send an ICMP Parameter Problem, Code 0, message to the Source",send an ICMP Time Exceeded -- Hop Limit Exceeded in
+82,semantic,82.0%,"send an ICMP Parameter Problem, Code 0, message to the Source",send an ICMP Time Exceeded -- Hop Limit Exceeded in
+83,semantic,80.3%,This document specifies the basic IPv6 header and the initially-,semantics of IPv6 addresses are specified separately in [ADDRARCH].
