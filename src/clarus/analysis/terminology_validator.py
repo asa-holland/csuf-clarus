@@ -193,22 +193,23 @@ class TerminologyValidator:
                     definitions[term.lower()] = definition
                 continue
 
-            match = re.search(
+            paren_matches = list(re.finditer(
                 r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*\(\s*([A-Za-z][A-Za-z0-9\s\-\.\d]{5,80}?)\s*\)",
                 line,
                 re.IGNORECASE,
-            )
-            if match:
-                term = match.group(1).strip()
-                definition = match.group(2).strip()
-                if (
-                    term
-                    and definition
-                    and len(term) <= 25
-                    and len(definition.strip()) > len(term.strip())
-                    and self._is_plausible_defined_term(term)
-                ):
-                    definitions[term.lower()] = definition
+            ))
+            if paren_matches:
+                for match in paren_matches:
+                    term = match.group(1).strip()
+                    definition = match.group(2).strip()
+                    if (
+                        term
+                        and definition
+                        and len(term) <= 25
+                        and len(definition.strip()) > len(term.strip())
+                        and self._is_plausible_defined_term(term)
+                    ):
+                        definitions[term.lower()] = definition
                 continue
 
             match = re.search(
