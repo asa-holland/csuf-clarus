@@ -1,48 +1,63 @@
 # Modular NLP/NLI Analysis Package
 
-## Diagram 1: Document Processor
-### Segmentation & Classification
+## Diagram 1A: Document Processor: Line Splitting & Classification
 
 ```mermaid
 flowchart TD
     RAW["Raw text string"]
-
     SPLIT["Split into lines\nMerge continuation lines\nIdentify headings via regex"]
-
-
     SPACY["SpaCy POS + dep parse\nper line"]
 
-    MODAL_STRONG{"Strong modal?\nshall · must"}
-    MODAL_WEAK{"Weak modal?\nshould · may · can"}
-    LEMMA{"Informative lemma?\nexample · note · describe"}
-    VERB{"Normative verb?\nrequire · prohibit · mandate"}
-    IMPERATIVE{"Syntactic\nimperative?\n(no subject)"}
+    LEMMA{"Informative\nlemma?\nexample · note · describe"}
+    MW{"Weak\nmodal?\nshould · may · can"}
 
-    NORM["NORMATIVE"]
-    INFO["INFORMATIVE"]
-    UNK["UNKNOWN"]
+    MS{"Strong\nmodal?\nshall · must"}
+    V{"Normative\nverb?\nrequire · prohibit · mandate"}
+    IMP{"Syntactic\nimperative?\nno subject"}
 
-    CONF["_calculate_confidence\nNORMATIVE: 0.45 – 0.95\nINFORMATIVE: 0.60 – 0.90\nUNKNOWN: 0.40"]
-
-    ANCHORS["extract_semantic_anchors\nSemanticAnchor objects\nper segment"]
-
-    OUT(["ProcessedDocument\nsegments\nprocessing_stats"])
+    NORM(["NORMATIVE"])
+    INFO(["INFORMATIVE"])
+    UNK(["UNKNOWN"])
 
     RAW --> SPLIT --> SPACY
-    SPACY --> LEMMA
+    SPACY --> LEMMA & MS
+
     LEMMA -->|yes| INFO
-    LEMMA -->|no| MODAL_STRONG
-    MODAL_STRONG -->|yes| NORM
-    MODAL_STRONG -->|no| MODAL_WEAK
-    MODAL_WEAK -->|yes| INFO
-    MODAL_WEAK -->|no| VERB
-    VERB -->|yes| NORM
-    VERB -->|no| IMPERATIVE
-    IMPERATIVE -->|yes| NORM
-    IMPERATIVE -->|no| UNK
-    NORM & INFO & UNK --> CONF --> ANCHORS --> OUT
+    LEMMA -->|no| MW
+    MW -->|yes| INFO
+
+    MS -->|yes| NORM
+    MS -->|no| V
+    V -->|yes| NORM
+    V -->|no| IMP
+    IMP -->|yes| NORM
+    IMP -->|no| UNK
+
 ```
 
+### Diagram 1A: Document Processor: Post-Classification Processing
+
+```mermaid
+flowchart TD
+    NORM(["NORMATIVE"])
+    INFO(["INFORMATIVE"])
+    UNK(["UNKNOWN"])
+
+    MERGE["Merge consecutive<br/>same-type segments"]
+
+    CONF["_calculate_confidence()\nNORMATIVE: 0.45 – 0.95\nINFORMATIVE: 0.60 – 0.90\nUNKNOWN: 0.40"]
+
+    ANCHORS_CHECK{"Segment\nnormative?"}
+    ANCHORS["extract_semantic_anchors()\nSemanticAnchor objects\nper segment"]
+    SKIP["No anchors extracted"]
+
+    OUT(["ProcessedDocument\nsegments · processing_stats"])
+
+    NORM & INFO & UNK --> MERGE --> CONF --> ANCHORS_CHECK
+    ANCHORS_CHECK -->|yes| ANCHORS
+    ANCHORS_CHECK -->|no| SKIP
+    ANCHORS & SKIP --> OUT
+```
 
 
 ## Diagram 2a: Term Extraction Methods
@@ -205,28 +220,26 @@ flowchart TD
     IN(["Candidate pairs\nthat passed Stage 1"])
 
     LEN{"Both statements\n≥ 6 words?"}
-    SKIP(["Skip: too short\nfor reliable NLI"])
+    SKIP(["Skip: too short"])
 
-    ENCODE["CrossEncoder\nnli-deberta-v3-base\npredict(statement_a, statement_b)"]
+    ENCODE["CrossEncoder\nnli-deberta-v3-base"]
 
-    SOFTMAX["Softmax over 3 labels\n[contradiction, entailment, neutral]"]
 
     LABEL{"Top label =\ncontradiction?"}
 
     SCORE{"Score >\nml_threshold?"}
 
-    FOUND["ML Contradiction\nwith confidence score"]
     DISCARD(["Discard pair\n(entailment or neutral)"])
 
-    OUT(["Contradiction\ntype · statement_a · statement_b\nconfidence · explanation"])
+    OUT(["ML Contradiction\ntype · statements\nconfidence · explanation"])
 
     IN --> LEN
     LEN -->|no| SKIP
-    LEN -->|yes| ENCODE --> SOFTMAX --> LABEL
+    LEN -->|yes| ENCODE --> LABEL
     LABEL -->|no| DISCARD
     LABEL -->|yes| SCORE
     SCORE -->|no| DISCARD
-    SCORE -->|yes| FOUND --> OUT
+    SCORE -->|yes| OUT
 ```
 ## Diagram 4a: S2 Taxonomy: Routing Overview
 
