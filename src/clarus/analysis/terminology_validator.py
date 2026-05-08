@@ -194,7 +194,7 @@ class TerminologyValidator:
                 continue
 
             match = re.search(
-                r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*\(\s*([A-Za-z][A-Za-z0-9\s\-\.\d]{5,80}?)\s*\)(?=[.!?]|$)",
+                r"([A-Za-z][A-Za-z0-9\s\-\.\d]{2,25}?)\s*\(\s*([A-Za-z][A-Za-z0-9\s\-\.\d]{5,80}?)\s*\)",
                 line,
                 re.IGNORECASE,
             )
@@ -702,6 +702,7 @@ class TerminologyValidator:
             rf"{re.escape(term)}\s+is\s+([^.!?]+)",
             rf"{re.escape(term)}\s+means\s+([^.!?]+)",
             rf"{re.escape(term)}\s+refers\s+to\s+([^.!?]+)",
+            rf"{re.escape(term)}\s*\(\s*([^)]+)\s*\)",
         ]
 
         for pattern in patterns:
