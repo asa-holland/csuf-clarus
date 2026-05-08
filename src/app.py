@@ -19,7 +19,6 @@ import nltk
 import os
 from typing import Dict, List, Any, Optional, Union, Tuple
 
-
 _handler = logging.StreamHandler(sys.stdout)
 _handler.setFormatter(
     logging.Formatter("%(asctime)s [%(name)s] %(levelname)s: %(message)s")
@@ -349,9 +348,7 @@ def analyze_document():
             ),
             "min_term_overlap": int(thresholds.get("min_term_overlap", 1)),
         }
-        logger.info(
-            "analyze-document: detection_thresholds=%s", contradiction_config
-        )
+        logger.info("analyze-document: detection_thresholds=%s", contradiction_config)
 
         logger.info(
             "analyze-document: enable_terminology=%s enable_contradictions=%s",
@@ -362,7 +359,9 @@ def analyze_document():
         terminology_data = None
         if enable_terminology:
             terminology_validator = TerminologyValidator()
-            extracted_terms = terminology_validator.extract_terms_from_text(data["text"])
+            extracted_terms = terminology_validator.extract_terms_from_text(
+                data["text"]
+            )
 
             min_quality_threshold = 0.4
             max_terms = 50
@@ -381,7 +380,8 @@ def analyze_document():
 
             if not high_quality_terms:
                 high_quality_terms = [
-                    t for t in extracted_terms
+                    t
+                    for t in extracted_terms
                     if " " in t or (t[0].isupper() and not t.isupper())
                 ][:max_terms]
 
@@ -433,7 +433,8 @@ def analyze_document():
             terminology_data = {
                 "statistics": convert_numpy_types(terminology_result.statistics),
                 "defined_terms": [
-                    create_term_entry(result) for result in terminology_result.defined_terms
+                    create_term_entry(result)
+                    for result in terminology_result.defined_terms
                 ],
                 "undefined_terms": [
                     create_term_entry(result)
@@ -480,7 +481,8 @@ def analyze_document():
                 candidate_statements
             )
             logger.info(
-                "contradiction detection: %d contradiction(s) found", len(contradictions)
+                "contradiction detection: %d contradiction(s) found",
+                len(contradictions),
             )
 
             contradictions_data = [
@@ -538,9 +540,12 @@ def export_json():
         return jsonify({"error": "No data provided"}), 400
     import json as _json
     from flask import Response
+
     output = _json.dumps(data, indent=2, default=str)
     filename = (
-        data.get("preprocessing", {}).get("metadata", {}).get("original_filename", "analysis")
+        data.get("preprocessing", {})
+        .get("metadata", {})
+        .get("original_filename", "analysis")
     )
     base = re.sub(r"\.[^/.]+$", "", filename)
     return Response(
@@ -579,9 +584,18 @@ def export_csv():
     w.writerow(["  Normative", proc_stats.get("normative_segments", 0)])
     w.writerow(["  Informative", proc_stats.get("informative_segments", 0)])
     w.writerow(["  Unknown", proc_stats.get("unknown_segments", 0)])
-    w.writerow(["High Confidence Segments (≥0.7)", proc_stats.get("high_confidence_segments", 0)])
-    w.writerow(["Medium Confidence Segments", proc_stats.get("medium_confidence_segments", 0)])
-    w.writerow(["Low Confidence Segments (<0.4)", proc_stats.get("low_confidence_segments", 0)])
+    w.writerow(
+        [
+            "High Confidence Segments (≥0.7)",
+            proc_stats.get("high_confidence_segments", 0),
+        ]
+    )
+    w.writerow(
+        ["Medium Confidence Segments", proc_stats.get("medium_confidence_segments", 0)]
+    )
+    w.writerow(
+        ["Low Confidence Segments (<0.4)", proc_stats.get("low_confidence_segments", 0)]
+    )
     w.writerow([])
 
     w.writerow(["SEMANTIC EXTRACTION"])
@@ -603,20 +617,24 @@ def export_csv():
     if contradictions:
         w.writerow(["#", "Type", "Confidence", "Statement A", "Statement B"])
         for i, c in enumerate(contradictions, 1):
-            w.writerow([
-                i,
-                c.get("contradiction_type", ""),
-                f"{(c.get('confidence') or 0) * 100:.1f}%",
-                c.get("statement_a", ""),
-                c.get("statement_b", ""),
-            ])
+            w.writerow(
+                [
+                    i,
+                    c.get("contradiction_type", ""),
+                    f"{(c.get('confidence') or 0) * 100:.1f}%",
+                    c.get("statement_a", ""),
+                    c.get("statement_b", ""),
+                ]
+            )
 
     filename = meta.get("original_filename", "analysis")
     base = re.sub(r"\.[^/.]+$", "", filename)
     return Response(
         buf.getvalue(),
         mimetype="text/csv",
-        headers={"Content-Disposition": f'attachment; filename="{base}_statistics.csv"'},
+        headers={
+            "Content-Disposition": f'attachment; filename="{base}_statistics.csv"'
+        },
     )
 
 
@@ -628,7 +646,12 @@ def export_pdf():
         from reportlab.lib.units import inch
         from reportlab.lib import colors
         from reportlab.platypus import (
-            SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable,
+            SimpleDocTemplate,
+            Paragraph,
+            Spacer,
+            Table,
+            TableStyle,
+            HRFlowable,
         )
         from reportlab.lib.enums import TA_LEFT
     except ImportError:
@@ -647,136 +670,245 @@ def export_pdf():
     semantic = data.get("semantic", {})
     profiles = semantic.get("profiles", [])
     analysis = data.get("analysis", {})
-    term_stats = analysis.get("terminology", {}).get("statistics", {})
+    terminology = analysis.get("terminology", {})
+    term_stats = terminology.get("statistics", {})
+    defined_terms = terminology.get("defined_terms", [])
+    undefined_terms = terminology.get("undefined_terms", [])
     contradictions = analysis.get("contradictions", [])
 
     ORANGE = colors.HexColor("#E87722")
 
     buf = _io.BytesIO()
     doc = SimpleDocTemplate(
-        buf, pagesize=letter,
-        topMargin=0.75 * inch, bottomMargin=0.75 * inch,
-        leftMargin=0.75 * inch, rightMargin=0.75 * inch,
+        buf,
+        pagesize=letter,
+        topMargin=0.75 * inch,
+        bottomMargin=0.75 * inch,
+        leftMargin=0.75 * inch,
+        rightMargin=0.75 * inch,
     )
 
     styles = getSampleStyleSheet()
-    title_style = ParagraphStyle("ClarusTitle", parent=styles["Title"], fontSize=20, spaceAfter=4)
-    h1 = ParagraphStyle("ClarusH1", parent=styles["Heading1"], fontSize=13, textColor=ORANGE, spaceBefore=14, spaceAfter=4)
-    body = ParagraphStyle("ClarusBody", parent=styles["Normal"], fontSize=9, spaceAfter=2)
-    small = ParagraphStyle("ClarusSmall", parent=styles["Normal"], fontSize=8, textColor=colors.HexColor("#666666"))
+    title_style = ParagraphStyle(
+        "ClarusTitle", parent=styles["Title"], fontSize=20, spaceAfter=4
+    )
+    h1 = ParagraphStyle(
+        "ClarusH1",
+        parent=styles["Heading1"],
+        fontSize=13,
+        textColor=ORANGE,
+        spaceBefore=14,
+        spaceAfter=4,
+    )
+    body = ParagraphStyle(
+        "ClarusBody", parent=styles["Normal"], fontSize=9, spaceAfter=2
+    )
+    small = ParagraphStyle(
+        "ClarusSmall",
+        parent=styles["Normal"],
+        fontSize=8,
+        textColor=colors.HexColor("#666666"),
+    )
+    cell_style = ParagraphStyle("tc", parent=styles["Normal"], fontSize=7, leading=9)
+    sub_h = ParagraphStyle("subh", parent=h1, fontSize=10, spaceBefore=8)
 
     def esc(s):
         return _html.escape(str(s or ""))
 
+    def P(text, st=None):
+        return Paragraph(esc(str(text or "—")), st or cell_style)
+
     def stats_table(rows):
         t = Table(rows, colWidths=[3 * inch, 2.5 * inch])
-        t.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
-            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-            ("FONTSIZE", (0, 0), (-1, -1), 9),
-            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
-            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
-            ("LEFTPADDING", (0, 0), (-1, -1), 6),
-        ]))
+        t.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("FONTSIZE", (0, 0), (-1, -1), 9),
+                    ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+                    (
+                        "ROWBACKGROUNDS",
+                        (0, 1),
+                        (-1, -1),
+                        [colors.white, colors.HexColor("#fafafa")],
+                    ),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ]
+            )
+        )
         return t
 
     story = []
 
-    story.append(Paragraph("CLARUS Analysis Report", title_style))
-    story.append(Paragraph(f"<b>Document:</b> {esc(meta.get('original_filename', 'Unknown'))}", body))
-    story.append(Paragraph(f"<b>Analyzed:</b> {esc(meta.get('processed_at', 'Unknown'))}", body))
+    story.append(Paragraph("Clarus Analysis Report", title_style))
+    story.append(
+        Paragraph(
+            f"<b>Document:</b> {esc(meta.get('original_filename', 'Unknown'))}", body
+        )
+    )
+    story.append(
+        Paragraph(f"<b>Analyzed:</b> {esc(meta.get('processed_at', 'Unknown'))}", body)
+    )
     story.append(Spacer(1, 0.15 * inch))
     story.append(HRFlowable(width="100%", thickness=2, color=ORANGE))
     story.append(Spacer(1, 0.1 * inch))
 
     # --- 1. Document Processing ---
     story.append(Paragraph("1. Document Processing", h1))
-    story.append(stats_table([
-        ["Metric", "Value"],
-        ["Total Segments", proc_stats.get("total_segments", 0)],
-        ["Normative Segments", proc_stats.get("normative_segments", 0)],
-        ["Informative Segments", proc_stats.get("informative_segments", 0)],
-        ["Unknown Segments", proc_stats.get("unknown_segments", 0)],
-        ["High Confidence (≥0.7)", proc_stats.get("high_confidence_segments", 0)],
-        ["Low Confidence (<0.4)", proc_stats.get("low_confidence_segments", 0)],
-        ["Text Length (chars)", meta.get("text_length", 0)],
-    ]))
+    story.append(
+        stats_table(
+            [
+                ["Metric", "Value"],
+                ["Total Segments", proc_stats.get("total_segments", 0)],
+                ["Normative Segments", proc_stats.get("normative_segments", 0)],
+                ["Informative Segments", proc_stats.get("informative_segments", 0)],
+                ["Unknown Segments", proc_stats.get("unknown_segments", 0)],
+                [
+                    "High Confidence (≥0.7)",
+                    proc_stats.get("high_confidence_segments", 0),
+                ],
+                ["Low Confidence (<0.4)", proc_stats.get("low_confidence_segments", 0)],
+                ["Text Length (chars)", meta.get("text_length", 0)],
+            ]
+        )
+    )
     story.append(Spacer(1, 0.15 * inch))
 
     # --- 2. Semantic Extraction ---
     story.append(Paragraph("2. Semantic Extraction", h1))
     avg_conf = (semantic.get("avg_confidence") or 0) * 100
-    story.append(stats_table([
-        ["Metric", "Value"],
-        ["Total Profiles", semantic.get("total_profiles", 0)],
-        ["Average Confidence", f"{avg_conf:.1f}%"],
-    ]))
+    story.append(
+        stats_table(
+            [
+                ["Metric", "Value"],
+                ["Total Profiles", semantic.get("total_profiles", 0)],
+                ["Average Confidence", f"{avg_conf:.1f}%"],
+            ]
+        )
+    )
     story.append(Spacer(1, 0.08 * inch))
 
     if profiles:
-        story.append(Paragraph(f"Profiles ({len(profiles)})", ParagraphStyle("ph2", parent=h1, fontSize=10, spaceBefore=6)))
+        story.append(Paragraph(f"Profiles ({len(profiles)})", sub_h))
         prof_rows = [["#", "Sentence", "Subject", "Object", "Modality", "Condition"]]
         for i, p in enumerate(profiles, 1):
-            sent = esc(p.get("original_sentence") or "")
-            if len(sent) > 70:
-                sent = sent[:67] + "…"
-            prof_rows.append([
-                str(i), sent,
-                esc(p.get("subject") or "—"),
-                esc(p.get("object") or "—"),
-                esc(p.get("modality") or "—"),
-                esc(p.get("condition") or "—"),
-            ])
-        pt = Table(prof_rows, colWidths=[0.25*inch, 2.5*inch, 0.9*inch, 0.9*inch, 0.9*inch, 1.05*inch])
-        pt.setStyle(TableStyle([
-            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
-            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-            ("FONTSIZE", (0, 0), (-1, -1), 7),
-            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
-            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
-            ("VALIGN", (0, 0), (-1, -1), "TOP"),
-            ("LEFTPADDING", (0, 0), (-1, -1), 4),
-        ]))
+            prof_rows.append(
+                [
+                    str(i),
+                    P(p.get("original_sentence") or ""),
+                    P(p.get("subject") or "—"),
+                    P(p.get("object") or "—"),
+                    P(p.get("modality") or "—"),
+                    P(p.get("condition") or "—"),
+                ]
+            )
+        pt = Table(
+            prof_rows,
+            colWidths=[0.25 * inch, 2.5 * inch, 0.9 * inch, 0.9 * inch, 0.9 * inch, 1.05 * inch],
+        )
+        pt.setStyle(
+            TableStyle(
+                [
+                    ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+                    ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                    ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                    ("FONTSIZE", (0, 0), (-1, 0), 7),
+                    ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+                    ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 4),
+                    ("TOPPADDING", (0, 0), (-1, -1), 3),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+                ]
+            )
+        )
         story.append(pt)
     story.append(Spacer(1, 0.15 * inch))
 
     # --- 3. Terminology ---
     story.append(Paragraph("3. Terminology Analysis", h1))
     cov = (term_stats.get("definition_coverage") or 0) * 100
-    story.append(stats_table([
-        ["Metric", "Value"],
-        ["Defined Terms", term_stats.get("defined_terms", 0)],
-        ["Undefined Terms", term_stats.get("undefined_terms", 0)],
-        ["Definition Coverage", f"{cov:.1f}%"],
-    ]))
+    story.append(
+        stats_table(
+            [
+                ["Metric", "Value"],
+                ["Defined Terms", term_stats.get("defined_terms", 0)],
+                ["Undefined Terms", term_stats.get("undefined_terms", 0)],
+                ["Definition Coverage", f"{cov:.1f}%"],
+            ]
+        )
+    )
+
+    def _term_table(rows, col_widths):
+        t = Table(rows, colWidths=col_widths)
+        t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, 0), 7),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 4),
+            ("TOPPADDING", (0, 0), (-1, -1), 3),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ]))
+        return t
+
+    if defined_terms:
+        story.append(Spacer(1, 0.08 * inch))
+        story.append(Paragraph(f"Defined Terms ({len(defined_terms)})", sub_h))
+        def_rows = [["Term", "Definition / Context"]]
+        for t in defined_terms:
+            defn = t.get("suggested_definition") or t.get("context_excerpt") or "—"
+            def_rows.append([P(t.get("term", "")), P(defn)])
+        story.append(_term_table(def_rows, [1.5 * inch, 5.0 * inch]))
+
+    if undefined_terms:
+        story.append(Spacer(1, 0.08 * inch))
+        story.append(Paragraph(f"Undefined Terms ({len(undefined_terms)})", sub_h))
+        undef_rows = [["Term", "Context Excerpt"]]
+        for t in undefined_terms:
+            undef_rows.append([P(t.get("term", "")), P(t.get("context_excerpt") or "—")])
+        story.append(_term_table(undef_rows, [1.5 * inch, 5.0 * inch]))
+
     story.append(Spacer(1, 0.15 * inch))
 
     # --- 4. Contradictions ---
     story.append(Paragraph("4. Contradiction Analysis", h1))
-    story.append(Paragraph(f"Total contradictions detected: <b>{len(contradictions)}</b>", body))
+    story.append(
+        Paragraph(f"Total contradictions detected: <b>{len(contradictions)}</b>", body)
+    )
     story.append(Spacer(1, 0.06 * inch))
 
     if contradictions:
         cont_rows = [["#", "Type", "Conf.", "Statement A", "Statement B"]]
         for i, c in enumerate(contradictions, 1):
-            sa = esc(c.get("statement_a") or "")
-            sb = esc(c.get("statement_b") or "")
-            if len(sa) > 55: sa = sa[:52] + "…"
-            if len(sb) > 55: sb = sb[:52] + "…"
             conf = (c.get("confidence") or 0) * 100
-            cont_rows.append([str(i), esc(c.get("contradiction_type") or ""), f"{conf:.0f}%", sa, sb])
-        ct = Table(cont_rows, colWidths=[0.25*inch, 0.9*inch, 0.45*inch, 2.45*inch, 2.45*inch])
+            cont_rows.append([
+                str(i),
+                P(c.get("contradiction_type") or ""),
+                f"{conf:.0f}%",
+                P(c.get("statement_a") or ""),
+                P(c.get("statement_b") or ""),
+            ])
+        ct = Table(
+            cont_rows,
+            colWidths=[0.25 * inch, 0.9 * inch, 0.45 * inch, 2.45 * inch, 2.45 * inch],
+        )
         ct.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
             ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
             ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-            ("FONTSIZE", (0, 0), (-1, -1), 7),
+            ("FONTSIZE", (0, 0), (-1, 0), 7),
             ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
             ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
             ("VALIGN", (0, 0), (-1, -1), "TOP"),
             ("LEFTPADDING", (0, 0), (-1, -1), 4),
+            ("TOPPADDING", (0, 0), (-1, -1), 3),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
         ]))
         story.append(ct)
 
