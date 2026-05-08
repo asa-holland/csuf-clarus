@@ -675,6 +675,7 @@ def export_pdf():
     defined_terms = terminology.get("defined_terms", [])
     undefined_terms = terminology.get("undefined_terms", [])
     contradictions = analysis.get("contradictions", [])
+    s2_findings = analysis.get("s2_findings", [])
 
     ORANGE = colors.HexColor("#E87722")
 
@@ -868,11 +869,11 @@ def export_pdf():
 
     if undefined_terms:
         story.append(Spacer(1, 0.08 * inch))
-        story.append(Paragraph(f"Undefined Terms ({len(undefined_terms)})", sub_h))
-        undef_rows = [["Term", "Context Excerpt"]]
+        story.append(Paragraph(f"Undefined Terms — FAIL-001 ({len(undefined_terms)})", sub_h))
+        undef_rows = [["Code", "Term", "Context Excerpt"]]
         for t in undefined_terms:
-            undef_rows.append([P(t.get("term", "")), P(t.get("context_excerpt") or "—")])
-        story.append(_term_table(undef_rows, [1.5 * inch, 5.0 * inch]))
+            undef_rows.append([P("FAIL-001"), P(t.get("term", "")), P(t.get("context_excerpt") or "—")])
+        story.append(_term_table(undef_rows, [0.65 * inch, 1.4 * inch, 4.45 * inch]))
 
     story.append(Spacer(1, 0.15 * inch))
 
@@ -883,20 +884,24 @@ def export_pdf():
     )
     story.append(Spacer(1, 0.06 * inch))
 
+    _CONTRA_CODE = {"semantic": "FAIL-003", "modality": "FAIL-004"}
+
     if contradictions:
-        cont_rows = [["#", "Type", "Conf.", "Statement A", "Statement B"]]
+        cont_rows = [["#", "Code", "Type", "Conf.", "Statement A", "Statement B"]]
         for i, c in enumerate(contradictions, 1):
             conf = (c.get("confidence") or 0) * 100
+            ctype = c.get("contradiction_type") or ""
             cont_rows.append([
                 str(i),
-                P(c.get("contradiction_type") or ""),
+                P(_CONTRA_CODE.get(ctype, "—")),
+                P(ctype),
                 f"{conf:.0f}%",
                 P(c.get("statement_a") or ""),
                 P(c.get("statement_b") or ""),
             ])
         ct = Table(
             cont_rows,
-            colWidths=[0.25 * inch, 0.9 * inch, 0.45 * inch, 2.45 * inch, 2.45 * inch],
+            colWidths=[0.25 * inch, 0.65 * inch, 0.6 * inch, 0.4 * inch, 2.3 * inch, 2.3 * inch],
         )
         ct.setStyle(TableStyle([
             ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
@@ -911,6 +916,71 @@ def export_pdf():
             ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
         ]))
         story.append(ct)
+
+    # --- 5. S2 Taxonomy Findings ---
+    story.append(Paragraph("5. S2 Taxonomy Findings", h1))
+    story.append(Paragraph(f"Total findings: <b>{len(s2_findings)}</b>", body))
+
+    if s2_findings:
+        story.append(Spacer(1, 0.06 * inch))
+
+        _code_desc = {
+            "FAIL-002": ("Synonym Inconsistency",    "Medium"),
+            "FAIL-004": ("Modal Inconsistency",      "Medium"),
+            "FAIL-005": ("Hidden Normative",         "Medium"),
+            "FAIL-006": ("Vague Qualifiers",         "Low"),
+            "FAIL-007": ("Ambiguous Referent",       "Medium"),
+            "FAIL-008": ("Missing Temporal Anchor",  "High"),
+        }
+
+        from collections import Counter as _Counter
+        code_counts = _Counter(f.get("error_type", "?") for f in s2_findings)
+
+        sum_rows = [["Code", "Description", "Severity", "Count"]]
+        for code in sorted(code_counts):
+            desc, sev = _code_desc.get(code, ("—", "—"))
+            sum_rows.append([code, desc, sev, str(code_counts[code])])
+        sum_t = Table(sum_rows, colWidths=[0.75 * inch, 3.5 * inch, 0.75 * inch, 0.5 * inch])
+        sum_t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, -1), 9),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+            ("LEFTPADDING", (0, 0), (-1, -1), 6),
+        ]))
+        story.append(sum_t)
+
+        story.append(Spacer(1, 0.1 * inch))
+        story.append(Paragraph("All Findings", sub_h))
+
+        det_rows = [["Code", "Sev.", "Category", "Text Span", "Explanation"]]
+        for f in s2_findings:
+            det_rows.append([
+                P(f.get("error_type", "")),
+                P(f.get("severity", "")),
+                P(f.get("category", "")),
+                P(f.get("text_span", "")),
+                P(f.get("explanation", "")),
+            ])
+        det_t = Table(
+            det_rows,
+            colWidths=[0.65 * inch, 0.5 * inch, 0.9 * inch, 2.2 * inch, 2.25 * inch],
+        )
+        det_t.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, 0), ORANGE),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("FONTSIZE", (0, 0), (-1, 0), 7),
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#cccccc")),
+            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#fafafa")]),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("LEFTPADDING", (0, 0), (-1, -1), 4),
+            ("TOPPADDING", (0, 0), (-1, -1), 3),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ]))
+        story.append(det_t)
 
     doc.build(story)
     buf.seek(0)
