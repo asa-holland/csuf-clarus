@@ -9,10 +9,8 @@ flowchart TD
 
     SPLIT["Split into lines\nMerge continuation lines\nIdentify headings via regex"]
 
-    NLP{"SpaCy available?\nen_core_web_sm"}
 
     SPACY["SpaCy POS + dep parse\nper line"]
-    REGEX["Regex fallback\npattern matching"]
 
     MODAL_STRONG{"Strong modal?\nshall · must"}
     MODAL_WEAK{"Weak modal?\nshould · may · can"}
@@ -24,15 +22,13 @@ flowchart TD
     INFO["INFORMATIVE"]
     UNK["UNKNOWN"]
 
-    CONF["_calculate_confidence()\nNORMATIVE: 0.45 – 0.95\nINFORMATIVE: 0.60 – 0.90\nUNKNOWN: 0.40"]
+    CONF["_calculate_confidence\nNORMATIVE: 0.45 – 0.95\nINFORMATIVE: 0.60 – 0.90\nUNKNOWN: 0.40"]
 
-    ANCHORS["extract_semantic_anchors()\nSemanticAnchor objects\nper segment"]
+    ANCHORS["extract_semantic_anchors\nSemanticAnchor objects\nper segment"]
 
-    OUT(["ProcessedDocument\nsegments[ ]\nprocessing_stats{ }"])
+    OUT(["ProcessedDocument\nsegments\nprocessing_stats"])
 
-    RAW --> SPLIT --> NLP
-    NLP -->|yes| SPACY
-    NLP -->|no| REGEX
+    RAW --> SPLIT --> SPACY
     SPACY --> LEMMA
     LEMMA -->|yes| INFO
     LEMMA -->|no| MODAL_STRONG
@@ -44,7 +40,6 @@ flowchart TD
     VERB -->|no| IMPERATIVE
     IMPERATIVE -->|yes| NORM
     IMPERATIVE -->|no| UNK
-    REGEX --> NORM & INFO & UNK
     NORM & INFO & UNK --> CONF --> ANCHORS --> OUT
 ```
 
@@ -54,7 +49,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    IN["Full document text\n+ segments[ ]"]
+    IN["Full document text\n+ segments"]
 
     subgraph SPACY_METHODS["SpaCy-Based Extraction"]
         E1["Noun chunks\n3–25 chars"]
@@ -62,20 +57,12 @@ flowchart TD
         E3["Noun phrase construction\n2+ token phrases"]
     end
 
-    subgraph PATTERN_METHODS["Pattern-Based Extraction"]
-        E4["Acronym detection\n2–6 uppercase letters"]
-        E5["CamelCase terms\n> 4 chars"]
-        E6["Technical suffix matching\n-tion · -ment · -ness · -ity\n-ance · -ence · -ology"]
-        E7["Quoted phrases\n3–25 chars"]
-    end
-
     FILTER["Score & deduplicate\nkeep high-quality candidates"]
 
     OUT(["Candidate term list"])
 
-    IN --> SPACY_METHODS & PATTERN_METHODS
+    IN --> SPACY_METHODS
     E1 & E2 & E3 --> FILTER
-    E4 & E5 & E6 & E7 --> FILTER
     FILTER --> OUT
 ```
 ## Diagram 2b: Term Classification
@@ -86,21 +73,21 @@ flowchart TD
 
     subgraph TRANSFORMER["Transformer Path"]
         T1["RoBERTa tokenizer"]
-        T2["RoBERTa model\nlogits → softmax"]
+        T2["RoBERTa model"]
         T3{"confidence > 0.7?"}
         T1 --> T2 --> T3
     end
 
     subgraph RULES["Rule-Based Fallback"]
-        R1{"Acronym or CamelCase?"}
-        R2{"Multi-word phrase?"}
-        R3{"Technical suffix?"}
+        R1{"Acronym</br>or CamelCase?"}
+        R2{"Multi-word</br>phrase?"}
+        R3{"Technical</br>suffix?"}
     end
 
-    DOMAIN["Domain term\n(keep)"]
-    COMMON["Common English\n(discard)"]
+    DOMAIN["Domain</br>term\n(keep)"]
+    COMMON["Common</br>English\n(discard)"]
 
-    OUT(["Validated domain terms[ ]"])
+    OUT(["Validated domain terms"])
 
     IN --> TRANSFORMER
     T3 -->|yes| DOMAIN
@@ -113,7 +100,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    IN(["Validated domain terms[ ]\n+ full document text"])
+    IN(["Validated domain terms\n+ full document text"])
 
     subgraph REGEX["Regex Pattern Matching"]
         D1["X is Y"]
@@ -130,8 +117,8 @@ flowchart TD
 
     GLOSSARY["Glossary index\nterm → definition text"]
 
-    DEFINED(["defined_terms[ ]\nwith extracted definition text"])
-    UNDEFINED(["undefined_terms[ ]\nno definition found"])
+    DEFINED(["defined_terms\nwith extracted definition text"])
+    UNDEFINED(["undefined_terms\nno definition found"])
 
     IN --> REGEX & ML
     D1 & D2 & D3 & D4 & D5 --> GLOSSARY
@@ -144,7 +131,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    IN(["undefined_terms[ ]"])
+    IN(["undefined_terms"])
 
     ENC["SentenceTransformer\nall-MiniLM-L6-v2\nencode each term → vector"]
 
@@ -155,7 +142,7 @@ flowchart TD
     GROUP["Group into cluster\nassign cluster representative"]
     SOLO["Term stays ungrouped"]
 
-    OUT(["ValidationReport\ndefined_terms[ ]\nundefined_terms[ ]\nterm_clusters[ ]\nstatistics{ }"])
+    OUT(["ValidationReport\ndefined_terms\nundefined_terms\nterm_clusters\nstatistics"])
 
     IN --> ENC --> MATRIX --> THRESH
     THRESH -->|yes| GROUP
@@ -166,7 +153,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    IN["All normative +\nunknown segments[ ]"]
+    IN["All normative +\nunknown segments"]
 
     PAIRS["Generate all O(n²)\nstatement pairs"]
 
@@ -200,7 +187,7 @@ flowchart TD
     FOUND["Rule-based Contradiction\nhigh confidence"]
     PASS["No rule match\npass to Stage 2"]
 
-    OUT(["Contradiction[ ]\ntype · explanation\nconfidence: high"])
+    OUT(["Contradiction\ntype · explanation\nconfidence: high"])
 
     IN --> MODAL
     MODAL -->|yes| FOUND
@@ -231,7 +218,7 @@ flowchart TD
     FOUND["ML Contradiction\nwith confidence score"]
     DISCARD(["Discard pair\n(entailment or neutral)"])
 
-    OUT(["Contradiction[ ]\ntype · statement_a · statement_b\nconfidence · explanation"])
+    OUT(["Contradiction\ntype · statement_a · statement_b\nconfidence · explanation"])
 
     IN --> LEN
     LEN -->|no| SKIP
@@ -245,7 +232,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    IN["ProcessedDocument\nsegments[ ]"]
+    IN["ProcessedDocument\nsegments"]
 
     SPLIT{"Segment\nelement_type"}
 
@@ -259,7 +246,7 @@ flowchart TD
     F008["FAIL-008\nMissing Temporal Anchor"]
     F005["FAIL-005\nHidden Normative"]
 
-    OUT(["S2Finding[ ]\nuid · error_type · category\nseverity · text_span · confidence"])
+    OUT(["S2Finding\nuid · error_type · category\nseverity · text_span · confidence"])
 
     IN --> SPLIT
     SPLIT --> NORM & INFO
