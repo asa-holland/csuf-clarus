@@ -1,0 +1,57 @@
+DOCUMENT STATISTICS
+Filename,cern_ohl_p_v2.txt
+Text Length (chars),9051
+Analyzed At,2026-05-08T23:04:55.921186
+Total Segments,92
+  Normative,22
+  Informative,52
+  Unknown,18
+High Confidence Segments (≥0.7),18
+Medium Confidence Segments,74
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,2
+Average Profile Confidence,71.0%
+
+TERMINOLOGY
+Defined Terms,1
+Undefined Terms,49
+Definition Coverage,2.0%
+
+CONTRADICTIONS
+Total Detected,25
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,99.9%,performance of any Source or Product shall be with You and not,"then any rights granted to You under this Licence shall
+terminate as of the date such process is initiated."
+2,semantic,99.9%,"the possibility of such damages, and You shall hold the","then any rights granted to You under this Licence shall
+terminate as of the date such process is initiated."
+3,semantic,99.9%,"versions will be published with a unique version number and a
+variant identifier specifying the variant. If the Licensor has
+specified that a given variant applies to the Covered Source","variant. If no variant is specified, the Covered Source shall be"
+4,semantic,99.7%,performance of any Source or Product shall be with You and not,"5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to"
+5,semantic,94.2%,"5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to","the possibility of such damages, and You shall hold the"
+6,modality,90.0%,shall apply worldwide and without limitation in time.,2.3 You shall not attempt to restrict by contract or otherwise the
+7,modality,90.0%,shall apply worldwide and without limitation in time.,7.2 You shall not use any of the name (including acronyms and
+8,modality,90.0%,2.3 You shall not attempt to restrict by contract or otherwise the,performance of any Source or Product shall be with You and not
+9,modality,90.0%,2.3 You shall not attempt to restrict by contract or otherwise the,"5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to"
+10,modality,90.0%,2.3 You shall not attempt to restrict by contract or otherwise the,"the possibility of such damages, and You shall hold the"
+11,modality,90.0%,2.3 You shall not attempt to restrict by contract or otherwise the,"then any rights granted to You under this Licence shall
+terminate as of the date such process is initiated."
+12,modality,90.0%,2.3 You shall not attempt to restrict by contract or otherwise the,7.2 You shall not use any of the name (including acronyms and
+13,modality,90.0%,2.3 You shall not attempt to restrict by contract or otherwise the,"variant. If no variant is specified, the Covered Source shall be"
+14,modality,90.0%,performance of any Source or Product shall be with You and not,7.2 You shall not use any of the name (including acronyms and
+15,modality,90.0%,performance of any Source or Product shall be with You and not,7.4 This Licence shall not be enforceable except by a Licensor
+16,modality,90.0%,"5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to",7.2 You shall not use any of the name (including acronyms and
+17,modality,90.0%,"5.2 EXCLUSION AND LIMITATION OF LIABILITY -- The Licensor shall, to",7.4 This Licence shall not be enforceable except by a Licensor
+18,modality,90.0%,"the possibility of such damages, and You shall hold the",7.2 You shall not use any of the name (including acronyms and
+19,modality,90.0%,"the possibility of such damages, and You shall hold the",7.4 This Licence shall not be enforceable except by a Licensor
+20,modality,90.0%,"then any rights granted to You under this Licence shall
+terminate as of the date such process is initiated.",7.2 You shall not use any of the name (including acronyms and
+21,modality,90.0%,"then any rights granted to You under this Licence shall
+terminate as of the date such process is initiated.",7.4 This Licence shall not be enforceable except by a Licensor
+22,modality,90.0%,7.2 You shall not use any of the name (including acronyms and,"variant. If no variant is specified, the Covered Source shall be"
+23,modality,90.0%,7.2 You shall not use any of the name (including acronyms and,7.4 This Licence shall not be enforceable except by a Licensor
+24,modality,90.0%,"variant. If no variant is specified, the Covered Source shall be",7.4 This Licence shall not be enforceable except by a Licensor
+25,semantic,85.1%,"the possibility of such damages, and You shall hold the","variant. If no variant is specified, the Covered Source shall be"

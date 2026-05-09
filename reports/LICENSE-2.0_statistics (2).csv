@@ -1,0 +1,31 @@
+DOCUMENT STATISTICS
+Filename,LICENSE-2.0.txt
+Text Length (chars),11560
+Analyzed At,2026-05-08T23:05:45.345939
+Total Segments,88
+  Normative,21
+  Informative,58
+  Unknown,9
+High Confidence Segments (≥0.7),23
+Medium Confidence Segments,65
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,0
+Average Profile Confidence,0.0%
+
+TERMINOLOGY
+Defined Terms,2
+Undefined Terms,48
+Definition Coverage,4.0%
+
+CONTRADICTIONS
+Total Detected,6
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,99.9%,(a) You must give any other recipients of the Work or,"(c) You must retain, in the Source form of any Derivative Works"
+2,semantic,99.8%,"of this License, Derivative Works shall not include works that remain","(c) You must retain, in the Source form of any Derivative Works"
+3,semantic,94.8%,(b) You must cause any modified files to carry prominent notices,"(c) You must retain, in the Source form of any Derivative Works"
+4,modality,90.0%,"of this License, Derivative Works shall not include works that remain",granted to You under this License for that Work shall terminate
+5,modality,90.0%,"of this License, Derivative Works shall not include works that remain",by You to the Licensor shall be under the terms and conditions of
+6,modality,90.0%,"of this License, Derivative Works shall not include works that remain","Notwithstanding the above, nothing herein shall supersede or modify"

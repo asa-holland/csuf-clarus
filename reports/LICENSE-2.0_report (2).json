@@ -9,7 +9,7 @@
       "format": "TXT",
       "line_count": 203,
       "original_filename": "LICENSE-2.0.txt",
-      "processed_at": "2026-05-08T20:57:58.697433",
+      "processed_at": "2026-05-08T23:05:45.345939",
       "text_length": 11560,
       "word_count": 1581
     },
@@ -1109,20 +1109,6 @@
   "analysis": {
     "contradictions": [
       {
-        "confidence": 0.9998925924301147,
-        "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
-        "statement_a": "To apply the Apache License to your work, attach the following",
-        "statement_b": "replaced with your own identifying information. (Don't include"
-      },
-      {
-        "confidence": 0.999871015548706,
-        "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
-        "statement_a": "by You to the Licensor shall be under the terms and conditions of",
-        "statement_b": "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or"
-      },
-      {
         "confidence": 0.9994972944259644,
         "contradiction_type": "semantic",
         "explanation": "NLI model detected semantic contradiction (score: 1.00)",
@@ -1137,20 +1123,6 @@
         "statement_b": "(c) You must retain, in the Source form of any Derivative Works"
       },
       {
-        "confidence": 0.9910566806793213,
-        "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 0.99)",
-        "statement_a": "by You to the Licensor shall be under the terms and conditions of",
-        "statement_b": "Notwithstanding the above, nothing herein shall supersede or modify"
-      },
-      {
-        "confidence": 0.956613302230835,
-        "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 0.96)",
-        "statement_a": "7. Disclaimer of Warranty. Unless required by applicable law or",
-        "statement_b": "and charge a fee for, acceptance of support, warranty, indemnity,"
-      },
-      {
         "confidence": 0.9480250477790833,
         "contradiction_type": "semantic",
         "explanation": "NLI model detected semantic contradiction (score: 0.95)",
@@ -1163,6 +1135,20 @@
         "explanation": "Direct contradiction detected between statements",
         "statement_a": "of this License, Derivative Works shall not include works that remain",
         "statement_b": "granted to You under this License for that Work shall terminate"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "of this License, Derivative Works shall not include works that remain",
+        "statement_b": "by You to the Licensor shall be under the terms and conditions of"
+      },
+      {
+        "confidence": 0.9,
+        "contradiction_type": "modality",
+        "explanation": "Direct contradiction detected between statements",
+        "statement_a": "of this License, Derivative Works shall not include works that remain",
+        "statement_b": "Notwithstanding the above, nothing herein shall supersede or modify"
       }
     ],
     "s2_findings": [
@@ -1299,16 +1285,16 @@
           "term": "NOTICE"
         },
         {
-          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "TERMS"
-        },
-        {
           "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
           "is_defined": false,
           "is_undefined_acronym": true,
           "term": "TITLE"
+        },
+        {
+          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "TERMS"
         },
         {
           "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
@@ -1338,13 +1324,13 @@
           "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "term": "REPRODUCTION"
+          "term": "DISTRIBUTION"
         },
         {
           "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "term": "DISTRIBUTION"
+          "term": "REPRODUCTION"
         },
         {
           "context_excerpt": "...mbination of their Contribution(s)\r\n      with the Work to which such Contribution(s) was submitted. If You\r\n      institute patent litigation against any entity (including a\r\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\r\n      or a Contribution incorporated within the W...",
@@ -1353,16 +1339,16 @@
           "term": "INFRINGEMENT"
         },
         {
-          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "CONDITIONS"
-        },
-        {
           "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
           "is_defined": false,
           "is_undefined_acronym": true,
           "term": "WARRANTIES"
+        },
+        {
+          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "CONDITIONS"
         },
         {
           "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
@@ -1407,16 +1393,16 @@
           "term": "Sections 1 through"
         },
         {
-          "context_excerpt": "2. Grant of Copyright License. Subject to the terms and conditions of\r\n      this License, each Contributor hereby grants to You a ...",
-          "is_defined": false,
-          "is_undefined_acronym": false,
-          "term": "Copyright License"
-        },
-        {
           "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": false,
           "term": "2.0, January 2004"
+        },
+        {
+          "context_excerpt": "2. Grant of Copyright License. Subject to the terms and conditions of\r\n      this License, each Contributor hereby grants to You a ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "Copyright License"
         },
         {
           "context_excerpt": "...other entities that control, are controlled by, or are under common\r\n      control with that entity. For the purposes of this definition,\r\n      \"control\" means (i) the power, direct or indirect, to cause the\r\n      direction or management of such entity, whether by contract or\r\n      otherwise, ...",
@@ -1437,6 +1423,12 @@
           "term": "Derivative Works of"
         },
         {
+          "context_excerpt": "...mbination of their Contribution(s)\r\n      with the Work to which such Contribution(s) was submitted. If You\r\n      institute patent litigation against any entity (including a\r\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\r\n      or a Contribution incorporated within the W...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "such litigation"
+        },
+        {
           "context_excerpt": "Limitation of Liability. In no event and under no legal theory,\r\n      whether in tort (including negligence), contract, or otherwise,\r\n      unless required by applicable law (such as deliberate and grossly\r\n      negligent acts) or agreed to in writing, shall any Contributor be\r\n      liable to Yo...",
           "is_defined": false,
           "is_undefined_acronym": false,
@@ -1449,22 +1441,16 @@
           "term": "Work Derivative"
         },
         {
-          "context_excerpt": "...mbination of their Contribution(s)\r\n      with the Work to which such Contribution(s) was submitted. If You\r\n      institute patent litigation against any entity (including a\r\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\r\n      or a Contribution incorporated within the W...",
+          "context_excerpt": "4. Redistribution. You may reproduce and distribute copies of the\r\n      Work or Derivative Works thereof in any medium...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "term": "such litigation"
+          "term": "Redistribution"
         },
         {
           "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
           "is_defined": false,
           "is_undefined_acronym": false,
           "term": "applicable law"
-        },
-        {
-          "context_excerpt": "4. Redistribution. You may reproduce and distribute copies of the\r\n      Work or Derivative Works thereof in any medium...",
-          "is_defined": false,
-          "is_undefined_acronym": false,
-          "term": "Redistribution"
         },
         {
           "context_excerpt": null,
@@ -1515,10 +1501,10 @@
           "term": "Limitation"
         },
         {
-          "context_excerpt": "...e that is included in or attached to the work\r\n      (an example is provided in the Appendix below). \"Derivative Works\" shall mean any work, whether in Source or Object\r\n      form, that is based on (or derived from) the Work and for which the\r\n      editorial revisions, annotations, elaborations...",
+          "context_excerpt": "...    of the NOTICE file are for informational purposes only and\r\n          do not modify the License. You may add Your own attribution\r\n          notices within Derivative Works that You distribute, alongside\r\n          or as an addendum to the NOTICE text from the Work, provided\r\n          that s...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "term": "Derivative"
+          "term": "Additional"
         },
         {
           "context_excerpt": "...mary use in describing the\r\n      origin of the Work and reproducing the content of the NOTICE file. 7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and ea...",
@@ -1527,10 +1513,10 @@
           "term": "Disclaimer"
         },
         {
-          "context_excerpt": "...    of the NOTICE file are for informational purposes only and\r\n          do not modify the License. You may add Your own attribution\r\n          notices within Derivative Works that You distribute, alongside\r\n          or as an addendum to the NOTICE text from the Work, provided\r\n          that s...",
+          "context_excerpt": "...e that is included in or attached to the work\r\n      (an example is provided in the Appendix below). \"Derivative Works\" shall mean any work, whether in Source or Object\r\n      form, that is based on (or derived from) the Work and for which the\r\n      editorial revisions, annotations, elaborations...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "term": "Additional"
+          "term": "Derivative"
         }
       ],
       "undefined_terms": [
@@ -1667,12 +1653,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
+          "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "terms",
+          "normalized_term": "title",
           "suggested_definition": null,
-          "term": "TERMS"
+          "term": "TITLE"
         },
         {
           "classification": {
@@ -1681,12 +1667,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
+          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "title",
+          "normalized_term": "terms",
           "suggested_definition": null,
-          "term": "TITLE"
+          "term": "TERMS"
         },
         {
           "classification": {
@@ -1754,9 +1740,9 @@
           "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "reproduction",
+          "normalized_term": "distribution",
           "suggested_definition": null,
-          "term": "REPRODUCTION"
+          "term": "DISTRIBUTION"
         },
         {
           "classification": {
@@ -1768,9 +1754,9 @@
           "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "distribution",
+          "normalized_term": "reproduction",
           "suggested_definition": null,
-          "term": "DISTRIBUTION"
+          "term": "REPRODUCTION"
         },
         {
           "classification": {
@@ -1793,12 +1779,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
+          "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "conditions",
+          "normalized_term": "warranties",
           "suggested_definition": null,
-          "term": "CONDITIONS"
+          "term": "WARRANTIES"
         },
         {
           "classification": {
@@ -1807,12 +1793,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "7. Disclaimer of Warranty. Unless required by applicable law or\r\n      agreed to in writing, Licensor provides the Work (and each\r\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\r\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\r\n      implied, including, with...",
+          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "warranties",
+          "normalized_term": "conditions",
           "suggested_definition": null,
-          "term": "WARRANTIES"
+          "term": "CONDITIONS"
         },
         {
           "classification": {
@@ -1919,12 +1905,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "2. Grant of Copyright License. Subject to the terms and conditions of\r\n      this License, each Contributor hereby grants to You a ...",
+          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "copyright license",
+          "normalized_term": "2.0, january 2004",
           "suggested_definition": null,
-          "term": "Copyright License"
+          "term": "2.0, January 2004"
         },
         {
           "classification": {
@@ -1933,12 +1919,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "Apache License\r\n                           Version 2.0, January 2004\r\n                        http://www.apache.org/licenses/\r\n\r\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\r\n\r\n   1. Definitions.",
+          "context_excerpt": "2. Grant of Copyright License. Subject to the terms and conditions of\r\n      this License, each Contributor hereby grants to You a ...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "2.0, january 2004",
+          "normalized_term": "copyright license",
           "suggested_definition": null,
-          "term": "2.0, January 2004"
+          "term": "Copyright License"
         },
         {
           "classification": {
@@ -1989,6 +1975,20 @@
             "is_common_english": false,
             "is_domain_term": true
           },
+          "context_excerpt": "...mbination of their Contribution(s)\r\n      with the Work to which such Contribution(s) was submitted. If You\r\n      institute patent litigation against any entity (including a\r\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\r\n      or a Contribution incorporated within the W...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "normalized_term": "such litigation",
+          "suggested_definition": null,
+          "term": "such litigation"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
           "context_excerpt": "Limitation of Liability. In no event and under no legal theory,\r\n      whether in tort (including negligence), contract, or otherwise,\r\n      unless required by applicable law (such as deliberate and grossly\r\n      negligent acts) or agreed to in writing, shall any Contributor be\r\n      liable to Yo...",
           "is_defined": false,
           "is_undefined_acronym": false,
@@ -2017,12 +2017,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "...mbination of their Contribution(s)\r\n      with the Work to which such Contribution(s) was submitted. If You\r\n      institute patent litigation against any entity (including a\r\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\r\n      or a Contribution incorporated within the W...",
+          "context_excerpt": "4. Redistribution. You may reproduce and distribute copies of the\r\n      Work or Derivative Works thereof in any medium...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "such litigation",
+          "normalized_term": "redistribution",
           "suggested_definition": null,
-          "term": "such litigation"
+          "term": "Redistribution"
         },
         {
           "classification": {
@@ -2037,20 +2037,6 @@
           "normalized_term": "applicable law",
           "suggested_definition": null,
           "term": "applicable law"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
-          "context_excerpt": "4. Redistribution. You may reproduce and distribute copies of the\r\n      Work or Derivative Works thereof in any medium...",
-          "is_defined": false,
-          "is_undefined_acronym": false,
-          "normalized_term": "redistribution",
-          "suggested_definition": null,
-          "term": "Redistribution"
         },
         {
           "classification": {
@@ -2171,12 +2157,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "...e that is included in or attached to the work\r\n      (an example is provided in the Appendix below). \"Derivative Works\" shall mean any work, whether in Source or Object\r\n      form, that is based on (or derived from) the Work and for which the\r\n      editorial revisions, annotations, elaborations...",
+          "context_excerpt": "...    of the NOTICE file are for informational purposes only and\r\n          do not modify the License. You may add Your own attribution\r\n          notices within Derivative Works that You distribute, alongside\r\n          or as an addendum to the NOTICE text from the Work, provided\r\n          that s...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "derivative",
+          "normalized_term": "additional",
           "suggested_definition": null,
-          "term": "Derivative"
+          "term": "Additional"
         },
         {
           "classification": {
@@ -2199,12 +2185,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "...    of the NOTICE file are for informational purposes only and\r\n          do not modify the License. You may add Your own attribution\r\n          notices within Derivative Works that You distribute, alongside\r\n          or as an addendum to the NOTICE text from the Work, provided\r\n          that s...",
+          "context_excerpt": "...e that is included in or attached to the work\r\n      (an example is provided in the Appendix below). \"Derivative Works\" shall mean any work, whether in Source or Object\r\n      form, that is based on (or derived from) the Work and for which the\r\n      editorial revisions, annotations, elaborations...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "additional",
+          "normalized_term": "derivative",
           "suggested_definition": null,
-          "term": "Additional"
+          "term": "Derivative"
         }
       ]
     }

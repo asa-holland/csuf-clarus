@@ -9,7 +9,7 @@
       "format": "TXT",
       "line_count": 452,
       "original_filename": "fdl-1.3.txt",
-      "processed_at": "2026-05-06T04:27:06.793338",
+      "processed_at": "2026-05-08T23:06:27.069939",
       "text_length": 23406,
       "word_count": 3689
     },
@@ -2393,18 +2393,11 @@
         "statement_b": "Free Software Foundation.  If the Document does not specify a version"
       },
       {
-        "confidence": 0.9996955394744873,
+        "confidence": 0.9975148439407349,
         "contradiction_type": "semantic",
         "explanation": "NLI model detected semantic contradiction (score: 1.00)",
-        "statement_a": "otherwise to copy, modify, sublicense, or distribute it is void, and\nwill automatically terminate your rights under this License.",
-        "statement_b": "not give you any rights to use it."
-      },
-      {
-        "confidence": 0.9973971843719482,
-        "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 1.00)",
-        "statement_a": "E. Add an appropriate copyright notice for your modifications",
-        "statement_b": "list them all as Invariant Sections of your combined work in its"
+        "statement_a": "more than 100, you must either include a machine-readable Transparent\ncopy along with each Opaque copy, or state in or with each Opaque copy",
+        "statement_b": "The combined work need only contain one copy of this License, and"
       },
       {
         "confidence": 0.9958997368812561,
@@ -2414,6 +2407,13 @@
         "statement_b": "distribute it individually under this License, provided you insert a"
       },
       {
+        "confidence": 0.9923527836799622,
+        "contradiction_type": "semantic",
+        "explanation": "NLI model detected semantic contradiction (score: 0.99)",
+        "statement_a": "If you use the latter option, you must take reasonably prudent steps,\nwhen you begin distribution of Opaque copies in quantity, to ensure\nthat this Transparent copy will remain thus accessible at the stated",
+        "statement_b": "otherwise to copy, modify, sublicense, or distribute it is void, and\nwill automatically terminate your rights under this License."
+      },
+      {
         "confidence": 0.9882407188415527,
         "contradiction_type": "semantic",
         "explanation": "NLI model detected semantic contradiction (score: 0.99)",
@@ -2421,25 +2421,18 @@
         "statement_b": "Free Software Foundation.  If the Document does not specify a version"
       },
       {
-        "confidence": 0.9752673506736755,
-        "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 0.98)",
-        "statement_a": "this License requires to appear in the title page.  For works in",
-        "statement_b": "\"Dedications\", \"Endorsements\", or \"History\".)  To \"Preserve the Title\""
-      },
-      {
-        "confidence": 0.9683628678321838,
+        "confidence": 0.9700025320053101,
         "contradiction_type": "semantic",
         "explanation": "NLI model detected semantic contradiction (score: 0.97)",
-        "statement_a": "assure everyone the effective freedom to copy and redistribute it,",
-        "statement_b": "copy, modify or distribute the work in a way requiring permission"
+        "statement_a": "Document's license notice requires Cover Texts, you must enclose the",
+        "statement_b": "The combined work need only contain one copy of this License, and"
       },
       {
-        "confidence": 0.9143620729446411,
+        "confidence": 0.8775632977485657,
         "contradiction_type": "semantic",
-        "explanation": "NLI model detected semantic contradiction (score: 0.91)",
-        "statement_a": "Free Software Foundation.  If the Document does not specify a version",
-        "statement_b": "to permit their use in free software."
+        "explanation": "NLI model detected semantic contradiction (score: 0.88)",
+        "statement_a": "If you use the latter option, you must take reasonably prudent steps,\nwhen you begin distribution of Opaque copies in quantity, to ensure\nthat this Transparent copy will remain thus accessible at the stated",
+        "statement_b": "The combined work need only contain one copy of this License, and"
       }
     ],
     "s2_findings": [
@@ -2493,17 +2486,31 @@
           "normalized_term": "addendum",
           "suggested_definition": "How to use this License for your documents",
           "term": "ADDENDUM"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": true,
+          "is_undefined_acronym": false,
+          "normalized_term": "this license",
+          "suggested_definition": "a kind of \"copyleft\", which means that derivative",
+          "term": "THIS LICENSE"
         }
       ],
       "statistics": {
         "avg_confidence": 0.7999999999999998,
         "common_english_terms": 0,
-        "defined_terms": 1,
-        "definition_coverage": 0.02,
-        "potential_domain_terms": 49,
+        "defined_terms": 2,
+        "definition_coverage": 0.04,
+        "potential_domain_terms": 48,
         "semantic_clusters_found": 0,
         "total_terms": 50,
-        "undefined_terms": 49
+        "undefined_terms": 48
       },
       "term_occurrences": [
         {
@@ -2511,6 +2518,12 @@
           "is_defined": true,
           "is_undefined_acronym": false,
           "term": "ADDENDUM"
+        },
+        {
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": true,
+          "is_undefined_acronym": false,
+          "term": "THIS LICENSE"
         },
         {
           "context_excerpt": "We recommend this License\r\nprincipally for works whose purpose is instruction or reference. 1. APPLICABILITY AND DEFINITIONS This License applies to any manual or other work, in any medium, that\r\ncontains a notice placed by t...",
@@ -2621,16 +2634,28 @@
           "term": "TITLES"
         },
         {
+          "context_excerpt": "...get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense. It\r\ncomplements the GNU General Public License, which is a copyl...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "WORKS"
+        },
+        {
           "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
           "is_defined": false,
           "is_undefined_acronym": true,
           "term": "ASCII"
         },
         {
-          "context_excerpt": "...get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense. It\r\ncomplements the GNU General Public License, which is a copyl...",
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "term": "WORKS"
+          "term": "LIST"
+        },
+        {
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "SGML"
         },
         {
           "context_excerpt": null,
@@ -2651,46 +2676,16 @@
           "term": "HTML"
         },
         {
-          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "SGML"
-        },
-        {
-          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "LIST"
-        },
-        {
           "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
           "is_defined": false,
           "is_undefined_acronym": true,
           "term": "XCF"
         },
         {
-          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "term": "GNU"
-        },
-        {
-          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "PNG"
-        },
-        {
-          "context_excerpt": "...acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to e...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "MMC"
-        },
-        {
-          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "JPG"
+          "term": "PDF"
         },
         {
           "context_excerpt": "The \"publisher\" means any person or entity that distributes copies of\r\nthe Document to the public. A section \"Entitled XYZ\" means a named subunit of the Document whose\r\ntitle either is precisely XYZ or contains XYZ in parentheses following\r\ntext that translates XYZ in another language. (Here XYZ sta...",
@@ -2699,10 +2694,16 @@
           "term": "XYZ"
         },
         {
-          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "term": "XML"
+          "term": "PNG"
+        },
+        {
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "JPG"
         },
         {
           "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
@@ -2711,10 +2712,22 @@
           "term": "DTD"
         },
         {
+          "context_excerpt": "...acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to e...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "MMC"
+        },
+        {
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "term": "GNU"
+        },
+        {
           "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "term": "PDF"
+          "term": "XML"
         },
         {
           "context_excerpt": "The Document may contain zero\r\nInvariant Sections. If the Document does not identify any Invariant\r\nSections then there are none. The \"Cover Texts\" are certain short passages of text that are listed,\r\nas Front-Cover Texts or Back-...",
@@ -2726,13 +2739,13 @@
           "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "term": "Invariant Sections"
+          "term": "Secondary Sections"
         },
         {
           "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "term": "Secondary Sections"
+          "term": "Invariant Sections"
         },
         {
           "context_excerpt": "...ense if you\r\ncopy, modify or distribute the work in a way requiring permission\r\nunder copyright law. A \"Modified Version\" of the Document means any work containing the\r\nDocument or a portion of it, either copied verbatim, or with\r\nmodifications and/or translated into another language. A \"Secondar...",
@@ -2747,16 +2760,16 @@
           "term": "August 1, 2009"
         },
         {
-          "context_excerpt": "...isting section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section. O. Preserve any Warranty Disclaimers. If the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary ...",
-          "is_defined": false,
-          "is_undefined_acronym": false,
-          "term": "O. Preserve"
-        },
-        {
           "context_excerpt": "...Title Page, then add an item describing the Modified\r\n   Version as stated in the previous sentence. J. Preserve the network location, if any, given in the Document for\r\n   public access to a Transparent copy of the Document, and likewise\r\n   the network locations given in the Document for previo...",
           "is_defined": false,
           "is_undefined_acronym": false,
           "term": "J. Preserve"
+        },
+        {
+          "context_excerpt": "...isting section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section. O. Preserve any Warranty Disclaimers. If the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary ...",
+          "is_defined": false,
+          "is_undefined_acronym": false,
+          "term": "O. Preserve"
         },
         {
           "context_excerpt": "H. Include an unaltered copy of this License. I. Preserve the section Entitled \"History\", Preserve its Title, and add\r\n   to it an item stating at least the title, year, new authors, and\r\n   publisher of the Modified Version as given on the Title Page. If\r\n   there is no section Entitled \"History\" i...",
@@ -2799,12 +2812,6 @@
           "is_defined": false,
           "is_undefined_acronym": true,
           "term": "APPLICABILITY"
-        },
-        {
-          "context_excerpt": "...substance and tone of each of the contributor acknowledgements\r\n   and/or dedications given therein. L. Preserve all the Invariant Sections of the Document,\r\n   unaltered in their text and in their titles. Section numbers\r\n   or the equivalent are not considered part of the section titles.",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "term": "THEIR TITLES"
         }
       ],
       "undefined_terms": [
@@ -3067,6 +3074,20 @@
             "is_common_english": false,
             "is_domain_term": true
           },
+          "context_excerpt": "...get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense. It\r\ncomplements the GNU General Public License, which is a copyl...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "works",
+          "suggested_definition": null,
+          "term": "WORKS"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
           "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
           "is_defined": false,
           "is_undefined_acronym": true,
@@ -3081,12 +3102,26 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "...get credit for their work, while not being considered responsible\r\nfor modifications made by others. This License is a kind of \"copyleft\", which means that derivative\r\nworks of the document must themselves be free in the same sense. It\r\ncomplements the GNU General Public License, which is a copyl...",
+          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "works",
+          "normalized_term": "list",
           "suggested_definition": null,
-          "term": "WORKS"
+          "term": "LIST"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "sgml",
+          "suggested_definition": null,
+          "term": "SGML"
         },
         {
           "classification": {
@@ -3137,34 +3172,6 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "normalized_term": "sgml",
-          "suggested_definition": null,
-          "term": "SGML"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
-          "context_excerpt": "...the same title as a previous version\r\n   if the original publisher of that version gives permission. B. List on the Title Page, as authors, one or more persons or entities\r\n   responsible for authorship of the modifications in the Modified\r\n   Version, together with at least five of the principal...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "normalized_term": "list",
-          "suggested_definition": null,
-          "term": "LIST"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
           "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
           "is_defined": false,
           "is_undefined_acronym": true,
@@ -3179,54 +3186,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "gnu",
+          "normalized_term": "pdf",
           "suggested_definition": null,
-          "term": "GNU"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
-          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "normalized_term": "png",
-          "suggested_definition": null,
-          "term": "PNG"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
-          "context_excerpt": "...acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to e...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "normalized_term": "mmc",
-          "suggested_definition": null,
-          "term": "MMC"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
-          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "normalized_term": "jpg",
-          "suggested_definition": null,
-          "term": "JPG"
+          "term": "PDF"
         },
         {
           "classification": {
@@ -3249,12 +3214,26 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "xml",
+          "normalized_term": "png",
           "suggested_definition": null,
-          "term": "XML"
+          "term": "PNG"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "...ilable DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for human modification. Examples of\r\ntransparent image formats include PNG, XCF and JPG. Opaque formats\r\ninclude proprietary formats that can be read and edited only by\r\nproprietary word pr...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "jpg",
+          "suggested_definition": null,
+          "term": "JPG"
         },
         {
           "classification": {
@@ -3277,12 +3256,40 @@
             "is_common_english": false,
             "is_domain_term": true
           },
+          "context_excerpt": "...acceptance of a\r\nversion permanently authorizes you to choose that version for the\r\nDocument.\r\n\r\n11. RELICENSING\r\n\r\n\"Massive Multiauthor Collaboration Site\" (or \"MMC Site\") means any\r\nWorld Wide Web server that publishes copyrightable works and also\r\nprovides prominent facilities for anybody to e...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "mmc",
+          "suggested_definition": null,
+          "term": "MMC"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
+          "context_excerpt": "GNU Free Documentation License\r\n                 Version 1.3, 3 November 2008\r\n\r\n\r\n Copyright (C) 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.\r\n     <https://fsf.org/>\r\n Everyone is permitted to copy and distribute verbatim copies\r\n of this license document, but changing it is not all...",
+          "is_defined": false,
+          "is_undefined_acronym": true,
+          "normalized_term": "gnu",
+          "suggested_definition": null,
+          "term": "GNU"
+        },
+        {
+          "classification": {
+            "classification_reason": "rule_based_fallback",
+            "confidence": 0.8,
+            "is_common_english": false,
+            "is_domain_term": true
+          },
           "context_excerpt": "A copy that is not \"Transparent\" is called \"Opaque\". Examples of suitable formats for Transparent copies include plain\r\nASCII without markup, Texinfo input format, LaTeX input format, SGML\r\nor XML using a publicly available DTD, and standard-conforming simple\r\nHTML, PostScript or PDF designed for hu...",
           "is_defined": false,
           "is_undefined_acronym": true,
-          "normalized_term": "pdf",
+          "normalized_term": "xml",
           "suggested_definition": null,
-          "term": "PDF"
+          "term": "XML"
         },
         {
           "classification": {
@@ -3308,9 +3315,9 @@
           "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "invariant sections",
+          "normalized_term": "secondary sections",
           "suggested_definition": null,
-          "term": "Invariant Sections"
+          "term": "Secondary Sections"
         },
         {
           "classification": {
@@ -3322,9 +3329,9 @@
           "context_excerpt": "...ted matters, or of legal,\r\ncommercial, philosophical, ethical or political position regarding\r\nthem. The \"Invariant Sections\" are certain Secondary Sections whose titles\r\nare designated, as being those of Invariant Sections, in the notice\r\nthat says that the Document is released under this Licens...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "secondary sections",
+          "normalized_term": "invariant sections",
           "suggested_definition": null,
-          "term": "Secondary Sections"
+          "term": "Invariant Sections"
         },
         {
           "classification": {
@@ -3361,12 +3368,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "...isting section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section. O. Preserve any Warranty Disclaimers. If the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary ...",
+          "context_excerpt": "...Title Page, then add an item describing the Modified\r\n   Version as stated in the previous sentence. J. Preserve the network location, if any, given in the Document for\r\n   public access to a Transparent copy of the Document, and likewise\r\n   the network locations given in the Document for previo...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "o. preserve",
+          "normalized_term": "j. preserve",
           "suggested_definition": null,
-          "term": "O. Preserve"
+          "term": "J. Preserve"
         },
         {
           "classification": {
@@ -3375,12 +3382,12 @@
             "is_common_english": false,
             "is_domain_term": true
           },
-          "context_excerpt": "...Title Page, then add an item describing the Modified\r\n   Version as stated in the previous sentence. J. Preserve the network location, if any, given in the Document for\r\n   public access to a Transparent copy of the Document, and likewise\r\n   the network locations given in the Document for previo...",
+          "context_excerpt": "...isting section to be Entitled \"Endorsements\"\r\n   or to conflict in title with any Invariant Section. O. Preserve any Warranty Disclaimers. If the Modified Version includes new front-matter sections or\r\nappendices that qualify as Secondary ...",
           "is_defined": false,
           "is_undefined_acronym": false,
-          "normalized_term": "j. preserve",
+          "normalized_term": "o. preserve",
           "suggested_definition": null,
-          "term": "J. Preserve"
+          "term": "O. Preserve"
         },
         {
           "classification": {
@@ -3479,20 +3486,6 @@
           "normalized_term": "applicability",
           "suggested_definition": null,
           "term": "APPLICABILITY"
-        },
-        {
-          "classification": {
-            "classification_reason": "rule_based_fallback",
-            "confidence": 0.8,
-            "is_common_english": false,
-            "is_domain_term": true
-          },
-          "context_excerpt": "...substance and tone of each of the contributor acknowledgements\r\n   and/or dedications given therein. L. Preserve all the Invariant Sections of the Document,\r\n   unaltered in their text and in their titles. Section numbers\r\n   or the equivalent are not considered part of the section titles.",
-          "is_defined": false,
-          "is_undefined_acronym": true,
-          "normalized_term": "their titles",
-          "suggested_definition": null,
-          "term": "THEIR TITLES"
         }
       ]
     }

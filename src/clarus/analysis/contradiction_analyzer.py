@@ -98,8 +98,8 @@ class ContradictionDetector:
             "ml_threshold": 0.8,
             "use_candidate_filter": True,
             "max_segment_distance": 10,
-            "min_term_overlap": 1,
-            "min_nli_words": 6,
+            "min_term_overlap": 2,
+            "min_nli_words": 10,
             **({} if config is None else config),
         }
         self.initialized = False
@@ -130,6 +130,12 @@ class ContradictionDetector:
         contradictions = []
 
         logger.info("detect_contradictions: received %d statement(s)", len(statements))
+
+        statements = [s for s in statements if self._is_sentence_like(s)]
+        logger.info(
+            "detect_contradictions: %d statement(s) after sentence filter",
+            len(statements),
+        )
         for idx, s in enumerate(statements):
             logger.debug("  [%d] %s", idx, s)
 
@@ -178,10 +184,61 @@ class ContradictionDetector:
                 if self._share_significant_terms(
                     statements[i],
                     statements[j],
-                    min_overlap=self.config.get("min_term_overlap", 1),
+                    min_overlap=self.config.get("min_term_overlap", 2),
                 ):
                     candidates.append((i, j))
         return candidates
+
+    # Verb tokens that signal a complete predicate.  A segment must contain at
+    # least one of these to be treated as a sentence worth comparing.
+    _VERB_SIGNALS: frozenset = frozenset({
+        "must", "shall", "should", "may", "can", "will", "would", "could", "might",
+        "is", "are", "was", "were", "has", "have", "had",
+        "does", "do", "did",
+        "require", "requires", "required",
+        "provide", "provides", "provided",
+        "allow", "allows", "allowed",
+        "prohibit", "prohibits", "prohibited",
+        "state", "states", "stated",
+        "define", "defines", "defined",
+        "specify", "specifies", "specified",
+        "ensure", "ensures", "ensured",
+        "contain", "contains", "contained",
+        "include", "includes", "included",
+        "apply", "applies", "applied",
+    })
+
+    def _is_sentence_like(self, text: str) -> bool:
+        """Return True only for text that looks like a complete sentence.
+
+        Rejects: headers, short labels, all-caps titles, colon-terminated
+        fragments, and anything lacking a recognisable predicate verb.
+        """
+        text = text.strip()
+        words = text.split()
+
+        if len(words) < 8:
+            return False
+
+        # All-caps lines are almost always headings or acronym definitions
+        alpha_only = re.sub(r"[^A-Za-z]", "", text)
+        if alpha_only and alpha_only == alpha_only.upper():
+            return False
+
+        # "Label:" style fragments — ends with colon, no interior sentence punct
+        if text.endswith(":") and "," not in text and "." not in text[:-1]:
+            return False
+
+        # Numbered or bulleted labels without a proper predicate
+        # e.g. "1. Purpose" or "• Definitions"
+        if re.match(r"^[\d]+[\.\)]\s+\S+$", text) or re.match(r"^[•\-\*]\s+\S+$", text):
+            return False
+
+        lower_words = set(re.findall(r"\b\w+\b", text.lower()))
+        if not lower_words.intersection(self._VERB_SIGNALS):
+            return False
+
+        return True
 
     def _share_significant_terms(
         self, text_a: str, text_b: str, min_overlap: int = 1

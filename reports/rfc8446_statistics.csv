@@ -1,0 +1,1581 @@
+DOCUMENT STATISTICS
+Filename,rfc8446.txt
+Text Length (chars),346699
+Analyzed At,2026-05-08T23:34:20.731158
+Total Segments,3714
+  Normative,537
+  Informative,2070
+  Unknown,1107
+High Confidence Segments (≥0.7),725
+Medium Confidence Segments,2989
+Low Confidence Segments (<0.4),0
+
+SEMANTIC EXTRACTION
+Total Profiles,49
+Average Profile Confidence,70.4%
+
+TERMINOLOGY
+Defined Terms,2
+Undefined Terms,48
+Definition Coverage,4.0%
+
+CONTRADICTIONS
+Total Detected,899
+
+#,Type,Confidence,Statement A,Statement B
+1,semantic,100.0%,MUST send these messages in alignment with a record boundary.,field is deprecated and MUST be ignored for all purposes.
+2,semantic,100.0%,"0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+3,semantic,100.0%,to determine the CSPRNG internal state and thereby predict the keying,support a compatible (EC)DHE group but do not predict it in the
+4,semantic,100.0%,"this field MUST be non-empty, so a client not offering a
+pre-TLS 1.3 session MUST generate a new 32-byte value.  This value","does not recognize, support, or wish to use, the server MUST
+ignore those cipher suites and process the remaining ones as"
+5,semantic,100.0%,messages for a given response MUST appear consecutively on the wire,"receives any other value, it MUST terminate the connection with an"
+6,semantic,100.0%,A server which negotiates a version of TLS prior to TLS 1.3 MUST set,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+7,semantic,100.0%,"this field MUST be non-empty, so a client not offering a
+pre-TLS 1.3 session MUST generate a new 32-byte value.  This value","MUST contain exactly one byte, set to zero, which corresponds to"
+8,semantic,100.0%,The receiver of a CertificateVerify message MUST verify the signature,the client MUST send an EndOfEarlyData message after receiving the
+9,semantic,100.0%,response to a ClientHello MUST set the last 8 bytes of their Random,"process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an"
+10,semantic,100.0%,The client MUST send a Certificate message if and only if the server,field having length 0).  A Finished message MUST be sent regardless
+11,semantic,100.0%,"is expected that TLS implementations will rely on their PKI libraries
+to perform certificate selection using certificate extension OIDs.",extension to the client.  Clients MUST NOT act upon any information
+12,semantic,100.0%,support TLS 1.3 will send a normal TLS 1.3 ClientHello containing,"not support TLS 1.3, it will respond with a ServerHello containing an"
+13,semantic,100.0%,"MUST be specified, and other extensions may optionally be included",field having length 0).  A Finished message MUST be sent regardless
+14,semantic,100.0%,alert has been received MUST be ignored.  If a transport-level close,"receipt of a fatal alert message, both parties MUST immediately close"
+15,semantic,100.0%,"of [RFC6066]), with the server being required to enforce that the SNI
+value associated with the session matches the one specified in the","value is not present or does not validate, the server MUST abort the"
+16,semantic,100.0%,"Upon receipt of a HelloRetryRequest, the client MUST check the","process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an"
+17,semantic,100.0%,guarantee that the 0-RTT data is accepted at most once.  Servers,assumption that the server will not verify it (as recommended by
+18,semantic,100.0%,"0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to","parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+19,semantic,100.0%,"-  The certificate MUST allow the key to be used for signing (i.e.,
+the digitalSignature bit MUST be set if the Key Usage extension is",validate using any signature algorithm using an MD5 hash MUST abort
+20,semantic,100.0%,-  The certificates MUST be signed using an acceptable signature,validate using any signature algorithm using an MD5 hash MUST abort
+21,semantic,100.0%,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the",field is deprecated and MUST be ignored for all purposes.
+22,semantic,100.0%,The server MUST send a Certificate message whenever the agreed-upon,The client MUST send a Certificate message if and only if the server
+23,semantic,100.0%,"versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+24,semantic,100.0%,"ClientHello).  When sending the new ClientHello, the client MUST copy","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+25,semantic,100.0%,Any ticket MUST only be resumed with a cipher suite that has the same,transmitted by the client.  The server MUST generate a fresh value
+26,semantic,100.0%,The receiver of a CertificateVerify message MUST verify the signature,Any ticket MUST only be resumed with a cipher suite that has the same
+27,semantic,100.0%,encoded vector must be an exact multiple of the length of a single,handshake message in an unexpected order MUST abort the handshake
+28,semantic,100.0%,"TLS 1.3 and receives a ClientHello at any other time, it MUST
+terminate the connection with an ""unexpected_message"" alert.","does not recognize, support, or wish to use, the server MUST
+ignore those cipher suites and process the remaining ones as"
+29,semantic,99.9%,"If the server selects a PSK, then it MUST also select a key",If the server successfully selects parameters and does not require a
+30,semantic,99.9%,"suitable certificate is available, the client MUST send a Certificate",field having length 0).  A Finished message MUST be sent regardless
+31,semantic,99.9%,All certificates provided by the server MUST be signed by a signature,validate using any signature algorithm using an MD5 hash MUST abort
+32,semantic,99.9%,available within the environment.  The selector must be an enumerated,handshake message in an unexpected order MUST abort the handshake
+33,semantic,99.9%,implementations MUST use the value sent in the resumption ClientHello,transmitted by the client.  The server MUST generate a fresh value
+34,semantic,99.9%,"-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly",validate using any signature algorithm using an MD5 hash MUST abort
+35,semantic,99.9%,"-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly",validate using any signature algorithm using an MD5 hash MUST abort
+36,semantic,99.9%,"versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include","parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+37,semantic,99.9%,this specification and which also support TLS 1.2 MUST negotiate,"TLS 1.3, the client MUST abort the handshake with an"
+38,semantic,99.9%,MUST NOT send Handshake and Alert records that have a zero-length,"enforces all-zero padding octets, which allows for quick detection of"
+39,semantic,99.9%,ClientHello as its first TLS message.  The client will also send a,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3."
+40,semantic,99.9%,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records.","extension, then the server MUST abort the handshake with a"
+41,semantic,99.9%,length of the AEAD output will generally be larger than the,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+42,semantic,99.9%,Any ticket MUST only be resumed with a cipher suite that has the same,"message, a different PSK will be derived for each ticket."
+43,semantic,99.9%,The server MUST send a Certificate message whenever the agreed-upon,"suitable certificate is available, the client MUST send a Certificate"
+44,semantic,99.9%,-  A client sending a ClientHello MUST support all parameters,-  A server receiving a ClientHello MUST correctly ignore all
+45,semantic,99.9%,"In order to accept early data, the server MUST have accepted a PSK","rejects it, the server will generally not have the 0-RTT record
+protection keys and must instead use trial decryption (either with"
+46,semantic,99.9%,this specification and which also support TLS 1.2 MUST negotiate,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+47,semantic,99.9%,handshake message in an unexpected order MUST abort the handshake,"HelloRetryRequest.  In that case, the client MUST send the same"
+48,semantic,99.9%,transmitted by the client.  The server MUST generate a fresh value,"receives any other value, it MUST terminate the connection with an"
+49,semantic,99.9%,alert has been received MUST be ignored.  If a transport-level close,SHOULD send an appropriate fatal alert and MUST close the connection
+50,semantic,99.9%,"Prior to accepting PSK key establishment, the server MUST validate","value is not present or does not validate, the server MUST abort the"
+51,semantic,99.9%,If the server successfully selects parameters and does not require a,"When a client first connects to a server, it is REQUIRED to send the"
+52,semantic,99.9%,All certificates provided by the server MUST be signed by a signature,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+53,semantic,99.9%,"MUST contain exactly one byte, set to zero, which corresponds to",Appendix C for additional information.  The last 8 bytes MUST be
+54,semantic,99.9%,certificate request and which will be echoed in the client's,Servers which are authenticating with a PSK MUST NOT send the
+55,semantic,99.9%,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records.","present, then the parameters in the signature MUST be identical to"
+56,semantic,99.9%,"close_notify:  This alert notifies the recipient that the sender will
+not send any more messages on this connection.  Any data received
+after a closure alert has been received MUST be ignored.","receipt of a fatal alert message, both parties MUST immediately close"
+57,semantic,99.9%,-  The certificates MUST be signed using an acceptable signature,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+58,semantic,99.9%,This document specifies version 1.3 of the Transport Layer Security,not specify how protocols add security with TLS; how to initiate TLS
+59,semantic,99.9%,"HelloRetryRequest.  In that case, the client MUST send the same","does not recognize, support, or wish to use, the server MUST
+ignore those cipher suites and process the remaining ones as"
+60,semantic,99.9%,Implementations of this specification MUST send this extension in the,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+61,semantic,99.9%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the","ClientHello).  When sending the new ClientHello, the client MUST copy"
+62,semantic,99.9%,alert has been received MUST be ignored.  If a transport-level close,"Each party MUST send a ""close_notify"" alert before closing its write"
+63,semantic,99.8%,support a compatible (EC)DHE group but do not predict it in the,"not support TLS 1.3, it will respond with a ServerHello containing an"
+64,semantic,99.8%,"-  The certificate MUST allow the key to be used for signing (i.e.,
+the digitalSignature bit MUST be set if the Key Usage extension is","up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+65,semantic,99.8%,not be able to distinguish these cases from allowed cases).,MUST send these messages in alignment with a record boundary.
+66,semantic,99.8%,Appendix C for additional information.  The last 8 bytes MUST be,it sent in the ClientHello MUST abort the handshake with an
+67,semantic,99.8%,"if previous versions of TLS are allowed to be negotiated, they MUST
+be present as well).","parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+68,semantic,99.8%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the",The length of the Salt MUST be equal to the length of the output
+69,semantic,99.8%,and receive Application Data over the connection.  There are two,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+70,semantic,99.8%,"-  When (EC)DHE is in use, the server will also provide a ""key_share""","Because TLS 1.3 forbids renegotiation, if a server has negotiated"
+71,semantic,99.8%,"extension, then the server MUST abort the handshake with a","it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+72,semantic,99.8%,"-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly","up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+73,semantic,99.8%,"certificates and decides to abort the handshake, then it MUST abort","up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+74,semantic,99.8%,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever","Recipients of Finished messages MUST verify that the contents are
+correct and if incorrect MUST terminate the connection with a"
+75,semantic,99.8%,server to authenticate itself via a certificate MUST send the,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+76,semantic,99.7%,"servers MUST be prepared for some delay, including receiving an","receives any other value, it MUST terminate the connection with an"
+77,semantic,99.7%,Appendix C for additional information.  The last 8 bytes MUST be,cipher suite that was not offered MUST abort the handshake with an
+78,semantic,99.7%,MUST NOT be used in any signatures of CertificateVerify messages.,handshake messages and are not included in the hash computations.
+79,semantic,99.7%,The client and the server must share knowledge that the connection is,alert has been received MUST be ignored.  If a transport-level close
+80,semantic,99.7%,"The server's certificate_list MUST always be non-empty.  A client
+will send an empty certificate_list if it does not have an","response, the body of its ""status_request"" extension MUST be a"
+81,semantic,99.7%,support TLS 1.3 will send a normal TLS 1.3 ClientHello containing,"will respond to the ClientHello with an older ServerHello, but it
+will not correctly skip the 0-RTT data and will fail to complete the"
+82,semantic,99.7%,"When a client first connects to a server, it is REQUIRED to send the","does not recognize, support, or wish to use, the server MUST
+ignore those cipher suites and process the remaining ones as"
+83,semantic,99.7%,T1 f1 = 8;  /* T.f1 must always be 8 */,handshake message in an unexpected order MUST abort the handshake
+84,semantic,99.7%,"receive TLS 1.2 or prior ClientHellos which contain other
+compression methods and (if negotiating such a prior version) MUST
+follow the procedures for the appropriate prior version of TLS.",it sent in the ClientHello MUST abort the handshake with an
+85,semantic,99.7%,"HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an",Implementations of this specification MUST send this extension in the
+86,semantic,99.7%,The length of the Salt MUST be equal to the length of the output,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+87,semantic,99.6%,The server will send this message in response to a ClientHello,"but the remaining bytes MUST be random.  This structure is
+generated by the server and MUST be generated independently of the"
+88,semantic,99.6%,and which receives a TLS 1.3 ServerHello during renegotiation MUST,"process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an"
+89,semantic,99.6%,"negotiation, then this will happen automatically).  Upon receiving
+the ServerHello, clients MUST check that the cipher suite supplied in","receiving such an extension, an endpoint MUST abort the handshake"
+90,semantic,99.6%,validate using any signature algorithm using an MD5 hash MUST abort,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+91,semantic,99.6%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the",server to authenticate itself via a certificate MUST send the
+92,semantic,99.6%,"this field MUST be non-empty, so a client not offering a
+pre-TLS 1.3 session MUST generate a new 32-byte value.  This value",a server MUST check that the message either contains no data after
+93,semantic,99.6%,"If the server supplies an empty Certificate message, the client MUST
+abort the handshake with a ""decode_error"" alert.","up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+94,semantic,99.6%,The server MUST send a Certificate message whenever the agreed-upon,field having length 0).  A Finished message MUST be sent regardless
+95,semantic,99.6%,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever","If the verification fails, the receiver MUST terminate the handshake"
+96,semantic,99.5%,support TLS 1.3 will send a normal TLS 1.3 ClientHello containing,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For"
+97,semantic,99.5%,Any ticket MUST only be resumed with a cipher suite that has the same,that reject early data due to lack of cryptographic material will
+98,semantic,99.5%,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records.",The length of the Salt MUST be equal to the length of the digest
+99,semantic,99.5%,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records.",The length of the Salt MUST be equal to the length of the output
+100,semantic,99.5%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the","TLS 1.3, the client MUST abort the handshake with an"
+101,semantic,99.5%,"must still be handled at the TLS layer, though.  Later documents may",alert has been received MUST be ignored.  If a transport-level close
+102,semantic,99.5%,implementation MUST send alert X if it sends any alert.  All alerts,message not containing an extension that is mandatory to send for
+103,semantic,99.5%,messages for a given response MUST appear consecutively on the wire,"servers MUST be prepared for some delay, including receiving an"
+104,semantic,99.5%,A server which negotiates a version of TLS prior to TLS 1.3 MUST set,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+105,semantic,99.5%,OIDs.  If the client ignored some of the required certificate,extension to the client.  Clients MUST NOT act upon any information
+106,semantic,99.5%,cipher suite that was not offered MUST abort the handshake with an,response to a ClientHello MUST set the last 8 bytes of their Random
+107,semantic,99.5%,The client and the server must share knowledge that the connection is,"close_notify:  This alert notifies the recipient that the sender will
+not send any more messages on this connection.  Any data received
+after a closure alert has been received MUST be ignored."
+108,semantic,99.4%,"ClientHello).  When sending the new ClientHello, the client MUST copy","it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+109,semantic,99.4%,alert has been received MUST be ignored.  If a transport-level close,implementation MUST send alert X if it sends any alert.  All alerts
+110,semantic,99.4%,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever",The receiver of a CertificateVerify message MUST verify the signature
+111,semantic,99.4%,"process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an","was itself in response to a HelloRetryRequest), it MUST abort the
+handshake with an ""unexpected_message"" alert."
+112,semantic,99.4%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For","change_cipher_spec at any time during the handshake, as they must be"
+113,semantic,99.4%,appear at a point at the handshake where the implementation is,-  Handshake messages MUST NOT be interleaved with other record
+114,semantic,99.3%,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records.",server to authenticate itself via a certificate MUST send the
+115,semantic,99.3%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the","extension, then the server MUST abort the handshake with a"
+116,semantic,99.3%,The length of the Salt MUST be equal to the length of the digest,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+117,semantic,99.3%,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER",offering these values MUST list them as the lowest priority
+118,semantic,99.3%,which is different from an existing record which will be accepted,to cause the receiver to accept a record which it has already
+119,semantic,99.2%,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER",mandatory in TLS 1.3) MUST be prepared to accept a signature using
+120,semantic,99.2%,a server MUST check that the message either contains no data after,cipher suite that was not offered MUST abort the handshake with an
+121,semantic,99.2%,the client MUST send an EndOfEarlyData message after receiving the,implementations MUST use the value sent in the resumption ClientHello
+122,semantic,99.2%,"TLS 1.3, the client MUST abort the handshake with an","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+123,semantic,99.1%,"then each side will also send a response, with the result that each",-  Handshake messages MUST NOT be interleaved with other record
+124,semantic,99.1%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+125,semantic,99.1%,Servers MUST check that it is the last extension and otherwise fail,"certificates.  The client MUST check EncryptedExtensions for the
+presence of any forbidden extensions and if any are found MUST abort"
+126,semantic,99.0%,server to authenticate itself via a certificate MUST send the,"extension, then the server MUST abort the handshake with a"
+127,semantic,99.0%,The receiver of a CertificateVerify message MUST verify the signature,Any records following a Finished message MUST be encrypted under the
+128,semantic,99.0%,"receives any other value, it MUST terminate the connection with an",receiver MUST send a KeyUpdate of its own with request_update set to
+129,semantic,99.0%,"not support TLS 1.3, it will respond with a ServerHello containing an","(or is not acceptable), the client MUST abort the handshake with a"
+130,semantic,98.9%,"receive TLS 1.2 or prior ClientHellos which contain other
+compression methods and (if negotiating such a prior version) MUST
+follow the procedures for the appropriate prior version of TLS.",cipher suite that was not offered MUST abort the handshake with an
+131,semantic,98.9%,If the server successfully selects parameters and does not require a,"-  When authenticating via a certificate, the server will send the"
+132,semantic,98.9%,AlertLevel=fatal and MUST be treated as error alerts when received,alert has been received MUST be ignored.  If a transport-level close
+133,semantic,98.9%,a server MUST check that the message either contains no data after,it sent in the ClientHello MUST abort the handshake with an
+134,semantic,98.9%,"message, a different PSK will be derived for each ticket.","and Finished.  If it declines, it MUST send a Certificate message"
+135,semantic,98.8%,"server MUST abort the handshake with a ""handshake_failure"" or an",If the server successfully selects parameters and does not require a
+136,semantic,98.8%,"Upon receipt of a HelloRetryRequest, the client MUST check the","receiving such an extension, an endpoint MUST abort the handshake"
+137,semantic,98.8%,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in",mandatory in TLS 1.3) MUST be prepared to accept a signature using
+138,semantic,98.8%,"(or is not acceptable), the client MUST abort the handshake with a","legacy_version is TLS 1.0, the server will proceed with a TLS 1.0"
+139,semantic,98.8%,"-  The certificate MUST allow the key to be used for signing (i.e.,
+the digitalSignature bit MUST be set if the Key Usage extension is","certificates and decides to abort the handshake, then it MUST abort"
+140,semantic,98.7%,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to","response, the body of its ""status_request"" extension MUST be a"
+141,semantic,98.6%,multiple zones where tickets from zone A will not be accepted in,guarantee that the 0-RTT data is accepted at most once.  Servers
+142,semantic,98.6%,"-  If containing a ""supported_groups"" extension, it MUST also contain",-  A server receiving a ClientHello MUST correctly ignore all
+143,semantic,98.6%,A server which negotiates a version of TLS prior to TLS 1.3 MUST set,"TLS 1.3, the client MUST abort the handshake with an"
+144,semantic,98.6%,"find a non-zero octet in the cleartext, it MUST terminate the",alert has been received MUST be ignored.  If a transport-level close
+145,semantic,98.5%,"TLS to first hash the input with a specified hash algorithm and then
+proceed as usual.  The code point groups listed above have the","it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+146,semantic,98.4%,The length of the Salt MUST be equal to the length of the digest,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in"
+147,semantic,98.4%,field having length 0).  A Finished message MUST be sent regardless,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to"
+148,semantic,98.4%,"and Finished.  If it declines, it MUST send a Certificate message",and before the peer's Finished message has been received and MUST
+149,semantic,98.3%,"Upon receiving a message with type server_hello, implementations MUST
+first examine the Random value and, if it matches this value, process",MUST check that the last 8 bytes are not equal to either of these
+150,semantic,98.2%,"HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an","versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include"
+151,semantic,98.2%,"enforces all-zero padding octets, which allows for quick detection of","find a non-zero octet in the cleartext, it MUST terminate the"
+152,semantic,98.2%,"this field MUST be non-empty, so a client not offering a
+pre-TLS 1.3 session MUST generate a new 32-byte value.  This value","block with no data following.  If not, then it MUST abort the
+handshake with a ""decode_error"" alert."
+153,semantic,98.1%,"PSK the server ultimately selects.  The client will need to compute
+one for each potential PSK; if no PSK is selected, it will then need
+to compute the Early Secret corresponding to the zero PSK.","deployments will maintain state at that level.  Therefore, in normal
+operation, clients will not know which, if any, of these mechanisms
+servers actually implement and hence MUST only send early data which"
+154,semantic,98.1%,handshake when the server does not have any information about the,"identity will result in a failed handshake, whereas an invalid
+identity will just be skipped and result in a successful certificate"
+155,semantic,98.0%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For","legacy_version is TLS 1.0, the server will proceed with a TLS 1.0"
+156,semantic,98.0%,"request a certificate from the client.  This message, if sent, MUST
+follow EncryptedExtensions.",The server MUST send a Certificate message whenever the agreed-upon
+157,semantic,97.9%,Any records following a Finished message MUST be encrypted under the,transmitted by the client.  The server MUST generate a fresh value
+158,semantic,97.7%,prevent an attacker who has temporary access to the client's,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to"
+159,semantic,97.5%,"If the server supplies an empty Certificate message, the client MUST
+abort the handshake with a ""decode_error"" alert.","is non-empty).  When sent, this message MUST appear immediately after"
+160,semantic,97.4%,"find a non-zero octet in the cleartext, it MUST terminate the","close_notify:  This alert notifies the recipient that the sender will
+not send any more messages on this connection.  Any data received
+after a closure alert has been received MUST be ignored."
+161,semantic,97.3%,"TLS 1.3, the client MUST abort the handshake with an",server to authenticate itself via a certificate MUST send the
+162,semantic,97.2%,"Upon receipt of a HelloRetryRequest, the client MUST check the","negotiation, then this will happen automatically).  Upon receiving
+the ServerHello, clients MUST check that the cipher suite supplied in"
+163,semantic,97.2%,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake.",zone will accept 0-RTT data.  A weaker design is to implement
+164,semantic,97.1%,clients MUST forget the secret values and keys established in failed,"Each party MUST send a ""close_notify"" alert before closing its write"
+165,semantic,97.0%,The server MUST send a Certificate message whenever the agreed-upon,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to"
+166,semantic,96.9%,"-  If not containing a ""pre_shared_key"" extension, it MUST contain",-  A server receiving a ClientHello MUST correctly ignore all
+167,semantic,96.9%,MUST check that the last 8 bytes are not equal to either of these,"process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an"
+168,semantic,96.8%,"but the remaining bytes MUST be random.  This structure is
+generated by the server and MUST be generated independently of the","If negotiating TLS 1.2, TLS 1.3 servers MUST set the last 8 bytes of"
+169,semantic,96.4%,"must still be handled at the TLS layer, though.  Later documents may",clients MUST forget the secret values and keys established in failed
+170,semantic,96.2%,"state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records.","it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+171,semantic,95.9%,"still require consistent storage for anti-replay of 0-RTT data, as","the storage key, then this ClientHello will not appear as a
+duplicate, which will cause the ClientHello to be accepted, and may
+cause side effects such as replay cache pollution, although any 0-RTT
+data will not be decryptable because it will use different keys.  If"
+172,semantic,95.9%,"0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to","TLS 1.3, the client MUST abort the handshake with an"
+173,semantic,95.8%,transmitted by the client.  The server MUST generate a fresh value,"and Finished.  If it declines, it MUST send a Certificate message"
+174,semantic,95.8%,Any records following a Finished message MUST be encrypted under the,implementations MUST use the value sent in the resumption ClientHello
+175,semantic,95.8%,guarantee that the 0-RTT data is accepted at most once.  Servers,"the storage key, then this ClientHello will not appear as a
+duplicate, which will cause the ClientHello to be accepted, and may
+cause side effects such as replay cache pollution, although any 0-RTT
+data will not be decryptable because it will use different keys.  If"
+176,semantic,95.7%,"HelloRetryRequest.  In that case, the client MUST send the same","TLS 1.3 and receives a ClientHello at any other time, it MUST
+terminate the connection with an ""unexpected_message"" alert."
+177,semantic,95.4%,transmitted by the client.  The server MUST generate a fresh value,"servers MUST be prepared for some delay, including receiving an"
+178,semantic,95.0%,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake.","the storage key, then this ClientHello will not appear as a
+duplicate, which will cause the ClientHello to be accepted, and may
+cause side effects such as replay cache pollution, although any 0-RTT
+data will not be decryptable because it will use different keys.  If"
+179,semantic,94.7%,"of [RFC6066]), with the server being required to enforce that the SNI
+value associated with the session matches the one specified in the",Clients MUST verify that the server's selected_identity is within the
+180,semantic,94.2%,"must still be handled at the TLS layer, though.  Later documents may","close_notify:  This alert notifies the recipient that the sender will
+not send any more messages on this connection.  Any data received
+after a closure alert has been received MUST be ignored."
+181,semantic,94.2%,The length of the Salt MUST be equal to the length of the output,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in"
+182,semantic,93.8%,"Prior to accepting PSK key establishment, the server MUST validate","The ""pre_shared_key"" extension MUST be the last extension in the"
+183,semantic,93.5%,"and Finished.  If it declines, it MUST send a Certificate message","message MUST terminate the connection with an ""unexpected_message""
+alert.  After sending a KeyUpdate message, the sender SHALL send all"
+184,semantic,93.5%,AlertLevel=fatal and MUST be treated as error alerts when received,"close_notify:  This alert notifies the recipient that the sender will
+not send any more messages on this connection.  Any data received
+after a closure alert has been received MUST be ignored."
+185,semantic,93.4%,"MUST be specified, and other extensions may optionally be included","well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to"
+186,semantic,93.3%,"present, then the parameters in the signature MUST be identical to",offering these values MUST list them as the lowest priority
+187,semantic,93.1%,-  A client sending a ClientHello MUST support all parameters,"compliant TLS client (to the original server), including verifying
+the original server's certificate.  In particular, it MUST
+generate its own ClientHello containing only parameters it
+understands, and it MUST generate a fresh ServerHello random"
+188,semantic,93.0%,support TLS 1.3 will send a normal TLS 1.3 ClientHello containing,A client that attempts to send 0-RTT data MUST fail a connection if
+189,semantic,93.0%,to cause the receiver to accept a record which it has already,"(which processes the data immediately) and another cluster which will
+fall back to 1-RTT and process the data upon application-layer"
+190,semantic,92.8%,"TLS 1.3, the client MUST abort the handshake with an","ClientHello).  When sending the new ClientHello, the client MUST copy"
+191,semantic,92.8%,"Upon receiving a message with type server_hello, implementations MUST
+first examine the Random value and, if it matches this value, process","below.  If a match is found, the client MUST abort the handshake with"
+192,semantic,92.1%,"Upon receipt of a HelloRetryRequest, the client MUST check the","""supported_versions"" extension MUST be retained in the ServerHello,
+and a client MUST abort the handshake with an ""illegal_parameter"""
+193,semantic,91.9%,"receiving such an extension, an endpoint MUST abort the handshake","versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include"
+194,semantic,91.6%,cipher suite that was not offered MUST abort the handshake with an,and which receives a TLS 1.3 ServerHello during renegotiation MUST
+195,semantic,91.3%,"TLS 1.x versions in this field, but its value MUST always be ignored.","change_cipher_spec at any time during the handshake, as they must be"
+196,modality,90.0%,to this document.  Code Components extracted from this document must,"The key words ""MUST"", ""MUST NOT"", ""REQUIRED"", ""SHALL"", ""SHALL NOT"","
+197,modality,90.0%,"The key words ""MUST"", ""MUST NOT"", ""REQUIRED"", ""SHALL"", ""SHALL NOT"",","the server's ephemeral Diffie-Hellman share; the server's share MUST
+be in the same group as one of the client's shares.  If PSK key"
+198,modality,90.0%,"The key words ""MUST"", ""MUST NOT"", ""REQUIRED"", ""SHALL"", ""SHALL NOT"",",Application Data MUST NOT be sent prior to sending the Finished
+199,modality,90.0%,"The key words ""MUST"", ""MUST NOT"", ""REQUIRED"", ""SHALL"", ""SHALL NOT"",","common cryptographic parameters can be negotiated, the server MUST
+abort the handshake with an appropriate alert."
+200,modality,90.0%,"the server's ephemeral Diffie-Hellman share; the server's share MUST
+be in the same group as one of the client's shares.  If PSK key",Application Data MUST NOT be sent prior to sending the Finished
+201,modality,90.0%,Application Data MUST NOT be sent prior to sending the Finished,"common cryptographic parameters can be negotiated, the server MUST
+abort the handshake with an appropriate alert."
+202,modality,90.0%,Application Data MUST NOT be sent prior to sending the Finished,hash algorithm to be used with the PSK MUST also be provisioned.
+203,modality,90.0%,"it MUST abort the handshake with either a ""handshake_failure"" or","TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3."
+204,modality,90.0%,"HelloRetryRequest.  In that case, the client MUST send the same","TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3."
+205,modality,90.0%,"TLS 1.3 and receives a ClientHello at any other time, it MUST
+terminate the connection with an ""unexpected_message"" alert.","TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3."
+206,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","legacy_version field MUST be set to 0x0303, which is the version"
+207,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","this field MUST be non-empty, so a client not offering a
+pre-TLS 1.3 session MUST generate a new 32-byte value.  This value"
+208,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","ossification).  Otherwise, it MUST be set as a zero-length vector"
+209,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","does not recognize, support, or wish to use, the server MUST
+ignore those cipher suites and process the remaining ones as"
+210,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","MUST contain exactly one byte, set to zero, which corresponds to"
+211,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","field, the server MUST abort the handshake with an"
+212,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.","receive TLS 1.2 or prior ClientHellos which contain other
+compression methods and (if negotiating such a prior version) MUST
+follow the procedures for the appropriate prior version of TLS."
+213,modality,90.0%,"TLS and receives a TLS 1.3 ClientHello in a renegotiation, it MUST
+retain the previous protocol version.  In particular, it MUST NOT
+negotiate TLS 1.3.",versions of TLS.  Servers MUST ignore unrecognized extensions.
+214,modality,90.0%,"extensions:  A list of extensions.  The ServerHello MUST only include
+extensions which are required to establish the cryptographic","with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+215,modality,90.0%,"Upon receiving a message with type server_hello, implementations MUST
+first examine the Random value and, if it matches this value, process","with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+216,modality,90.0%,response to a ClientHello MUST set the last 8 bytes of their Random,"with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+217,modality,90.0%,"If negotiating TLS 1.2, TLS 1.3 servers MUST set the last 8 bytes of","with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+218,modality,90.0%,"If negotiating TLS 1.1 or below, TLS 1.3 servers MUST, and TLS 1.2","with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+219,modality,90.0%,MUST check that the last 8 bytes are not equal to either of these,"with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+220,modality,90.0%,"below.  If a match is found, the client MUST abort the handshake with","with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+221,modality,90.0%,and which receives a TLS 1.3 ServerHello during renegotiation MUST,"with the ServerHello, a HelloRetryRequest MUST NOT contain any"
+222,modality,90.0%,and which receives a TLS 1.3 ServerHello during renegotiation MUST,Implementations MUST NOT send extension responses if the remote
+223,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","Upon receipt of a HelloRetryRequest, the client MUST check the"
+224,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an"
+225,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","was itself in response to a HelloRetryRequest), it MUST abort the
+handshake with an ""unexpected_message"" alert."
+226,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","Otherwise, the client MUST process all extensions in the"
+227,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","A client which receives a cipher suite that was not offered MUST
+abort the handshake.  Servers MUST ensure that they negotiate the"
+228,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","negotiation, then this will happen automatically).  Upon receiving
+the ServerHello, clients MUST check that the cipher suite supplied in"
+229,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","""supported_versions"" extension MUST be retained in the ServerHello,
+and a client MUST abort the handshake with an ""illegal_parameter"""
+230,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any",Implementations MUST NOT send extension responses if the remote
+231,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","receiving such an extension, an endpoint MUST abort the handshake"
+232,modality,90.0%,"with the ServerHello, a HelloRetryRequest MUST NOT contain any","HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an"
+233,modality,90.0%,"Upon receipt of a HelloRetryRequest, the client MUST check the",Implementations MUST NOT send extension responses if the remote
+234,modality,90.0%,"Upon receipt of a HelloRetryRequest, the client MUST check the",extensions block).  There MUST NOT be more than one extension of the
+235,modality,90.0%,"process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an",Implementations MUST NOT send extension responses if the remote
+236,modality,90.0%,"process the extensions, starting with determining the version using
+""supported_versions"".  Clients MUST abort the handshake with an",extensions block).  There MUST NOT be more than one extension of the
+237,modality,90.0%,"was itself in response to a HelloRetryRequest), it MUST abort the
+handshake with an ""unexpected_message"" alert.",Implementations MUST NOT send extension responses if the remote
+238,modality,90.0%,"was itself in response to a HelloRetryRequest), it MUST abort the
+handshake with an ""unexpected_message"" alert.",extensions block).  There MUST NOT be more than one extension of the
+239,modality,90.0%,"Otherwise, the client MUST process all extensions in the",Implementations MUST NOT send extension responses if the remote
+240,modality,90.0%,"Otherwise, the client MUST process all extensions in the",extensions block).  There MUST NOT be more than one extension of the
+241,modality,90.0%,"A client which receives a cipher suite that was not offered MUST
+abort the handshake.  Servers MUST ensure that they negotiate the",Implementations MUST NOT send extension responses if the remote
+242,modality,90.0%,"A client which receives a cipher suite that was not offered MUST
+abort the handshake.  Servers MUST ensure that they negotiate the",extensions block).  There MUST NOT be more than one extension of the
+243,modality,90.0%,"negotiation, then this will happen automatically).  Upon receiving
+the ServerHello, clients MUST check that the cipher suite supplied in",Implementations MUST NOT send extension responses if the remote
+244,modality,90.0%,"negotiation, then this will happen automatically).  Upon receiving
+the ServerHello, clients MUST check that the cipher suite supplied in",extensions block).  There MUST NOT be more than one extension of the
+245,modality,90.0%,"""supported_versions"" extension MUST be retained in the ServerHello,
+and a client MUST abort the handshake with an ""illegal_parameter""",Implementations MUST NOT send extension responses if the remote
+246,modality,90.0%,"""supported_versions"" extension MUST be retained in the ServerHello,
+and a client MUST abort the handshake with an ""illegal_parameter""",extensions block).  There MUST NOT be more than one extension of the
+247,modality,90.0%,"""supported_versions"" extension MUST be retained in the ServerHello,
+and a client MUST abort the handshake with an ""illegal_parameter""","If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+248,modality,90.0%,Implementations MUST NOT send extension responses if the remote,"receiving such an extension, an endpoint MUST abort the handshake"
+249,modality,90.0%,Implementations MUST NOT send extension responses if the remote,"HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an"
+250,modality,90.0%,Implementations MUST NOT send extension responses if the remote,extensions block).  There MUST NOT be more than one extension of the
+251,modality,90.0%,Implementations MUST NOT send extension responses if the remote,Implementations of this specification MUST send this extension in the
+252,modality,90.0%,Implementations MUST NOT send extension responses if the remote,"if previous versions of TLS are allowed to be negotiated, they MUST
+be present as well)."
+253,modality,90.0%,Implementations MUST NOT send extension responses if the remote,this specification and which also support TLS 1.2 MUST negotiate
+254,modality,90.0%,Implementations MUST NOT send extension responses if the remote,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+255,modality,90.0%,Implementations MUST NOT send extension responses if the remote,"versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include"
+256,modality,90.0%,"receiving such an extension, an endpoint MUST abort the handshake",extensions block).  There MUST NOT be more than one extension of the
+257,modality,90.0%,"receiving such an extension, an endpoint MUST abort the handshake","If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+258,modality,90.0%,"HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an",extensions block).  There MUST NOT be more than one extension of the
+259,modality,90.0%,"HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an","If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+260,modality,90.0%,"HRR (HelloRetryRequest).  If an implementation receives an extension
+which it recognizes and which is not specified for the message in
+which it appears, it MUST abort the handshake with an","ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+261,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,Implementations of this specification MUST send this extension in the
+262,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,"if previous versions of TLS are allowed to be negotiated, they MUST
+be present as well)."
+263,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,this specification and which also support TLS 1.2 MUST negotiate
+264,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+265,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,"versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include"
+266,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,A server which negotiates a version of TLS prior to TLS 1.3 MUST set
+267,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+268,modality,90.0%,extensions block).  There MUST NOT be more than one extension of the,value (0x0304).  It MUST set the ServerHello.legacy_version field to
+269,modality,90.0%,Implementations of this specification MUST send this extension in the,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+270,modality,90.0%,Implementations of this specification MUST send this extension in the,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+271,modality,90.0%,"if previous versions of TLS are allowed to be negotiated, they MUST
+be present as well).","If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+272,modality,90.0%,"if previous versions of TLS are allowed to be negotiated, they MUST
+be present as well).","ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+273,modality,90.0%,this specification and which also support TLS 1.2 MUST negotiate,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present"
+274,modality,90.0%,this specification and which also support TLS 1.2 MUST negotiate,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+275,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include"
+276,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present",A server which negotiates a version of TLS prior to TLS 1.3 MUST set
+277,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+278,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present",value (0x0304).  It MUST set the ServerHello.legacy_version field to
+279,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to"
+280,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+281,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","TLS 1.3, the client MUST abort the handshake with an"
+282,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","ClientHello).  When sending the new ClientHello, the client MUST copy"
+283,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+284,modality,90.0%,"If this extension is present in the ClientHello, servers MUST NOT use
+the ClientHello.legacy_version value for version negotiation and MUST
+use only the ""supported_versions"" extension to determine client
+preferences.  Servers MUST only select a version of TLS present in
+that extension and MUST ignore any unknown versions that are present","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+285,modality,90.0%,"versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include","ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+286,modality,90.0%,"versions of TLS SHOULD support TLS 1.2.  Servers MUST be prepared to
+receive ClientHellos that include this extension but do not include","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+287,modality,90.0%,A server which negotiates a version of TLS prior to TLS 1.3 MUST set,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending"
+288,modality,90.0%,A server which negotiates a version of TLS prior to TLS 1.3 MUST set,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+289,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending",value (0x0304).  It MUST set the ServerHello.legacy_version field to
+290,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to"
+291,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the"
+292,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","TLS 1.3, the client MUST abort the handshake with an"
+293,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","ClientHello).  When sending the new ClientHello, the client MUST copy"
+294,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+295,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+296,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending",CertificateVerify messages.  The keys found in certificates MUST also
+297,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending",server to authenticate itself via a certificate MUST send the
+298,modality,90.0%,"ServerHello.version and MUST NOT send the ""supported_versions""
+extension.  A server which negotiates TLS 1.3 MUST respond by sending","extension, then the server MUST abort the handshake with a"
+299,modality,90.0%,value (0x0304).  It MUST set the ServerHello.legacy_version field to,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+300,modality,90.0%,"0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+301,modality,90.0%,"parse the ServerHello in order to read the extension).  If this
+extension is present, clients MUST ignore the","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+302,modality,90.0%,"TLS 1.3, the client MUST abort the handshake with an","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+303,modality,90.0%,"ClientHello).  When sending the new ClientHello, the client MUST copy","a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use"
+304,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use","state, this will appear as if it were the first message to be
+received.  Servers operating statelessly MUST ignore these records."
+305,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use",CertificateVerify messages.  The keys found in certificates MUST also
+306,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use",server to authenticate itself via a certificate MUST send the
+307,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use","extension, then the server MUST abort the handshake with a"
+308,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use",The length of the Salt MUST be equal to the length of the output
+309,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use","certificate, it MUST use the rsaEncryption OID [RFC5280]."
+310,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use",The length of the Salt MUST be equal to the length of the digest
+311,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use","it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER"
+312,modality,90.0%,"a ""cookie"" extension in the new ClientHello.  Clients MUST NOT use","present, then the parameters in the signature MUST be identical to"
+313,modality,90.0%,CertificateVerify messages.  The keys found in certificates MUST also,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+314,modality,90.0%,server to authenticate itself via a certificate MUST send the,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+315,modality,90.0%,"extension, then the server MUST abort the handshake with a",TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+316,modality,90.0%,"extension, then the server MUST abort the handshake with a",TLS 1.3.  They MUST NOT be offered or negotiated by any
+317,modality,90.0%,The length of the Salt MUST be equal to the length of the output,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+318,modality,90.0%,The length of the Salt MUST be equal to the length of the output,TLS 1.3.  They MUST NOT be offered or negotiated by any
+319,modality,90.0%,"certificate, it MUST use the rsaEncryption OID [RFC5280].",TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+320,modality,90.0%,"certificate, it MUST use the rsaEncryption OID [RFC5280].",TLS 1.3.  They MUST NOT be offered or negotiated by any
+321,modality,90.0%,The length of the Salt MUST be equal to the length of the digest,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+322,modality,90.0%,The length of the Salt MUST be equal to the length of the digest,TLS 1.3.  They MUST NOT be offered or negotiated by any
+323,modality,90.0%,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER",TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+324,modality,90.0%,"it MUST use the RSASSA-PSS OID [RFC5756].  When used in
+certificate signatures, the algorithm parameters MUST be DER",TLS 1.3.  They MUST NOT be offered or negotiated by any
+325,modality,90.0%,"present, then the parameters in the signature MUST be identical to",TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+326,modality,90.0%,"present, then the parameters in the signature MUST be identical to",TLS 1.3.  They MUST NOT be offered or negotiated by any
+327,modality,90.0%,offering these values MUST list them as the lowest priority,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless
+328,modality,90.0%,offering these values MUST list them as the lowest priority,TLS 1.3.  They MUST NOT be offered or negotiated by any
+329,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,implementations willing to negotiate TLS 1.2 MUST behave in
+330,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,TLS 1.3.  They MUST NOT be offered or negotiated by any
+331,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in"
+332,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,mandatory in TLS 1.3) MUST be prepared to accept a signature using
+333,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,"match.  This extension, if provided by the server, MUST only be sent"
+334,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,"filters list, the client certificate included in the response MUST
+contain all of the specified extension OIDs that the client"
+335,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,of the specified values MUST be present in the client certificate
+336,modality,90.0%,TLS 1.3 servers MUST NOT offer a SHA-1 signed certificate unless,client MUST ignore and skip any unrecognized certificate extension
+337,modality,90.0%,implementations willing to negotiate TLS 1.2 MUST behave in,TLS 1.3.  They MUST NOT be offered or negotiated by any
+338,modality,90.0%,implementations willing to negotiate TLS 1.2 MUST behave in,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+339,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in"
+340,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,mandatory in TLS 1.3) MUST be prepared to accept a signature using
+341,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,"match.  This extension, if provided by the server, MUST only be sent"
+342,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,"filters list, the client certificate included in the response MUST
+contain all of the specified extension OIDs that the client"
+343,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,of the specified values MUST be present in the client certificate
+344,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,client MUST ignore and skip any unrecognized certificate extension
+345,modality,90.0%,TLS 1.3.  They MUST NOT be offered or negotiated by any,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+346,modality,90.0%,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in","with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+347,modality,90.0%,"curve.  If TLS 1.2 is negotiated, implementations MUST be prepared
+to accept a signature that uses any curve that they advertised in",special anyExtendedKeyUsage OID MUST NOT be used in the request.
+348,modality,90.0%,mandatory in TLS 1.3) MUST be prepared to accept a signature using,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+349,modality,90.0%,mandatory in TLS 1.3) MUST be prepared to accept a signature using,special anyExtendedKeyUsage OID MUST NOT be used in the request.
+350,modality,90.0%,mandatory in TLS 1.3) MUST be prepared to accept a signature using,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+351,modality,90.0%,"match.  This extension, if provided by the server, MUST only be sent","with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+352,modality,90.0%,"match.  This extension, if provided by the server, MUST only be sent",special anyExtendedKeyUsage OID MUST NOT be used in the request.
+353,modality,90.0%,"match.  This extension, if provided by the server, MUST only be sent","Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+354,modality,90.0%,"match.  This extension, if provided by the server, MUST only be sent",extension to the client.  Clients MUST NOT act upon any information
+355,modality,90.0%,"filters list, the client certificate included in the response MUST
+contain all of the specified extension OIDs that the client","with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+356,modality,90.0%,"filters list, the client certificate included in the response MUST
+contain all of the specified extension OIDs that the client",special anyExtendedKeyUsage OID MUST NOT be used in the request.
+357,modality,90.0%,"filters list, the client certificate included in the response MUST
+contain all of the specified extension OIDs that the client","Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+358,modality,90.0%,"filters list, the client certificate included in the response MUST
+contain all of the specified extension OIDs that the client",extension to the client.  Clients MUST NOT act upon any information
+359,modality,90.0%,of the specified values MUST be present in the client certificate,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+360,modality,90.0%,of the specified values MUST be present in the client certificate,special anyExtendedKeyUsage OID MUST NOT be used in the request.
+361,modality,90.0%,of the specified values MUST be present in the client certificate,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+362,modality,90.0%,of the specified values MUST be present in the client certificate,extension to the client.  Clients MUST NOT act upon any information
+363,modality,90.0%,client MUST ignore and skip any unrecognized certificate extension,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list."
+364,modality,90.0%,client MUST ignore and skip any unrecognized certificate extension,special anyExtendedKeyUsage OID MUST NOT be used in the request.
+365,modality,90.0%,client MUST ignore and skip any unrecognized certificate extension,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+366,modality,90.0%,client MUST ignore and skip any unrecognized certificate extension,extension to the client.  Clients MUST NOT act upon any information
+367,modality,90.0%,client MUST ignore and skip any unrecognized certificate extension,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values"
+368,modality,90.0%,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list.",special anyExtendedKeyUsage OID MUST NOT be used in the request.
+369,modality,90.0%,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list.","Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+370,modality,90.0%,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list.",extension to the client.  Clients MUST NOT act upon any information
+371,modality,90.0%,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list.","HelloRetryRequest.  Each KeyShareEntry value MUST correspond to a
+group offered in the ""supported_groups"" extension and MUST appear in"
+372,modality,90.0%,"with an ""unsupported_certificate"" alert.  Any given OID MUST NOT
+appear more than once in the filters list.","key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values"
+373,modality,90.0%,special anyExtendedKeyUsage OID MUST NOT be used in the request.,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this"
+374,modality,90.0%,special anyExtendedKeyUsage OID MUST NOT be used in the request.,extension to the client.  Clients MUST NOT act upon any information
+375,modality,90.0%,special anyExtendedKeyUsage OID MUST NOT be used in the request.,"HelloRetryRequest.  Each KeyShareEntry value MUST correspond to a
+group offered in the ""supported_groups"" extension and MUST appear in"
+376,modality,90.0%,special anyExtendedKeyUsage OID MUST NOT be used in the request.,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values"
+377,modality,90.0%,special anyExtendedKeyUsage OID MUST NOT be used in the request.,MUST verify that (1) the selected_group field corresponds to a group
+378,modality,90.0%,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this",extension to the client.  Clients MUST NOT act upon any information
+379,modality,90.0%,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this","HelloRetryRequest.  Each KeyShareEntry value MUST correspond to a
+group offered in the ""supported_groups"" extension and MUST appear in"
+380,modality,90.0%,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this","key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values"
+381,modality,90.0%,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this",MUST verify that (1) the selected_group field corresponds to a group
+382,modality,90.0%,"Servers MUST NOT send a post-handshake CertificateRequest to clients
+which do not offer this extension.  Servers MUST NOT send this","the client MUST abort the handshake with an ""illegal_parameter""
+alert.  Otherwise, when sending the new ClientHello, the client MUST"
+383,modality,90.0%,extension to the client.  Clients MUST NOT act upon any information,"HelloRetryRequest.  Each KeyShareEntry value MUST correspond to a
+group offered in the ""supported_groups"" extension and MUST appear in"
+384,modality,90.0%,extension to the client.  Clients MUST NOT act upon any information,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values"
+385,modality,90.0%,extension to the client.  Clients MUST NOT act upon any information,MUST verify that (1) the selected_group field corresponds to a group
+386,modality,90.0%,extension to the client.  Clients MUST NOT act upon any information,"the client MUST abort the handshake with an ""illegal_parameter""
+alert.  Otherwise, when sending the new ClientHello, the client MUST"
+387,modality,90.0%,extension to the client.  Clients MUST NOT act upon any information,KeyShareEntry in the ServerHello.  This value MUST be in the same
+388,modality,90.0%,"HelloRetryRequest.  Each KeyShareEntry value MUST correspond to a
+group offered in the ""supported_groups"" extension and MUST appear in","key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values"
+389,modality,90.0%,"HelloRetryRequest.  Each KeyShareEntry value MUST correspond to a
+group offered in the ""supported_groups"" extension and MUST appear in","client's ""supported_groups"" extension and MUST NOT send a"
+390,modality,90.0%,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values",MUST verify that (1) the selected_group field corresponds to a group
+391,modality,90.0%,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values","the client MUST abort the handshake with an ""illegal_parameter""
+alert.  Otherwise, when sending the new ClientHello, the client MUST"
+392,modality,90.0%,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values",KeyShareEntry in the ServerHello.  This value MUST be in the same
+393,modality,90.0%,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values","client's ""supported_groups"" extension and MUST NOT send a"
+394,modality,90.0%,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values","""key_share"" extension was received by the client, the client MUST
+verify that the selected NamedGroup in the ServerHello is the same as
+that in the HelloRetryRequest.  If this check fails, the client MUST
+abort the handshake with an ""illegal_parameter"" alert."
+395,modality,90.0%,"key_exchange values for each KeyShareEntry MUST be generated
+independently.  Clients MUST NOT offer multiple KeyShareEntry values
+for the same group.  Clients MUST NOT offer any KeyShareEntry values","Peers MUST validate each other's public key Y by ensuring that 1 < Y
+< p-1.  This check ensures that the remote peer is properly behaved"
+396,modality,90.0%,MUST verify that (1) the selected_group field corresponds to a group,"client's ""supported_groups"" extension and MUST NOT send a"
+397,modality,90.0%,"the client MUST abort the handshake with an ""illegal_parameter""
+alert.  Otherwise, when sending the new ClientHello, the client MUST","client's ""supported_groups"" extension and MUST NOT send a"
+398,modality,90.0%,KeyShareEntry in the ServerHello.  This value MUST be in the same,"client's ""supported_groups"" extension and MUST NOT send a"
+399,modality,90.0%,"client's ""supported_groups"" extension and MUST NOT send a","""key_share"" extension was received by the client, the client MUST
+verify that the selected NamedGroup in the ServerHello is the same as
+that in the HelloRetryRequest.  If this check fails, the client MUST
+abort the handshake with an ""illegal_parameter"" alert."
+400,modality,90.0%,"client's ""supported_groups"" extension and MUST NOT send a","Peers MUST validate each other's public key Y by ensuring that 1 < Y
+< p-1.  This check ensures that the remote peer is properly behaved"
+401,modality,90.0%,"client's ""supported_groups"" extension and MUST NOT send a","For the curves secp256r1, secp384r1, and secp521r1, peers MUST
+validate each other's public value Q by ensuring that the point is a"
+402,modality,90.0%,"client's ""supported_groups"" extension and MUST NOT send a","In order to use PSKs, clients MUST also send a"
+403,modality,90.0%,"client's ""supported_groups"" extension and MUST NOT send a","A client MUST provide a ""psk_key_exchange_modes"" extension if it"
+404,modality,90.0%,"client's ""supported_groups"" extension and MUST NOT send a",servers MUST abort the handshake.  Servers MUST NOT select a key
+405,modality,90.0%,"""key_share"" extension was received by the client, the client MUST
+verify that the selected NamedGroup in the ServerHello is the same as
+that in the HelloRetryRequest.  If this check fails, the client MUST
+abort the handshake with an ""illegal_parameter"" alert.",servers MUST abort the handshake.  Servers MUST NOT select a key
+406,modality,90.0%,"Peers MUST validate each other's public key Y by ensuring that 1 < Y
+< p-1.  This check ensures that the remote peer is properly behaved",servers MUST abort the handshake.  Servers MUST NOT select a key
+407,modality,90.0%,"Peers MUST validate each other's public key Y by ensuring that 1 < Y
+< p-1.  This check ensures that the remote peer is properly behaved","The server MUST NOT send a ""psk_key_exchange_modes"" extension."
+408,modality,90.0%,"For the curves secp256r1, secp384r1, and secp521r1, peers MUST
+validate each other's public value Q by ensuring that the point is a",servers MUST abort the handshake.  Servers MUST NOT select a key
+409,modality,90.0%,"For the curves secp256r1, secp384r1, and secp521r1, peers MUST
+validate each other's public value Q by ensuring that the point is a","The server MUST NOT send a ""psk_key_exchange_modes"" extension."
+410,modality,90.0%,"In order to use PSKs, clients MUST also send a",servers MUST abort the handshake.  Servers MUST NOT select a key
+411,modality,90.0%,"In order to use PSKs, clients MUST also send a","The server MUST NOT send a ""psk_key_exchange_modes"" extension."
+412,modality,90.0%,"A client MUST provide a ""psk_key_exchange_modes"" extension if it",servers MUST abort the handshake.  Servers MUST NOT select a key
+413,modality,90.0%,"A client MUST provide a ""psk_key_exchange_modes"" extension if it","The server MUST NOT send a ""psk_key_exchange_modes"" extension."
+414,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,"The server MUST NOT send a ""psk_key_exchange_modes"" extension."
+415,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,Any future values that are allocated must ensure that the transmitted
+416,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,"client opts to do so, it MUST supply both the ""pre_shared_key"" and"
+417,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,early data MUST be the first PSK listed in the client's
+418,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,"For PSKs provisioned via NewSessionTicket, a server MUST validate"
+419,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,"A server which receives an ""early_data"" extension MUST behave in one"
+420,modality,90.0%,servers MUST abort the handshake.  Servers MUST NOT select a key,with a HelloRetryRequest.  A client MUST NOT include the
+421,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.",Any future values that are allocated must ensure that the transmitted
+422,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.","client opts to do so, it MUST supply both the ""pre_shared_key"" and"
+423,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.",early data MUST be the first PSK listed in the client's
+424,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.","For PSKs provisioned via NewSessionTicket, a server MUST validate"
+425,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.","A server which receives an ""early_data"" extension MUST behave in one"
+426,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.",with a HelloRetryRequest.  A client MUST NOT include the
+427,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.","In order to accept early data, the server MUST have accepted a PSK"
+428,modality,90.0%,"The server MUST NOT send a ""psk_key_exchange_modes"" extension.","""pre_shared_key"" extension.  In addition, it MUST verify that the"
+429,modality,90.0%,Any future values that are allocated must ensure that the transmitted,with a HelloRetryRequest.  A client MUST NOT include the
+430,modality,90.0%,Any future values that are allocated must ensure that the transmitted,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+431,modality,90.0%,"client opts to do so, it MUST supply both the ""pre_shared_key"" and",with a HelloRetryRequest.  A client MUST NOT include the
+432,modality,90.0%,"client opts to do so, it MUST supply both the ""pre_shared_key"" and","If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+433,modality,90.0%,early data MUST be the first PSK listed in the client's,with a HelloRetryRequest.  A client MUST NOT include the
+434,modality,90.0%,early data MUST be the first PSK listed in the client's,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+435,modality,90.0%,"For PSKs provisioned via NewSessionTicket, a server MUST validate",with a HelloRetryRequest.  A client MUST NOT include the
+436,modality,90.0%,"For PSKs provisioned via NewSessionTicket, a server MUST validate","If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+437,modality,90.0%,"A server which receives an ""early_data"" extension MUST behave in one",with a HelloRetryRequest.  A client MUST NOT include the
+438,modality,90.0%,"A server which receives an ""early_data"" extension MUST behave in one","If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+439,modality,90.0%,"A server which receives an ""early_data"" extension MUST behave in one",is appropriate.  A TLS implementation MUST NOT automatically resend
+440,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,"In order to accept early data, the server MUST have accepted a PSK"
+441,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,"""pre_shared_key"" extension.  In addition, it MUST verify that the"
+442,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+443,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,"rejects it, the server will generally not have the 0-RTT record
+protection keys and must instead use trial decryption (either with"
+444,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,MUST comply with the same error-handling requirements specified for
+445,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,"""early_data"" extension, it MUST terminate the connection with a"
+446,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,is appropriate.  A TLS implementation MUST NOT automatically resend
+447,modality,90.0%,with a HelloRetryRequest.  A client MUST NOT include the,"For externally established PSKs, the Hash algorithm MUST be set when"
+448,modality,90.0%,"In order to accept early data, the server MUST have accepted a PSK","If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+449,modality,90.0%,"In order to accept early data, the server MUST have accepted a PSK",is appropriate.  A TLS implementation MUST NOT automatically resend
+450,modality,90.0%,"""pre_shared_key"" extension.  In addition, it MUST verify that the","If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the"
+451,modality,90.0%,"""pre_shared_key"" extension.  In addition, it MUST verify that the",is appropriate.  A TLS implementation MUST NOT automatically resend
+452,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the","rejects it, the server will generally not have the 0-RTT record
+protection keys and must instead use trial decryption (either with"
+453,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the",MUST comply with the same error-handling requirements specified for
+454,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the","""early_data"" extension, it MUST terminate the connection with a"
+455,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the",is appropriate.  A TLS implementation MUST NOT automatically resend
+456,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the","For externally established PSKs, the Hash algorithm MUST be set when"
+457,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the","Prior to accepting PSK key establishment, the server MUST validate"
+458,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the","value is not present or does not validate, the server MUST abort the"
+459,modality,90.0%,"If any of these checks fail, the server MUST NOT respond with the
+extension and must discard all the first-flight data using one of the",Clients MUST verify that the server's selected_identity is within the
+460,modality,90.0%,"rejects it, the server will generally not have the 0-RTT record
+protection keys and must instead use trial decryption (either with",is appropriate.  A TLS implementation MUST NOT automatically resend
+461,modality,90.0%,MUST comply with the same error-handling requirements specified for,is appropriate.  A TLS implementation MUST NOT automatically resend
+462,modality,90.0%,"""early_data"" extension, it MUST terminate the connection with a",is appropriate.  A TLS implementation MUST NOT automatically resend
+463,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,"For externally established PSKs, the Hash algorithm MUST be set when"
+464,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,"Prior to accepting PSK key establishment, the server MUST validate"
+465,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,"value is not present or does not validate, the server MUST abort the"
+466,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,Clients MUST verify that the server's selected_identity is within the
+467,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,"consistent, the client MUST abort the handshake with an"
+468,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,"If the server supplies an ""early_data"" extension, the client MUST
+verify that the server's selected_identity is 0.  If any other value
+is returned, the client MUST abort the handshake with an"
+469,modality,90.0%,is appropriate.  A TLS implementation MUST NOT automatically resend,"The ""pre_shared_key"" extension MUST be the last extension in the"
+470,modality,90.0%,"Prior to accepting PSK key establishment, the server MUST validate","receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+471,modality,90.0%,"value is not present or does not validate, the server MUST abort the","receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+472,modality,90.0%,Clients MUST verify that the server's selected_identity is within the,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+473,modality,90.0%,"consistent, the client MUST abort the handshake with an","receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+474,modality,90.0%,"If the server supplies an ""early_data"" extension, the client MUST
+verify that the server's selected_identity is 0.  If any other value
+is returned, the client MUST abort the handshake with an","receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+475,modality,90.0%,"The ""pre_shared_key"" extension MUST be the last extension in the","receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+476,modality,90.0%,Servers MUST check that it is the last extension and otherwise fail,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value"
+477,modality,90.0%,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value","when accepting ""early_data"", servers MUST process the client's"
+478,modality,90.0%,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value","In all handshakes, the server MUST send the EncryptedExtensions"
+479,modality,90.0%,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value","certificates.  The client MUST check EncryptedExtensions for the
+presence of any forbidden extensions and if any are found MUST abort"
+480,modality,90.0%,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value","request a certificate from the client.  This message, if sent, MUST
+follow EncryptedExtensions."
+481,modality,90.0%,"receipt of the NewSessionTicket message.  Clients MUST NOT attempt to
+use tickets which have ages greater than the ""ticket_lifetime"" value","MUST be specified, and other extensions may optionally be included"
+482,modality,90.0%,"when accepting ""early_data"", servers MUST process the client's",Servers which are authenticating with a PSK MUST NOT send the
+483,modality,90.0%,"In all handshakes, the server MUST send the EncryptedExtensions",Servers which are authenticating with a PSK MUST NOT send the
+484,modality,90.0%,"certificates.  The client MUST check EncryptedExtensions for the
+presence of any forbidden extensions and if any are found MUST abort",Servers which are authenticating with a PSK MUST NOT send the
+485,modality,90.0%,"request a certificate from the client.  This message, if sent, MUST
+follow EncryptedExtensions.",Servers which are authenticating with a PSK MUST NOT send the
+486,modality,90.0%,"MUST be specified, and other extensions may optionally be included",Servers which are authenticating with a PSK MUST NOT send the
+487,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,The server MUST send a Certificate message whenever the agreed-upon
+488,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,The client MUST send a Certificate message if and only if the server
+489,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,"suitable certificate is available, the client MUST send a Certificate"
+490,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,field having length 0).  A Finished message MUST be sent regardless
+491,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to"
+492,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,certificate.  The sender's certificate MUST come in the first
+493,modality,90.0%,Servers which are authenticating with a PSK MUST NOT send the,"certificate_list MUST contain no more than one CertificateEntry,"
+494,modality,90.0%,The server MUST send a Certificate message whenever the agreed-upon,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+495,modality,90.0%,The client MUST send a Certificate message if and only if the server,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+496,modality,90.0%,"suitable certificate is available, the client MUST send a Certificate",The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+497,modality,90.0%,"suitable certificate is available, the client MUST send a Certificate","TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+498,modality,90.0%,field having length 0).  A Finished message MUST be sent regardless,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+499,modality,90.0%,field having length 0).  A Finished message MUST be sent regardless,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+500,modality,90.0%,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to",The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+501,modality,90.0%,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to","TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+502,modality,90.0%,certificate.  The sender's certificate MUST come in the first,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+503,modality,90.0%,certificate.  The sender's certificate MUST come in the first,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+504,modality,90.0%,"certificate_list MUST contain no more than one CertificateEntry,",The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.
+505,modality,90.0%,"certificate_list MUST contain no more than one CertificateEntry,","TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+506,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"The server's certificate_list MUST always be non-empty.  A client
+will send an empty certificate_list if it does not have an"
+507,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"""status_request"" extension from the server MUST be a"
+508,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+509,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"CertificateRequest, or Certificate messages.  TLS 1.3 servers MUST be"
+510,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"response, the body of its ""status_request"" extension MUST be a"
+511,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly"
+512,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,restrictions) MUST be compatible with the selected authentication
+513,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,"-  The certificate MUST allow the key to be used for signing (i.e.,
+the digitalSignature bit MUST be set if the Key Usage extension is"
+514,modality,90.0%,The OpenPGP certificate type [RFC6091] MUST NOT be used with TLS 1.3.,All certificates provided by the server MUST be signed by a signature
+515,modality,90.0%,"The server's certificate_list MUST always be non-empty.  A client
+will send an empty certificate_list if it does not have an","TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+516,modality,90.0%,"The server's certificate_list MUST always be non-empty.  A client
+will send an empty certificate_list if it does not have an","permits it, and MUST NOT do so otherwise."
+517,modality,90.0%,"""status_request"" extension from the server MUST be a","TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,"
+518,modality,90.0%,"""status_request"" extension from the server MUST be a","permits it, and MUST NOT do so otherwise."
+519,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","CertificateRequest, or Certificate messages.  TLS 1.3 servers MUST be"
+520,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","response, the body of its ""status_request"" extension MUST be a"
+521,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly"
+522,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,",restrictions) MUST be compatible with the selected authentication
+523,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","-  The certificate MUST allow the key to be used for signing (i.e.,
+the digitalSignature bit MUST be set if the Key Usage extension is"
+524,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,",All certificates provided by the server MUST be signed by a signature
+525,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","permits it, and MUST NOT do so otherwise."
+526,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","certificates and decides to abort the handshake, then it MUST abort"
+527,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,","-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly"
+528,modality,90.0%,"TLS 1.3 servers MUST NOT act upon its presence or information in it
+when processing ClientHello messages; in particular, they MUST NOT
+send the status_request_v2 extension in the EncryptedExtensions,",-  The certificates MUST be signed using an acceptable signature
+529,modality,90.0%,"CertificateRequest, or Certificate messages.  TLS 1.3 servers MUST be","permits it, and MUST NOT do so otherwise."
+530,modality,90.0%,"response, the body of its ""status_request"" extension MUST be a","permits it, and MUST NOT do so otherwise."
+531,modality,90.0%,"-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly","permits it, and MUST NOT do so otherwise."
+532,modality,90.0%,restrictions) MUST be compatible with the selected authentication,"permits it, and MUST NOT do so otherwise."
+533,modality,90.0%,"-  The certificate MUST allow the key to be used for signing (i.e.,
+the digitalSignature bit MUST be set if the Key Usage extension is","permits it, and MUST NOT do so otherwise."
+534,modality,90.0%,All certificates provided by the server MUST be signed by a signature,"permits it, and MUST NOT do so otherwise."
+535,modality,90.0%,"permits it, and MUST NOT do so otherwise.","certificates and decides to abort the handshake, then it MUST abort"
+536,modality,90.0%,"permits it, and MUST NOT do so otherwise.","-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly"
+537,modality,90.0%,"permits it, and MUST NOT do so otherwise.",-  The certificates MUST be signed using an acceptable signature
+538,modality,90.0%,"permits it, and MUST NOT do so otherwise.","""oid_filters"" extension, the end-entity certificate MUST match the"
+539,modality,90.0%,"permits it, and MUST NOT do so otherwise.","If the server supplies an empty Certificate message, the client MUST
+abort the handshake with a ""decode_error"" alert."
+540,modality,90.0%,"permits it, and MUST NOT do so otherwise.",validate using any signature algorithm using an MD5 hash MUST abort
+541,modality,90.0%,"permits it, and MUST NOT do so otherwise.","up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever"
+542,modality,90.0%,"permits it, and MUST NOT do so otherwise.","is non-empty).  When sent, this message MUST appear immediately after"
+543,modality,90.0%,"permits it, and MUST NOT do so otherwise.","algorithm MUST be one offered in the client's ""signature_algorithms"""
+544,modality,90.0%,"permits it, and MUST NOT do so otherwise.",MUST be one of those present in the supported_signature_algorithms
+545,modality,90.0%,"-  The certificate type MUST be X.509v3 [RFC5280], unless explicitly",MUST NOT be used in any signatures of CertificateVerify messages.
+546,modality,90.0%,-  The certificates MUST be signed using an acceptable signature,MUST NOT be used in any signatures of CertificateVerify messages.
+547,modality,90.0%,"""oid_filters"" extension, the end-entity certificate MUST match the",MUST NOT be used in any signatures of CertificateVerify messages.
+548,modality,90.0%,"If the server supplies an empty Certificate message, the client MUST
+abort the handshake with a ""decode_error"" alert.",MUST NOT be used in any signatures of CertificateVerify messages.
+549,modality,90.0%,validate using any signature algorithm using an MD5 hash MUST abort,MUST NOT be used in any signatures of CertificateVerify messages.
+550,modality,90.0%,"up to this point.  Servers MUST send this message when authenticating
+via a certificate.  Clients MUST send this message whenever",MUST NOT be used in any signatures of CertificateVerify messages.
+551,modality,90.0%,"is non-empty).  When sent, this message MUST appear immediately after",MUST NOT be used in any signatures of CertificateVerify messages.
+552,modality,90.0%,"algorithm MUST be one offered in the client's ""signature_algorithms""",MUST NOT be used in any signatures of CertificateVerify messages.
+553,modality,90.0%,MUST be one of those present in the supported_signature_algorithms,MUST NOT be used in any signatures of CertificateVerify messages.
+554,modality,90.0%,MUST be one of those present in the supported_signature_algorithms,"extension in EncryptedExtensions, then the client MUST NOT send an"
+555,modality,90.0%,"In addition, the signature algorithm MUST be compatible with the key
+in the sender's end-entity certificate.  RSA signatures MUST use an",MUST NOT be used in any signatures of CertificateVerify messages.
+556,modality,90.0%,"In addition, the signature algorithm MUST be compatible with the key
+in the sender's end-entity certificate.  RSA signatures MUST use an","extension in EncryptedExtensions, then the client MUST NOT send an"
+557,modality,90.0%,"In addition, the signature algorithm MUST be compatible with the key
+in the sender's end-entity certificate.  RSA signatures MUST use an","Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+558,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,The receiver of a CertificateVerify message MUST verify the signature
+559,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,"If the verification fails, the receiver MUST terminate the handshake"
+560,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,"Recipients of Finished messages MUST verify that the contents are
+correct and if incorrect MUST terminate the connection with a"
+561,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,Any records following a Finished message MUST be encrypted under the
+562,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,the client MUST send an EndOfEarlyData message after receiving the
+563,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,"extension in EncryptedExtensions, then the client MUST NOT send an"
+564,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+565,modality,90.0%,MUST NOT be used in any signatures of CertificateVerify messages.,Any ticket MUST only be resumed with a cipher suite that has the same
+566,modality,90.0%,The receiver of a CertificateVerify message MUST verify the signature,"extension in EncryptedExtensions, then the client MUST NOT send an"
+567,modality,90.0%,The receiver of a CertificateVerify message MUST verify the signature,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+568,modality,90.0%,"If the verification fails, the receiver MUST terminate the handshake","extension in EncryptedExtensions, then the client MUST NOT send an"
+569,modality,90.0%,"If the verification fails, the receiver MUST terminate the handshake","Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+570,modality,90.0%,"Recipients of Finished messages MUST verify that the contents are
+correct and if incorrect MUST terminate the connection with a","extension in EncryptedExtensions, then the client MUST NOT send an"
+571,modality,90.0%,"Recipients of Finished messages MUST verify that the contents are
+correct and if incorrect MUST terminate the connection with a","Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+572,modality,90.0%,"Recipients of Finished messages MUST verify that the contents are
+correct and if incorrect MUST terminate the connection with a",issuance.  Servers MUST NOT use any value greater than
+573,modality,90.0%,Any records following a Finished message MUST be encrypted under the,"extension in EncryptedExtensions, then the client MUST NOT send an"
+574,modality,90.0%,Any records following a Finished message MUST be encrypted under the,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+575,modality,90.0%,Any records following a Finished message MUST be encrypted under the,issuance.  Servers MUST NOT use any value greater than
+576,modality,90.0%,Any records following a Finished message MUST be encrypted under the,ticket should be discarded immediately.  Clients MUST NOT cache
+577,modality,90.0%,the client MUST send an EndOfEarlyData message after receiving the,"extension in EncryptedExtensions, then the client MUST NOT send an"
+578,modality,90.0%,the client MUST send an EndOfEarlyData message after receiving the,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+579,modality,90.0%,the client MUST send an EndOfEarlyData message after receiving the,issuance.  Servers MUST NOT use any value greater than
+580,modality,90.0%,the client MUST send an EndOfEarlyData message after receiving the,ticket should be discarded immediately.  Clients MUST NOT cache
+581,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an","Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This"
+582,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",Any ticket MUST only be resumed with a cipher suite that has the same
+583,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",Clients MUST only resume if the new SNI value is valid for the server
+584,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",implementations MUST use the value sent in the resumption ClientHello
+585,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",issuance.  Servers MUST NOT use any value greater than
+586,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",ticket should be discarded immediately.  Clients MUST NOT cache
+587,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",transmitted by the client.  The server MUST generate a fresh value
+588,modality,90.0%,"extension in EncryptedExtensions, then the client MUST NOT send an",CertificateRequest message.  The client MUST respond with the
+589,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",Any ticket MUST only be resumed with a cipher suite that has the same
+590,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",Clients MUST only resume if the new SNI value is valid for the server
+591,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",implementations MUST use the value sent in the resumption ClientHello
+592,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",issuance.  Servers MUST NOT use any value greater than
+593,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",ticket should be discarded immediately.  Clients MUST NOT cache
+594,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",transmitted by the client.  The server MUST generate a fresh value
+595,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This",CertificateRequest message.  The client MUST respond with the
+596,modality,90.0%,"Servers MUST NOT send this message, and clients receiving it MUST
+terminate the connection with an ""unexpected_message"" alert.  This","chooses to authenticate, it MUST send Certificate, CertificateVerify,"
+597,modality,90.0%,Any ticket MUST only be resumed with a cipher suite that has the same,issuance.  Servers MUST NOT use any value greater than
+598,modality,90.0%,Any ticket MUST only be resumed with a cipher suite that has the same,ticket should be discarded immediately.  Clients MUST NOT cache
+599,modality,90.0%,Clients MUST only resume if the new SNI value is valid for the server,issuance.  Servers MUST NOT use any value greater than
+600,modality,90.0%,Clients MUST only resume if the new SNI value is valid for the server,ticket should be discarded immediately.  Clients MUST NOT cache
+601,modality,90.0%,implementations MUST use the value sent in the resumption ClientHello,issuance.  Servers MUST NOT use any value greater than
+602,modality,90.0%,implementations MUST use the value sent in the resumption ClientHello,ticket should be discarded immediately.  Clients MUST NOT cache
+603,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,ticket should be discarded immediately.  Clients MUST NOT cache
+604,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,transmitted by the client.  The server MUST generate a fresh value
+605,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,CertificateRequest message.  The client MUST respond with the
+606,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,"chooses to authenticate, it MUST send Certificate, CertificateVerify,"
+607,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,"and Finished.  If it declines, it MUST send a Certificate message"
+608,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,messages for a given response MUST appear consecutively on the wire
+609,modality,90.0%,issuance.  Servers MUST NOT use any value greater than,"servers MUST be prepared for some delay, including receiving an"
+610,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,transmitted by the client.  The server MUST generate a fresh value
+611,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,CertificateRequest message.  The client MUST respond with the
+612,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,"chooses to authenticate, it MUST send Certificate, CertificateVerify,"
+613,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,"and Finished.  If it declines, it MUST send a Certificate message"
+614,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,messages for a given response MUST appear consecutively on the wire
+615,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,"servers MUST be prepared for some delay, including receiving an"
+616,modality,90.0%,ticket should be discarded immediately.  Clients MUST NOT cache,"message MUST terminate the connection with an ""unexpected_message""
+alert.  After sending a KeyUpdate message, the sender SHALL send all"
+617,modality,90.0%,"Both sender and receiver MUST encrypt their KeyUpdate messages with
+the old keys.  Additionally, both sides MUST enforce that a KeyUpdate",-  Handshake messages MUST NOT be interleaved with other record
+618,modality,90.0%,"Both sender and receiver MUST encrypt their KeyUpdate messages with
+the old keys.  Additionally, both sides MUST enforce that a KeyUpdate","records, there MUST NOT be any other records between them."
+619,modality,90.0%,and before the peer's Finished message has been received and MUST,-  Handshake messages MUST NOT be interleaved with other record
+620,modality,90.0%,and before the peer's Finished message has been received and MUST,"records, there MUST NOT be any other records between them."
+621,modality,90.0%,and before the peer's Finished message has been received and MUST,-  Handshake messages MUST NOT span key changes.  Implementations
+622,modality,90.0%,"which receives a protected change_cipher_spec record MUST abort the
+handshake with an ""unexpected_message"" alert.  If an implementation",-  Handshake messages MUST NOT be interleaved with other record
+623,modality,90.0%,"which receives a protected change_cipher_spec record MUST abort the
+handshake with an ""unexpected_message"" alert.  If an implementation","records, there MUST NOT be any other records between them."
+624,modality,90.0%,"which receives a protected change_cipher_spec record MUST abort the
+handshake with an ""unexpected_message"" alert.  If an implementation",-  Handshake messages MUST NOT span key changes.  Implementations
+625,modality,90.0%,"which receives a protected change_cipher_spec record MUST abort the
+handshake with an ""unexpected_message"" alert.  If an implementation",Implementations MUST NOT send zero-length fragments of Handshake
+626,modality,90.0%,"ClientHello message or after the peer's Finished message, it MUST be",-  Handshake messages MUST NOT be interleaved with other record
+627,modality,90.0%,"ClientHello message or after the peer's Finished message, it MUST be","records, there MUST NOT be any other records between them."
+628,modality,90.0%,"ClientHello message or after the peer's Finished message, it MUST be",-  Handshake messages MUST NOT span key changes.  Implementations
+629,modality,90.0%,"ClientHello message or after the peer's Finished message, it MUST be",Implementations MUST NOT send zero-length fragments of Handshake
+630,modality,90.0%,"ClientHello message or after the peer's Finished message, it MUST be",multiple alert messages MUST NOT be coalesced into a single
+631,modality,90.0%,"implementation receives an unexpected record type, it MUST terminate",-  Handshake messages MUST NOT be interleaved with other record
+632,modality,90.0%,"implementation receives an unexpected record type, it MUST terminate","records, there MUST NOT be any other records between them."
+633,modality,90.0%,"implementation receives an unexpected record type, it MUST terminate",-  Handshake messages MUST NOT span key changes.  Implementations
+634,modality,90.0%,"implementation receives an unexpected record type, it MUST terminate",Implementations MUST NOT send zero-length fragments of Handshake
+635,modality,90.0%,"implementation receives an unexpected record type, it MUST terminate",multiple alert messages MUST NOT be coalesced into a single
+636,modality,90.0%,ContentType.  Any future content types MUST specify appropriate,-  Handshake messages MUST NOT be interleaved with other record
+637,modality,90.0%,ContentType.  Any future content types MUST specify appropriate,"records, there MUST NOT be any other records between them."
+638,modality,90.0%,ContentType.  Any future content types MUST specify appropriate,-  Handshake messages MUST NOT span key changes.  Implementations
+639,modality,90.0%,ContentType.  Any future content types MUST specify appropriate,Implementations MUST NOT send zero-length fragments of Handshake
+640,modality,90.0%,ContentType.  Any future content types MUST specify appropriate,multiple alert messages MUST NOT be coalesced into a single
+641,modality,90.0%,ContentType.  Any future content types MUST specify appropriate,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+642,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,"records, there MUST NOT be any other records between them."
+643,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,-  Handshake messages MUST NOT span key changes.  Implementations
+644,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the"
+645,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,MUST send these messages in alignment with a record boundary.
+646,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,Implementations MUST NOT send zero-length fragments of Handshake
+647,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,multiple alert messages MUST NOT be coalesced into a single
+648,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,legacy_record_version:  MUST be set to 0x0303 for all records
+649,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,field is deprecated and MUST be ignored for all purposes.
+650,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+651,modality,90.0%,-  Handshake messages MUST NOT be interleaved with other record,ClientHello or a ServerHello MUST have version 0x0303 (reflecting
+652,modality,90.0%,"records, there MUST NOT be any other records between them.",-  Handshake messages MUST NOT span key changes.  Implementations
+653,modality,90.0%,"records, there MUST NOT be any other records between them.","MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the"
+654,modality,90.0%,"records, there MUST NOT be any other records between them.",MUST send these messages in alignment with a record boundary.
+655,modality,90.0%,"records, there MUST NOT be any other records between them.",Implementations MUST NOT send zero-length fragments of Handshake
+656,modality,90.0%,"records, there MUST NOT be any other records between them.",multiple alert messages MUST NOT be coalesced into a single
+657,modality,90.0%,"records, there MUST NOT be any other records between them.",legacy_record_version:  MUST be set to 0x0303 for all records
+658,modality,90.0%,"records, there MUST NOT be any other records between them.",field is deprecated and MUST be ignored for all purposes.
+659,modality,90.0%,"records, there MUST NOT be any other records between them.","TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+660,modality,90.0%,"records, there MUST NOT be any other records between them.",ClientHello or a ServerHello MUST have version 0x0303 (reflecting
+661,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the"
+662,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,MUST send these messages in alignment with a record boundary.
+663,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,Implementations MUST NOT send zero-length fragments of Handshake
+664,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,multiple alert messages MUST NOT be coalesced into a single
+665,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,legacy_record_version:  MUST be set to 0x0303 for all records
+666,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,field is deprecated and MUST be ignored for all purposes.
+667,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+668,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,ClientHello or a ServerHello MUST have version 0x0303 (reflecting
+669,modality,90.0%,-  Handshake messages MUST NOT span key changes.  Implementations,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+670,modality,90.0%,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the",Implementations MUST NOT send zero-length fragments of Handshake
+671,modality,90.0%,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the",multiple alert messages MUST NOT be coalesced into a single
+672,modality,90.0%,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the","TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+673,modality,90.0%,"MUST verify that all messages immediately preceding a key change
+align with a record boundary; if not, then they MUST terminate the","MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+674,modality,90.0%,MUST send these messages in alignment with a record boundary.,Implementations MUST NOT send zero-length fragments of Handshake
+675,modality,90.0%,MUST send these messages in alignment with a record boundary.,multiple alert messages MUST NOT be coalesced into a single
+676,modality,90.0%,MUST send these messages in alignment with a record boundary.,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+677,modality,90.0%,MUST send these messages in alignment with a record boundary.,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+678,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,multiple alert messages MUST NOT be coalesced into a single
+679,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,legacy_record_version:  MUST be set to 0x0303 for all records
+680,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,field is deprecated and MUST be ignored for all purposes.
+681,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+682,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,ClientHello or a ServerHello MUST have version 0x0303 (reflecting
+683,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+684,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,"If the decryption fails, the receiver MUST terminate the connection"
+685,modality,90.0%,Implementations MUST NOT send zero-length fragments of Handshake,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+686,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,legacy_record_version:  MUST be set to 0x0303 for all records
+687,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,field is deprecated and MUST be ignored for all purposes.
+688,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+689,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,ClientHello or a ServerHello MUST have version 0x0303 (reflecting
+690,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+691,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,"If the decryption fails, the receiver MUST terminate the connection"
+692,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+693,modality,90.0%,multiple alert messages MUST NOT be coalesced into a single,"peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit"
+694,modality,90.0%,legacy_record_version:  MUST be set to 0x0303 for all records,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+695,modality,90.0%,legacy_record_version:  MUST be set to 0x0303 for all records,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+696,modality,90.0%,legacy_record_version:  MUST be set to 0x0303 for all records,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+697,modality,90.0%,field is deprecated and MUST be ignored for all purposes.,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert."
+698,modality,90.0%,field is deprecated and MUST be ignored for all purposes.,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+699,modality,90.0%,field is deprecated and MUST be ignored for all purposes.,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+700,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.",ClientHello or a ServerHello MUST have version 0x0303 (reflecting
+701,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.","MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+702,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.","If the decryption fails, the receiver MUST terminate the connection"
+703,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.",An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+704,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.","peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit"
+705,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.","If a TLS implementation would need to wrap a sequence number, it MUST"
+706,modality,90.0%,"TLSPlaintext.fragment.  The length MUST NOT exceed 2^14 bytes.  An
+endpoint that receives a record that exceeds this length MUST
+terminate the connection with a ""record_overflow"" alert.",MUST NOT be used with TLS.  The per-record nonce for the AEAD
+707,modality,90.0%,ClientHello or a ServerHello MUST have version 0x0303 (reflecting,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with"
+708,modality,90.0%,ClientHello or a ServerHello MUST have version 0x0303 (reflecting,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+709,modality,90.0%,ClientHello or a ServerHello MUST have version 0x0303 (reflecting,MUST NOT be used with TLS.  The per-record nonce for the AEAD
+710,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with","If the decryption fails, the receiver MUST terminate the connection"
+711,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with",An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+712,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with","peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit"
+713,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with","If a TLS implementation would need to wrap a sequence number, it MUST"
+714,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with",MUST NOT be used with TLS.  The per-record nonce for the AEAD
+715,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with",ContentType field before encryption.  Implementations MUST set the
+716,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with",MUST NOT send Handshake and Alert records that have a zero-length
+717,modality,90.0%,"MUST NOT exceed 2^14 + 256 bytes.  An endpoint that receives a
+record that exceeds this length MUST terminate the connection with",receiving implementation MUST terminate the connection with an
+718,modality,90.0%,"If the decryption fails, the receiver MUST terminate the connection",An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion
+719,modality,90.0%,"If the decryption fails, the receiver MUST terminate the connection",MUST NOT be used with TLS.  The per-record nonce for the AEAD
+720,modality,90.0%,"If the decryption fails, the receiver MUST terminate the connection",MUST NOT send Handshake and Alert records that have a zero-length
+721,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,"peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit"
+722,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,"If a TLS implementation would need to wrap a sequence number, it MUST"
+723,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,MUST NOT be used with TLS.  The per-record nonce for the AEAD
+724,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,ContentType field before encryption.  Implementations MUST set the
+725,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,MUST NOT send Handshake and Alert records that have a zero-length
+726,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,receiving implementation MUST terminate the connection with an
+727,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,Implementations MUST limit their scanning to the cleartext returned
+728,modality,90.0%,An AEAD algorithm used in TLS 1.3 MUST NOT produce an expansion,"find a non-zero octet in the cleartext, it MUST terminate the"
+729,modality,90.0%,"peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit",MUST NOT be used with TLS.  The per-record nonce for the AEAD
+730,modality,90.0%,"peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit",MUST NOT send Handshake and Alert records that have a zero-length
+731,modality,90.0%,"peer with TLSCiphertext.length larger than 2^14 + 256 octets MUST
+terminate the connection with a ""record_overflow"" alert.  This limit",limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+732,modality,90.0%,"If a TLS implementation would need to wrap a sequence number, it MUST",MUST NOT be used with TLS.  The per-record nonce for the AEAD
+733,modality,90.0%,"If a TLS implementation would need to wrap a sequence number, it MUST",MUST NOT send Handshake and Alert records that have a zero-length
+734,modality,90.0%,"If a TLS implementation would need to wrap a sequence number, it MUST",limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+735,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,ContentType field before encryption.  Implementations MUST set the
+736,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,MUST NOT send Handshake and Alert records that have a zero-length
+737,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,receiving implementation MUST terminate the connection with an
+738,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,Implementations MUST limit their scanning to the cleartext returned
+739,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,"find a non-zero octet in the cleartext, it MUST terminate the"
+740,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+741,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,"must still be handled at the TLS layer, though.  Later documents may"
+742,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,clients MUST forget the secret values and keys established in failed
+743,modality,90.0%,MUST NOT be used with TLS.  The per-record nonce for the AEAD,AlertLevel=fatal and MUST be treated as error alerts when received
+744,modality,90.0%,ContentType field before encryption.  Implementations MUST set the,MUST NOT send Handshake and Alert records that have a zero-length
+745,modality,90.0%,ContentType field before encryption.  Implementations MUST set the,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+746,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,receiving implementation MUST terminate the connection with an
+747,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,Implementations MUST limit their scanning to the cleartext returned
+748,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,"find a non-zero octet in the cleartext, it MUST terminate the"
+749,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+750,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,"must still be handled at the TLS layer, though.  Later documents may"
+751,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,clients MUST forget the secret values and keys established in failed
+752,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,AlertLevel=fatal and MUST be treated as error alerts when received
+753,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,"length) MUST terminate the connection with a ""decode_error"" alert."
+754,modality,90.0%,MUST NOT send Handshake and Alert records that have a zero-length,"MUST terminate the connection with an ""illegal_parameter"" alert."
+755,modality,90.0%,receiving implementation MUST terminate the connection with an,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+756,modality,90.0%,Implementations MUST limit their scanning to the cleartext returned,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+757,modality,90.0%,"find a non-zero octet in the cleartext, it MUST terminate the",limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14
+758,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,"must still be handled at the TLS layer, though.  Later documents may"
+759,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,clients MUST forget the secret values and keys established in failed
+760,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,AlertLevel=fatal and MUST be treated as error alerts when received
+761,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,"length) MUST terminate the connection with a ""decode_error"" alert."
+762,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,"MUST terminate the connection with an ""illegal_parameter"" alert."
+763,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,The client and the server must share knowledge that the connection is
+764,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,"close_notify:  This alert notifies the recipient that the sender will
+not send any more messages on this connection.  Any data received
+after a closure alert has been received MUST be ignored."
+765,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,alert has been received MUST be ignored.  If a transport-level close
+766,modality,90.0%,limitations: the full encoded TLSInnerPlaintext MUST NOT exceed 2^14,"Each party MUST send a ""close_notify"" alert before closing its write"
+767,modality,90.0%,"deployments will maintain state at that level.  Therefore, in normal
+operation, clients will not know which, if any, of these mechanisms
+servers actually implement and hence MUST only send early data which","also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake."
+768,modality,90.0%,only a limited number of times.  The server MUST ensure that any,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake."
+769,modality,90.0%,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake.",A TLS-compliant application MUST support digital signatures with
+770,modality,90.0%,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake.",TLS-compliant application MUST support key exchange with secp256r1
+771,modality,90.0%,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake.","In the absence of an application profile standard specifying
+otherwise, a TLS-compliant application MUST implement the following"
+772,modality,90.0%,"also implement data stores with false positives, such as Bloom
+filters, in which case they MUST respond to apparent replay by
+rejecting 0-RTT but MUST NOT abort the handshake.",All implementations MUST send and use these extensions when offering
+773,modality,90.0%,"-  If containing a ""supported_groups"" extension, it MUST also contain",understand MUST NOT process any messages beyond that ClientHello.
+774,modality,90.0%,"requirements MUST abort the handshake with a ""missing_extension""",understand MUST NOT process any messages beyond that ClientHello.
+775,modality,90.0%,"Additionally, all implementations MUST support the use of the",understand MUST NOT process any messages beyond that ClientHello.
+776,modality,90.0%,MUST follow.  It also applies to earlier versions of TLS.,understand MUST NOT process any messages beyond that ClientHello.
+777,modality,90.0%,"For this to work, implementations MUST correctly handle extensible",understand MUST NOT process any messages beyond that ClientHello.
+778,modality,90.0%,-  A client sending a ClientHello MUST support all parameters,understand MUST NOT process any messages beyond that ClientHello.
+779,modality,90.0%,-  A server receiving a ClientHello MUST correctly ignore all,understand MUST NOT process any messages beyond that ClientHello.
+780,modality,90.0%,-  A server receiving a ClientHello MUST correctly ignore all,TLS 1.3 implementations MUST NOT send them but might receive them
+781,modality,90.0%,"-  A middlebox which terminates a TLS connection MUST behave as a
+compliant TLS server (to the original client), including having a",understand MUST NOT process any messages beyond that ClientHello.
+782,modality,90.0%,"-  A middlebox which terminates a TLS connection MUST behave as a
+compliant TLS server (to the original client), including having a",TLS 1.3 implementations MUST NOT send them but might receive them
+783,modality,90.0%,"-  A middlebox which terminates a TLS connection MUST behave as a
+compliant TLS server (to the original client), including having a",versions of TLS and MUST NOT be offered or negotiated by TLS 1.3
+784,modality,90.0%,"compliant TLS client (to the original server), including verifying
+the original server's certificate.  In particular, it MUST
+generate its own ClientHello containing only parameters it
+understands, and it MUST generate a fresh ServerHello random",understand MUST NOT process any messages beyond that ClientHello.
+785,modality,90.0%,"compliant TLS client (to the original server), including verifying
+the original server's certificate.  In particular, it MUST
+generate its own ClientHello containing only parameters it
+understands, and it MUST generate a fresh ServerHello random",TLS 1.3 implementations MUST NOT send them but might receive them
+786,modality,90.0%,"compliant TLS client (to the original server), including verifying
+the original server's certificate.  In particular, it MUST
+generate its own ClientHello containing only parameters it
+understands, and it MUST generate a fresh ServerHello random",versions of TLS and MUST NOT be offered or negotiated by TLS 1.3
+787,modality,90.0%,understand MUST NOT process any messages beyond that ClientHello.,"It MUST forward all subsequent traffic unmodified.  Otherwise, it"
+788,modality,90.0%,understand MUST NOT process any messages beyond that ClientHello.,TLS 1.3 implementations MUST NOT send them but might receive them
+789,modality,90.0%,understand MUST NOT process any messages beyond that ClientHello.,versions of TLS and MUST NOT be offered or negotiated by TLS 1.3
+790,modality,90.0%,"It MUST forward all subsequent traffic unmodified.  Otherwise, it",TLS 1.3 implementations MUST NOT send them but might receive them
+791,modality,90.0%,"It MUST forward all subsequent traffic unmodified.  Otherwise, it",versions of TLS and MUST NOT be offered or negotiated by TLS 1.3
+792,modality,90.0%,TLS 1.3 implementations MUST NOT send them but might receive them,versions of TLS and MUST NOT be offered or negotiated by TLS 1.3
+793,modality,90.0%,TLS 1.3 implementations MUST NOT send them but might receive them,MUST NOT use TLS in such a way absent explicit configuration or a
+794,modality,90.0%,versions of TLS and MUST NOT be offered or negotiated by TLS 1.3,MUST NOT use TLS in such a way absent explicit configuration or a
+795,modality,90.0%,MUST NOT use TLS in such a way absent explicit configuration or a,"(or is not acceptable), the client MUST abort the handshake with a"
+796,modality,90.0%,MUST NOT use TLS in such a way absent explicit configuration or a,"""supported_versions"" extension is present, the server MUST negotiate"
+797,modality,90.0%,MUST NOT use TLS in such a way absent explicit configuration or a,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For"
+798,modality,90.0%,MUST NOT use TLS in such a way absent explicit configuration or a,"ClientHello.legacy_version, the server MUST abort the handshake with"
+799,modality,90.0%,MUST NOT use TLS in such a way absent explicit configuration or a,"TLS 1.x versions in this field, but its value MUST always be ignored."
+800,modality,90.0%,"(or is not acceptable), the client MUST abort the handshake with a","reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+801,modality,90.0%,"(or is not acceptable), the client MUST abort the handshake with a",Ciphers with a strength less than 112 bits MUST NOT be offered or
+802,modality,90.0%,"""supported_versions"" extension is present, the server MUST negotiate","reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+803,modality,90.0%,"""supported_versions"" extension is present, the server MUST negotiate",Ciphers with a strength less than 112 bits MUST NOT be offered or
+804,modality,90.0%,"""supported_versions"" extension is present, the server MUST negotiate","reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+805,modality,90.0%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For","reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+806,modality,90.0%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For",Ciphers with a strength less than 112 bits MUST NOT be offered or
+807,modality,90.0%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For","reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+808,modality,90.0%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For","reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+809,modality,90.0%,"legacy_version is TLS 1.0, the server will proceed with a TLS 1.0",Ciphers with a strength less than 112 bits MUST NOT be offered or
+810,modality,90.0%,"ClientHello.legacy_version, the server MUST abort the handshake with","reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+811,modality,90.0%,"ClientHello.legacy_version, the server MUST abort the handshake with",Ciphers with a strength less than 112 bits MUST NOT be offered or
+812,modality,90.0%,"ClientHello.legacy_version, the server MUST abort the handshake with","reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+813,modality,90.0%,"ClientHello.legacy_version, the server MUST abort the handshake with","reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+814,modality,90.0%,"ClientHello.legacy_version, the server MUST abort the handshake with",Implementations MUST NOT send an SSL version 2.0 compatible
+815,modality,90.0%,"ClientHello.legacy_version, the server MUST abort the handshake with",CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+816,modality,90.0%,"TLS 1.x versions in this field, but its value MUST always be ignored.","reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+817,modality,90.0%,"TLS 1.x versions in this field, but its value MUST always be ignored.",Ciphers with a strength less than 112 bits MUST NOT be offered or
+818,modality,90.0%,"TLS 1.x versions in this field, but its value MUST always be ignored.","reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+819,modality,90.0%,"TLS 1.x versions in this field, but its value MUST always be ignored.","reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+820,modality,90.0%,"TLS 1.x versions in this field, but its value MUST always be ignored.",Implementations MUST NOT send an SSL version 2.0 compatible
+821,modality,90.0%,"TLS 1.x versions in this field, but its value MUST always be ignored.",CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+822,modality,90.0%,"will respond to the ClientHello with an older ServerHello, but it
+will not correctly skip the 0-RTT data and will fail to complete the",Ciphers with a strength less than 112 bits MUST NOT be offered or
+823,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+824,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,Ciphers with a strength less than 112 bits MUST NOT be offered or
+825,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+826,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+827,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,Implementations MUST NOT send an SSL version 2.0 compatible
+828,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+829,modality,90.0%,A client that attempts to send 0-RTT data MUST fail a connection if,Implementations MUST NOT send any records with a version less than
+830,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be","reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason."
+831,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be",Ciphers with a strength less than 112 bits MUST NOT be offered or
+832,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be","reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+833,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be","reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+834,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be",Implementations MUST NOT send an SSL version 2.0 compatible
+835,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be",CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+836,modality,90.0%,"change_cipher_spec at any time during the handshake, as they must be",Implementations MUST NOT send any records with a version less than
+837,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.",Ciphers with a strength less than 112 bits MUST NOT be offered or
+838,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.","reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+839,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.","reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+840,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.",Implementations MUST NOT send an SSL version 2.0 compatible
+841,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.",CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+842,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.",ServerHello.legacy_version set to 0x0300 MUST abort the handshake
+843,modality,90.0%,"reasons cited in [RFC7465].  Implementations MUST NOT offer or
+negotiate RC4 cipher suites for any version of TLS for any reason.",Implementations MUST NOT send any records with a version less than
+844,modality,90.0%,Ciphers with a strength less than 112 bits MUST NOT be offered or,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for"
+845,modality,90.0%,Ciphers with a strength less than 112 bits MUST NOT be offered or,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+846,modality,90.0%,Ciphers with a strength less than 112 bits MUST NOT be offered or,Implementations MUST NOT send an SSL version 2.0 compatible
+847,modality,90.0%,Ciphers with a strength less than 112 bits MUST NOT be offered or,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+848,modality,90.0%,Ciphers with a strength less than 112 bits MUST NOT be offered or,ServerHello.legacy_version set to 0x0300 MUST abort the handshake
+849,modality,90.0%,Ciphers with a strength less than 112 bits MUST NOT be offered or,Implementations MUST NOT send any records with a version less than
+850,modality,90.0%,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for","reasons enumerated in [RFC6176], and it MUST NOT be negotiated for"
+851,modality,90.0%,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for",Implementations MUST NOT send an SSL version 2.0 compatible
+852,modality,90.0%,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for",CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+853,modality,90.0%,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for",ServerHello.legacy_version set to 0x0300 MUST abort the handshake
+854,modality,90.0%,"reasons enumerated in [RFC7568], and it MUST NOT be negotiated for",Implementations MUST NOT send any records with a version less than
+855,modality,90.0%,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for",Implementations MUST NOT send an SSL version 2.0 compatible
+856,modality,90.0%,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for",CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+857,modality,90.0%,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for",ServerHello.legacy_version set to 0x0300 MUST abort the handshake
+858,modality,90.0%,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for",Implementations MUST NOT send any records with a version less than
+859,modality,90.0%,"reasons enumerated in [RFC6176], and it MUST NOT be negotiated for",MUST NOT combine external PSKs with certificate-based authentication
+860,modality,90.0%,Implementations MUST NOT send an SSL version 2.0 compatible,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later
+861,modality,90.0%,Implementations MUST NOT send an SSL version 2.0 compatible,ServerHello.legacy_version set to 0x0300 MUST abort the handshake
+862,modality,90.0%,Implementations MUST NOT send an SSL version 2.0 compatible,Implementations MUST NOT send any records with a version less than
+863,modality,90.0%,Implementations MUST NOT send an SSL version 2.0 compatible,MUST NOT combine external PSKs with certificate-based authentication
+864,modality,90.0%,Implementations MUST NOT send an SSL version 2.0 compatible,"to be used as channel bindings, the exported value MUST be large"
+865,modality,90.0%,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later,ServerHello.legacy_version set to 0x0300 MUST abort the handshake
+866,modality,90.0%,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later,Implementations MUST NOT send any records with a version less than
+867,modality,90.0%,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later,MUST NOT combine external PSKs with certificate-based authentication
+868,modality,90.0%,CLIENT-HELLO.  Implementations MUST NOT negotiate TLS 1.3 or later,"to be used as channel bindings, the exported value MUST be large"
+869,modality,90.0%,ServerHello.legacy_version set to 0x0300 MUST abort the handshake,Implementations MUST NOT send any records with a version less than
+870,modality,90.0%,ServerHello.legacy_version set to 0x0300 MUST abort the handshake,MUST NOT combine external PSKs with certificate-based authentication
+871,modality,90.0%,Implementations MUST NOT send any records with a version less than,MUST NOT combine external PSKs with certificate-based authentication
+872,modality,90.0%,Implementations MUST NOT send any records with a version less than,"to be used as channel bindings, the exported value MUST be large"
+873,modality,90.0%,MUST NOT combine external PSKs with certificate-based authentication,"to be used as channel bindings, the exported value MUST be large"
+874,modality,90.0%,"to be used as channel bindings, the exported value MUST be large",Application protocols MUST NOT use 0-RTT data without a profile that
+875,modality,90.0%,Application protocols MUST NOT use 0-RTT data without a profile that,"In addition, to avoid accidental misuse, TLS implementations MUST NOT
+enable 0-RTT (either sending or accepting) unless specifically
+requested by the application and MUST NOT automatically resend 0-RTT"
+876,modality,90.0%,Application protocols MUST NOT use 0-RTT data without a profile that,"processing, TLS implementations MUST provide a way for the"
+877,modality,90.0%,Application protocols MUST NOT use 0-RTT data without a profile that,"both TLS 1.2 and TLS 1.3 must be used with only one hash in TLS 1.3,"
+878,modality,90.0%,"In addition, to avoid accidental misuse, TLS implementations MUST NOT
+enable 0-RTT (either sending or accepting) unless specifically
+requested by the application and MUST NOT automatically resend 0-RTT","processing, TLS implementations MUST provide a way for the"
+879,modality,90.0%,"In addition, to avoid accidental misuse, TLS implementations MUST NOT
+enable 0-RTT (either sending or accepting) unless specifically
+requested by the application and MUST NOT automatically resend 0-RTT","both TLS 1.2 and TLS 1.3 must be used with only one hash in TLS 1.3,"
+880,semantic,90.0%,"certificates.  The client MUST check EncryptedExtensions for the
+presence of any forbidden extensions and if any are found MUST abort",The client MUST send a Certificate message if and only if the server
+881,semantic,89.6%,extension to the client.  Clients MUST NOT act upon any information,"correspond to a group which was provided in the ""key_share"" extension"
+882,semantic,89.5%,transmitted by the client.  The server MUST generate a fresh value,messages for a given response MUST appear consecutively on the wire
+883,semantic,88.6%,the client MUST send an EndOfEarlyData message after receiving the,transmitted by the client.  The server MUST generate a fresh value
+884,semantic,88.4%,"receives any other value, it MUST terminate the connection with an","ClientHello message or after the peer's Finished message, it MUST be"
+885,semantic,87.7%,"0x0303 (TLS 1.2).  Clients MUST check for this extension prior to
+processing the rest of the ServerHello (although they will have to","ClientHello).  When sending the new ClientHello, the client MUST copy"
+886,semantic,86.9%,"(or is not acceptable), the client MUST abort the handshake with a","""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For"
+887,semantic,86.2%,The client MUST send a Certificate message if and only if the server,"well.  Extensions in the Certificate message from the server MUST
+correspond to ones from the ClientHello message.  Extensions in
+the Certificate message from the client MUST correspond to"
+888,semantic,85.9%,validate using any signature algorithm using an MD5 hash MUST abort,The receiver of a CertificateVerify message MUST verify the signature
+889,semantic,85.6%,"For externally established PSKs, the Hash algorithm MUST be set when","value is not present or does not validate, the server MUST abort the"
+890,semantic,84.4%,"""supported_versions"" extension is not present, the server MUST
+negotiate the minimum of ClientHello.legacy_version and TLS 1.2.  For",A client that attempts to send 0-RTT data MUST fail a connection if
+891,semantic,84.4%,Clients MUST verify that the server's selected_identity is within the,Servers MUST check that it is the last extension and otherwise fail
+892,semantic,83.6%,response to a ClientHello MUST set the last 8 bytes of their Random,and which receives a TLS 1.3 ServerHello during renegotiation MUST
+893,semantic,83.5%,The receiver of a CertificateVerify message MUST verify the signature,"Recipients of Finished messages MUST verify that the contents are
+correct and if incorrect MUST terminate the connection with a"
+894,semantic,82.6%,"authenticated, this has to be provisioned by the application layer.","(which processes the data immediately) and another cluster which will
+fall back to 1-RTT and process the data upon application-layer"
+895,semantic,81.7%,inherent replay protections for 0-RTT data.  There are two potential,"still require consistent storage for anti-replay of 0-RTT data, as"
+896,semantic,80.9%,"negotiation, then this will happen automatically).  Upon receiving
+the ServerHello, clients MUST check that the cipher suite supplied in","""supported_versions"" extension MUST be retained in the ServerHello,
+and a client MUST abort the handshake with an ""illegal_parameter"""
+897,semantic,80.8%,early data MUST be the first PSK listed in the client's,"In order to accept early data, the server MUST have accepted a PSK"
+898,semantic,80.5%,"ClientHello).  When sending the new ClientHello, the client MUST copy","extension, then the server MUST abort the handshake with a"
+899,semantic,80.4%,"-  When (EC)DHE is in use, the server will also provide a ""key_share""",ClientHello as its first TLS message.  The client will also send a
