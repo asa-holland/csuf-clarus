@@ -344,7 +344,6 @@ h3 {
   color: #1e293b;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .header-nav {
     flex-direction: column;

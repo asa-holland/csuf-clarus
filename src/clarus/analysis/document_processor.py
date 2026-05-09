@@ -5,11 +5,9 @@ from typing import List, Dict, Optional, Tuple
 
 
 class ElementType(Enum):
-    """Document element types based on ISO/IEC directives"""
-
-    NORMATIVE = "normative"  # Requirements/rules (shall/must provisions)
-    INFORMATIVE = "informative"  # Context, examples, notes
-    UNKNOWN = "unknown"  # Cannot be determined
+    NORMATIVE = "normative"
+    INFORMATIVE = "informative"
+    UNKNOWN = "unknown"
 
 
 @dataclass
@@ -204,19 +202,31 @@ class DocumentProcessor:
 
         doc = self.nlp(line)
 
-        # Step 1: Unambiguous informative markers
         informative_lemmas = {
-            "example", "note", "remark", "comment", "illustrate",
-            "demonstrate", "section", "detail", "see", "reference",
-            "describe", "explain", "mean", "represent", "indicate",
-            "suggest", "imply", "define",
+            "example",
+            "note",
+            "remark",
+            "comment",
+            "illustrate",
+            "demonstrate",
+            "section",
+            "detail",
+            "see",
+            "reference",
+            "describe",
+            "explain",
+            "mean",
+            "represent",
+            "indicate",
+            "suggest",
+            "imply",
+            "define",
         }
         if any(token.lemma_.lower() in informative_lemmas for token in doc):
             return ElementType.INFORMATIVE
         if any(token.text == "?" for token in doc):
             return ElementType.INFORMATIVE
 
-        # Step 2: Modal verb analysis
         modality_tokens = []
         for token in doc:
             if token.lemma_.lower() in self.modality_verbs:
@@ -232,33 +242,31 @@ class DocumentProcessor:
             positive = [t[0] for t in modality_tokens if t[1] == "positive"]
             negated = [t[0] for t in modality_tokens if t[1] == "negated"]
 
-            # Strong obligation (shall/must) or strong prohibition (shall not / must not) = normative
             strong_positive = any(l in ("shall", "must", "will") for l in positive)
             strong_negated = any(l in ("shall", "must") for l in negated)
             if strong_positive or strong_negated:
                 return ElementType.NORMATIVE
 
-            # Weak modals (may, should, can, could, would) = informative
             return ElementType.INFORMATIVE
 
-        # Step 3: Additional normative verb indicators (require, prohibit, mandate…)
         normative_verb_lemmas = {
-            "require", "prohibit", "forbid", "mandate",
-            "enforce", "specify", "obligate",
+            "require",
+            "prohibit",
+            "forbid",
+            "mandate",
+            "enforce",
+            "specify",
+            "obligate",
         }
         if any(token.lemma_.lower() in normative_verb_lemmas for token in doc):
             return ElementType.NORMATIVE
 
-        # Step 4: Syntactic imperative detection — root is base-form verb with no
-        # nominal subject in the sentence. These are commands/rules, not descriptions.
         if self._is_syntactic_imperative(doc):
             return ElementType.NORMATIVE
 
-        # Step 5: Regex and keyword fallback (expands coverage beyond spaCy)
         return self._classify_line_regex(line)
 
     def _is_syntactic_imperative(self, doc) -> bool:
-        """Return True when a sentence's root is a base-form verb with no subject."""
         for sent in doc.sents:
             root = sent.root
             if root.tag_ in ("VB", "VBP"):
@@ -278,16 +286,26 @@ class DocumentProcessor:
             return ElementType.INFORMATIVE
 
         extra_informative = [
-            "example", "note", "remark", "comment", "typically", "usually",
-            "generally", "such as", "for instance", "including", "described",
-            "explained", "means", "represents", "indicates", "suggests",
+            "example",
+            "note",
+            "remark",
+            "comment",
+            "typically",
+            "usually",
+            "generally",
+            "such as",
+            "for instance",
+            "including",
+            "described",
+            "explained",
+            "means",
+            "represents",
+            "indicates",
+            "suggests",
         ]
         if any(kw in line.lower() for kw in extra_informative):
             return ElementType.INFORMATIVE
 
-        # Sentences with enough words are descriptive content — classify as
-        # informative rather than leaving them as unknown.  Short fragments
-        # (headings, labels, single words) stay as unknown.
         if len(line.split()) >= 5:
             return ElementType.INFORMATIVE
 
@@ -339,11 +357,11 @@ class DocumentProcessor:
                 token.lemma_.lower() in informative_lemmas for token in doc
             )
             if clear_informative or question_found:
-                return 0.90  # High confidence: clear informative
+                return 0.90
             else:
-                return 0.60  # Medium confidence: inferred informative
+                return 0.60
 
-        return 0.40  # Low confidence: unknown
+        return 0.40
 
     def _calculate_confidence_regex(
         self, text: str, element_type: ElementType

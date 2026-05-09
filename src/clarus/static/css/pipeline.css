@@ -1,54 +1,52 @@
-/* =========================================================
-   pipeline.css — Clarus | CSUF Computer Science
-   ========================================================= */
-
-/* -- 1. Brand Variables -- */
 :root {
-  --csuf-navy:          #00244E;
-  --csuf-navy-mid:      #003b7a;
-  --csuf-navy-light:    #0054a6;
-  --csuf-orange:        #FF7900;
-  --csuf-orange-light:  #FF9933;
-  --csuf-orange-faint:  #fff3e6;
+  --csuf-navy: #00244e;
+  --csuf-navy-mid: #003b7a;
+  --csuf-navy-light: #0054a6;
+  --csuf-orange: #ff7900;
+  --csuf-orange-light: #ff9933;
+  --csuf-orange-faint: #fff3e6;
 
-  --bg-page:            #f0f2f5;
-  --bg-card:            #ffffff;
-  --bg-subtle:          #f8fafc;
+  --bg-page: #f0f2f5;
+  --bg-card: #ffffff;
+  --bg-subtle: #f8fafc;
 
-  --text-primary:       #0e1a2b;
-  --text-secondary:     #4a5a72;
-  --text-muted:         #7a8fa8;
+  --text-primary: #0e1a2b;
+  --text-secondary: #4a5a72;
+  --text-muted: #7a8fa8;
 
-  --border-color:       #dce4ef;
-  --border-strong:      #b0bed4;
+  --border-color: #dce4ef;
+  --border-strong: #b0bed4;
 
-  --green:              #059669;
-  --green-bg:           #d1fae5;
-  --amber:              #d97706;
-  --amber-bg:           #fef3c7;
-  --red:                #dc2626;
-  --red-bg:             #fee2e2;
-  --blue:               #1d5fa8;
-  --blue-bg:            #dbeafe;
+  --green: #059669;
+  --green-bg: #d1fae5;
+  --amber: #d97706;
+  --amber-bg: #fef3c7;
+  --red: #dc2626;
+  --red-bg: #fee2e2;
+  --blue: #1d5fa8;
+  --blue-bg: #dbeafe;
 
-  --radius-sm:          6px;
-  --radius-md:          10px;
-  --radius-lg:          14px;
-  --shadow-sm:          0 1px 4px rgba(0, 36, 78, 0.08);
-  --shadow-md:          0 4px 16px rgba(0, 36, 78, 0.10);
-  --shadow-lg:          0 8px 32px rgba(0, 36, 78, 0.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 4px rgba(0, 36, 78, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 36, 78, 0.1);
+  --shadow-lg: 0 8px 32px rgba(0, 36, 78, 0.12);
 
-  --font-serif:         'Source Serif 4', 'Georgia', serif;
-  --font-sans:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono:          'Menlo', 'Monaco', 'Consolas', monospace;
+  --font-serif: "Source Serif 4", "Georgia", serif;
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Menlo", "Monaco", "Consolas", monospace;
 }
 
-/* -- 2. Page Base Overrides -- */
 body.page-pipeline {
   font-family: var(--font-sans);
   background: var(--bg-page);
-  background-image:
-    linear-gradient(to bottom, #e8edf4 0%, var(--bg-page) 200px);
+  background-image: linear-gradient(
+    to bottom,
+    #e8edf4 0%,
+    var(--bg-page) 200px
+  );
   padding: 0;
   min-height: 100vh;
 }
@@ -59,7 +57,6 @@ body.page-pipeline {
   min-height: 100vh;
 }
 
-/* -- 3. Site Header -- */
 .site-header {
   background: var(--csuf-navy);
   color: #fff;
@@ -84,7 +81,6 @@ body.page-pipeline {
   flex-wrap: wrap;
 }
 
-/* Institution identity (left) */
 .header-institution {
   display: flex;
   flex-direction: column;
@@ -102,13 +98,12 @@ body.page-pipeline {
   height: 30px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);  /* Convert to white */
+  filter: brightness(0) invert(1); /* Convert to white */
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
 
-/* If the reversed logo already has good contrast, remove filter */
 .csuf-logo.csuf-logo-fallback {
   filter: none;
 }
@@ -119,11 +114,10 @@ body.page-pipeline {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.70);
+  color: rgba(255, 255, 255, 0.7);
   padding-left: 2px;
 }
 
-/* Clarus brand (center) */
 .header-center {
   flex: 1;
   display: flex;
@@ -166,15 +160,14 @@ body.page-pipeline {
   color: rgba(255, 255, 255, 0.65);
 }
 
-/* Navigation (right) — override style.css .header-nav defaults */
 .header-nav {
   display: flex;
   flex-direction: row;
   gap: 8px;
   flex-shrink: 0;
-  justify-content: flex-end;  /* override space-between from style.css */
+  justify-content: flex-end;
   align-items: center;
-  margin-bottom: 0;           /* override margin-bottom: 10px from style.css */
+  margin-bottom: 0;
   text-align: left;
 }
 
@@ -182,13 +175,15 @@ body.page-pipeline {
   font-family: var(--font-sans);
   font-size: 0.82rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.80);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   padding: 8px 16px;
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: transparent;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   letter-spacing: 0.02em;
 }
 
@@ -205,27 +200,24 @@ body.page-pipeline {
 
 /* Description bar */
 .header-description-bar {
-  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 10px 40px;
   background: rgba(0, 0, 0, 0.18);
 }
 
-/* Override `header p { opacity: 0.9 }` from style.css */
 .header-description-bar p {
-  font-size: 0.80rem;
-  color: rgba(255, 255, 255, 0.60);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
   letter-spacing: 0.04em;
   text-align: center;
   margin: 0;
   opacity: 1;
 }
 
-/* Ensure header text-align doesn't affect flex children */
 .site-header {
   text-align: left;
 }
 
-/* -- 4. Disclaimer Bar -- */
 .disclaimer-bar {
   background: #fffbeb;
   border-bottom: 1px solid #fde68a;
@@ -250,7 +242,6 @@ body.page-pipeline {
   letter-spacing: 0.02em;
 }
 
-/* -- 5. Main Content -- */
 .main-content {
   flex: 1;
   max-width: 1100px;
@@ -259,7 +250,6 @@ body.page-pipeline {
   padding: 36px 24px 48px;
 }
 
-/* -- 6. Upload Section -- */
 .upload-section {
   background: transparent;
   padding: 0;
@@ -298,7 +288,9 @@ body.page-pipeline {
   padding: 52px 24px;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
   background: var(--bg-subtle);
   margin-bottom: 0;
 }
@@ -376,7 +368,7 @@ body.page-pipeline {
 }
 
 .file-size-label {
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
 }
 
@@ -397,7 +389,10 @@ body.page-pipeline {
   font-weight: 600;
   cursor: pointer;
   letter-spacing: 0.03em;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
 }
 
 .process-btn:hover:not(:disabled) {
@@ -418,7 +413,6 @@ body.page-pipeline {
   height: 18px;
 }
 
-/* Pipeline Stage Overview (4 steps) */
 .pipeline-overview {
   display: flex;
   align-items: center;
@@ -473,7 +467,6 @@ body.page-pipeline {
   margin-bottom: 20px;
 }
 
-/* -- 6. Messages -- */
 .messages-area {
   margin-bottom: 0;
 }
@@ -482,7 +475,7 @@ body.page-pipeline {
 .msg-success {
   padding: 14px 20px;
   border-radius: var(--radius-sm);
-  font-size: 0.90rem;
+  font-size: 0.9rem;
   font-weight: 500;
   margin-bottom: 16px;
   display: none;
@@ -502,7 +495,6 @@ body.page-pipeline {
   color: #166534;
 }
 
-/* -- 7. Loading -- */
 .loading {
   display: none;
   padding: 40px 24px;
@@ -532,7 +524,9 @@ body.page-pipeline {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .loading-text {
@@ -562,7 +556,7 @@ body.page-pipeline {
 
 .pipeline-title {
   font-family: var(--font-serif);
-  font-size: 1.50rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--csuf-navy);
 }
@@ -586,20 +580,23 @@ body.page-pipeline {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--csuf-navy) 0%, var(--csuf-orange) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--csuf-navy) 0%,
+    var(--csuf-orange) 100%
+  );
   width: 0%;
   transition: width 0.5s ease;
   border-radius: 4px;
 }
 
 .progress-text {
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   font-weight: 500;
   white-space: nowrap;
 }
 
-/* -- 9. Pipeline Stages -- */
 .pipeline-stages {
   display: flex;
   flex-direction: column;
@@ -612,7 +609,9 @@ body.page-pipeline {
   border: 1.5px solid var(--border-color);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .stage.completed {
@@ -680,7 +679,7 @@ body.page-pipeline {
 
 .stage-title-block h3 {
   font-family: var(--font-serif);
-  font-size: 1.10rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
   margin: 0 0 4px 0;
@@ -744,7 +743,6 @@ body.page-pipeline {
   margin-top: 4px;
 }
 
-/* -- 10. Metadata Grid -- */
 .metadata-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -764,7 +762,7 @@ body.page-pipeline {
 }
 
 .metadata-label {
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
@@ -778,7 +776,6 @@ body.page-pipeline {
   text-align: right;
 }
 
-/* Text preview */
 .text-preview {
   margin-top: 4px;
 }
@@ -808,11 +805,17 @@ body.page-pipeline {
   border: 1px solid #1e3a5a;
 }
 
-.text-output::-webkit-scrollbar { width: 7px; }
-.text-output::-webkit-scrollbar-track { background: #1a2d42; }
-.text-output::-webkit-scrollbar-thumb { background: #3a5a7a; border-radius: 4px; }
+.text-output::-webkit-scrollbar {
+  width: 7px;
+}
+.text-output::-webkit-scrollbar-track {
+  background: #1a2d42;
+}
+.text-output::-webkit-scrollbar-thumb {
+  background: #3a5a7a;
+  border-radius: 4px;
+}
 
-/* -- 11. Stats Grid -- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -847,7 +850,6 @@ body.page-pipeline {
   letter-spacing: 0.05em;
 }
 
-/* -- 12. Segment Items -- */
 .segments-container {
   margin-top: 4px;
 }
@@ -863,8 +865,13 @@ body.page-pipeline {
   scrollbar-color: var(--border-strong) transparent;
 }
 
-.scrollable-container::-webkit-scrollbar { width: 6px; }
-.scrollable-container::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+.scrollable-container::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollable-container::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
 
 .scrollable-container > * {
   max-width: 100%;
@@ -968,7 +975,7 @@ body.page-pipeline {
 }
 
 .profiles-table tbody tr:hover {
-  background: var(--bg-hover, rgba(0,0,0,0.03));
+  background: var(--bg-hover, rgba(0, 0, 0, 0.03));
 }
 
 .profiles-table td {
@@ -989,7 +996,7 @@ body.page-pipeline {
   max-width: 300px;
   font-style: italic;
   color: var(--text-secondary);
-  font-size: 0.80rem;
+  font-size: 0.8rem;
 }
 
 /* -- 14. Confidence Info Button -- */
@@ -1013,9 +1020,10 @@ body.page-pipeline {
   opacity: 0.85;
   transition: opacity 0.15s;
 }
-.conf-info-btn:hover { opacity: 1; }
+.conf-info-btn:hover {
+  opacity: 1;
+}
 
-/* -- 15. Confidence Score Modal -- */
 .conf-modal-overlay {
   position: fixed;
   inset: 0;
@@ -1029,7 +1037,7 @@ body.page-pipeline {
 .conf-modal {
   background: var(--bg-card);
   border-radius: var(--radius-md, 8px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
   max-width: 560px;
   width: 90%;
   max-height: 80vh;
@@ -1062,7 +1070,9 @@ body.page-pipeline {
   cursor: pointer;
   padding: 0 4px;
 }
-.conf-modal-close:hover { color: var(--csuf-orange); }
+.conf-modal-close:hover {
+  color: var(--csuf-orange);
+}
 
 .conf-modal-body {
   padding: 16px 20px 20px;
@@ -1071,8 +1081,14 @@ body.page-pipeline {
   color: var(--text-primary);
   line-height: 1.55;
 }
-.conf-modal-body p { margin: 0 0 10px; }
-.conf-modal-body h4 { margin: 14px 0 6px; font-size: 0.88rem; color: var(--csuf-orange); }
+.conf-modal-body p {
+  margin: 0 0 10px;
+}
+.conf-modal-body h4 {
+  margin: 14px 0 6px;
+  font-size: 0.88rem;
+  color: var(--csuf-orange);
+}
 .conf-modal-body code {
   background: var(--bg-secondary);
   padding: 1px 5px;
@@ -1102,9 +1118,10 @@ body.page-pipeline {
   white-space: nowrap;
   color: var(--csuf-orange);
 }
-.conf-score-table tbody tr:last-child td { border-bottom: none; }
+.conf-score-table tbody tr:last-child td {
+  border-bottom: none;
+}
 
-/* -- 14. Analysis Tabs -- */
 .analysis-tabs {
   display: flex;
   gap: 0;
@@ -1123,7 +1140,9 @@ body.page-pipeline {
   font-weight: 600;
   cursor: pointer;
   color: var(--text-muted);
-  transition: color 0.2s, border-color 0.2s;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
   letter-spacing: 0.02em;
 }
 
@@ -1148,7 +1167,6 @@ body.page-pipeline {
   display: block;
 }
 
-/* -- 15. Terminology -- */
 .terminology-stats {
   display: flex;
   gap: 14px;
@@ -1176,7 +1194,9 @@ body.page-pipeline {
   margin-bottom: 10px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s, transform 0.15s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.15s;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -1260,7 +1280,6 @@ body.page-pipeline {
   border-radius: 2px;
 }
 
-/* -- 16. Contradictions -- */
 .contradictions-summary {
   margin-bottom: 20px;
 }
@@ -1380,7 +1399,6 @@ body.page-pipeline {
   line-height: 1.5;
 }
 
-/* Shared no-results */
 .no-results {
   font-size: 0.88rem;
   color: var(--text-muted);
@@ -1389,7 +1407,6 @@ body.page-pipeline {
   font-style: italic;
 }
 
-/* -- 17. Export Section -- */
 .export-section {
   margin-top: 32px;
   background: var(--bg-card);
@@ -1402,7 +1419,7 @@ body.page-pipeline {
 
 .export-title {
   font-family: var(--font-serif);
-  font-size: 1.30rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--csuf-navy);
   margin-bottom: 8px;
@@ -1428,7 +1445,10 @@ body.page-pipeline {
   padding: 0;
   border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
   font-family: var(--font-sans);
   display: flex;
   flex-direction: column;
@@ -1444,27 +1464,26 @@ body.page-pipeline {
 }
 
 .export-btn-label {
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   font-weight: 500;
   padding: 12px 20px 4px;
   letter-spacing: 0.02em;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .export-btn-format {
-  font-size: 1.10rem;
+  font-size: 1.1rem;
   font-weight: 700;
   padding: 4px 20px 12px;
   letter-spacing: 0.08em;
   color: var(--csuf-orange);
 }
 
-/* -- 18. Site Footer -- */
 .site-footer {
   background: var(--csuf-navy);
   color: rgba(255, 255, 255, 0.55);
   padding: 16px 40px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-inner {
@@ -1489,7 +1508,6 @@ body.page-pipeline {
   letter-spacing: 0.06em;
 }
 
-/* -- 19. Responsive -- */
 @media (max-width: 900px) {
   .header-main {
     padding: 16px 24px;
@@ -1608,10 +1626,6 @@ body.page-pipeline {
     align-items: flex-start;
   }
 }
-
-/* =========================================================
-   Analysis Configuration Panel
-   ========================================================= */
 
 .analysis-config {
   margin: 0 0 16px 0;
@@ -1755,7 +1769,7 @@ body.page-pipeline {
 }
 
 .toggle-switch::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 13px;
   height: 13px;
@@ -1797,11 +1811,12 @@ body.page-pipeline {
   margin-top: 2px;
 }
 
-.module-toggle-row input:not(:checked) ~ .module-toggle-info .module-toggle-name {
+.module-toggle-row
+  input:not(:checked)
+  ~ .module-toggle-info
+  .module-toggle-name {
   color: var(--text-muted);
 }
-
-/* -- Detection Thresholds panel -- */
 
 .config-thresholds {
   border-top: 1px solid var(--border-color);
@@ -1910,7 +1925,7 @@ body.page-pipeline {
   height: 16px;
   border-radius: 50%;
   background: var(--csuf-orange);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: background 0.15s;
 }
@@ -1950,7 +1965,9 @@ body.page-pipeline {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: border-color 0.15s, color 0.15s;
+  transition:
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .thresholds-reset-btn:hover {
@@ -1958,14 +1975,12 @@ body.page-pipeline {
   color: var(--csuf-orange);
 }
 
-/* Disabled tab button state */
 .tab-btn.tab-disabled {
   opacity: 0.38;
   pointer-events: none;
   cursor: not-allowed;
 }
 
-/* Module-disabled message inside result tabs */
 .module-disabled-msg {
   padding: 28px 20px;
   text-align: center;
@@ -1975,7 +1990,6 @@ body.page-pipeline {
   line-height: 1.5;
 }
 
-/* -- Baseline Glossary Panel -- */
 .glossary-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -2025,7 +2039,7 @@ body.page-pipeline {
   background: var(--bg-subtle);
   border: 1px solid var(--border-color);
   color: var(--text-muted);
-  font-size: 0.70rem;
+  font-size: 0.7rem;
   font-weight: 600;
   padding: 2px 8px;
   border-radius: 12px;
@@ -2052,7 +2066,7 @@ body.page-pipeline {
 }
 
 .glossary-chevron {
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   width: 18px;
   text-align: center;
@@ -2107,7 +2121,9 @@ body.page-pipeline {
   font-size: 0.88rem;
   color: var(--text-primary);
   background: var(--bg-card);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
   outline: none;
 }
 
@@ -2163,7 +2179,9 @@ body.page-pipeline {
   font-weight: 600;
   color: var(--text-primary);
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
   white-space: nowrap;
 }
 
@@ -2209,7 +2227,10 @@ body.page-pipeline {
   font-weight: 600;
   color: var(--text-muted);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
 }
 
 .glossary-clear-btn:hover {
@@ -2297,7 +2318,9 @@ body.page-pipeline {
   cursor: pointer;
   padding: 2px 6px;
   border-radius: 4px;
-  transition: background 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    color 0.15s;
 }
 
 .glossary-remove-btn:hover {
@@ -2321,7 +2344,7 @@ body.page-pipeline {
   background: var(--csuf-orange-faint);
   border: 1px solid var(--csuf-orange-light);
   border-radius: var(--radius-sm);
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: #b85500;
   margin-bottom: 16px;

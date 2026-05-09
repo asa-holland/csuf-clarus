@@ -16,19 +16,9 @@ if not logger.handlers:
     logger.addHandler(_handler)
 logger.propagate = False
 
-# ---------------------------------------------------------------------------
-# Module-level NLI CrossEncoder singleton.
-# Shared across all ContradictionDetector instances to avoid reloading the
-# model for every request.  Uses double-checked locking so only one thread
-# ever triggers the (expensive) load.
-#   _nli_model is None   → never attempted
-#   _nli_model is False  → load failed; do not retry
-#   _nli_model is <obj>  → ready to use
-# ---------------------------------------------------------------------------
 _nli_model_lock = threading.Lock()
 _nli_model = None  # type: ignore[assignment]
 
-# DeBERTa NLI label index mapping for cross-encoder/nli-deberta-v3-base
 _NLI_LABEL_MAP = {0: "contradiction", 1: "entailment", 2: "neutral"}
 _NLI_MODEL_NAME = "cross-encoder/nli-deberta-v3-base"
 
@@ -54,12 +44,12 @@ def _get_nli_model():
 
 
 class ContradictionType(Enum):
-    MODALITY = "modality"  # Different modalities (must vs. must not)
-    TEMPORAL = "temporal"  # Conflicting time constraints
-    CONDITIONAL = "conditional"  # Contradictory conditions
-    SEMANTIC = "semantic"  # General semantic contradiction
-    TERMINOLOGY = "terminology"  # Inconsistent term usage
-    LOGICAL = "logical"  # Logical contradictions
+    MODALITY = "modality"
+    TEMPORAL = "temporal"
+    CONDITIONAL = "conditional"
+    SEMANTIC = "semantic"
+    TERMINOLOGY = "terminology"
+    LOGICAL = "logical"
 
 
 @dataclass
@@ -68,12 +58,12 @@ class SemanticProfile:
     subject: str
     predicate: str
     obj: str
-    modality: str  # "must", "should", "may", etc.
+    modality: str
     negation: bool
     condition: Optional[str] = None
     numerical_values: List[float] = field(default_factory=list)
     source_text: str = ""
-    span: Tuple[int, int] = (0, 0)  # Character offsets in original text
+    span: Tuple[int, int] = (0, 0)
 
 
 @dataclass
@@ -189,48 +179,77 @@ class ContradictionDetector:
                     candidates.append((i, j))
         return candidates
 
-    # Verb tokens that signal a complete predicate.  A segment must contain at
-    # least one of these to be treated as a sentence worth comparing.
-    _VERB_SIGNALS: frozenset = frozenset({
-        "must", "shall", "should", "may", "can", "will", "would", "could", "might",
-        "is", "are", "was", "were", "has", "have", "had",
-        "does", "do", "did",
-        "require", "requires", "required",
-        "provide", "provides", "provided",
-        "allow", "allows", "allowed",
-        "prohibit", "prohibits", "prohibited",
-        "state", "states", "stated",
-        "define", "defines", "defined",
-        "specify", "specifies", "specified",
-        "ensure", "ensures", "ensured",
-        "contain", "contains", "contained",
-        "include", "includes", "included",
-        "apply", "applies", "applied",
-    })
+    _VERB_SIGNALS: frozenset = frozenset(
+        {
+            "must",
+            "shall",
+            "should",
+            "may",
+            "can",
+            "will",
+            "would",
+            "could",
+            "might",
+            "is",
+            "are",
+            "was",
+            "were",
+            "has",
+            "have",
+            "had",
+            "does",
+            "do",
+            "did",
+            "require",
+            "requires",
+            "required",
+            "provide",
+            "provides",
+            "provided",
+            "allow",
+            "allows",
+            "allowed",
+            "prohibit",
+            "prohibits",
+            "prohibited",
+            "state",
+            "states",
+            "stated",
+            "define",
+            "defines",
+            "defined",
+            "specify",
+            "specifies",
+            "specified",
+            "ensure",
+            "ensures",
+            "ensured",
+            "contain",
+            "contains",
+            "contained",
+            "include",
+            "includes",
+            "included",
+            "apply",
+            "applies",
+            "applied",
+        }
+    )
 
     def _is_sentence_like(self, text: str) -> bool:
-        """Return True only for text that looks like a complete sentence.
-
-        Rejects: headers, short labels, all-caps titles, colon-terminated
-        fragments, and anything lacking a recognisable predicate verb.
-        """
         text = text.strip()
         words = text.split()
 
         if len(words) < 8:
             return False
 
-        # All-caps lines are almost always headings or acronym definitions
         alpha_only = re.sub(r"[^A-Za-z]", "", text)
         if alpha_only and alpha_only == alpha_only.upper():
             return False
 
-        # "Label:" style fragments — ends with colon, no interior sentence punct
         if text.endswith(":") and "," not in text and "." not in text[:-1]:
             return False
 
-        # Numbered or bulleted labels without a proper predicate
-        # e.g. "1. Purpose" or "• Definitions"
         if re.match(r"^[\d]+[\.\)]\s+\S+$", text) or re.match(r"^[•\-\*]\s+\S+$", text):
             return False
 
@@ -255,7 +274,6 @@ class ContradictionDetector:
         return len(significant) >= min_overlap
 
     def _create_semantic_profile(self, text: str) -> SemanticProfile:
-        # TODO: convert to "real NLP"
         return SemanticProfile(
             subject=self._extract_subject(text),
             predicate=self._extract_predicate(text),
@@ -327,7 +345,6 @@ class ContradictionDetector:
         return words[-1] if words else ""
 
     def _extract_modality(self, text: str) -> str:
-        """Extract modality from text (simplified)"""
         modals = ["must", "shall", "should", "may", "can", "will"]
         words = text.lower().split()
         for word in words:

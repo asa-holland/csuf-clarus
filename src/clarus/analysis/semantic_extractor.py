@@ -8,12 +8,12 @@ from .document_processor import DocumentSegment
 
 class ModalityType(Enum):
 
-    OBLIGATION = "obligation"  # shall, must, is required to
-    PROHIBITION = "prohibition"  # shall not, must not, is prohibited from
-    PERMISSION = "permission"  # may, can, is permitted to
-    RECOMMENDATION = "recommendation"  # should, ought to
-    CAPABILITY = "capability"  # can, is able to
-    NONE = "none"  # no clear modality
+    OBLIGATION = "obligation"
+    PROHIBITION = "prohibition"
+    PERMISSION = "permission"
+    RECOMMENDATION = "recommendation"
+    CAPABILITY = "capability"
+    NONE = "none"
 
 
 @dataclass
@@ -124,8 +124,6 @@ class SemanticExtractor:
             r"\bdon't\b",
         ]
 
-        # Personal and impersonal pronouns, then general NP patterns.
-        # No domain-specific role names — subject detection is purely structural.
         self.subject_patterns = [
             # Personal/impersonal pronouns
             r"\b(I|you|he|she|it|we|they|one)\b",
@@ -143,8 +141,6 @@ class SemanticExtractor:
             r"(?:is|are|was|were|will|shall|must|may|should|can|could|would|might)\b",
         ]
 
-        # Objects: modal+NP, and common everyday transitive verbs + NP.
-        # No domain-specific verb lists — only high-frequency general English verbs.
         self.object_patterns = [
             # After a modal/auxiliary: "must/may/shall/etc. [not] [to/be] <object>"
             r"(?:shall|must|may|should|can|will|would|could|might)\s+"

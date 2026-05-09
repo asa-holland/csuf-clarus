@@ -1,8 +1,3 @@
-"""Pre-download ML models during Docker build.
-
-Running this script at build time caches all models inside the image so the
-application starts instantly without any network access at runtime.
-"""
 import os
 import sys
 
@@ -40,7 +35,10 @@ def main():
             errors.append(msg)
 
     if errors:
-        print("\nSome models could not be pre-downloaded. They will be fetched at runtime.", flush=True)
+        print(
+            "\nSome models could not be pre-downloaded. They will be fetched at runtime.",
+            flush=True,
+        )
         sys.exit(1)
     else:
         print("\nAll models pre-downloaded successfully.", flush=True)
